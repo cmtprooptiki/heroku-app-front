@@ -1,0 +1,235 @@
+/* BuildingList.css */
+
+
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.button {
+    margin-bottom: 10px;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.table th {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.table tbody tr:hover {
+    background-color: #d0eed2;
+    
+}
+
+.button-container {
+    display: flex;
+    gap: 5px;
+}
+
+/* Add more styles as needed */
+.reportsTable {
+    border:3px solid #2196f3;
+    border-radius:  15px;
+    border-collapse: separate; 
+    width: 100%;
+}
+.reportsTable >tr {
+    width: 100px;
+}
+
+.rbc-toolbar-label{
+    font-size: 18px !important;
+    /* font-weight: 900; */
+}
+.rbc-calendar {
+    height: 600px !important;
+    padding: 10px !important;
+    border-radius: 9px !important;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+}
+
+
+
+.rbc-toolbar{
+        background:linear-gradient(to right, #1400B9, #00B4D8)!important;
+        /* background: linear-gradient(to right, var(--bluegray-500), var(--bluegray-800)) !important; */
+        color: white;
+        padding: 30px;
+        border-top-right-radius: 6px!important;
+        border-top-left-radius: 6px!important;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0px!important;
+        font-size: 16px;
+        
+    
+}
+.rbc-toolbar button {
+    color: white!important;
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    background: none;
+    background-image: none;
+    border: 1px solid #ccc;
+    padding: 0.375rem 1rem;
+    border-radius: 4px;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.rbc-toolbar button:active, .rbc-toolbar button.rbc-active {
+    background-image: none;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    background-color: #b9b5b5;
+    border-color: #adadad;
+    color: rgb(25, 81, 114) !important;
+    font-weight: 600;
+}
+
+.rbc-toolbar button:hover {
+    color: #ffffff !important;
+    background-color: rgb(25, 81, 114) !important;
+    border-color: #484848;
+}
+
+/* .small-toggle .pi {
+    font-size: 0.8rem !important; 
+} */
+
+.small-toggle {
+    font-size: 0.7rem; /* Reduces label size */
+    padding: 5px 10px;  /* Reduces button padding */
+    height: 60px;      /* Adjusts button height */
+    width: 150px;      /* Adjusts button width */
+}
+
+/* Container holding the three dots and the hidden buttons */
+.actions-menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the three dots button */
+.actions-menu-button {
+    background-color: grey;
+    border: none;
+    cursor: pointer;
+}
+
+/* Initially hide the action buttons */
+.hidden-buttons {
+    /* display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 100;
+    border-radius: 4px;
+    white-space: nowrap; */
+
+    display: none;
+    position: absolute;
+    top: 0; /* Adjust the position as needed */
+    right: 100%; /* The buttons will appear to the right of the three dots */
+    background-color: transparent;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    z-index: 100;
+    border-radius: 4px;
+    white-space: nowrap;
+    gap: 15px; /* Space between the buttons */
+}
+
+/* Display the buttons when hovering over the container */
+.actions-menu-container:hover .hidden-buttons {
+    display: flex;
+}
+
+
+
+/* Ensure the buttons are styled nicely */
+.hidden-buttons button {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+
+.action-button {
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    padding: 0.75rem 0;
+    margin: 0;
+    display: inline-flex;
+    cursor: pointer;
+    user-select: none;
+    align-items: center;
+    vertical-align: bottom;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.actions-container .p-overlaypanel .flex {
+    flex-direction: row; /* Set the direction to horizontal */
+    gap: 0.5rem; /* Add spacing between buttons */
+    align-items: center;
+    
+}
+
+
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .responsive-search-field {
+        width: 100%;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Ensure the input text field is full-width on mobile */
+    .responsive-search-field .p-inputtext {
+        width: 100%;
+    }
+}
+
+/* .ui-speeddial-button.ui-button.ui-button-icon-only {
+    width: 2rem;
+    height: 2rem;
+    top: -15px;
+ }
+
+ .ui-speeddial-direction-up {
+    flex-direction: colum
+ }
+ .p-speeddial-button{
+    width: 2rem;
+    height: 2rem;
+    top: -15px;
+ } */
