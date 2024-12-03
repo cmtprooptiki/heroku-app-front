@@ -1,0 +1,4222 @@
+[
+  {
+    "indicator_name": "central line-associated bloodstream infection rate",
+    "q4all_Ind_number": "Q4Alln.0001",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania1",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "ventilator-associated event rate",
+    "q4all_Ind_number": "Q4Alln.0002",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania2",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D2"
+  },
+  {
+    "indicator_name": "percentage of in-hospital patients assessed for fall risk through applied protocols",
+    "q4all_Ind_number": "Q4Alln.0003",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania3",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "rate of patient falls during hospitalization",
+    "q4all_Ind_number": "Q4Alln.0004",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania4",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D4"
+  },
+  {
+    "indicator_name": "percentage of in-hospital patients assessed for pressure ulcer risk through applied protocols",
+    "q4all_Ind_number": "Q4Alln.0005",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania5",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D5"
+  },
+  {
+    "indicator_name": "rate of new pressure ulcers acquired during hospitalization",
+    "q4all_Ind_number": "Q4Alln.0006",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania6",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D6"
+  },
+  {
+    "indicator_name": "percentage of patients undergoing surgery where the WHO Surgical Safety Checklist was applied",
+    "q4all_Ind_number": "Q4Alln.0007",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania7",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "postoperative bleeding rate requiring surgical re-intervention",
+    "q4all_Ind_number": "Q4Alln.0008",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania8",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D8"
+  },
+  {
+    "indicator_name": "surgical site infection rate",
+    "q4all_Ind_number": "Q4Alln.0009",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania9",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D9"
+  },
+  {
+    "indicator_name": "patient experience questionnaire completion rate",
+    "q4all_Ind_number": "Q4Alln.0010",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania10",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D10"
+  },
+  {
+    "indicator_name": "patient experience after hospital discharge average score",
+    "q4all_Ind_number": "Q4Alln.0011",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania11",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D11"
+  },
+  {
+    "indicator_name": "percentage of health-care workers participating in QoC and patient safety training activities",
+    "q4all_Ind_number": "Q4Alln.0012",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania12",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D12"
+  },
+  {
+    "indicator_name": "percentage of health-care workers who followed standard protocol for occupational health\nfollowing a sharps injury during working hours",
+    "q4all_Ind_number": "Q4Alln.0013",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania13",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D13"
+  },
+  {
+    "indicator_name": "percentage of health-care workers immunized against influenza during the current\nvaccination season",
+    "q4all_Ind_number": "Q4Alln.0014",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania14",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D14"
+  },
+  {
+    "indicator_name": "in-hospital mortality among patients with heart failure",
+    "q4all_Ind_number": "Q4Alln.0015",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania15",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D15"
+  },
+  {
+    "indicator_name": "in-hospital mortality among patients with acute myocardial infarction",
+    "q4all_Ind_number": "Q4Alln.0016",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania16",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D16"
+  },
+  {
+    "indicator_name": "in-hospital mortality among patients with pneumonia",
+    "q4all_Ind_number": "Q4Alln.0017",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania17",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D17"
+  },
+  {
+    "indicator_name": "percentage of patients readmitted to the ICU within 48 hours of transfer",
+    "q4all_Ind_number": "Q4Alln.0018",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania18",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D18"
+  },
+  {
+    "indicator_name": "percentage of unscheduled readmissions to hospital within 30 days of discharge for heart failure\nthrough the emergency department",
+    "q4all_Ind_number": "Q4Alln.0019",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania19",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D19"
+  },
+  {
+    "indicator_name": "average length of hospitalization (hospital stay)",
+    "q4all_Ind_number": "Q4Alln.0020",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania20",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D20"
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "Q4Alln.0021",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania21",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D21"
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "Q4Alln.0022",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania22",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D22"
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "Q4Alln.0023",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania23",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D23"
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "Q4Alln.0024",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania24",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D24"
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "Q4Alln.0025",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "QoC Romania25",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D25"
+  },
+  {
+    "indicator_name": "Hospital beds per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0026",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas1",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Doctors per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0027",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas2",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Nurses per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0028",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas3",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Total hospital employment per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0029",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas4",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Hospital doctors per hospital bed",
+    "q4all_Ind_number": "Q4Alln.0030",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas5",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Hospital nurses per hospital bed",
+    "q4all_Ind_number": "Q4Alln.0031",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas6",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Total hospital employment per hospital bed",
+    "q4all_Ind_number": "Q4Alln.0032",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas7",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Average length of hospital stay (days)",
+    "q4all_Ind_number": "Q4Alln.0033",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas8",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Bed occupancy rate (%)",
+    "q4all_Ind_number": "Q4Alln.0034",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas9",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Appointments at outpatient clinics per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0035",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas10",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Visits at emergency departments per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0036",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas11",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of inpatient discharges per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0037",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas12",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of surgeries per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0038",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas13",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Appointments at outpatient clinics per hospital doctor",
+    "q4all_Ind_number": "Q4Alln.0039",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas14",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Visits at emergency departments per hospital doctor",
+    "q4all_Ind_number": "Q4Alln.0040",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas15",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of inpatient discharges per hospital doctor",
+    "q4all_Ind_number": "Q4Alln.0041",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas16",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of surgeries per hospital doctor",
+    "q4all_Ind_number": "Q4Alln.0042",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas17",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of surgeries per hospital surgeon",
+    "q4all_Ind_number": "Q4Alln.0043",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas18",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Appointments at outpatient clinics per hospital nurse",
+    "q4all_Ind_number": "Q4Alln.0044",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas19",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Visits at emergency department per hospital nurse",
+    "q4all_Ind_number": "Q4Alln.0045",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas20",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of surgeries per hospital nurse",
+    "q4all_Ind_number": "Q4Alln.0046",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas21",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of inpatient discharges per nurse",
+    "q4all_Ind_number": "Q4Alln.0047",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas22",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of inpatient discharges per hospital employee",
+    "q4all_Ind_number": "Q4Alln.0048",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas23",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of surgeries per hospital employee",
+    "q4all_Ind_number": "Q4Alln.0049",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas24",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Clinical biochemistry tests per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0050",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas25",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Cytology tests per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0051",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas26",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "MRI scans per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0052",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas27",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "CT scans per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0053",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas28",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Mammograms per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0054",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas29",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Ultrasound imaging tests per 1,000 inhabitants",
+    "q4all_Ind_number": "Q4Alln.0055",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek HealthAtlas30",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "% ambulatory surgeries in total scheduled surgeries (GDH)-ambulatory procedures",
+    "q4all_Ind_number": "Q4Alln.0056",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)1",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% of hip surgeries performed within the first 48 hours",
+    "q4all_Ind_number": "Q4Alln.0057",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)2",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% of decentralised, home and mental health hospital consultations in the community in total hospital consultations carried out",
+    "q4all_Ind_number": "Q4Alln.0058",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)3",
+    "dimension": "",
+    "type_of_healthcare": "NCDs and Mental health",
+    "type_of_healthcare_providers_D1_D7": "D5"
+  },
+  {
+    "indicator_name": "% of queries within guaranteed maximum response times (TMRG)",
+    "q4all_Ind_number": "Q4Alln.0059",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)4",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% of consultations held in appropriate time",
+    "q4all_Ind_number": "Q4Alln.0060",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)5",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% of surgical patients on surgery schedule within the appropriate time",
+    "q4all_Ind_number": "Q4Alln.0061",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)6",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% of outgoing patients with inpatient duration above the maximum threshold",
+    "q4all_Ind_number": "Q4Alln.0062",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)7",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% of patients out of house hospitalisation (GDH) in total outgoing patients (GDH)",
+    "q4all_Ind_number": "Q4Alln.0063",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)8",
+    "dimension": "",
+    "type_of_healthcare": "Home/telecare and Ative life ",
+    "type_of_healthcare_providers_D1_D7": "D2"
+  },
+  {
+    "indicator_name": "% of screened with green, blue or white color in the emergency department",
+    "q4all_Ind_number": "Q4Alln.0064",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)9",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% expenses with outstanding job, supplements  and external supplies and services in total of personnel expenses",
+    "q4all_Ind_number": "Q4Alln.0065",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)10",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "% registered patients in surgery schedule list (malignant neoplasms) within TMRG ",
+    "q4all_Ind_number": "Q4Alln.0066",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)11",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% screened population for cervical cancer (RCCU) in total registered eligible population ",
+    "q4all_Ind_number": "Q4Alln.0067",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)12",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "% screened population for colon and rectal cancer (RCCR) in total registered eligible population ",
+    "q4all_Ind_number": "Q4Alln.0068",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)13",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "% repeated hospitalization within 30 days",
+    "q4all_Ind_number": "Q4Alln.0069",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)14",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% frequent users  of emergency service (more than 4 episodes per year)",
+    "q4all_Ind_number": "Q4Alln.0070",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)15",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% operated patients within TMRG ",
+    "q4all_Ind_number": "Q4Alln.0071",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)16",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% referred patients to RNCCI, evaluated or confirmed to EGA system until 2 days before discharge, in total referred patients to RNCCI",
+    "q4all_Ind_number": "Q4Alln.0072",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)17",
+    "dimension": "",
+    "type_of_healthcare": "Paliative and Long term care",
+    "type_of_healthcare_providers_D1_D7": "D6"
+  },
+  {
+    "indicator_name": "% emergency episodes attended within the waiting time provided in the triage protocol ",
+    "q4all_Ind_number": "Q4Alln.0073",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)18",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% inpatient episodes (more than 30 days)",
+    "q4all_Ind_number": "Q4Alln.0074",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)19",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% cesarean section births",
+    "q4all_Ind_number": "Q4Alln.0075",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)20",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% patients on the waiting list to appointment (LEC) within TMRG",
+    "q4all_Ind_number": "Q4Alln.0076",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)21",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% costs variation with Complementary Diagnostic and Therapeutic Procedures (MCDT) requested outside ",
+    "q4all_Ind_number": "Q4Alln.0077",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)22",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Average delay before surgery ",
+    "q4all_Ind_number": "Q4Alln.0078",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)23",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Standard Patients/Nurses ETC",
+    "q4all_Ind_number": "Q4Alln.0079",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)24",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Standard Patients/Physicians ETC",
+    "q4all_Ind_number": "Q4Alln.0080",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)25",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Operating Expense / Standard patient",
+    "q4all_Ind_number": "Q4Alln.0081",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)26",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Adjusted average delay index",
+    "q4all_Ind_number": "Q4Alln.0082",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)27",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Adjusted mortality rate",
+    "q4all_Ind_number": "Q4Alln.0083",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)28",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% of emergency episodes treated within the expected waiting time in the Manchester Triage Protocoleferral protocols",
+    "q4all_Ind_number": "Q4Alln.0084",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)29",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% of specialties (categories) elaborated with upward and downward clinical referral protocols",
+    "q4all_Ind_number": "Q4Alln.0085",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)30",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% of first medical appointments in total medical appointments",
+    "q4all_Ind_number": "Q4Alln.0086",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)31",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% readmissions for bipolar disorder",
+    "q4all_Ind_number": "Q4Alln.0087",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)32",
+    "dimension": "",
+    "type_of_healthcare": "NCDs and Mental health",
+    "type_of_healthcare_providers_D1_D7": "D5"
+  },
+  {
+    "indicator_name": "% readmissions for schizophrenia",
+    "q4all_Ind_number": "Q4Alln.0088",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)33",
+    "dimension": "",
+    "type_of_healthcare": "NCDs and Mental health",
+    "type_of_healthcare_providers_D1_D7": "D5"
+  },
+  {
+    "indicator_name": "Weight of inpatient emergency episodes",
+    "q4all_Ind_number": "Q4Alln.0089",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)34",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Weight of emergency episodes with priority assigned -Green/Blue/White",
+    "q4all_Ind_number": "Q4Alln.0090",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)35",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Weight of frequent patients (> 4 episodes) in the total number of patients of the Emergency Service",
+    "q4all_Ind_number": "Q4Alln.0091",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)36",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Ratio of external appointments /emergency episodes",
+    "q4all_Ind_number": "Q4Alln.0092",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)37",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Relationship between full inpatient days and partial inpatient sessions",
+    "q4all_Ind_number": "Q4Alln.0093",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)38",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Relation between inpatient days for acute patients and inpatient days for residents and psychosocial rehabilitation",
+    "q4all_Ind_number": "Q4Alln.0094",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)39",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "%  asthma inpatient admissions in young adults",
+    "q4all_Ind_number": "Q4Alln.0095",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)40",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "%  inpatient admissions for asthma or DPOC in adults",
+    "q4all_Ind_number": "Q4Alln.0096",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)41",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% inpatient admissions due to acute complications of diabetes",
+    "q4all_Ind_number": "Q4Alln.0097",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)42",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% inpatient admissions due to chronic complications of diabetes",
+    "q4all_Ind_number": "Q4Alln.0098",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)43",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% inpatient admissions due to uncontrolled diabetes",
+    "q4all_Ind_number": "Q4Alln.0099",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)44",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% inpatient admissions due to hypertension",
+    "q4all_Ind_number": "Q4Alln.0100",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)45",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% congestive heart failure inpatient",
+    "q4all_Ind_number": "Q4Alln.0101",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)46",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% inpatient admissions due to pneumonia",
+    "q4all_Ind_number": "Q4Alln.0102",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)47",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Variation in the number of standard operated patients, by malignant neoplasm",
+    "q4all_Ind_number": "Q4Alln.0103",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (hospitals)48",
+    "dimension": "",
+    "type_of_healthcare": "Secundary Healthcare ",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "% people with diabetes mellitus with glycated hemoglobin (HbA1c) assessment per semester ",
+    "q4all_Ind_number": "Q4Alln.0104",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)1",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "% congestive heart failure hospitalization (adjusted for a standard population)",
+    "q4all_Ind_number": "Q4Alln.0105",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)2",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Proportion of adults with depression on antidepressant therapy",
+    "q4all_Ind_number": "Q4Alln.0106",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)3",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Rate of avoidable hospitalizations in the adult population",
+    "q4all_Ind_number": "Q4Alln.0107",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)4",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Proportion of users with a new diagnosis of “tobacco abuse”",
+    "q4all_Ind_number": "Q4Alln.0108",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)5",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "% medical home visits per 1,000 registrants",
+    "q4all_Ind_number": "Q4Alln.0109",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)6",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D4"
+  },
+  {
+    "indicator_name": "Proportion of users followed up in palliative actions with expressed gains in pain intensity control",
+    "q4all_Ind_number": "Q4Alln.0110",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)7",
+    "dimension": "",
+    "type_of_healthcare": "Paliative and Long term care",
+    "type_of_healthcare_providers_D1_D7": "D6"
+  },
+  {
+    "indicator_name": "Proportion of children exclusively breastfed 6M",
+    "q4all_Ind_number": "Q4Alln.0111",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)8",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Ratio between the costs billed for Glyburide and non-insulin antidiabetics in patients with Type 2 Diabetes Mellitus",
+    "q4all_Ind_number": "Q4Alln.0112",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)9",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Proportion of patients with overweight ",
+    "q4all_Ind_number": "Q4Alln.0113",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)10",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Use of family planning consultations",
+    "q4all_Ind_number": "Q4Alln.0114",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)11",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Proportion of users with tetanus vaccine",
+    "q4all_Ind_number": "Q4Alln.0115",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)12",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Morphological ultrasound in pregnancy",
+    "q4all_Ind_number": "Q4Alln.0116",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)13",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Nursing consultations during pregnancy and puerperium",
+    "q4all_Ind_number": "Q4Alln.0117",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)14",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Average expenditure (PVP) of prescribed and reimbursed medicines, per standard registered user",
+    "q4all_Ind_number": "Q4Alln.0118",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)15",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Proportion of users with type 2 diabetes and an indication for insulin therapy, taking appropriate therapy",
+    "q4all_Ind_number": "Q4Alln.0119",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)16",
+    "dimension": "",
+    "type_of_healthcare": "Primary care ",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)17",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)18",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)19",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)20",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)21",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)22",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (primary care)23",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "PT Indicators (Long term care)",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "OECD inspired QoC indicators",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "CountryA indicators",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Country B indicators",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "In-hospital mortality after selected disease diagnoses",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Mortality indicators)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "In-hospital mortality for Heart Failure, Acute Myocardial Infarction, Pneumonia, Hip Arthroplasty & Operated Abdominal Aortic Aneurysm",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "In-hospital mortality after selected surgical procedures",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Mortality indicators)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Percentage of hospital-acquired infections in the patient population",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Hospital-acquired infection indicators)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Central line associated bloodstream infections (CLABSI)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Hospital-acquired infection indicators - Outcome indicators)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Catheter-associated urinary tract infections (CAUTI)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Hospital-acquired infection indicators - Outcome indicators)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Mechanical ventilation-related events (VAE)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Hospital-acquired infection indicators - Outcome indicators)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Surgical Site Infections (SSI)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Hospital-acquired infection indicators - Outcome indicators)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Correct use of Perioperative Antimicrobial Prophylaxis (PAP)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Hospital-acquired infection indicators - Outcome indicators)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Compliance with the five hand hygiene steps (HH compliance)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Hospital-acquired infection indicators - Process indicators)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Frequency of use of interventional medical equipment (central lines, urinary catheters, ventilators)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Hospital-acquired infection indicators - Process indicators)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Number of patient falls",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Patient falls)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Number of falls of patients with hip fracture due to fall",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Patient falls)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Percentage of hospitalised patients with pressure ulcers (prevalence)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Elki Pressure)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Percentage of hospitalised patients who developed new pressure ulcers during hospitalisation (incidence)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Elki Pressure)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Incomplete or no patient identification",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (patient identification)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Percentage of patients readmitted to the ICU 48 hours after discharge",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Readmissions to the ICU and deaths of patients after discharge from the ICU)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Percentage of patient deaths 72 hours after discharge from the ICU in which they were hospitalised",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Readmissions to the ICU and deaths of patients after discharge from the ICU)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Unplanned readmission to the hospital within 30 days after discharge for any reason through the ICU",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Unplanned readmission to hospital within 30 days)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Unplanned readmission to hospital within 30 days after discharge for (a) heart failure (b) coronary artery disease via the ICU",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Unplanned readmission to hospital within 30 days)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Unplanned readmission to the hospital within 30 days after discharge for Heart Failure through the Emergency Departments",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Stab wounds to workers at the hospital site",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Personnel Safety Indicators)",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Percentage of workers vaccinated for Influenza, Hepatitis B",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Personnel Safety Indicators)",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Number of accidents at work per 100 workers",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Personnel Safety Indicators)",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Compliance with the criteria for correct patient identification - Percentage of patients with incomplete or no identification",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Patient identification and safe surgical procedures)",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Compliance with the safety checklist for surgical procedures",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Patient identification and safe surgical procedures)",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Average length of stay",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Average inflow rate",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Average rotation interval",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Bed occupancy rate / Occupancy rate",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Medical Staff per occupied bed",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Percentage of doctors with specialisation/certification of training for the department they serve",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Nursing staff per occupied bed",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Proportion of PTE/TE nursing staff in relation to total nursing staff",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Percentage of ICU beds in total hospital beds",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Percentage of PMR beds in total hospital beds",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Number of surgeries per Surgeon",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Number of non-regular leaves per 100 employees",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Productivity and adequacy of services provided (& rational management of resources)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Number of one-day surgeries in total surgeries",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Efficiency/Indicator)",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Maximum waiting time for selected surgical procedures",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Indicators on accessibility to health services) ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Maximum waiting time for an outpatient examination",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Indicators on accessibility to health services) ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Maximum waiting time for a medical examination",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Greek ODIPY Indicators (Indicators on accessibility to health services) ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Cancer treatment waiting times",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Timeliness of acute myocardial infarction management – fibrinolytic therapy",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Timeliness of acute myocardial infarction management – percutaneous primary percutaneous coronary intervention (PCI)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Treatment times in Emergency Departments",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Rate of caesarian section",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Maternity: 3rd or 4th degree perineal tears associated with vaginal birth",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Hip fracture surgery initiated within 48 hours after admission to hospital",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Waiting times for selected surgeries ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Bed occupancy rate ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Average length of stay",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Proportion of one-day surgeries ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Mortality rates: In-hospital mortality after selected disease diagnoses and procedures ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Hospitals",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Ratio of Infection prevention staffing (Infection Control Nurses-ICN) ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Health-IQ WG HRH",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Rate of certified Infection Control Nurses (ICN) in Infection Prevention ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Health-IQ WG HRH",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Rate of Certified Infection Control Liaisons (ICL’s) in Infection Prevention",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Health-IQ WG HRH",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Medical staff per occupied bed",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Health-IQ WG HRH",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Nursing staff per occupied bed",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Health-IQ WG HRH",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Percentage of doctors with specialization/education certification for the department they serve at",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Health-IQ WG HRH",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Ratio of RNs (PE/TE) Nursing Staff to the total Nursing Staff",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Health-IQ WG HRH",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Absenteeism rate",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "Health-IQ WG HRH",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Rate of emergency admissions from nursing homes (any reason & broken down by reason)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Number of unsolicited complaints relating to long-term care services",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Ratio of Full-Time Equivalent (FTE) care workers to care recipients (by type and ownership of LTC service)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Percentage of adequately trained care workers",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Rate of hospital-related admissions with an infection in connection to nursing home",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Percentage of residents that experienced a fall during the last month in nursing homes",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Percentage of nursing home residents that are reported to have at least one pressure ulcer (stage 1-4) ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Percentage  of deaths officially registered by residential care facilities that contain a cause of death",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Percentage point difference between men and women receiving LTC care services (residential care/home care/daycare services)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Average waiting time in number of days from application date to first offered service (move-in date to nursing home/receipt of home care services/receipt of day-care services)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Delayed transfer of care from hospital that are attributable to lack of availability of long-term care, per 100.000",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Number of inspections (announced and unannounced) of residential care facilities per year",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Percentage of inspections (announced and unannounced) that indicated the residential care facility was not compliant with regulations per year",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Average size (number of beds) of residential care homes by provider ownership (broken down by provider type)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Percentagem of LTC providers that use EHRs",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7+I220"
+  },
+  {
+    "indicator_name": "Mean number of home-care staff that an individual meets in 14 day period",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Pergentage of people who are very or fairly satisfied with their care and support (for each care provider)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG LongTermcare ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Rate of involuntary admissions to public inpatient mental health facilities",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG mental health ",
+    "dimension": "",
+    "type_of_healthcare": "NCDs and Mental Health",
+    "type_of_healthcare_providers_D1_D7": "D5"
+  },
+  {
+    "indicator_name": "Density of practicing child psychiatrists per 100 000 population of 0-17",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG mental health ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Rate of Inpatient psychiatric care capacity for adults per 100 000 population",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG mental health ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Average hospital stay in inpatient psychiatric care",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG mental health ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "28-day hospital readmission rate in public psychiatric inpatient services",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG mental health ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Rate of visits to community-based mental health outpatient facilities per 100 000 population ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG mental health ",
+    "dimension": "",
+    "type_of_healthcare": "NCDs and Mental Health",
+    "type_of_healthcare_providers_D1_D7": "D5"
+  },
+  {
+    "indicator_name": "Number of adult patients receiving specialized palliative care at the national level per year",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Palliative Care ",
+    "dimension": "",
+    "type_of_healthcare": "Paliative and Long term care",
+    "type_of_healthcare_providers_D1_D7": "D6"
+  },
+  {
+    "indicator_name": "Number of children receiving specialized palliative care at the national level per year",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Palliative Care ",
+    "dimension": "",
+    "type_of_healthcare": "Paliative and Long term care",
+    "type_of_healthcare_providers_D1_D7": "D6"
+  },
+  {
+    "indicator_name": "Existence of a current national palliative care plan, programme, policy or strategy with defined implementation framework",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Palliative Care ",
+    "dimension": "",
+    "type_of_healthcare": "Paliative and Long term care",
+    "type_of_healthcare_providers_D1_D7": "D6"
+  },
+  {
+    "indicator_name": "Existence of national operational standards and norms for the provision of palliative care services",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Palliative Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Annual opioid consumption – excluding methadone – in oral morphine equivalence (OME) per capita",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Palliative Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Proportion of medical and nursing schools with palliative care formal education in undergraduate curricula ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Palliative Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Palliative care research on the country estimated by peer reviewed articles",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Palliative Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Immunization Coverage for DPT (Diphtheria, Pertussis, and Tetanus) Vaccine",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Primary Health Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Antenatal Care Coverage (at least four visits)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Primary Health Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Skilled Birth Attendance",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Primary Health Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Postnatal Care Coverage (within 2 days of birth)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Primary Health Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Percentage of diabetic patients with controlled HbA1c levels",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Primary Health Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Rate of hypertension control",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Primary Health Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Average waiting time for a primary care appointment",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Primary Health Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Follow-up after hospital discharge",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Primary Health Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Percentage of Antibiotic Prescriptions for Upper Respiratory Infections (URI) that are Appropriate",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Primary Health Care ",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Workforce Training and Development in Primary Health Care",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Primary Health Care ",
+    "dimension": "",
+    "type_of_healthcare": "Secondary Healthcare",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Geographical Coverage Indicator ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Telehealth",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Telemedicine Doctor's Specialty Indicator ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Telehealth",
+    "dimension": "",
+    "type_of_healthcare": "Home/telecare and Ative life ",
+    "type_of_healthcare_providers_D1_D7": "D2"
+  },
+  {
+    "indicator_name": "Average Duration of Telemedicine Sessions Indicator ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Telehealth",
+    "dimension": "",
+    "type_of_healthcare": "Home/telecare and Ative life ",
+    "type_of_healthcare_providers_D1_D7": " D2"
+  },
+  {
+    "indicator_name": "Operating Efficiency Indicator ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Telehealth",
+    "dimension": "",
+    "type_of_healthcare": "Home/telecare and Ative life ",
+    "type_of_healthcare_providers_D1_D7": "D2"
+  },
+  {
+    "indicator_name": "Indicator of Discrete Beneficiaries per Telemedicine Station ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Telehealth",
+    "dimension": "",
+    "type_of_healthcare": "Home/telecare and Ative life ",
+    "type_of_healthcare_providers_D1_D7": "D2"
+  },
+  {
+    "indicator_name": "Mental Health Indicator ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Telehealth",
+    "dimension": "",
+    "type_of_healthcare": "NCDs and Mental Health",
+    "type_of_healthcare_providers_D1_D7": "D5"
+  },
+  {
+    "indicator_name": "Chronic Patient Participation Indicator ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Telehealth",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Beneficiary Demographic Participation Indicator ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Telehealth",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Transport Cost Indicator ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Telehealth",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "Medical Referral Indicator",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "HEALTH-IQ WG Telehealth",
+    "dimension": "",
+    "type_of_healthcare": "All domains ",
+    "type_of_healthcare_providers_D1_D7": "D7"
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Percentage (%) of DRGs with complications of the previous year ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "Deployed",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS FROM GAZETTE 1576/15-03-2023 & Fek 3411/13-06-2024",
+    "dimension": "Clinical Effectiveness",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "Percentage (%) of previous year in-hospital mortality ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "Deployed",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS FROM GAZETTE 1576/15-03-2023 & Fek 3411/13-06-2025",
+    "dimension": "Clinical Effectiveness",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "MRI Qi index ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "Deployed",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS FROM GAZETTE 1576/15-03-2023 & Fek 3411/13-06-2026",
+    "dimension": "efficiency, effectiveness, safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "CT Qi index  ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "Deployed",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS FROM GAZETTE 1576/15-03-2023 & Fek 3411/13-06-2027",
+    "dimension": "efficiency, effectiveness, safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "D3"
+  },
+  {
+    "indicator_name": "Percentage (%) in-hospital patients with extended hospital stay after approval ",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "Formally approved",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS FROM GAZETTE 1576/15-03-2023 & Fek 3411/13-06-2028",
+    "dimension": "Clinical Effectiveness",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "D1"
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Pharmaceutical Consumption per hospital (DDD/1000/day)",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS PROPOSED by the MEDICINES UNIT",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Pharmaceutical Consumption antibiotics per hospital (DDD/1000/day)",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS PROPOSED by the MEDICINES UNIT",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Pharmaceutical Consumption antibiotics per hospital (DDD/1000/day) per WHO AWARE category (ACCESS, WHATCH, RESERVE)",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS PROPOSED by the MEDICINES UNIT",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Pharmaceutical Consumption Immunotherapies per hospital ((DDD/1000/day or relevant indicator)",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS PROPOSED by the MEDICINES UNIT",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Pharmaceutical Consumption per hospital_ Imported medicines",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS PROPOSED by the MEDICINES UNIT",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Pharmaceutical Consumption opiods (Morphine Equivalents DDD/1000/day)",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS PROPOSED by the MEDICINES UNIT",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "ATMPs requested/delivered per hopspital",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS PROPOSED by the MEDICINES UNIT",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Biosimilar penetration per hospital",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "EOPYY INDICATORS PROPOSED by the MEDICINES UNIT",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "INDICATORS FROM DATA ANALYSIS (IDIKA, KETEKNY, )",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "(still to be added)",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Access to Primary Healthcare Services",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Mental Health Support Utilization",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Maternal and Child Health Care",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Vaccination Coverage",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Tuberculosis (TB) Detection and Treatment",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Sexual and Reproductive Health Services Access",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Communicable Disease Monitoring",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Nutritional status of Children",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Prevalence of Non-Communicable Diseases (NCDs)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": " Water, Sanitation, and Hygiene (WASH) Access",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Health Literacy and Education",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG_Sugestions Inequalities",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": " Hospital Acquired (Nosocomial) Infections",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Nursing Indicators",
+    "dimension": "Infection Control and Management",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Staff uptake of Flu Vaccine",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Nursing Indicators",
+    "dimension": "Infection control and management",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Patient experience of care",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Nursing Indicators",
+    "dimension": "Patient Experience of care",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Medication Errors",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Nursing Indicators",
+    "dimension": "Patient Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Hand Hygiene Compliance",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Nursing Indicators",
+    "dimension": "Patient Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Staff Management",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Nursing Indicators",
+    "dimension": "Staff",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Influenza Vaccination Coverage",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Indicators Pertinent to Public Health",
+    "dimension": "Structural",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Εβδομαδιαίες εκθέσεις - Εποχική Γρίπη - Εθνικός Οργανισμός Δημόσιας Υγείας ",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "WHO. Methods for assessing influenza vaccination coverage in target groups. https://iris.who.int/bitstream/handle/10665/345696/WHO-EURO-2016-3073-42831-59776-eng.pdf\\",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Patient Satisfaction with Public Health Services",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Indicators Pertinent to Public Health",
+    "dimension": "Structural",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Immunization Coverage Rate for A Specific Disease",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Indicators Pertinent to Public Health",
+    "dimension": "Process related Indicators",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Breast Cancer Screening Rate",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Indicators Pertinent to Public Health",
+    "dimension": "Process related Indicators",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Prevalence of Diabetes Mellitus",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Indicators Pertinent to Public Health",
+    "dimension": "Outcome related Indicators",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Prevalence of Hypertension",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Indicators Pertinent to Public Health",
+    "dimension": "Outcome related Indicators",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Infant Mortality Rate",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Indicators Pertinent to Public Health",
+    "dimension": "Outcome related Indicators",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Mortality of children under 5",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Indicators Pertinent to Public Health",
+    "dimension": "Outcome related Indicators",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Maternal Mortality Ratio (MMR)",
+    "q4all_Ind_number": "Q4Alln.xxxx",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "WG Indicators Pertinent to Public Health",
+    "dimension": "Outcome related Indicators",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Indicator Name",
+    "q4all_Ind_number": "Q4All Ind number",
+    "status": "status",
+    "indicator_cluster": "Indicator Cluster",
+    "catergory_of_Indicator": "Category of Indicator",
+    "dimension": "dimension",
+    "type_of_healthcare": "Type of healthcare providers/domains",
+    "type_of_healthcare_providers_D1_D7": "Type of healthcare providers/domains (D1-D7)"
+  },
+  {
+    "indicator_name": "Total Pharmaceuticals",
+    "q4all_Ind_number": "Q4Alln.D_0001",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Raw Materials",
+    "q4all_Ind_number": "Q4Alln.D_0002",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Total Expenses",
+    "q4all_Ind_number": "Q4Alln.D_0003",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "",
+    "q4all_Ind_number": "",
+    "status": "",
+    "indicator_cluster": "",
+    "catergory_of_Indicator": "",
+    "dimension": "",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Total Consumables",
+    "q4all_Ind_number": "Q4Alln.D_0004",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Total Purchases",
+    "q4all_Ind_number": "Q4Alln.D_0005",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Total Pharmaceuticals / Total Purchases",
+    "q4all_Ind_number": "Q4Alln.D_0006",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average Total Pharmaceuticals per Region",
+    "q4all_Ind_number": "Q4Alln.D_0007",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Monthly Evolution Total Pharmaceuticals",
+    "q4all_Ind_number": "Q4Alln.D_0008",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Days of Hospitalization",
+    "q4all_Ind_number": "Q4Alln.D_0009",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Beds",
+    "q4all_Ind_number": "Q4Alln.D_0010",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Hospitalized",
+    "q4all_Ind_number": "Q4Alln.D_0011",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average Length of Stay",
+    "q4all_Ind_number": "Q4Alln.D_0012",
+    "status": "Demo",
+    "indicator_cluster": "Eficciency",
+    "catergory_of_Indicator": "",
+    "dimension": "Eficciency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Patients with Cardiac Protocol",
+    "q4all_Ind_number": "Q4Alln.D_0013",
+    "status": "Demo",
+    "indicator_cluster": "Safety",
+    "catergory_of_Indicator": "",
+    "dimension": "Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Patients with Hypertension Protocol",
+    "q4all_Ind_number": "Q4Alln.D_0014",
+    "status": "Demo",
+    "indicator_cluster": "Safety",
+    "catergory_of_Indicator": "",
+    "dimension": "Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Patients with Osteoporosis Protocol",
+    "q4all_Ind_number": "Q4Alln.D_0015",
+    "status": "Demo",
+    "indicator_cluster": "Safety",
+    "catergory_of_Indicator": "",
+    "dimension": "Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Patients with T2DM Protocol",
+    "q4all_Ind_number": "Q4Alln.D_0016",
+    "status": "Demo",
+    "indicator_cluster": "Safety",
+    "catergory_of_Indicator": "",
+    "dimension": "Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Patients with Dyslipidemia Protocol",
+    "q4all_Ind_number": "Q4Alln.D_0017",
+    "status": "Demo",
+    "indicator_cluster": "Safety",
+    "catergory_of_Indicator": "",
+    "dimension": "Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Population",
+    "q4all_Ind_number": "Q4Alln.D_0018",
+    "status": "Demo",
+    "indicator_cluster": "Demographic",
+    "catergory_of_Indicator": "",
+    "dimension": "Demographic",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Unique Patients per Age",
+    "q4all_Ind_number": "Q4Alln.D_0019",
+    "status": "Demo",
+    "indicator_cluster": "Demographic",
+    "catergory_of_Indicator": "",
+    "dimension": "Demographic",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Unique Patients per Region",
+    "q4all_Ind_number": "Q4Alln.D_0020",
+    "status": "Demo",
+    "indicator_cluster": "Demographic",
+    "catergory_of_Indicator": "",
+    "dimension": "Demographic",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "% Patients per Region",
+    "q4all_Ind_number": "Q4Alln.D_0021",
+    "status": "Demo",
+    "indicator_cluster": "Demographic",
+    "catergory_of_Indicator": "",
+    "dimension": "Demographic",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Patients with Cardiac Protocol per Protocol Steps",
+    "q4all_Ind_number": "Q4Alln.D_0022",
+    "status": "Demo",
+    "indicator_cluster": "Safety",
+    "catergory_of_Indicator": "",
+    "dimension": "Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Patients with Hypertension Protocol per Protocol Steps",
+    "q4all_Ind_number": "Q4Alln.D_0023",
+    "status": "Demo",
+    "indicator_cluster": "Safety",
+    "catergory_of_Indicator": "",
+    "dimension": "Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Patients with Osteoporosis Protocol per Protocol Steps",
+    "q4all_Ind_number": "Q4Alln.D_0024",
+    "status": "Demo",
+    "indicator_cluster": "Safety",
+    "catergory_of_Indicator": "",
+    "dimension": "Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Patients with T2DM Protocol per Protocol Steps",
+    "q4all_Ind_number": "Q4Alln.D_0025",
+    "status": "Demo",
+    "indicator_cluster": "Safety",
+    "catergory_of_Indicator": "",
+    "dimension": "Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Patients with Dyslipidemia Protocol per Protocol Steps",
+    "q4all_Ind_number": "Q4Alln.D_0026",
+    "status": "Demo",
+    "indicator_cluster": "Safety",
+    "catergory_of_Indicator": "",
+    "dimension": "Safety",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Bed Coverage Rate per Hospital (tipology)",
+    "q4all_Ind_number": "Q4Alln.D_0027",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Surgeries per Surgeon per Hospital (tipology)",
+    "q4all_Ind_number": "Q4Alln.D_0028",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Outpatients per Doctor per Hospital (tipology)",
+    "q4all_Ind_number": "Q4Alln.D_0029",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Hospital Staff / Beds per Hospital (tipology)",
+    "q4all_Ind_number": "Q4Alln.D_0030",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Hospital Expense Data",
+    "q4all_Ind_number": "Q4Alln.D_0031",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Mental Health Hospitals Expense Data",
+    "q4all_Ind_number": "Q4Alln.D_0032",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Dental Pratices Expense Data",
+    "q4all_Ind_number": "Q4Alln.D_0033",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "Ambulatory Health Care Centres Expense Data",
+    "q4all_Ind_number": "Q4Alln.D_0034",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "Social Health Insurance Agencies Expense Data",
+    "q4all_Ind_number": "Q4Alln.D_0035",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Social Care"
+  },
+  {
+    "indicator_name": "Other Health Care Practicioners Expense Data",
+    "q4all_Ind_number": "Q4Alln.D_0036",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Social Care"
+  },
+  {
+    "indicator_name": "Expense Data per Hospital Tipology",
+    "q4all_Ind_number": "Q4Alln.D_0037",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Expense Data per Hospital and Ambulatory per Year",
+    "q4all_Ind_number": "Q4Alln.D_0038",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Hospital Spending per Tipology of Spending",
+    "q4all_Ind_number": "Q4Alln.D_0039",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Medical Goods Expense Data",
+    "q4all_Ind_number": "Q4Alln.D_0040",
+    "status": "Demo",
+    "indicator_cluster": "Financial",
+    "catergory_of_Indicator": "",
+    "dimension": "Financial",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Discharged Patients",
+    "q4all_Ind_number": "Q4Alln.D_0041",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Admissions",
+    "q4all_Ind_number": "Q4Alln.D_0042",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Day Cases",
+    "q4all_Ind_number": "Q4Alln.D_0043",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Surgical DRG",
+    "q4all_Ind_number": "Q4Alln.D_0044",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Medical DRG",
+    "q4all_Ind_number": "Q4Alln.D_0045",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average Length of Stay",
+    "q4all_Ind_number": "Q4Alln.D_0046",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Case Mix",
+    "q4all_Ind_number": "Q4Alln.D_0047",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average of Discharged Patients",
+    "q4all_Ind_number": "Q4Alln.D_0048",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average of Day Cases",
+    "q4all_Ind_number": "Q4Alln.D_0049",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average of Surgical DRG",
+    "q4all_Ind_number": "Q4Alln.D_0050",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average of Other Surgical DRG",
+    "q4all_Ind_number": "Q4Alln.D_0051",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Discharge Reason - Death",
+    "q4all_Ind_number": "Q4Alln.D_0052",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Discharge Reason - Birth",
+    "q4all_Ind_number": "Q4Alln.D_0053",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Population",
+    "q4all_Ind_number": "Q4Alln.D_0054",
+    "status": "Demo",
+    "indicator_cluster": "Demographic",
+    "catergory_of_Indicator": "",
+    "dimension": "Demographic",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Population Served",
+    "q4all_Ind_number": "Q4Alln.D_0055",
+    "status": "Demo",
+    "indicator_cluster": "Demographic",
+    "catergory_of_Indicator": "",
+    "dimension": "Demographic",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Day Cases",
+    "q4all_Ind_number": "Q4Alln.D_0056",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Surgical Cases",
+    "q4all_Ind_number": "Q4Alln.D_0057",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Medical Cases",
+    "q4all_Ind_number": "Q4Alln.D_0058",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average Length of Stay",
+    "q4all_Ind_number": "Q4Alln.D_0059",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average Number Doctors per Health Center",
+    "q4all_Ind_number": "Q4Alln.D_0060",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "Average Number Doctors per Tomy",
+    "q4all_Ind_number": "Q4Alln.D_0061",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "% Population with PHC Doctor",
+    "q4all_Ind_number": "Q4Alln.D_0062",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "% Prescription Treatment",
+    "q4all_Ind_number": "Q4Alln.D_0063",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Number of Beds",
+    "q4all_Ind_number": "Q4Alln.D_0064",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Short Term Beds",
+    "q4all_Ind_number": "Q4Alln.D_0065",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Treated Patients",
+    "q4all_Ind_number": "Q4Alln.D_0066",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Times selected DRG",
+    "q4all_Ind_number": "Q4Alln.D_0067",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Citizens per Hospital Beds",
+    "q4all_Ind_number": "Q4Alln.D_0068",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Citizens per Hospital Short Term Beds",
+    "q4all_Ind_number": "Q4Alln.D_0069",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "% Population with Hospital Case coded in DRG",
+    "q4all_Ind_number": "Q4Alln.D_0070",
+    "status": "Demo",
+    "indicator_cluster": "Efficiency",
+    "catergory_of_Indicator": "",
+    "dimension": "Efficiency",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Number of Entities",
+    "q4all_Ind_number": "Q4Alln.D_0071",
+    "status": "Demo",
+    "indicator_cluster": "Installations",
+    "catergory_of_Indicator": "",
+    "dimension": "Installations",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of Pathologists",
+    "q4all_Ind_number": "Q4Alln.D_0072",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of GP",
+    "q4all_Ind_number": "Q4Alln.D_0073",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "Number of Patients",
+    "q4all_Ind_number": "Q4Alln.D_0074",
+    "status": "Demo",
+    "indicator_cluster": "Demographic",
+    "catergory_of_Indicator": "",
+    "dimension": "Demographic",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Average Patients/Doctors",
+    "q4all_Ind_number": "Q4Alln.D_0075",
+    "status": "Demo",
+    "indicator_cluster": "Acess",
+    "catergory_of_Indicator": "",
+    "dimension": "Acess",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "Average % Patient Falls Rate",
+    "q4all_Ind_number": "Q4Alln.D_0076",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average % Pressure Ulcer Incidence Rate",
+    "q4all_Ind_number": "Q4Alln.D_0077",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average Non Compliance with Criteria for Patient Identification Rate",
+    "q4all_Ind_number": "Q4Alln.D_0078",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Average Needle Stick Injuries in Health Providers per 1000 Nursing Days",
+    "q4all_Ind_number": "Q4Alln.D_0079",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Benchmarking % Patient Falls Rate",
+    "q4all_Ind_number": "Q4Alln.D_0080",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Benchmarking % Pressure Ulcer Incidence Rate",
+    "q4all_Ind_number": "Q4Alln.D_0081",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Benchmarking Non Compliance with Criteria for Patient Identification Rate",
+    "q4all_Ind_number": "Q4Alln.D_0082",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Benchmarking Needle Stick Injuries in Health Providers per 1000 Nursing Days",
+    "q4all_Ind_number": "Q4Alln.D_0083",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Median % Patient Falls Rate",
+    "q4all_Ind_number": "Q4Alln.D_0084",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Median % Pressure Ulcer Incidence Rate",
+    "q4all_Ind_number": "Q4Alln.D_0085",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Median Non Compliance with Criteria for Patient Identification Rate",
+    "q4all_Ind_number": "Q4Alln.D_0086",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Median Needle Stick Injuries in Health Providers per 1000 Nursing Days",
+    "q4all_Ind_number": "Q4Alln.D_0087",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Benchmarking Internal Med Patient Falls Rate",
+    "q4all_Ind_number": "Q4Alln.D_0088",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Benchmarking Surgical Patient Falls Rate",
+    "q4all_Ind_number": "Q4Alln.D_0089",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Secondary Healthcare"
+  },
+  {
+    "indicator_name": "Total Profissionals Hospitals",
+    "q4all_Ind_number": "Q4Alln.D_0090",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Total Doctors Hospitals",
+    "q4all_Ind_number": "Q4Alln.D_0091",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Toal Nurses Hospitals",
+    "q4all_Ind_number": "Q4Alln.D_0092",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Total Administrative Hospitals",
+    "q4all_Ind_number": "Q4Alln.D_0093",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of Professional per Category Hospitals",
+    "q4all_Ind_number": "Q4Alln.D_0094",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Number of Professional per Staff Hospitals",
+    "q4all_Ind_number": "Q4Alln.D_0095",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": ""
+  },
+  {
+    "indicator_name": "Total Profissionals Primary Care",
+    "q4all_Ind_number": "Q4Alln.D_0096",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "Total Doctors Primary Care",
+    "q4all_Ind_number": "Q4Alln.D_0097",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "Toal Nurses Primary Care",
+    "q4all_Ind_number": "Q4Alln.D_0098",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "Total Administrative Primary Care",
+    "q4all_Ind_number": "Q4Alln.D_0099",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "Number of Professional per Staff Primary Care",
+    "q4all_Ind_number": "Q4Alln.D_0100",
+    "status": "Demo",
+    "indicator_cluster": "Human Resources",
+    "catergory_of_Indicator": "",
+    "dimension": "Human Resources",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Primary Care"
+  },
+  {
+    "indicator_name": "Total Medical Visits",
+    "q4all_Ind_number": "Q4Alln.D_0101",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Total Medical Visits 1-3 Drugs Prescribed",
+    "q4all_Ind_number": "Q4Alln.D_0102",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Total Medical Visits 4-6 Drugs Prescribed",
+    "q4all_Ind_number": "Q4Alln.D_0103",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Total Medical Visits 7-10 Drugs Prescribed",
+    "q4all_Ind_number": "Q4Alln.D_0104",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Total Medical Visits 11-15 Drugs Prescribed",
+    "q4all_Ind_number": "Q4Alln.D_0105",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Total Medical Visits +16 Drugs Prescribed",
+    "q4all_Ind_number": "Q4Alln.D_0106",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "% 1-3 Drugs/Medical Visits",
+    "q4all_Ind_number": "Q4Alln.D_0107",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "% 4-6 Drugs/Medical Visits",
+    "q4all_Ind_number": "Q4Alln.D_0108",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "% 7-10 Drugs/Medical Visits",
+    "q4all_Ind_number": "Q4Alln.D_0109",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "% 11-15 Drugs/Medical Visits",
+    "q4all_Ind_number": "Q4Alln.D_0110",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "% +16 Drugs/Medical Visits",
+    "q4all_Ind_number": "Q4Alln.D_0111",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Total Visits with Risk",
+    "q4all_Ind_number": "Q4Alln.D_0112",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "% Evolution 2021-2024 (+16)",
+    "q4all_Ind_number": "Q4Alln.D_0113",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Total Risk",
+    "q4all_Ind_number": "Q4Alln.D_0114",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Number Medical Visits with Risk 4-6",
+    "q4all_Ind_number": "Q4Alln.D_0115",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Number Medical Visits with Risk 7-10",
+    "q4all_Ind_number": "Q4Alln.D_0116",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Number Medical Visits with Risk 11-15",
+    "q4all_Ind_number": "Q4Alln.D_0117",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  },
+  {
+    "indicator_name": "Number Medical Visits with Risk +16",
+    "q4all_Ind_number": "Q4Alln.D_0118",
+    "status": "Demo",
+    "indicator_cluster": "Quality",
+    "catergory_of_Indicator": "",
+    "dimension": "Quality",
+    "type_of_healthcare": "",
+    "type_of_healthcare_providers_D1_D7": "Public Health"
+  }
+]
