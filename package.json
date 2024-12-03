@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies":{
-    "@chatscope/chat-ui-kit-react": "^1.10.1",
     "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
@@ -80,7 +79,7 @@
     ]
   },
   "engines": {
-    "node": ">=23.3.0",
+    "node": ">=14.0.0",
     "npm": ">=6.0.0"
   }
 }
