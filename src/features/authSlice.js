@@ -19,7 +19,8 @@ export const LoginUser=createAsyncThunk("user/loginUser",async(user,thunkAPI)=>{
         {    
           withCredentials: true,
           headers:{
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer HRKU-5437a59c-9a06-48b3-9532-08eafb3f327b'
           },
           
       crossDomain: true
@@ -40,7 +41,9 @@ export const getMe=createAsyncThunk("user/getMe",async(_,thunkAPI)=>{
              {  
                 withCredentials: true,
                 headers:{
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer HRKU-5437a59c-9a06-48b3-9532-08eafb3f327b'
+
                   },
       crossDomain: true
         }
