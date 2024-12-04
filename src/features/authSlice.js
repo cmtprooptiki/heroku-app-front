@@ -11,10 +11,17 @@ const initialState={
 
 export const LoginUser=createAsyncThunk("user/loginUser",async(user,thunkAPI)=>{
     try{
-        const response=await axios.post(`${apiBaseUrl}/login`,{
+        const response=await axios.post(`${apiBaseUrl}/login`,
+            {
             email:user.email,
             password:user.password
-        });
+        },
+        {
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }
+    );
         return response.data;
     } catch(error){
         if(error.response){
