@@ -16,10 +16,12 @@ export const LoginUser=createAsyncThunk("user/loginUser",async(user,thunkAPI)=>{
             email:user.email,
             password:user.password
         },
-        {
+        {    
+          withCredentials: true,
           headers:{
             'Content-Type': 'application/json'
           },
+          
       crossDomain: true
         }
     );
@@ -35,7 +37,8 @@ export const LoginUser=createAsyncThunk("user/loginUser",async(user,thunkAPI)=>{
 export const getMe=createAsyncThunk("user/getMe",async(_,thunkAPI)=>{
     try{
         const response=await axios.get(`${apiBaseUrl}/me`,{timeout: 5000},
-             {
+             {  
+                withCredentials: true,
                 headers:{
                     'Content-Type': 'application/json'
                   },
