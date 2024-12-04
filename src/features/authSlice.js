@@ -35,7 +35,16 @@ export const LoginUser=createAsyncThunk("user/loginUser",async(user,thunkAPI)=>{
 
 export const getMe=createAsyncThunk("user/getMe",async(_,thunkAPI)=>{
     try{
-        const response=await axios.get(`${apiBaseUrl}/me`,{timeout: 5000});
+        const response=await axios.get(`${apiBaseUrl}/me`,{timeout: 5000},
+            {
+                headers: {'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials':'true',
+                  },
+          withCredentials : true,
+          crossDomain: true
+            }
+
+        );
         return response.data;
     } catch(error){
         if(error.response){
