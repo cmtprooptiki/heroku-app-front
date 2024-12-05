@@ -26,7 +26,7 @@ export const LoginUser=createAsyncThunk("user/loginUser",async(user,thunkAPI)=>{
       crossDomain: true
         }
     );
-        return json(response.data);
+        return response.data;
     } catch(error){
         if(error.response){
             const message=error.response.data.msg;
