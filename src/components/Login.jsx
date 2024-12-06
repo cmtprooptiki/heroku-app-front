@@ -51,8 +51,7 @@ const Login = () => {
                         <Button type="submit" label={isLoading ? "Loading..." : "Είσοδος"} icon="pi pi-sign-in" className="w-full" />
                        
                     </form>
-                    <h6 style={{ color: 'white' ,paddingTop:'10px'}}>Powered by</h6>
-                    <img src={logo} alt="cmt Logo" height={45} className="mb-3" />
+              
                     {isError && <p className="error-message">{message}</p>}
                     
                 </div>

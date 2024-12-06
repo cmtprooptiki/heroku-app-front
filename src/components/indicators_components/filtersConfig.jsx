@@ -1,24 +1,32 @@
 
 
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
+ // Custom Filter Function
+ const customFilterFunction = (value, filter) => {
+    if (!filter || filter.length === 0) {
+        return true; // No filter applied, show all
+    }
+    const valueArray = value.split(','); // Split the cell value into an array
+    return filter.some((f) => valueArray.includes(f)); // Check if any filter value matches
+};
 
 export const initFiltersConfig = () => ({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     id: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     indicator_name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     q4all_Ind_number: { value: null, matchMode: FilterMatchMode.IN },
-    status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    status: { value: null, matchMode: FilterMatchMode.IN },
     indicator_cluster: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     ind_Merge: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     catergory_of_Indicator: { value: null, matchMode: FilterMatchMode.IN },
-    dimension: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    dimension: { value: null, matchMode: FilterMatchMode.IN },
     type_of_healthcare: { value: null, matchMode: FilterMatchMode.IN },
-    type_of_healthcare_providers_D1_D7: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-    cross_Cutting_Dimensions_A_I: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-    cross_Cutting_Dimensions_Inputs_Process_Outputs: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-    dimensions_of_Quality_QoCOfficeReport: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-    priority: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-    data_collection: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    type_of_healthcare_providers_D1_D7: { value: null, matchMode: FilterMatchMode.IN },
+    cross_Cutting_Dimensions_A_I: { value: null, matchMode: FilterMatchMode.CUSTOM },
+    cross_Cutting_Dimensions_Inputs_Process_Outputs: { value: null, matchMode: FilterMatchMode.IN },
+    dimensions_of_Quality_QoCOfficeReport: { value: null, matchMode: FilterMatchMode.IN },
+    priority: { value: null, matchMode: FilterMatchMode.IN },
+    data_collection: { value: null, matchMode: FilterMatchMode.IN },
     collecting_National_Organization: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     legal_Organizational_Requirements: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
     proponent_Organization_WG: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
@@ -47,10 +55,12 @@ export const initFiltersConfig = () => ({
     base_Value: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     notes: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     sources_and_Further_Reading: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-    selected_indicator: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    selected_indicator: { value: null, matchMode: FilterMatchMode.IN },
     adaptation_Needs: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-    piloting: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    piloting: { value: null, matchMode: FilterMatchMode.IN },
     opinion_from_ODIPY_Other_experts: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-    pilot_outcome: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    pilot_outcome: { value: null, matchMode: FilterMatchMode.IN },
     pilot_success_criteria: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
 });
+
+  
