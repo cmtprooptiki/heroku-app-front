@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { LoginUser, reset } from '../features/authSlice';
 import cashflow_logo from '../Images/who2.png';
-import animatedGif from '../Images/cashflowanim.gif'; // Add your GIF image path here
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import '../login.css';
