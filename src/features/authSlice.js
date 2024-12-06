@@ -51,6 +51,7 @@ export const getMe=createAsyncThunk("user/getMe",async(_,thunkAPI)=>{
         const response=await axios.get(`${apiBaseUrl}/me`,{timeout: 5000},
              {  
                 withCredentials: true,
+                credentials:"include",
                 headers:{
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer HRKU-5437a59c-9a06-48b3-9532-08eafb3f327b'
