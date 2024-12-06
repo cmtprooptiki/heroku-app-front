@@ -1,8 +1,9 @@
 {
-  "name": "heroku-app",
+  "name": "frontend",
+  "homepage": "https://cashflow.cmtprooptiki.gr",
   "version": "0.1.0",
   "private": true,
-  "dependencies":{
+  "dependencies": {
     "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
@@ -45,7 +46,7 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
