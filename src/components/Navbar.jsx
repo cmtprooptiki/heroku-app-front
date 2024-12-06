@@ -1,33 +1,17 @@
 import React,{ useState, useRef }from "react";
 import {NavLink} from "react-router-dom";
-import logo from "../logo2.png";
 import { useDispatch,useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {LogOut, LoginUser,reset} from "../features/authSlice"
 import '../navbar-custom.css';
-import {IoPerson,IoPricetag,IoHome,IoLogOut} from "react-icons/io5";
+import {IoLogOut} from "react-icons/io5";
 
 
-import {ReactComponent as CashFlowIcon} from '../icons/cashflowicon2.svg';
 
-
-import {ReactComponent as CustoEditIcon} from '../icons/customersediticon.svg';
-import {ReactComponent as BudgetIcon} from '../icons/budgeticonedit.svg';
 import {ReactComponent as UsersIcon} from '../icons/userlist2.svg';
 import {ReactComponent as SettingsIcon } from '../icons/settings.svg';
 
-import {ReactComponent as StatisticsIcon } from '../icons/statistics.svg';
 
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { Link } from 'react-router-dom';
@@ -38,9 +22,7 @@ import { Button } from 'primereact/button';
 import { Avatar } from 'primereact/avatar';
 import { Ripple } from 'primereact/ripple';
 import { StyleClass } from 'primereact/styleclass';
-import cmt from "../logocmt.png";
 import cashflow_logo from "../Images/who2.png"
-import { ReactComponent as WizardIcon } from '../icons/wizardicon.svg'; // Import the SVG as a React component
 
 import { Toolbar } from "primereact/toolbar";
 
@@ -48,10 +30,6 @@ import {useClickOutside} from "primereact/hooks";
 
 // import apiBaseUrl from '../../apiConfig';
 import apiBaseUrl from "../apiConfig";
-import { InputText } from "primereact/inputtext";
-import { OverlayPanel } from "primereact/overlaypanel";
-import { AutoComplete } from "primereact/autocomplete";
-import { Navigate } from "react-router-dom";
 
 const Navbar =()=>{
     const dispatch = useDispatch();

@@ -1,8 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.46d816a7.css",
-    "main.js": "/static/js/main.2df4ad13.js",
-    "static/media/cashflowanim.gif": "/static/media/cashflowanim.9abb91f24f472c52aca1.gif",
+    "main.js": "/static/js/main.e09270d3.js",
     "static/media/primeicons.svg": "/static/media/primeicons.6ed59f962963a4a73af2.svg",
     "static/media/who2.png": "/static/media/who2.0993207498338f4bf559.png",
     "static/media/primeicons.eot": "/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
@@ -10,20 +9,14 @@
     "static/media/primeicons.ttf": "/static/media/primeicons.a5c2a53d1ff7a9ff5933.ttf",
     "static/media/settings.svg": "/static/media/settings.c1e377b60de3da849d01de4547b430c1.svg",
     "static/media/primeicons.woff2": "/static/media/primeicons.024b32cc7bf399b1a847.woff2",
-    "static/media/logo2.png": "/static/media/logo2.b399fe97142c745b834c.png",
-    "static/media/cashflowicon2.svg": "/static/media/cashflowicon2.ff70566907f948b56ae77acf93ca8ff4.svg",
     "static/media/userlist2.svg": "/static/media/userlist2.ec6488ab0ee9f0e61fd615aa12dc883e.svg",
-    "static/media/statistics.svg": "/static/media/statistics.f692d425a94ab77e34f6905aa7b6dba8.svg",
     "static/media/logocmt.png": "/static/media/logocmt.f7ff9d9fdb6812253f63.png",
-    "static/media/budgeticonedit.svg": "/static/media/budgeticonedit.db26a466ddfae81f3964ab8d42f25ca6.svg",
-    "static/media/customersediticon.svg": "/static/media/customersediticon.41df453f8f5a38004507b87849e22dd3.svg",
-    "static/media/wizardicon.svg": "/static/media/wizardicon.c216d99a036d11d079852d8513983253.svg",
     "index.html": "/index.html",
     "main.46d816a7.css.map": "/static/css/main.46d816a7.css.map",
-    "main.2df4ad13.js.map": "/static/js/main.2df4ad13.js.map"
+    "main.e09270d3.js.map": "/static/js/main.e09270d3.js.map"
   },
   "entrypoints": [
     "static/css/main.46d816a7.css",
-    "static/js/main.2df4ad13.js"
+    "static/js/main.e09270d3.js"
   ]
 }
