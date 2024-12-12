@@ -18,7 +18,19 @@ export const initFiltersConfig = () => ({
     status: { value: null, matchMode: FilterMatchMode.IN },
     indicator_cluster: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     ind_Merge: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+
+    feedback_from_ODIPY: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    feedback_from_EOPYY: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    feedback_from_IDIKA: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+
     catergory_of_Indicator: { value: null, matchMode: FilterMatchMode.IN },
+
+    observations_from_meetings: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    shortlist_indicators: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    decision_and_next_steps: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    forPilot: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    publicationsoptions: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+
     dimension: { value: null, matchMode: FilterMatchMode.IN },
     type_of_healthcare: { value: null, matchMode: FilterMatchMode.IN },
     type_of_healthcare_providers_D1_D7: { value: null, matchMode: FilterMatchMode.IN },

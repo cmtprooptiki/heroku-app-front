@@ -17,6 +17,21 @@ export const headers = {
         label: "Indicator Cluster",
         description: "Cluster of a set of related indicators that share common aspects (group of indicators of related categories)."
     },
+
+    feedback_from_ODIPY:{
+        label: "FEEDBACK FROM ODIPY",
+        description: "PLEASE COMMENT ABOUT THE INDICATOR"
+    },
+
+    feedback_from_EOPYY:{
+        label: "FEEDBACK FROM EOPYY",
+        description: "PLEASE COMMENT ABOUT THE INDICATOR"
+    },
+    feedback_from_IDIKA:{
+        label: "FEEDBACK FROM IDIKA",
+        description: "PLEASE COMMENT ABOUT THE INDICATOR"
+    },
+
     ind_Merge: {
         label: "Indicator Merge",
         description: `If 2 indicators are "merged", the one with the lowest number remains and the other is "inactive"; e.g. Q4Alln.000x + Q4Alln.00xy --> Q4Alln.000x - text is adjusted and the "inactivated indicator line of cells is colored light grey.`
@@ -25,6 +40,30 @@ export const headers = {
         label: "Category of Indicator",
         description: "The origin or source of inspiration for the KPI, such as whether it is adapted from another country's indicator, an international standard, or developed internally."
     },
+
+    observations_from_meetings:{
+        label: "OBSERVATIONS FROM MEETINGS",
+        description: "OBSERVATIONS FROM MEETINGS"
+    },
+    shortlist_indicators:{
+        label: "SHORTLIST INDICATORS",
+        description: "(M-Manual; A-Automated; P-Proxy)"
+    },
+    decision_and_next_steps:{
+        label: "DECISION AND NEXT STEPS",
+        description: "DECISION AND NEXT STEPS"
+    },
+    forPilot:{
+        label: "ForPilot",
+        description: "(1-Yes;0-No;T-WeWillTry)"
+    },
+
+    publicationsoptions:{
+        label: "Publications options",
+        description: "SomePubHs/IdikaSWHs/ALLPubHs/ALLPrivHs/ALLPub_ProvHs/PHC"
+    },
+
+
     dimension: {
         label: "Dimension",
         description: "The aspect of healthcare quality the indicator measures, e.g., safety, effectiveness, etc."
