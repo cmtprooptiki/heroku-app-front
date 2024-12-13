@@ -393,24 +393,24 @@ const IndicatorsList = () => {
         return (
             <div className="actions-container">
                 {/* Three dots button */}
-                <Button 
+                {/* <Button 
                     icon="pi pi-ellipsis-v" 
                     className="p-button-text"
                     aria-label="Actions"
-                    onMouseEnter={handleMouseEnter} // Show overlay on hover
-                    onMouseLeave={handleMouseLeave} // Start hide timeout on mouse leave
-                />
+                    onMouseEnter={handleMouseEnter} 
+                    onMouseLeave={handleMouseLeave} 
+                /> */}
     
                 {/* OverlayPanel containing action buttons in a row */}
-                <OverlayPanel 
+                {/* <OverlayPanel 
                     ref={op} 
                     onClick={() => op.current.hide()} 
                     dismissable 
-                    onMouseLeave={handleMouseLeave} // Hide on overlay mouse leave
+                    onMouseLeave={handleMouseLeave} 
                     onMouseEnter={() => {
                         if (hideTimeout) clearTimeout(hideTimeout);
                     }} 
-                >
+                > */}
                     <div className="flex flex-row gap-2">
                         {/* Only show the Profile button for non-admin users */}
                         {/* {user && user.role !== "admin" && (
@@ -454,7 +454,7 @@ const IndicatorsList = () => {
                             </>
                         )}
                     </div>
-                </OverlayPanel>
+                {/* </OverlayPanel> */}
             </div>
         );
     };
@@ -1088,6 +1088,11 @@ const percentageTemplate = (rowData) => {
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
+                sortFunction={(e) => {
+                    const value1 = calculateFilledPercentage(e.data[e.index1]);
+                    const value2 = calculateFilledPercentage(e.data[e.index2]);
+                    return value1 - value2; // Ascending order
+                }}
                 style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} frozen
             ></Column>
             <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
