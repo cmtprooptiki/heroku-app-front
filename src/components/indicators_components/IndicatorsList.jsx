@@ -1088,11 +1088,6 @@ const percentageTemplate = (rowData) => {
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
-                sortFunction={(e) => {
-                    const value1 = calculateFilledPercentage(e.data[e.index1]);
-                    const value2 = calculateFilledPercentage(e.data[e.index2]);
-                    return value1 - value2; // Ascending order
-                }}
                 style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} frozen
             ></Column>
             <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
