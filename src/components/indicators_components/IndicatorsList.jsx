@@ -413,16 +413,16 @@ const IndicatorsList = () => {
                 >
                     <div className="flex flex-row gap-2">
                         {/* Only show the Profile button for non-admin users */}
-                        {user && user.role !== "admin" && (
+                        {/* {user && user.role !== "admin" && (
                             <Link to={`/paradotea/profile/${id}`}>
                                 <Button icon="pi pi-eye" severity="info" aria-label="User" />
                             </Link>
-                        )}
+                        )} */}
                         
                         {/* Show all action buttons for admin users */}
                         {user && user.role === "admin" && (
                             <>
-                                <Button 
+                                {/* <Button 
                                 className='action-button'
                                     icon="pi pi-eye"
                                     severity="info"
@@ -432,8 +432,8 @@ const IndicatorsList = () => {
                                         setSelectedType('Profile');
                                         setDialogVisible(true);
                                     }}
-                                />
-                                <Button
+                                /> */}
+                                {/* <Button
                                 className='action-button'
                                     icon="pi pi-pen-to-square"
                                     severity="info"
@@ -443,7 +443,7 @@ const IndicatorsList = () => {
                                         setSelectedType('Edit');
                                         setDialogVisible(true);
                                     }}
-                                />
+                                /> */}
                                 <Button
                                 className='action-button'
                                     icon="pi pi-trash"
@@ -1053,7 +1053,6 @@ const percentageTemplate = (rowData) => {
         
         </div>
 
-        {  console.log("statusessssssss : ",piloting)}
 
 
 <DataTable value={indicators}  editMode="cell" ref = {dt} onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}} paginator stripedRows
@@ -1087,6 +1086,7 @@ const percentageTemplate = (rowData) => {
             <Column
              className='font-bold'
                 header="Filled Percentage"
+                sortable
                 body={percentageTemplate}
                 style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} frozen
             ></Column>
