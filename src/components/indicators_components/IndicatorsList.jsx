@@ -279,7 +279,9 @@ const IndicatorsList = () => {
 
             const unique_pilot_outcome = [...new Set(indData.map(item => item.pilot_outcome || ''))]
             setPilot_Outcome(unique_pilot_outcome)
-
+            
+            const unique_forPilot = [...new Set(indData.map(item => item.forPilot || ''))]
+            setforPilot(unique_forPilot)
 
           
             const parDataWithDates = indData.map(item => ({
