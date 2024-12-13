@@ -37,7 +37,8 @@ import {
     legal_Organizational_Requirements_list, 
     selected_indicator_list, 
     piloting_list, 
-    pilot_outcome_list 
+    pilot_outcome_list,
+    forPilotlist 
 } from './IndicatorUtils';  // Adjust the path as necessary
 import { headers } from './headersConfig';  // Import the header configuration
 import { initFiltersConfig } from './filtersConfig';
@@ -76,6 +77,9 @@ const IndicatorsList = () => {
 
     const [piloting, setPiloting] = useState([])
     const [pilot_outcome, setPilot_Outcome] = useState([])
+
+    const [forPilot, setforPilot] = useState([])
+
     
     const [dialogVisible, setDialogVisible] = useState(false);
     const [selectedIndicatorId, setSelectedIndicatorId] = useState(null);
@@ -185,6 +189,8 @@ const IndicatorsList = () => {
             const unique_pilot_outcome = [...new Set(indData.map(item => item.pilot_outcome || ''))]
             setPilot_Outcome(unique_pilot_outcome)
 
+            const unique_forPilot = [...new Set(indData.map(item => item.forPilot || ''))]
+            setforPilot(unique_forPilot)
             
           
             // Convert sign_date to Date object for each item in ergaData
@@ -700,6 +706,17 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                 }
 
                 break;
+            case 'forPilot':
+                if (newValue) {
+                    console.log("type of heal is newvalue:",newValue)
+                    rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; validEdit = true;
+                    
+                } 
+                else {
+                    event.preventDefault();
+                }
+
+                break;
 
             case 'pilot_outcome': 
                 // Handle dropdown fields
@@ -765,6 +782,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         else if (options.field ==='selected_indicator') return dropdownEditor(options,selected_indicator_list)
         else if (options.field ==='piloting') return dropdownEditor(options,piloting_list)
         else if (options.field ==='pilot_outcome') return dropdownEditor(options,pilot_outcome_list)
+        else if (options.field ==='forPilot') return dropdownEditor(options,forPilotlist)
 
         else return textEditor(options);
     };
@@ -1069,7 +1087,7 @@ const percentageTemplate = (rowData) => {
             <Column field="shortlist_indicators" header={customHeader(headers.shortlist_indicators.label, headers.shortlist_indicators.description, "feedback_from_IDIKA")} filter filterPlaceholder="Search by shortlist_indicators" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="decision_and_next_steps" header={customHeader(headers.decision_and_next_steps.label, headers.decision_and_next_steps.description, "decision_and_next_steps")} filter filterPlaceholder="Search by decision_and_next_steps" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
 
-            <Column field="forPilot" header={customHeader(headers.forPilot.label, headers.forPilot.description, "forPilot")} filter filterPlaceholder="Search by forPilot" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="forPilot" header={customHeader(headers.forPilot.label, headers.forPilot.description, "forPilot")} filter filterField = 'forPilot' filterElement={(option)=>(<FilterIndicators options={option} data={forPilot} itemTemplate={ItemTemplate}/>)}  style={{ minWidth: '12rem' }} body={generalBodyTemplate(indicators,forPilotlist,'forPilot')}  editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="publicationsoptions" header={customHeader(headers.publicationsoptions.label, headers.publicationsoptions.description, "publicationsoptions")} filter filterPlaceholder="Search by publicationsoptions" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
 
            

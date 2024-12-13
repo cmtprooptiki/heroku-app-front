@@ -129,3 +129,20 @@ export const pilot_outcome_list = [
     { label: 'keno', value: '' },
     { label: 'SUSPEND', value: '3' }
 ];
+
+export const forPilotlist = [
+    { label: 'No', value: '0' },
+    { label: 'Yes', value: '1' },
+    { label: 'keno', value: '' },
+    { label: 'WeWillTry', value: 'T' }
+   
+];
+
+// export const PublicationsOptionslist =[
+//     { label: 'SomePubHs', value: 'SomePubHs' },
+//     { label: 'IdikaSWHs', value: 'IdikaSWHs' },
+//     { label: 'ALLPubHs', value: 'ALLPrivHs' },
+//     { label: 'ALLPub_ProvHs', value: 'ALLPub_ProvHs' },
+//     { label: 'keno', value: '' },
+//     { label: 'PHC', value:'PHC'}
+// ];
