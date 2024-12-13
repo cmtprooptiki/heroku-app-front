@@ -279,7 +279,7 @@ const IndicatorsList = () => {
 
             const unique_pilot_outcome = [...new Set(indData.map(item => item.pilot_outcome || ''))]
             setPilot_Outcome(unique_pilot_outcome)
-            
+
             const unique_forPilot = [...new Set(indData.map(item => item.forPilot || ''))]
             setforPilot(unique_forPilot)
 
@@ -789,13 +789,40 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         else return textEditor(options);
     };
     
+    // const textEditor = (options) => {
+    //     return (
+    //         <InputText
+    //             type="text"
+    //             value={options.value}
+    //             onChange={(e) => options.editorCallback(e.target.value)}
+    //             onKeyDown={(e) => e.stopPropagation()}
+    //         />
+    //     );
+    // };
+
     const textEditor = (options) => {
+        const handleInput = (e) => {
+            const textarea = e.target;
+            textarea.style.height = "auto"; // Reset height to recalculate
+            textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height dynamically
+            options.editorCallback(textarea.value);
+        };
+   
         return (
-            <InputText
-                type="text"
-                value={options.value}
-                onChange={(e) => options.editorCallback(e.target.value)}
+            <textarea
+                value={options.value || ""}
+                onChange={handleInput}
                 onKeyDown={(e) => e.stopPropagation()}
+                style={{
+                    width: "100%",
+                    minHeight: "50px",
+                    maxHeight: "200px", // Optional, to limit extreme expansion
+                    resize: "both", // Allow the user to resize the editor
+                    overflow: "hidden", // Hide overflow while expanding
+                    padding: "10px", // Adjust padding
+                    boxSizing: "border-box", // Include padding in width/height calculations
+                    fontSize: "inherit", // Match table font size
+                }}
             />
         );
     };
