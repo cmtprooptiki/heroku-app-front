@@ -196,6 +196,7 @@ const IndicatorsList = () => {
             // Convert sign_date to Date object for each item in ergaData
             const parDataWithDates = indData.map(item => ({
                 ...item,
+                percentage: calculateFilledPercentage(item), // Add percentage field
             }));
 
 
@@ -286,6 +287,7 @@ const IndicatorsList = () => {
           
             const parDataWithDates = indData.map(item => ({
                 ...item,
+                percentage: calculateFilledPercentage(item), // Add percentage field
             }));
 
 
@@ -1058,7 +1060,7 @@ const percentageTemplate = (rowData) => {
 <DataTable value={indicators}  editMode="cell" ref = {dt} onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}} paginator stripedRows
  rows={25} scrollable scrollHeight="600px" loading={loading} dataKey="id" 
             filters={filters} 
-            globalFilterFields={['id', 'indicator_name',  'q4all_Ind_number',
+            globalFilterFields={['id', 'percentage', 'indicator_name',  'q4all_Ind_number',
                  'status', 'indicator_cluster',      'ind_Merge',   'catergory_of_Indicator', 'feedback_from_ODIPY', 
                   'feedback_from_EOPYY', 'feedback_from_IDIKA', 'dimension',  
                   'observations_from_meetings'  ,'shortlist_indicators' ,'decision_and_next_steps','forPilot','publicationsoptions',
