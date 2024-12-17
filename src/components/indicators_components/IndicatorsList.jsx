@@ -1090,7 +1090,7 @@ const percentageTemplate = (rowData) => {
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
-                style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} frozen
+                style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage' frozen
             ></Column>
             <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="q4all_Ind_number" header={customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number")}  filter filterField='q4all_Ind_number' filterElement={(option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} style={{ minWidth: '21rem' }}></Column>
