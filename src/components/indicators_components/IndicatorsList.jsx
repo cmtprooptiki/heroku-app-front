@@ -43,6 +43,7 @@ import {
 import { headers } from './headersConfig';  // Import the header configuration
 import { initFiltersConfig } from './filtersConfig';
 import FilterIndicators from './FilterIndicators';
+import "./datatable-custom.css"; // Your custom styles
 
 
 const IndicatorsList = () => {
@@ -1018,18 +1019,20 @@ const percentageTemplate = (rowData) => {
     
 
     return(
-        <div className="card" >
-        <h1 className='title'>Indicators Table</h1>
+        <div className="datatable-container">
+
+        <div >
+        <h1 className='title' style={{font:'Poppins',fontSize:'22px',fontWeight:'600',lineHeight:'33px',color:'rgba(0, 0, 0, 1)'}}>Indicators Table</h1>
         <div className='d-flex align-items-center gap-4'>
         
         {user && user.role ==="admin" && (
-        <Link to={"/indicators/add"} ><Button label="New Indicator row" className='button is-primary mb-2 rounded' icon="pi pi-plus-circle"/></Link>
-        )}
+        <Link to={"/indicators/add"} ><Button label="New Indicator row" className='p-button2 is-primary mb-2 rounded' icon="pi pi-plus-circle"/></Link>
+    )}
 
         {user && user.role === "admin" && (
                 <Button
                     label="New Empty Row"
-                    className="button is-primary mb-2 rounded"
+                    className="p-button2 is-primary mb-2 rounded"
                     icon="pi pi-plus-circle"
                     style = {{marginLeft: "50px"}}
                     onClick={addEmptyRow} // Trigger the addEmptyRow function
@@ -1040,8 +1043,8 @@ const percentageTemplate = (rowData) => {
       
             
             <Button
-                className='button is-primary mb-2 rounded' 
-                label="Delete Selected" 
+            className='p-button3 is-primary mb-2 rounded' 
+            label="Delete Selected" 
                 icon="pi pi-trash" 
                 severity="danger"
                 style = {{marginLeft: "50px"}} 
@@ -1173,10 +1176,11 @@ const percentageTemplate = (rowData) => {
     {/* Dialog for editing Paradotea */}
     
             <div>
-                <h3>{RowsAffected} rows were found based on search criteria</h3>
+            <h3 style={{fontFamily:'Poppins',fontSize:'14px',lineHeight:'21px',fontWeight:'500',color:'rgba(181, 183, 192, 1)'}}>Showing {RowsAffected} rows were found based on search criteria</h3>
             </div>
         
-       
+     </div>
+
     </div>
     )
 }

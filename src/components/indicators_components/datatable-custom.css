@@ -1,0 +1,174 @@
+/* Custom table container */
+.datatable-container {
+    padding: 20px;
+    background-color:rgba(255, 255, 255, 1);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header customization */
+  .p-datatable-header {
+    font-size: 1.5rem;
+    font-family: "Averta-Semibold", sans-serif;
+    color: #1400b9;
+    border-bottom: 2px solid #dddddd!important;
+    padding: 10px;
+  }
+  
+  /* Row customization */
+  .p-datatable .p-datatable-tbody > tr {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .p-datatable .p-datatable-tbody > tr:hover {
+    background-color: #f1f7ff;
+  }
+  
+  /* Action buttons */
+  .p-button-rounded {
+    font-size: 0.9rem;
+  }
+  
+  .p-button-success {
+    background-color: #28a745;
+    border: none;
+  }
+  
+  .p-button-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+  
+  .p-datatable .p-datatable-header {
+    background: #ffffff;
+    color: #495057;
+    border: 1px solid #ffffff;
+    border-width: 1px 0 1px 0;
+    padding: 1rem 1rem;
+    font-weight: 600;
+}
+
+
+  .p-datatable .p-datatable-thead > tr > th {
+    font-family: Poppins;
+    text-align: left;
+    padding: 1rem 1rem;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+    font-size:14px;
+    color: rgba(181, 183, 192, 1);
+    background: #ffff;
+    transition: box-shadow 0.2s;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+    font-family: Poppins;
+    text-align: left;
+    border: 1px solid #e9ecef;
+    font-size:14px;
+    line-height: 21px;
+    font-weight: 500;
+
+    color:rgba(41, 45, 50, 1);
+    border-width: 0 0 1px 0;
+    padding: 1rem 1rem;
+}
+
+.p-datatable-header {
+    font-size: 1.5rem;
+    font-family: "Averta-Semibold", sans-serif;
+    color: #1400b9;
+    border-bottom: unset!important;
+    padding: 10px;
+}
+
+.p-datatable .p-paginator-bottom {
+    border-width: 0 0 0 0; 
+    border-radius: 0;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    font-family: Poppins;
+    font-size:12px;
+    line-height: 12px;
+    font-weight: 500;
+    background: rgba(18, 0, 147, 1);
+    border-color: rgba(18, 0, 147, 1);
+    color: #ffffff;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+    font-family: Poppins;
+    font-size:12px;
+    line-height: 12px;
+    font-weight: 500;
+    background-color: #6662621a;
+    border: 0 none;
+    color: rgba(64, 75, 82, 1);
+    min-width: 2.357rem;
+    height: 2.357rem;
+    margin: 0.143rem;
+    transition: box-shadow 0.2s;
+    border-radius: 3px;
+}
+
+.p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+    background-color: #6662621a;
+    border: 0 none;
+    color: rgba(64, 75, 82, 1);
+    min-width: 2.357rem;
+    height: 2.357rem;
+    margin: 0.143rem;
+    transition: box-shadow 0.2s;
+    border-radius: 3px;
+}
+.p-inputtext {
+    color: rgba(181, 183, 192, 1);
+    background: rgba(249, 251, 255, 1);
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+.p-button{
+    color: rgba(181, 183, 192, 1);
+    background: rgba(249, 251, 255, 1);
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+.p-button2 {
+    color: rgba(22, 192, 152, 1);
+    background: #fff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+.p-button3 {
+    color: rgb(255, 255, 255);
+    background: #a50000;
+    border: 1px solid #a50000;
+    border-radius: 10px;
+}
+
+.p-inputtext {
+    font-family: Poppins;
+    font-size:14px;
+    line-height: 21px;
+    color: rgb(0 0 0);
+    font-size: 14px;
+    background: rgba(249, 251, 255, 1);
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+.p-dropdown-item{
+    font-family: Poppins;
+    font-size:14px;
+    line-height: 21px;
+    color: rgb(0 0 0);
+    font-size: 14px;
+}

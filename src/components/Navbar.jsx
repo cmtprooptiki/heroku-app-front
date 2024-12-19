@@ -1,236 +1,148 @@
-import React,{ useState, useRef }from "react";
-import {NavLink} from "react-router-dom";
-import { useDispatch,useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import {LogOut, LoginUser,reset} from "../features/authSlice"
-import '../navbar-custom.css';
-import {IoLogOut} from "react-icons/io5";
+import React, { useState } from "react";
+import { Avatar } from "primereact/avatar";
+import { Button } from "primereact/button";
+import { Menu } from "@mui/material";
+import { MenuItem } from "@mui/material";
 
-
-
-import {ReactComponent as UsersIcon} from '../icons/userlist2.svg';
-import {ReactComponent as SettingsIcon } from '../icons/settings.svg';
-
-
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
+import { useSelector, useDispatch } from "react-redux";
+import { LogOut, reset } from "../features/authSlice";
+import { useNavigate } from "react-router-dom";
+import cashflow_logo from "../Images/whologo.png";
+import searchIconSvg from "../icons/search.svg";
+import settingsIconSvg from "../icons/settings.svg";
+import notificationsIconSvg from "../icons/notifications.svg";
+import usersIconSvg from "../icons/users.svg";
 import { Link } from 'react-router-dom';
-import { FaUser } from "react-icons/fa";
-import { FaUsersGear } from "react-icons/fa6";
-import { Sidebar } from 'primereact/sidebar';
-import { Button } from 'primereact/button';
-import { Avatar } from 'primereact/avatar';
 import { Ripple } from 'primereact/ripple';
-import { StyleClass } from 'primereact/styleclass';
-import cashflow_logo from "../Images/who2.png"
 
-import { Toolbar } from "primereact/toolbar";
+import "../navbar-custom.css";
 
-import {useClickOutside} from "primereact/hooks";
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
 
-// import apiBaseUrl from '../../apiConfig';
-import apiBaseUrl from "../apiConfig";
+  const logout = () => {
+    dispatch(LogOut());
+    dispatch(reset());
+    navigate("/");
+  };
 
-const Navbar =()=>{
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const {user} = useSelector((state)=>state.auth)
-    const logout = ()=>{
-        dispatch(LogOut());
-        dispatch(reset());
-        navigate("/");
-    };
-    const btnRef1 = useRef(null);
-    const btnRef2 = useRef(null);
-    const btnRef3 = useRef(null);
-    const btnRef4 = useRef(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-  
-    const handleMenu = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-  
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
-    const [visible, setVisible] = useState(false);
-    const [ShowSearch,setShowSearch] = useState(false);
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-    const overlayRef = useRef(null);
+  return (
+    <div
+      className="navbar-container"
+      style={{
+        height: "102px",
+        top: "31px",
+        left: "39px",
+        gap: "0px",
+        borderRadius: "16px",
+        opacity: "0px",
+        backgroundColor: "#FFFFFF",
+        padding: "10px 20px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)"
+      }}
+    >
+      {/* Left Section: Logo and Title */}
+      <div style={{ display: "flex", alignItems: "center" ,gap: "30px"}}>
+         <h2  style={{
+            margin: 0,
+            color: "#1400B9",
+            fontFamily: "Averta-Semibold",
+            fontSize: "28.16px",
+            lineHeight: "32.99px",
+            letterSpacing: "-0.02em",
+            textAlign: "left",
+            textUnderlinePosition: "from-font",
+            textDecorationSkipInk: "none"
+          }}>Dashboard</h2>
+        <img src={cashflow_logo} alt="Logo" style={{ width:"180.39px", top:"45px", left:"255px",height: "73.97px", marginRight: "10px" }} />
+        
+      </div>
 
-    useClickOutside(overlayRef, () => {
-        setVisible(false);
-    });
-    //ref={overlayRef}
+      {/* Right Section: Icons and Profile */}
+      <div  style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "20px",
+          flex: "1 1 auto",
+          justifyContent: "flex-end",
+          flexWrap: "wrap"
+        }} >
+        {/* Notification Icon */}
+        <img src={notificationsIconSvg} alt="Notifications" style={{ width: "32px", cursor: "pointer" }} />
 
+        {/* Settings Icon */}
+        <img src={settingsIconSvg} alt="Settings" style={{ width: "32px", cursor: "pointer" }} />
 
-    const startContent = (
-        <React.Fragment>
-     
-            <div >
-                <Avatar icon="p-ripple pi pi-plus" style={{borderRadius:"20px"}} onClick={() => setVisible(true)} ><Ripple/></Avatar>
-                <Sidebar
-                visible={visible}
-                onHide={() => setVisible(false)}
-                
-                content={({ closeIconRef, hide }) => (
-                    <div className="min-h-screen flex relative lg:static surface-ground">
-                        <div id="app-sidebar-2" className="surface-section h-screen block flex-shrink-0 absolute lg:static left-0 top-0 z-1 border-right-1 surface-border select-none" style={{ width: '280px',backgroundImage: 'linear-gradient(to right, #1400B9, #00B4D8)' }}>
-                            <div className="flex flex-column h-full">
-                                <div className="flex align-items-center justify-content-between px-4 pt-3 flex-shrink-0">
-                                    <img 
-                                      src={cashflow_logo}
-                                      width="180" 
-                                      alt="logo"
-                                    />
-                                    <span >
-                                        <Button type="button" ref={closeIconRef} onClick={(e) => {hide(e)}} icon="pi pi-times" rounded outlined className="h-2rem w-2rem"></Button>
-                                    </span>
-                                </div>
-                                <div className="overflow-y-auto " >
-                              
+        {/* Search users */}
 
+        <Link to="/users" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                <img src={usersIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
 
-
-
-
-
-                             
-
-
-                                    <ul className="list-none p-3 m-0">
-                                        <li>
-                                            <StyleClass nodeRef={btnRef4} selector="@next" enterClassName="hidden" enterActiveClassName="slidedown" leaveToClassName="hidden" leaveActiveClassName="slideup">
-                                                <div ref={btnRef4} className="p-ripple p-3 flex align-items-center justify-content-between text-600 cursor-pointer">
-                                                <div className="mr-2 text-gray-50" >
-                                                            <SettingsIcon style={{ width: '3.5em', height: '3.5em' }}  className="" /> 
-                                                        </div> 
-                                                    <span className="font-medium">Γενική Διαχείριση</span>
-                                                    <i className="pi pi-chevron-down text-gray-50"></i>
-                                                    <Ripple />
-                                                </div>
-                                            </StyleClass>
-                                            <ul className="list-none p-0 m-0 overflow-hidden">
-
-                                            <li><Link to="/users" style={{ color: 'inherit', textDecoration: 'none' }}>
-                                                    <div className="p-ripple flex align-items-center cursor-pointer p-3 border-round text-700  transition-duration-150 transition-colors w-full">
-                                                        {/* <i className="pi pi-users mr-2 text-gray-50"></i> */}
-                                                        <div className="mr-2 text-gray-50" >
-                                                            <UsersIcon style={{ width: '3.5em', height: '3.5em' }}  className="" /> 
-                                                        </div>
-                                                        <span className="font-medium">Διαχείριση Χρηστών</span>
-                                                        <Ripple />
-                                                    </div>
-                                                    </Link>
-                                                </li>
-                                           
-
-
-                                          
-                                            </ul>
-                                        </li>
-                                    </ul>
-
-
-
-                                </div>
-                                <div className="mt-auto">
-                                    <hr className="mb-3 mx-3 border-top-1 border-none surface-border" />
-                                    <a v-ripple className="m-3 flex align-items-center cursor-pointer p-3 gap-2 border-round text-700  transition-duration-150 transition-colors p-ripple">
-                                        {/* <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png" shape="circle" />
-                                        <span className="font-bold">Amy Elsner</span> */}
-                                        {/* {console.log("here is the profile pci",user?.profileImage)} */}
-                                         <Avatar
-                                                    image={`${apiBaseUrl}/uploads/${user?.profileImage.split('/').pop()}`}
-                                                    shape="circle"
-                                                />
-                                                <span className="font-bold">{user?.name || "Amy Elsner"}</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
-            ></Sidebar>
-            </div>
-        </React.Fragment>
-    );
-    const op = useRef(null);
-  
-    const navigation = useNavigate();
- 
-
-    const centerContent = (
-        <div className="flex flex-wrap align-items-center gap-3">
-            <Link to="/dashboard" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
-                <i className="pi pi-home text-2xl"></i>
                 <Ripple />
             </Link>
-            <Link to="/users" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
-                <i className="pi pi-user text-2xl"></i>
-                <Ripple />
-            </Link>
-       
+
+        {/* Search Icon */}
+        <img src={searchIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+
+    
+        {/* User Profile Avatar */}
+        <div style={{display: 'flex',
+    alignContent: 'center',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between' }}>
+          <Avatar
+            image={
+              user?.profileImage
+                ? `${user?.profileImage}`
+                : "https://via.placeholder.com/150"
+            }
+            shape="circle"
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleMenu}
+            style={{ cursor: "pointer" }}
+          />
+           <span style={{ fontFamily: "Averta-Semibold", fontSize: "16px", color: "#000" }}>
+            {user && user.name}
+          </span>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            keepMounted
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem>
+              {user && user.name} ({user && user.role})
+            </MenuItem>
+            <MenuItem onClick={logout}>Logout</MenuItem>
+          </Menu>
         </div>
-    );
+        
+      </div>
+    </div>
+  );
+};
 
-    const endContent = (
-        <React.Fragment>
-            {/* <div className="flex align-items-center gap-2">
-                <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png" shape="circle" />
-                <span className="font-bold text-bluegray-50">Amy Elsner</span>
-            </div> */}
-            
-            <div>
-                <Avatar
-                    image={`${apiBaseUrl}/uploads/${user?.profileImage.split('/').pop()}`}
-                    shape="circle"
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="menu-appbar"
-                    aria-haspopup="true"
-                    onClick={handleMenu}
-                    color="inherit"
-                >
-                {/* <AccountCircle /> */}
-                </Avatar>
-                <Menu
-                    id="menu-appbar"
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                    }}
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
-                >
-
-                    <MenuItem><FaUser/><span style={{paddingLeft:"10px"}}>{user && user.name} ({user && user.role})</span></MenuItem>
-                    {user && user.role ==="admin" && ( 
-                    <MenuItem  component={Link} to="/users" ><FaUsersGear/><span style={{paddingLeft:"10px"}}> Διαχείριση Χρηστών</span></MenuItem>
-                    )}
-
-                    <MenuItem onClick={logout}><IoLogOut/><span style={{paddingLeft:"10px"}}> Αποσύνδεση</span></MenuItem>
-
-                
-                </Menu>
-            </div>
-        </React.Fragment>
-    );
-
-    return(
-      
-        <div className="card" >
-            <Toolbar start={startContent} center={centerContent} end={endContent} className="bg-gray-900 shadow-2" 
-            style={{ borderRadius: '3rem', backgroundImage: 'linear-gradient(to right, #1400B9, #00B4D8)' }} />
-        </div>
-    )
-}
-export default Navbar
+export default Navbar;

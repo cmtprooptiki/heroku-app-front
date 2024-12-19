@@ -7,8 +7,14 @@ const Welcome = () => {
   
   return (
     <div >
-        <h1 className='title'>Dashboard</h1>
-        <h2 className='subtitle'>Welcome <strong>{user && user.name}</strong></h2>
+           <h2  style={{
+            margin: 0,
+            color: "rgba(0, 0, 0, 1)",
+            fontFamily: "Poppins",
+            fontWeight:"500",
+            fontSize: "24px",
+            lineHeight: "36px",
+          }}>Hello {user && user.name}👋🏼</h2>
         <br></br>
     </div>
   )
