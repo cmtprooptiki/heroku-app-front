@@ -31,7 +31,7 @@ import {useClickOutside} from "primereact/hooks";
 // import apiBaseUrl from '../../apiConfig';
 import apiBaseUrl from "../apiConfig";
 
-const Navbar =()=>{
+const NavbarOld =()=>{
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const {user} = useSelector((state)=>state.auth)
@@ -233,4 +233,4 @@ const Navbar =()=>{
         </div>
     )
 }
-export default Navbar
+export default NavbarOld
