@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/NavbarOld';
+import Navbar from '../components/Navbar';
 import { SidebarNew } from '../components/SidebarNew';
 import HeadlessDemo from '../components/HeadlessDemo';
 const Layout = ({children}) => {
