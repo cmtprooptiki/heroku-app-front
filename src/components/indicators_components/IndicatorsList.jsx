@@ -44,6 +44,9 @@ import { headers } from './headersConfig';  // Import the header configuration
 import { initFiltersConfig } from './filtersConfig';
 import FilterIndicators from './FilterIndicators';
 import "./datatable-custom.css"; // Your custom styles
+import TotalIndicators from '../../icons/Total indicators.svg'
+import indicatortwo from '../../icons/Group 301.svg'
+import indicatorthree from '../../icons/Group 302.svg'
 
 
 const IndicatorsList = () => {
@@ -90,6 +93,7 @@ const IndicatorsList = () => {
     console.log("first indicator,",selectedIndicator)
 
     const [statusValue, setStatusValue] = useState([])
+    const [filledRows,setfilledRows]=useState(0)
 
   
     const {user} = useSelector((state)=>state.auth)
@@ -134,6 +138,11 @@ const IndicatorsList = () => {
         setRowsAffected(indicators.length)
         initFilters();
     },[user]);
+
+    useEffect(()=>{
+        setfilledRows(indicators.filter(checkRow))
+
+    },[filteredIndicators])
     
     //get data for specific userid
     const getIndicatorsByUser= async() =>{
@@ -210,6 +219,15 @@ const IndicatorsList = () => {
         }
     }
 
+    const checkRow = (row) => {
+        // Filter out 'user_Id' from the columns and check if all other values are not null
+        return Object.keys(row).every((key) => {
+          if (key !== 'user_Id') {
+            return row[key] !== null && row[key] !== '';
+          }
+          return true; // Allow 'user_Id' to be null or not
+        });
+      };
 
     //get data for admin
     const getIndicators= async() =>{
@@ -291,6 +309,7 @@ const IndicatorsList = () => {
                 percentage: calculateFilledPercentage(item), // Add percentage field
             }));
 
+            setfilledRows(parDataWithDates.filter(checkRow))
 
             setIndicators(parDataWithDates);
             setFilteredIndicators(parDataWithDates)
@@ -945,12 +964,26 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         }
     };
     
-
     const calculateFilledPercentage = (rowData) => {
-        const totalFields = Object.keys(rowData).length; // Total number of fields in the row
-        const filledFields = Object.values(rowData).filter(value => value !== null && value !== '').length; // Count of filled fields
+        console.log("data", rowData);
+        
+        // Filter out 'user_Id' when calculating total fields and filled fields
+        const totalFields = Object.keys(rowData).filter(key => key !== 'user_Id').length; // Total number of fields excluding 'user_Id'
+        
+        const filledFields = Object.values(rowData)
+            .filter((value, index) => Object.keys(rowData)[index] !== 'user_Id' && value !== null && value !== '')
+            .length; // Count of filled fields excluding 'user_Id'
+    
         return ((filledFields / totalFields) * 100).toFixed(2); // Calculate percentage
     };
+
+
+
+    // const calculateFilledPercentage = (rowData) => {
+    //     const totalFields = Object.keys(rowData).length; // Total number of fields in the row
+    //     const filledFields = Object.values(rowData).filter(value => value !== null && value !== '').length; // Count of filled fields
+    //     return ((filledFields / totalFields) * 100).toFixed(2); // Calculate percentage
+    // };
 
 // Template for the percentage column
 const percentageTemplate = (rowData) => {
@@ -1019,6 +1052,54 @@ const percentageTemplate = (rowData) => {
     
 
     return(
+        <div>
+        <Card className="kpi-section-card">
+            <div className="kpi-section">
+                {/* Total Customers */}
+                <div className="kpi-item">
+                    <div className="kpi-icon">
+                        {/* <i className="pi pi-users"></i> */}
+                        <img src={TotalIndicators} alt="Search" style={{ width: "64px", cursor: "pointer" }} />                   
+
+                    </div>
+                    <div className="kpi-details">
+                        <span className="kpi-label">Total Indicators</span>
+                        <h2 className="kpi-value">{indicators.length} </h2>
+                       
+                    </div>
+                </div>
+                {/* Separator Line */}
+                <div className="kpi-separator"></div>
+                {/* Members */}
+                <div className="kpi-item">
+                    <div className="kpi-icon">
+                        {/* <i className="pi pi-user"></i> */}
+                        <img src={indicatortwo} alt="Search" style={{ width: "32px", cursor: "pointer" }} />                   
+
+                    </div>
+                    <div className="kpi-details">
+                        <span className="kpi-label">Completed Indicators</span>
+                        <h2 className="kpi-value">{filledRows.length}</h2>
+                     
+                    </div>
+                </div>
+                {/* Separator Line */}
+                <div className="kpi-separator"></div>
+                {/* Active Now */}
+                <div className="kpi-item">
+                    <div className="kpi-icon">
+                        {/* <i className="pi pi-desktop"></i> */}
+                        <img src={indicatorthree} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+                    </div>
+                    <div className="kpi-details">
+                        <span className="kpi-label">Not Completed</span>
+                        <h2 className="kpi-value">{indicators.length - filledRows.length }</h2>
+
+                    </div>
+                </div>
+            </div>
+        </Card>
+
         <div className="datatable-container">
 
         <div >
@@ -1181,6 +1262,7 @@ const percentageTemplate = (rowData) => {
         
      </div>
 
+    </div>
     </div>
     )
 }

@@ -12,6 +12,7 @@ import searchIconSvg from "../icons/search.svg";
 import settingsIconSvg from "../icons/settings.svg";
 import notificationsIconSvg from "../icons/notifications.svg";
 import usersIconSvg from "../icons/users.svg";
+import homeSvg from "../icons/home.svg";
 import { Link } from 'react-router-dom';
 import { Ripple } from 'primereact/ripple';
 
@@ -82,6 +83,12 @@ const Navbar = () => {
           justifyContent: "flex-end",
           flexWrap: "wrap"
         }} >
+
+        <Link to="/dashboard" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+        <img src={homeSvg} alt="home" style={{ width: "32px", cursor: "pointer" }} />
+                <Ripple />
+            </Link>
+  
         {/* Notification Icon */}
         <img src={notificationsIconSvg} alt="Notifications" style={{ width: "32px", cursor: "pointer" }} />
 
