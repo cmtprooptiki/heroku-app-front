@@ -1,5 +1,7 @@
 /* Custom table container */
 .datatable-container {
+  margin-top: 20px;
+
     padding: 20px;
     background-color:rgba(255, 255, 255, 1);
     border-radius: 12px;
