@@ -777,6 +777,8 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                     [field]: newValue,
                 });
      
+                setfilledRows(indicators.filter(checkRow))
+
                 if (response.status === 200) {
                     console.log('Update successful');
                 } else {
@@ -1088,7 +1090,7 @@ const percentageTemplate = (rowData) => {
                 <div className="kpi-separator"></div>
                 {/* Active Now */}
                 <div className="kpi-item">
-                    <div className="kpi-icon">
+                    <div className="kpi-icon" style={{backgroundColor:"pink"}}>
                         {/* <i className="pi pi-desktop"></i> */}
                         <img src={indicatorthree} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
                     </div>
