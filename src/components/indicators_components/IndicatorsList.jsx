@@ -47,6 +47,7 @@ import "./datatable-custom.css"; // Your custom styles
 import TotalIndicators from '../../icons/Total indicators.svg'
 import indicatortwo from '../../icons/Group 301.svg'
 import indicatorthree from '../../icons/Group 302.svg'
+import { Card } from "primereact/card";
 
 
 const IndicatorsList = () => {
