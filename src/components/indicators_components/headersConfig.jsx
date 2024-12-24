@@ -256,6 +256,101 @@ MAYBE - the Potential Indicator can be useful IF a certain set of conditions (e.
         label: "Adaptation Needs",
         description: "Brief description of the needs to adapt the suggested indicator to the Greek Context and Q4ALL/healthIQ aims."
     },
+
+
+//hideen column added
+
+    name_of_selected_indicator_en: {
+        label: "Name of Selected Indicator (EN)",
+        description: "Should be short yet unique; if measurement has diferent frequencies add (x) in from of the name: (A) for Annual; (Q) Quarterly; (M) monthly; (D) Daily; (xMin) for every x minutes; (R ) Realtime"
+    },
+    frequency_of_measurement_en: {
+        label: "Frequency of Measurement (EN)",
+        description: "Annual, Quarterly, Monthly, Daily, Every x mins; Realtime"
+    },
+    description_en: {
+        label: "Description (EN)",
+        description: "Can be created from formula…"
+    },
+    unit_of_measurement_en: {
+        label: "Unit of Measurement (EN)",
+        description: "The unit used to measure the indicator (English)."
+    },
+    calculation_formula_en: {
+        label: "Calculation Formula (EN)",
+        description: "The formula used to calculate the indicator (English)."
+    },
+    numerator_en: {
+        label: "Numerator (EN)",
+        description: "The numerator used in the calculation of the indicator (English)."
+    },
+    denominator_en: {
+        label: "Denominator (EN)",
+        description: "The denominator used in the calculation of the indicator (English)."
+    },
+    comments_en: {
+        label: "Comments (EN)",
+        description: "Comments about the indicator VISIBLE to the general user of Q4ALL"
+    },
+    observation_en: {
+        label: "Observation (EN)",
+        description: "General observations about the indicator NOT visible to the general user of Q4ALL"
+    },
+    extrafield_empty: {
+        label: "ExtraField-EMPTY",
+        description: "Placeholder for additional data."
+    },
+    name_of_selected_indicator_gr: {
+        label: "Name of Selected Indicator (GR)",
+        description: "Should be short yet unique IN GREEK; if measurement has diferent frequencies add BUT KEEP ENGLISH LETTERS  (x) in from of the name: (A) for Annual; (Q) Quarterly; (M) monthly; (D) Daily; (xMin) for every x minutes; (R ) Realtime"
+    },
+    frequency_of_measurement_gr: {
+        label: "Frequency of Measurement (GR)",
+        description: "Annual, Quarterly, Monthly, Daily, Every x mins; Realtime"
+    },
+    description_gr: {
+        label: "Description (GR)",
+        description: "Can be created from formula… "
+    },
+    unit_of_measurement_gr: {
+        label: "Unit of Measurement (GR)",
+        description: "The unit used to measure the indicator (Greek)."
+    },
+    calculation_formula_gr: {
+        label: "Calculation Formula (GR)",
+        description: "The formula used to calculate the indicator (Greek)."
+    },
+    numerator_gr: {
+        label: "Numerator (GR)",
+        description: "The numerator used in the calculation of the indicator (Greek)."
+    },
+    denominator_gr: {
+        label: "Denominator (GR)",
+        description: "The denominator used in the calculation of the indicator (Greek)."
+    },
+    comments_gr: {
+        label: "Comments (GR)",
+        description: "Comments about the indicator VISIBLE to the general user of Q4ALL "
+    },
+    observation_gr: {
+        label: "Observation (GR)",
+        description: "General observations about the indicator NOT visible to the general user of Q4ALL"
+    },
+    extrafield_empty_gr: {
+        label: "ExtraField-EMPTY (GR)",
+        description: "Placeholder for additional data in Greek."
+    },
+    it_system_source_process: {
+        label: "IT System/Source/Process",
+        description: "Details of the IT system, source, or process used."
+    },
+    aim_of_the_indicator: {
+        label: "AIM of the INDICATOR",
+        description: "Brief description of WHY we are measuring this indicator, potential impacts, etc"
+    },
+//hidden
+
+
     piloting: {
         label: "Piloting",
         description: `YES - This "SELECTED INDICATOR" as is to be included in the Pilot;

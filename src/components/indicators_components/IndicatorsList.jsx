@@ -949,6 +949,32 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                 sources_and_Further_Reading: '',
                 selected_indicator: '',
                 adaptation_Needs: '',
+
+                name_of_selected_indicator_en: '',
+                frequency_of_measurement_en: '',
+                description_en: '',
+                unit_of_measurement_en: '',
+                calculation_formula_en: '',
+                numerator_en: '',
+                denominator_en: '',
+                comments_en: '',
+                observation_en: '',
+                extrafield_empty: '',
+                name_of_selected_indicator_gr: '',
+                frequency_of_measurement_gr: '',
+                description_gr: '',
+                unit_of_measurement_gr: '',
+                calculation_formula_gr: '',
+                numerator_gr: '',
+                denominator_gr: '',
+                comments_gr: '',
+                observation_gr: '',
+                extrafield_empty_gr: '',
+                it_system_source_process: '',
+                aim_of_the_indicator: '',
+
+
+
                 piloting: '',
                 opinion_from_ODIPY_Other_experts: '',
                 pilot_outcome: '',
@@ -1161,7 +1187,31 @@ const percentageTemplate = (rowData) => {
                       'legal_Requirements', 'responsible_for_Monitoring', 'deadline_Reporting', 'supervisor_Body', 
                       'management_Entity', 'applicable_period', 'unit_of_Measurement', 'data_Source_Monitoring_Basis',
                        'it_System_Source', 'reference_Value_Target', 'base_Value', 'notes', 'sources_and_Further_Reading',
-                        'selected_indicator', 'adaptation_Needs', 'piloting', 'opinion_from_ODIPY_Other_experts',
+                        'selected_indicator', 'adaptation_Needs', 
+                        'name_of_selected_indicator_en', 
+    'frequency_of_measurement_en', 
+    'description_en', 
+    'unit_of_measurement_en', 
+    'calculation_formula_en', 
+    'numerator_en', 
+    'denominator_en', 
+    'comments_en', 
+    'observation_en', 
+    'extrafield_empty', 
+    'name_of_selected_indicator_gr', 
+    'frequency_of_measurement_gr', 
+    'description_gr', 
+    'unit_of_measurement_gr', 
+    'calculation_formula_gr', 
+    'numerator_gr', 
+    'denominator_gr', 
+    'comments_gr', 
+    'observation_gr', 
+    'extrafield_empty_gr', 
+    'it_system_source_process', 
+    'aim_of_the_indicator',
+                        
+                        'piloting', 'opinion_from_ODIPY_Other_experts',
                          'pilot_outcome', 'pilot_success_criteria' ]} 
             header={header} 
             emptyMessage="No Indicators found."
@@ -1248,6 +1298,163 @@ const percentageTemplate = (rowData) => {
             <Column field="sources_and_Further_Reading"     header={customHeader(headers.sources_and_Further_Reading.label, headers.sources_and_Further_Reading.description, "sources_and_Further_Reading")} filter filterPlaceholder="Search by Sources and Further Reading" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="selected_indicator"  header={customHeader(headers.selected_indicator.label, headers.selected_indicator.description, "selected_indicator")} filter filterElement={(option)=>(<FilterIndicators options={option} data={selected_indicator} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} style={{ minWidth: '12rem' }} body={generalBodyTemplate(indicators,selected_indicator_list,'selected_indicator')} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}  ></Column>  
             <Column field="adaptation_Needs"  header={customHeader(headers.adaptation_Needs.label, headers.adaptation_Needs.description, "adaptation_Needs")}  filter filterPlaceholder="Search by Adaptation Needs" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+           
+           
+            <Column field="name_of_selected_indicator_en" 
+    header={customHeader(headers.name_of_selected_indicator_en.label, headers.name_of_selected_indicator_en.description, "name_of_selected_indicator_en")} 
+    filter filterPlaceholder="Search by Name of Selected Indicator (EN)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="frequency_of_measurement_en" 
+    header={customHeader(headers.frequency_of_measurement_en.label, headers.frequency_of_measurement_en.description, "frequency_of_measurement_en")} 
+    filter filterPlaceholder="Search by Frequency of Measurement (EN)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="description_en" 
+    header={customHeader(headers.description_en.label, headers.description_en.description, "description_en")} 
+    filter filterPlaceholder="Search by Description (EN)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="unit_of_measurement_en" 
+    header={customHeader(headers.unit_of_measurement_en.label, headers.unit_of_measurement_en.description, "unit_of_measurement_en")} 
+    filter filterPlaceholder="Search by Unit of Measurement (EN)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="calculation_formula_en" 
+    header={customHeader(headers.calculation_formula_en.label, headers.calculation_formula_en.description, "calculation_formula_en")} 
+    filter filterPlaceholder="Search by Calculation Formula (EN)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="numerator_en" 
+    header={customHeader(headers.numerator_en.label, headers.numerator_en.description, "numerator_en")} 
+    filter filterPlaceholder="Search by Numerator (EN)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="denominator_en" 
+    header={customHeader(headers.denominator_en.label, headers.denominator_en.description, "denominator_en")} 
+    filter filterPlaceholder="Search by Denominator (EN)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="comments_en" 
+    header={customHeader(headers.comments_en.label, headers.comments_en.description, "comments_en")} 
+    filter filterPlaceholder="Search by Comments (EN)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="observation_en" 
+    header={customHeader(headers.observation_en.label, headers.observation_en.description, "observation_en")} 
+    filter filterPlaceholder="Search by Observation (EN)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="extrafield_empty" 
+    header={customHeader(headers.extrafield_empty.label, headers.extrafield_empty.description, "extrafield_empty")} 
+    filter filterPlaceholder="Search by ExtraField-EMPTY" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="name_of_selected_indicator_gr" 
+    header={customHeader(headers.name_of_selected_indicator_gr.label, headers.name_of_selected_indicator_gr.description, "name_of_selected_indicator_gr")} 
+    filter filterPlaceholder="Search by Name of Selected Indicator (GR)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="frequency_of_measurement_gr" 
+    header={customHeader(headers.frequency_of_measurement_gr.label, headers.frequency_of_measurement_gr.description, "frequency_of_measurement_gr")} 
+    filter filterPlaceholder="Search by Frequency of Measurement (GR)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="description_gr" 
+    header={customHeader(headers.description_gr.label, headers.description_gr.description, "description_gr")} 
+    filter filterPlaceholder="Search by Description (GR)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="unit_of_measurement_gr" 
+    header={customHeader(headers.unit_of_measurement_gr.label, headers.unit_of_measurement_gr.description, "unit_of_measurement_gr")} 
+    filter filterPlaceholder="Search by Unit of Measurement (GR)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="calculation_formula_gr" 
+    header={customHeader(headers.calculation_formula_gr.label, headers.calculation_formula_gr.description, "calculation_formula_gr")} 
+    filter filterPlaceholder="Search by Calculation Formula (GR)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="numerator_gr" 
+    header={customHeader(headers.numerator_gr.label, headers.numerator_gr.description, "numerator_gr")} 
+    filter filterPlaceholder="Search by Numerator (GR)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="denominator_gr" 
+    header={customHeader(headers.denominator_gr.label, headers.denominator_gr.description, "denominator_gr")} 
+    filter filterPlaceholder="Search by Denominator (GR)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="comments_gr" 
+    header={customHeader(headers.comments_gr.label, headers.comments_gr.description, "comments_gr")} 
+    filter filterPlaceholder="Search by Comments (GR)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="observation_gr" 
+    header={customHeader(headers.observation_gr.label, headers.observation_gr.description, "observation_gr")} 
+    filter filterPlaceholder="Search by Observation (GR)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="extrafield_empty_gr" 
+    header={customHeader(headers.extrafield_empty_gr.label, headers.extrafield_empty_gr.description, "extrafield_empty_gr")} 
+    filter filterPlaceholder="Search by ExtraField-EMPTY (GR)" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="it_system_source_process" 
+    header={customHeader(headers.it_system_source_process.label, headers.it_system_source_process.description, "it_system_source_process")} 
+    filter filterPlaceholder="Search by IT System/Source/Process" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+<Column field="aim_of_the_indicator" 
+    header={customHeader(headers.aim_of_the_indicator.label, headers.aim_of_the_indicator.description, "aim_of_the_indicator")} 
+    filter filterPlaceholder="Search by AIM of the INDICATOR" 
+    style={{ minWidth: '12rem' }} 
+    editor={(options) => cellEditor(options)} 
+    onCellEditComplete={onCellEditComplete}></Column>
+
+
             <Column field="piloting" header={customHeader(headers.piloting.label, headers.piloting.description, "piloting")} filter filterField='piloting' filterElement={(option)=>(<FilterIndicators options={option} data={piloting} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} style={{ minWidth: '12rem' }} body={generalBodyTemplate(indicators,piloting_list,'piloting')} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} ></Column>
             <Column field="opinion_from_ODIPY_Other_experts" header={customHeader(headers.opinion_from_ODIPY_Other_experts.label, headers.opinion_from_ODIPY_Other_experts.description, "opinion_from_ODIPY_Other_experts")} filter filterPlaceholder="Search by Expert Opinion" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="pilot_outcome" header={customHeader(headers.pilot_outcome.label, headers.pilot_outcome.description, "pilot_outcome")} filter filterField='pilot_outcome' filterElement={(option)=>(<FilterIndicators options={option} data={pilot_outcome} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} style={{ minWidth: '12rem' }} body={generalBodyTemplate(indicators,pilot_outcome_list,"pilot_outcome")} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
