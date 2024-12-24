@@ -43,10 +43,10 @@ const Login = () => {
                             <InputText type="text" className="w-full mb-3" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="password" style={{ color: 'white',fontSize:'16px' }}>Κωδικός Πρόσβασης</label>
-                            <InputText type="password" className="w-full mb-3" value={password} onChange={e => setPassword(e.target.value)} placeholder="Κωδικός Πρόσβασης" />
+                            <label htmlFor="password" style={{ color: 'white',fontSize:'16px' }}>Password</label>
+                            <InputText type="password" className="w-full mb-3" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
                         </div>
-                        <Button type="submit" label={isLoading ? "Loading..." : "Είσοδος"} icon="pi pi-sign-in" className="w-full" />
+                        <Button type="submit" label={isLoading ? "Loading..." : "Login"} icon="pi pi-sign-in" className="w-full" />
                        
                     </form>
              

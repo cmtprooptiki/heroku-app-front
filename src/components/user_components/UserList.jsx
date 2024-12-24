@@ -148,9 +148,9 @@ const UserList = () => {
 
 
     <div className="card" >
-     <h1 className='title'>Διαχείριση Χρηστών</h1>
+     <h1 className='title'>Users Settings</h1>
     {user && user.role ==="admin" && (
-    <Link to={"/users/add"} className='button is-primary mb-2'><Button label="Προσθήκη Νέου Χρήστη" icon="pi pi-plus-circle"/></Link>
+    <Link to={"/users/add"} className='button is-primary mb-2'><Button label="Add New User" icon="pi pi-plus-circle"/></Link>
     )}
 
 <DataTable value={users} paginator stripedRows
@@ -162,13 +162,13 @@ const UserList = () => {
             ]} 
         header={header} 
         emptyMessage="No user found.">
-            <Column field="name" header="Ονομα Χρηστη"  filter filterPlaceholder="Search by name"  style={{ minWidth: '12rem' }}></Column>
-            <Column field="profileImage" header="Εικόνα Προφίλ"  body={imageBodyTemplate}></Column>
-            <Column field="email" header="email"  filter filterPlaceholder="Search by email"  style={{ minWidth: '12rem' }}></Column>
-            <Column header="Ρόλος" filterField="role" showFilterMatchModes={false} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '14rem' }}
+            <Column field="name" header="Name"  filter filterPlaceholder="Search by name"  style={{ minWidth: '12rem' }}></Column>
+            <Column field="profileImage" header="Profile Image"  body={imageBodyTemplate}></Column>
+            <Column field="email" header="Email"  filter filterPlaceholder="Search by email"  style={{ minWidth: '12rem' }}></Column>
+            <Column header="Role" filterField="role" showFilterMatchModes={false} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '14rem' }}
                     body={rolesBodyTemplate} filter filterElement={rolesFilterTemplate} />
            
-            <Column header="Ενέργειες" field="id" body={actionsBodyTemplate} alignFrozen="right" frozen/>
+            <Column header="Actions" field="id" body={actionsBodyTemplate} alignFrozen="right" frozen/>
 
 </DataTable>
 

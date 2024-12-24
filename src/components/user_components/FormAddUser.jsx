@@ -132,58 +132,58 @@ const FormAddUser = () => {
 
     return (
         <div>
-            <h1 className='title'>Διαχείριση Χρηστών</h1>
-            <h2 className='subtitle'>Προσθήκη νέου χρήστη</h2>
+            <h1 className='title'>User Settings</h1>
+            <h2 className='subtitle'>Add New User</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
                         <form onSubmit={saveUser} encType="multipart/form-data">
                             <p className='has-text-centered'>{msg}</p>
                             <div className="field">
-                                <label className="label">Όνομα</label>
+                                <label className="label">Name</label>
                                 <div className="control">
-                                    <input type="text" className="input" value={name} onChange={(e) => setName(e.target.value)} placeholder='Πληκτρολογήστε Όνομα' />
+                                    <input type="text" className="input" value={name} onChange={(e) => setName(e.target.value)} placeholder='Type Name' />
                                 </div>
                             </div>
                             <div className="field">
                                 <label className="label">Email</label>
                                 <div className="control">
-                                    <input type="text" className="input" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Πληκτρολογήστε Email' />
+                                    <input type="text" className="input" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Type Email' />
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Κωδικός</label>
+                                <label className="label">Password</label>
                                 <div className="control">
                                     <input type="password" className="input" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='*********' />
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Επαλήθευση Κωδικού</label>
+                                <label className="label">Confirm Password</label>
                                 <div className="control">
                                     <input type="password" className="input" value={confPassword} onChange={(e) => setConfPassword(e.target.value)} placeholder='*********' />
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Ρόλος</label>
+                                <label className="label">Role</label>
                                 <div className="control">
                                     <div className="select is-fullwidth">
                                         <select value={role} onChange={(e) => setRole(e.target.value)}>
-                                            <option value="" disabled>Επιλέξτε Ρόλο</option>
-                                            <option value="admin">Διαχειριστής</option>
-                                            <option value="user">Χρήστης</option>
+                                            <option value="" disabled>Choose Role</option>
+                                            <option value="admin">Administrator</option>
+                                            <option value="user">User</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Εικόνα Προφίλ</label> {/* New field for profile image */}
+                                <label className="label">Profile Image</label> {/* New field for profile image */}
                                 <div className="control">
                                     <input type="file" className="input" onChange={(e) => setProfileImage(e.target.files[0])} accept="image/*" />
                                 </div>
                             </div>
                             <div className="field">
                                 <div className="control">
-                                    <button type='submit' className="button is-success is-fullwidth">Αποθήκευση</button>
+                                    <button type='submit' className="button is-success is-fullwidth">Save</button>
                                 </div>
                             </div>
                         </form>

@@ -79,8 +79,8 @@ const FormEditUser = () => {
       
       return (
     <div>
-        <h1 className='title'>Διαχείριση Χρηστών</h1>
-        <h2 className='subtitle'>Ενημέρωση Χρήστη</h2>
+        <h1 className='title'>Users Settings</h1>
+        <h2 className='subtitle'>Update User</h2>
         <div className="card is-shadowless">
             <div className="card-content">
                 <div className="content">
@@ -104,7 +104,7 @@ const FormEditUser = () => {
                         )
                     )}
                     </div>
-                    <label className="label">Εικόνα Προφίλ</label> {/* New field for profile image */}
+                    <label className="label">Profile Image</label> {/* New field for profile image */}
 
                     <div className="control">
                         <input type="file" className="input"  onChange={handleImageChange} accept="image/*" />
@@ -114,7 +114,7 @@ const FormEditUser = () => {
 
 
                 <div className="field">
-                        <label  className="label">Όνομα</label>
+                        <label  className="label">Name</label>
                         <div className="control">
                             <input type="text" className="input" value={name} onChange={(e)=>setName(e.target.value)} placeholder='Name'/>
                         </div>
@@ -126,24 +126,24 @@ const FormEditUser = () => {
                         </div>
                     </div>
                     <div className="field">
-                        <label  className="label">Κωδικός</label>
+                        <label  className="label">Password</label>
                         <div className="control">
                             <input type="password" className="input" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='*********'/>
                         </div>
                     </div>
                     <div className="field">
-                        <label  className="label">Επαλήθευση Κωδικού</label>
+                        <label  className="label">Confirm Password</label>
                         <div className="control">
                             <input type="password" className="input" value={confPassword} onChange={(e)=>setConfPassword(e.target.value)} placeholder='*********'/>
                         </div>
                     </div>
                     <div className="field">
-                        <label  className="label">Ρόλος</label>
+                        <label  className="label">Role</label>
                         <div className="control">
                             <div className="select is-fullwidth">
                                 <select value={role} onChange={(e)=>setRole(e.target.value)}>
-                                    <option value="admin">Διαχειριστής</option>
-                                    <option value="user">Χρήστης</option>
+                                    <option value="admin">Administrator</option>
+                                    <option value="user">User</option>
                                 </select>
                             </div>
                         </div>
@@ -151,7 +151,7 @@ const FormEditUser = () => {
                  
                     <div className="field">
                         <div className="control">
-                            <button type='submit' className="button is-success is-fullwidth">Ενημέρωση</button>
+                            <button type='submit' className="button is-success is-fullwidth">Update</button>
                         </div>
                     </div>
                 </form>
