@@ -52,6 +52,8 @@ import { Card } from "primereact/card";
 
 const IndicatorsList = () => {
     const [indicators, setIndicators] = useState([]);
+
+    const [columnNames, setColumnNames] = useState([]);
     // const [filters, setFilters] = useState(null);
     const [filters, setFilters] = useState(initFiltersConfig);
 
@@ -130,8 +132,10 @@ const IndicatorsList = () => {
     useEffect(()=>{
 
         if (user!=null && user.role=="user"){
+            getColumnNames()
             getIndicatorsByUser()
         }else if(user!=null && user.role=="admin"){
+            getColumnNames()
             getIndicators()
         }
        
@@ -229,6 +233,22 @@ const IndicatorsList = () => {
           return true; // Allow 'user_Id' to be null or not
         });
       };
+
+     const getColumnNames = async()=>{
+        try {
+            const response = await axios.get(`${apiBaseUrl}/getcolumns`, {timeout: 5000});
+    
+            const columns = response.data
+            .map((item) => item.column_name)
+            .filter((name) => name !== "user_Id"); // Exclude "user_Id"
+            setColumnNames(columns);
+            
+        } catch (error) {
+            console.error('Error fetching data:', error);
+
+        }
+
+     } 
 
     //get data for admin
     const getIndicators= async() =>{
@@ -1173,46 +1193,51 @@ const percentageTemplate = (rowData) => {
 <DataTable value={indicators}  editMode="cell" ref = {dt} onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}} paginator stripedRows
  rows={25} scrollable scrollHeight="600px" loading={loading} dataKey="id" 
             filters={filters} 
-            globalFilterFields={['id', 'percentage', 'indicator_name',  'q4all_Ind_number',
-                 'status', 'indicator_cluster',      'ind_Merge',   'catergory_of_Indicator', 'feedback_from_ODIPY', 
-                  'feedback_from_EOPYY', 'feedback_from_IDIKA', 'dimension',  
-                  'observations_from_meetings'  ,'shortlist_indicators' ,'decision_and_next_steps','forPilot','publicationsoptions',
-                   'type_of_healthcare',  'type_of_healthcare_providers_D1_D7',  'cross_Cutting_Dimensions_A_I', 
-                    'cross_Cutting_Dimensions_Inputs_Process_Outputs',   'dimensions_of_Quality_QoCOfficeReport', 
-                      'priority',  'data_collection',     'collecting_National_Organization',  
-                        'legal_Organizational_Requirements',    'proponent_Organization_WG',  
-                         'rationale_Description', 'objective',   'calculation_Formula',   
-                      'numerator','numerator_Definitions', 'denominator','denominator_Definitions', 
-                      'target_Population', 'field_Topic', 'extraCol2', 'periodicity', 'data_Collection_Steps', 
-                      'legal_Requirements', 'responsible_for_Monitoring', 'deadline_Reporting', 'supervisor_Body', 
-                      'management_Entity', 'applicable_period', 'unit_of_Measurement', 'data_Source_Monitoring_Basis',
-                       'it_System_Source', 'reference_Value_Target', 'base_Value', 'notes', 'sources_and_Further_Reading',
-                        'selected_indicator', 'adaptation_Needs', 
-                        'name_of_selected_indicator_en', 
-    'frequency_of_measurement_en', 
-    'description_en', 
-    'unit_of_measurement_en', 
-    'calculation_formula_en', 
-    'numerator_en', 
-    'denominator_en', 
-    'comments_en', 
-    'observation_en', 
-    'extrafield_empty', 
-    'name_of_selected_indicator_gr', 
-    'frequency_of_measurement_gr', 
-    'description_gr', 
-    'unit_of_measurement_gr', 
-    'calculation_formula_gr', 
-    'numerator_gr', 
-    'denominator_gr', 
-    'comments_gr', 
-    'observation_gr', 
-    'extrafield_empty_gr', 
-    'it_system_source_process', 
-    'aim_of_the_indicator',
+            globalFilterFields={columnNames}
+    //         globalFilterFields={[
+                
+    //             'id', 'percentage', 'indicator_name',  'q4all_Ind_number',
+    //              'status', 'indicator_cluster',      'ind_Merge',   'catergory_of_Indicator', 'feedback_from_ODIPY', 
+    //               'feedback_from_EOPYY', 'feedback_from_IDIKA', 'dimension',  
+    //               'observations_from_meetings'  ,'shortlist_indicators' ,'decision_and_next_steps','forPilot','publicationsoptions',
+    //                'type_of_healthcare',  'type_of_healthcare_providers_D1_D7',  'cross_Cutting_Dimensions_A_I', 
+    //                 'cross_Cutting_Dimensions_Inputs_Process_Outputs',   'dimensions_of_Quality_QoCOfficeReport', 
+    //                   'priority',  'data_collection',     'collecting_National_Organization',  
+    //                     'legal_Organizational_Requirements',    'proponent_Organization_WG',  
+    //                      'rationale_Description', 'objective',   'calculation_Formula',   
+    //                   'numerator','numerator_Definitions', 'denominator','denominator_Definitions', 
+    //                   'target_Population', 'field_Topic', 'extraCol2', 'periodicity', 'data_Collection_Steps', 
+    //                   'legal_Requirements', 'responsible_for_Monitoring', 'deadline_Reporting', 'supervisor_Body', 
+    //                   'management_Entity', 'applicable_period', 'unit_of_Measurement', 'data_Source_Monitoring_Basis',
+    //                    'it_System_Source', 'reference_Value_Target', 'base_Value', 'notes', 'sources_and_Further_Reading',
+    //                     'selected_indicator', 'adaptation_Needs', 
+    //                     'name_of_selected_indicator_en', 
+    // 'frequency_of_measurement_en', 
+    // 'description_en', 
+    // 'unit_of_measurement_en', 
+    // 'calculation_formula_en', 
+    // 'numerator_en', 
+    // 'denominator_en', 
+    // 'comments_en', 
+    // 'observation_en', 
+    // 'extrafield_empty', 
+    // 'name_of_selected_indicator_gr', 
+    // 'frequency_of_measurement_gr', 
+    // 'description_gr', 
+    // 'unit_of_measurement_gr', 
+    // 'calculation_formula_gr', 
+    // 'numerator_gr', 
+    // 'denominator_gr', 
+    // 'comments_gr', 
+    // 'observation_gr', 
+    // 'extrafield_empty_gr', 
+    // 'it_system_source_process', 
+    // 'aim_of_the_indicator',
                         
-                        'piloting', 'opinion_from_ODIPY_Other_experts',
-                         'pilot_outcome', 'pilot_success_criteria' ]} 
+    //                     'piloting', 'opinion_from_ODIPY_Other_experts',
+    //                      'pilot_outcome', 'pilot_success_criteria' 
+                        
+    //                     ]} 
             header={header} 
             emptyMessage="No Indicators found."
             selection={selectedIndicator} 
