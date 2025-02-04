@@ -1098,10 +1098,74 @@ const percentageTemplate = (rowData) => {
     });
     
 
+
+     // Handle apply button click
+  const fetchIndicators = () => {
+    if (selectedColumns.length === 0) {
+      alert("Please select at least one column.");
+      return;
+    }
+
+    axios
+      .post(`${apiBaseUrl}/getIndByColumns`, { columnNames: selectedColumns })
+      .then((response) => {
+        setIndicators(response.data);
+      })
+      .catch((error) => console.error("Error fetching indicators:", error));
+  };
     
 
     return(
         <div>
+
+<div className="p-4">
+      <h3>Select Columns</h3>
+      
+      {/* MultiSelect Dropdown */}
+      <MultiSelect
+        value={selectedColumns}
+        options={columnNames.map((col) => ({ label: col, value: col }))}
+        onChange={(e) => setSelectedColumns(e.value)}
+        placeholder="Select Columns"
+        display="chip"
+        className="w-full md:w-20rem"
+      />
+      
+      {/* Apply Button */}
+      <Button
+        label="Apply"
+        icon="pi pi-check"
+        onClick={fetchIndicators}
+        className="p-button-success mt-3"
+      />
+
+      {/* Data Table */}
+      {indicators.length > 0 && (
+        <div className="mt-4">
+          <h3>Results</h3>
+          <DataTable value={indicators} responsiveLayout="scroll">
+            {selectedColumns.map((col) => (
+              <Column key={col} field={col} header={col} />
+            ))}
+          </DataTable>
+        </div>
+      )}
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <Card className="kpi-section-card">
             <div className="kpi-section">
                 {/* Total Customers */}
