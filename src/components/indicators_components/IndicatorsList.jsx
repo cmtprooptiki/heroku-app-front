@@ -54,6 +54,9 @@ const IndicatorsList = () => {
     const [indicators, setIndicators] = useState([]);
 
     const [columnNames, setColumnNames] = useState([]);
+
+    const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
+
     // const [filters, setFilters] = useState(null);
     const [filters, setFilters] = useState(initFiltersConfig);
 
