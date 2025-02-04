@@ -243,7 +243,11 @@ const IndicatorsList = () => {
     
             const columns = response.data
             .map((item) => item.column_name)
-            .filter((name) => name !== "user_Id"); // Exclude "user_Id"
+            .filter((name) => name !== "user_Id")
+            .filter((name) => name !== "created_at")
+            .filter((name) => name !== "updated_at")
+            .filter((name) => name !== "id")
+
             setColumnNames(columns);
             
         } catch (error) {
