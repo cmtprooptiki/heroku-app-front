@@ -1203,12 +1203,12 @@ pilot_success_criteria : <Column field="pilot_success_criteria"     header={cust
       />
       
       {/* Apply Button */}
-      <Button
+      {/* <Button
         label="Apply"
         icon="pi pi-check"
         onClick={fetchIndicators}
         className="p-button-success mt-3"
-      />
+      /> */}
 
       {/* Data Table */}
       {/* {indicators.length > 0 && (
