@@ -54,9 +54,7 @@ const IndicatorsList = () => {
     const [indicators, setIndicators] = useState([]);
 
     const [columnNames, setColumnNames] = useState([]);
-
-    const [selectedFrozenColumnNames, setselectedFrozenColumnNames] = useState([]);
-    const [frozenColumns, setFrozenColumns] = useState([]);
+    const [balanceFrozen, setBalanceFrozen] = useState(false);
 
     const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
 
@@ -1125,20 +1123,13 @@ const percentageTemplate = (rowData) => {
   };
 
 
-   // Function to toggle freezing of a column
-   const toggleFreeze = (columnKey) => {
-        setFrozenColumns((prev) =>
-            prev.includes(columnKey)
-                ? prev.filter((col) => col !== columnKey) // Remove if already frozen
-                : [...prev, columnKey] // Add if not frozen
-            );
-    };
+
 
   const allColumns = {
 
     id : <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen ></Column> , 
-indicator_name : <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}  {...(selectedFrozenColumnNames.includes("indicator_name") ? { frozen: true } : {})} ></Column> , 
-q4all_Ind_number : <Column field="q4all_Ind_number" header={customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number")}  filter filterField='q4all_Ind_number' filterElement={(option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} style={{ minWidth: '21rem' }} {...(selectedFrozenColumnNames.includes("q4all_Ind_number") ? { frozen: true } : {})}></Column> , 
+indicator_name : <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} alignFrozen="right" frozen={balanceFrozen}></Column> , 
+q4all_Ind_number : <Column field="q4all_Ind_number" header={customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number")}  filter filterField='q4all_Ind_number' filterElement={(option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} style={{ minWidth: '21rem' }}></Column> , 
 indicator_cluster : <Column field="indicator_cluster" header={customHeader(headers.indicator_cluster.label, headers.indicator_cluster.description, "indicator_cluster")} filter filterPlaceholder="Search by Indicator Cluster" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
 feedback_from_ODIPY : <Column field="feedback_from_ODIPY" header={customHeader(headers.feedback_from_ODIPY.label, headers.feedback_from_ODIPY.description, "feedback_from_ODIPY")} filter filterPlaceholder="Search by feedback_from_ODIPY" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
 feedback_from_EOPYY : <Column field="feedback_from_EOPYY" header={customHeader(headers.feedback_from_EOPYY.label, headers.feedback_from_EOPYY.description, "feedback_from_EOPYY")} filter filterPlaceholder="Search by feedback_from_EOPYY" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
@@ -1194,17 +1185,6 @@ pilot_outcome : <Column field="pilot_outcome" header={customHeader(headers.pilot
 pilot_success_criteria : <Column field="pilot_success_criteria"     header={customHeader(headers.pilot_success_criteria.label, headers.pilot_success_criteria.description, "pilot_success_criteria")} filter filterPlaceholder="Search by Success Criteria" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
 
 };
-
-
-  // Separate frozen and non-frozen columns
-  const frozenColumns2 = selectedColumns
-  .filter((col) => selectedFrozenColumnNames.includes(col))
-  .map((col) => allColumns[col]);
-
-const normalColumns = selectedColumns
-  .filter((col) => !selectedFrozenColumnNames.includes(col))
-  .map((col) => allColumns[col]);
-
     
 
     return(
@@ -1218,15 +1198,6 @@ const normalColumns = selectedColumns
         value={selectedColumns}
         options={columnNames.map((col) => ({ label: col, value: col }))}
         onChange={(e) => setSelectedColumns(e.value)}
-        placeholder="Select Columns"
-        display="chip"
-        className="w-full md:w-20rem"
-      />
-
-    <MultiSelect
-        value={selectedFrozenColumnNames}
-        options={selectedColumns.map((col) => ({ label: col, value: col }))}
-        onChange={(e) => setselectedFrozenColumnNames(e.value)}
         placeholder="Select Columns"
         display="chip"
         className="w-full md:w-20rem"
@@ -1351,6 +1322,7 @@ const normalColumns = selectedColumns
         
         </div>
 
+        <ToggleButton checked={balanceFrozen} onChange={(e) => setBalanceFrozen(e.value)} onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" />
 
 
 <DataTable value={indicators}  editMode="cell" ref = {dt} onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}} paginator stripedRows
@@ -1410,18 +1382,15 @@ const normalColumns = selectedColumns
             <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
 
             <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen ></Column>
-            {/* <Column
+            <Column
              className='font-bold'
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
-                style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage'
-                frozen></Column> */}
-  {/* Render frozen columns first */}
-  {frozenColumns2}
-                {/* Render normal columns after */}
-                {normalColumns}
-{/* {selectedColumns.map((col) => allColumns[col])} */}
+                style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage' frozen
+            ></Column>
+
+{selectedColumns.map((col) => allColumns[col])}
 
             {/* <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="q4all_Ind_number" header={customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number")}  filter filterField='q4all_Ind_number' filterElement={(option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} style={{ minWidth: '21rem' }}></Column>
@@ -1435,9 +1404,9 @@ const normalColumns = selectedColumns
             <Column field="feedback_from_EOPYY" header={customHeader(headers.feedback_from_EOPYY.label, headers.feedback_from_EOPYY.description, "feedback_from_EOPYY")} filter filterPlaceholder="Search by feedback_from_EOPYY" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="feedback_from_IDIKA" header={customHeader(headers.feedback_from_IDIKA.label, headers.feedback_from_IDIKA.description, "feedback_from_IDIKA")} filter filterPlaceholder="Search by feedback_from_IDIKA" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
 
-           /
-           ////
-           /
+           
+           
+           
            
            
            
