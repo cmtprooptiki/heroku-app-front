@@ -1188,10 +1188,62 @@ pilot_success_criteria : <Column field="pilot_success_criteria"     header={cust
 };
 
 const allColumns2 = {
-
-    // id : { className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen } , 
-indicator_name : { field:"indicator_name",  header:customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name") ,filter:true ,filterPlaceholder:"Search by Indicator Name" ,style:{ minWidth: '18rem' }, editor:(options) => cellEditor(options), onCellEditComplete:onCellEditComplete, frozen:true} , 
-
+    indicator_name: {
+        field: "indicator_name",
+        header: customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name"),
+        filter: true,
+        filterPlaceholder: "Search by Indicator Name",
+        style: { minWidth: '18rem' },
+        editor: (options) => cellEditor(options),
+        onCellEditComplete: onCellEditComplete,
+        frozen: true
+    },
+    q4all_Ind_number: {
+        field: "q4all_Ind_number",
+        header: customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number"),
+        filter: true,
+        filterField: "q4all_Ind_number",
+        filterElement: (option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate} />),
+        showFilterMatchModes: false,
+        body: q4all_Ind_number_BodyTemplate,
+        style: { minWidth: '21rem' }
+    },
+    indicator_cluster: {
+        field: "indicator_cluster",
+        header: customHeader(headers.indicator_cluster.label, headers.indicator_cluster.description, "indicator_cluster"),
+        filter: true,
+        filterPlaceholder: "Search by Indicator Cluster",
+        style: { minWidth: '12rem' },
+        editor: (options) => cellEditor(options),
+        onCellEditComplete: onCellEditComplete
+    },
+    feedback_from_ODIPY: {
+        field: "feedback_from_ODIPY",
+        header: customHeader(headers.feedback_from_ODIPY.label, headers.feedback_from_ODIPY.description, "feedback_from_ODIPY"),
+        filter: true,
+        filterPlaceholder: "Search by feedback_from_ODIPY",
+        style: { minWidth: '12rem' },
+        editor: (options) => cellEditor(options),
+        onCellEditComplete: onCellEditComplete
+    },
+    feedback_from_EOPYY: {
+        field: "feedback_from_EOPYY",
+        header: customHeader(headers.feedback_from_EOPYY.label, headers.feedback_from_EOPYY.description, "feedback_from_EOPYY"),
+        filter: true,
+        filterPlaceholder: "Search by feedback_from_EOPYY",
+        style: { minWidth: '12rem' },
+        editor: (options) => cellEditor(options),
+        onCellEditComplete: onCellEditComplete
+    },
+    feedback_from_IDIKA: {
+        field: "feedback_from_IDIKA",
+        header: customHeader(headers.feedback_from_IDIKA.label, headers.feedback_from_IDIKA.description, "feedback_from_IDIKA"),
+        filter: true,
+        filterPlaceholder: "Search by feedback_from_IDIKA",
+        style: { minWidth: '12rem' },
+        editor: (options) => cellEditor(options),
+        onCellEditComplete: onCellEditComplete
+    }
 };
 
     
@@ -1401,7 +1453,7 @@ indicator_name : { field:"indicator_name",  header:customHeader(headers.indicato
  {selectedColumns.map((col) => (
         <Column key={col} {...allColumns2[col]} />
     ))}
-{selectedColumns.map((col) => allColumns[col])}
+{/* {selectedColumns.map((col) => allColumns[col])} */}
 
             {/* <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="q4all_Ind_number" header={customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number")}  filter filterField='q4all_Ind_number' filterElement={(option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} style={{ minWidth: '21rem' }}></Column>
