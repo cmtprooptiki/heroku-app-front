@@ -1195,7 +1195,8 @@ const allColumns2 = {
         filterPlaceholder: "Search by Indicator Name",
         style: { minWidth: '18rem' },
         editor: (options) => cellEditor(options),
-        onCellEditComplete: onCellEditComplete
+        onCellEditComplete: onCellEditComplete,
+        frozen:true
     },
     q4all_Ind_number: {
         field: "q4all_Ind_number",
@@ -1205,7 +1206,8 @@ const allColumns2 = {
         filterElement: (option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate} />),
         showFilterMatchModes: false,
         body: q4all_Ind_number_BodyTemplate,
-        style: { minWidth: '21rem' }
+        style: { minWidth: '21rem' },
+        frozen:true
     },
     status: {
         field: "status",
@@ -2437,9 +2439,9 @@ const allColumns2 = {
             onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
             selectionMode="checkbox"
             >
-            <Column selectionMode="multiple" headerStyle={{ width: '3em' }} ></Column>
+            <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
 
-            <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }}  ></Column>
+            <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }}  frozen></Column>
             {/* <Column
              className='font-bold'
                 header="Filled Percentage"
