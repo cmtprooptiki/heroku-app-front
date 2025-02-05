@@ -1435,7 +1435,7 @@ const normalColumns = selectedColumns
             <Column field="feedback_from_EOPYY" header={customHeader(headers.feedback_from_EOPYY.label, headers.feedback_from_EOPYY.description, "feedback_from_EOPYY")} filter filterPlaceholder="Search by feedback_from_EOPYY" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="feedback_from_IDIKA" header={customHeader(headers.feedback_from_IDIKA.label, headers.feedback_from_IDIKA.description, "feedback_from_IDIKA")} filter filterPlaceholder="Search by feedback_from_IDIKA" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
 
-           
+           /
            ////
            /
            
