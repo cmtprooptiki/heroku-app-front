@@ -1197,7 +1197,7 @@ const allColumns2 = {
         style: { minWidth: '18rem' },
         editor: (options) => cellEditor(options),
         onCellEditComplete: onCellEditComplete,
-         ...(selectedFrozenColumnNames.includes("indicator_name") ? { frozen: true } : {})
+         ...(selectedFrozenColumnNames.includes("indicator_name") ? { frozen: true } : {frozen:false})
     },
     q4all_Ind_number: {
         field: "q4all_Ind_number",
@@ -1208,7 +1208,7 @@ const allColumns2 = {
         showFilterMatchModes: false,
         body: q4all_Ind_number_BodyTemplate,
         style: { minWidth: '21rem' },
-        ...(selectedFrozenColumnNames.includes("indicator_name") ? { frozen: true } : {})
+        ...(selectedFrozenColumnNames.includes("indicator_name") ? { frozen: true } : {frozen:false})
     },
     status: {
         field: "status",
