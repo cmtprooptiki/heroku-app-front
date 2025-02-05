@@ -1385,7 +1385,7 @@ pilot_success_criteria : <Column field="pilot_success_criteria"     header={cust
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
-                style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage' frozen
+                style={{ minWidth: '12rem',color: 'black' }} field='percentage' frozen
             ></Column>
 
 {selectedColumns.map((col) => allColumns[col])}
