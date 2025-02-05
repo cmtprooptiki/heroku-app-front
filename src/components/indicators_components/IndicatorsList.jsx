@@ -55,6 +55,8 @@ const IndicatorsList = () => {
 
     const [columnNames, setColumnNames] = useState([]);
 
+    const [frozenColumns, setFrozenColumns] = useState([]);
+
     const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
 
     // const [filters, setFilters] = useState(null);
@@ -1122,13 +1124,20 @@ const percentageTemplate = (rowData) => {
   };
 
 
-
+   // Function to toggle freezing of a column
+   const toggleFreeze = (columnKey) => {
+        setFrozenColumns((prev) =>
+            prev.includes(columnKey)
+                ? prev.filter((col) => col !== columnKey) // Remove if already frozen
+                : [...prev, columnKey] // Add if not frozen
+            );
+    };
 
   const allColumns = {
 
     id : <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen ></Column> , 
-indicator_name : <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
-q4all_Ind_number : <Column field="q4all_Ind_number" header={customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number")}  filter filterField='q4all_Ind_number' filterElement={(option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} style={{ minWidth: '21rem' }}></Column> , 
+indicator_name : <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} frozen={frozenColumns.includes("indicator_name")}></Column> , 
+q4all_Ind_number : <Column field="q4all_Ind_number" header={customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number")}  filter filterField='q4all_Ind_number' filterElement={(option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} style={{ minWidth: '21rem' }} frozen={frozenColumns.includes("q4all_Ind_number")}></Column> , 
 indicator_cluster : <Column field="indicator_cluster" header={customHeader(headers.indicator_cluster.label, headers.indicator_cluster.description, "indicator_cluster")} filter filterPlaceholder="Search by Indicator Cluster" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
 feedback_from_ODIPY : <Column field="feedback_from_ODIPY" header={customHeader(headers.feedback_from_ODIPY.label, headers.feedback_from_ODIPY.description, "feedback_from_ODIPY")} filter filterPlaceholder="Search by feedback_from_ODIPY" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
 feedback_from_EOPYY : <Column field="feedback_from_EOPYY" header={customHeader(headers.feedback_from_EOPYY.label, headers.feedback_from_EOPYY.description, "feedback_from_EOPYY")} filter filterPlaceholder="Search by feedback_from_EOPYY" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
@@ -1197,6 +1206,15 @@ pilot_success_criteria : <Column field="pilot_success_criteria"     header={cust
         value={selectedColumns}
         options={columnNames.map((col) => ({ label: col, value: col }))}
         onChange={(e) => setSelectedColumns(e.value)}
+        placeholder="Select Columns"
+        display="chip"
+        className="w-full md:w-20rem"
+      />
+
+    <MultiSelect
+        value={selectedColumns}
+        options={columnNames.map((col) => ({ label: col, value: col }))}
+        onChange={(e) => toggleFreeze(e.value)}
         placeholder="Select Columns"
         display="chip"
         className="w-full md:w-20rem"
