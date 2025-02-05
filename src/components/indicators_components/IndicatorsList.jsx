@@ -15,6 +15,7 @@ import { InputText } from 'primereact/inputtext';
 import { IconField } from 'primereact/iconfield';
 import { InputIcon } from 'primereact/inputicon';
 import { InputNumber } from 'primereact/inputnumber';
+import { ToggleButton } from 'primereact/togglebutton';
 
 import { Dropdown } from 'primereact/dropdown';
 import { MultiSelect } from 'primereact/multiselect';
