@@ -1194,6 +1194,17 @@ pilot_outcome : <Column field="pilot_outcome" header={customHeader(headers.pilot
 pilot_success_criteria : <Column field="pilot_success_criteria"     header={customHeader(headers.pilot_success_criteria.label, headers.pilot_success_criteria.description, "pilot_success_criteria")} filter filterPlaceholder="Search by Success Criteria" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
 
 };
+
+
+  // Separate frozen and non-frozen columns
+  const frozenColumns2 = selectedColumns
+  .filter((col) => selectedFrozenColumnNames.includes(col))
+  .map((col) => allColumns[col]);
+
+const normalColumns = selectedColumns
+  .filter((col) => !selectedFrozenColumnNames.includes(col))
+  .map((col) => allColumns[col]);
+
     
 
     return(
@@ -1405,9 +1416,12 @@ pilot_success_criteria : <Column field="pilot_success_criteria"     header={cust
                 sortable
                 body={percentageTemplate}
                 style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage'
-             frozen></Column>
-
-{selectedColumns.map((col) => allColumns[col])}
+                frozen></Column>
+  {/* Render frozen columns first */}
+  {frozenColumns2}
+                {/* Render normal columns after */}
+                {normalColumns}
+{/* {selectedColumns.map((col) => allColumns[col])} */}
 
             {/* <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="q4all_Ind_number" header={customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number")}  filter filterField='q4all_Ind_number' filterElement={(option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} style={{ minWidth: '21rem' }}></Column>
