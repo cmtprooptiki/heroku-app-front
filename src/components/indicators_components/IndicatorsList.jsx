@@ -1211,14 +1211,14 @@ pilot_success_criteria : <Column field="pilot_success_criteria"     header={cust
       />
 
       {/* Data Table */}
-      {indicators.length > 0 && (
+      {/* {indicators.length > 0 && (
         <div className="mt-4">
           <h3>Results</h3>
           <DataTable value={indicators} responsiveLayout="scroll">
             {selectedColumns.map((col) => allColumns[col])}
           </DataTable>
         </div>
-      )}
+      )} */}
     </div>
 
 
