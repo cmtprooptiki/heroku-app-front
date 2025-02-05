@@ -1380,9 +1380,9 @@ pilot_success_criteria : <Column field="pilot_success_criteria"     header={cust
             onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
             selectionMode="checkbox"
             >
-            <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
+            <Column selectionMode="multiple" headerStyle={{ width: '3em' }} ></Column>
 
-            <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen ></Column>
+            <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }}  ></Column>
             {/* <Column
              className='font-bold'
                 header="Filled Percentage"
