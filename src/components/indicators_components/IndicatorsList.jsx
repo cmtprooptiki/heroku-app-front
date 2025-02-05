@@ -1410,13 +1410,13 @@ const normalColumns = selectedColumns
             <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
 
             <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen ></Column>
-            <Column
+            {/* <Column
              className='font-bold'
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
                 style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage'
-                frozen></Column>
+                frozen></Column> */}
   {/* Render frozen columns first */}
   {frozenColumns2}
                 {/* Render normal columns after */}
