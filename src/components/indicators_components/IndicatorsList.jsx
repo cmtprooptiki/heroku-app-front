@@ -1186,6 +1186,14 @@ pilot_outcome : <Column field="pilot_outcome" header={customHeader(headers.pilot
 pilot_success_criteria : <Column field="pilot_success_criteria"     header={customHeader(headers.pilot_success_criteria.label, headers.pilot_success_criteria.description, "pilot_success_criteria")} filter filterPlaceholder="Search by Success Criteria" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
 
 };
+
+const allColumns2 = {
+
+    // id : { className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen } , 
+indicator_name : { field:"indicator_name",  header:customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name") ,filter:true ,filterPlaceholder:"Search by Indicator Name" ,style:{ minWidth: '18rem' }, editor:(options) => cellEditor(options), onCellEditComplete:onCellEditComplete, frozen:true} , 
+
+};
+
     
 
     return(
@@ -1390,7 +1398,7 @@ pilot_success_criteria : <Column field="pilot_success_criteria"     header={cust
                 body={percentageTemplate}
                 style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage' frozen
             ></Column> */}
-
+{selectedColumns.map((col) => allColumns2[col])}
 {selectedColumns.map((col) => allColumns[col])}
 
             {/* <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
