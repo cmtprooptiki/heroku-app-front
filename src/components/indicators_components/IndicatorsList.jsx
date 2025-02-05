@@ -56,6 +56,7 @@ const IndicatorsList = () => {
 
     const [columnNames, setColumnNames] = useState(['id', 'percentage']);
     const [balanceFrozen, setBalanceFrozen] = useState(false);
+    const [selectedFrozenColumnNames, setSelectedFrozenColumnNames] = useState([]);
 
     const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
 
@@ -1196,7 +1197,7 @@ const allColumns2 = {
         style: { minWidth: '18rem' },
         editor: (options) => cellEditor(options),
         onCellEditComplete: onCellEditComplete,
-        frozen:true
+         ...(selectedFrozenColumnNames.includes("indicator_name") ? { frozen: true } : {})
     },
     q4all_Ind_number: {
         field: "q4all_Ind_number",
@@ -1207,7 +1208,7 @@ const allColumns2 = {
         showFilterMatchModes: false,
         body: q4all_Ind_number_BodyTemplate,
         style: { minWidth: '21rem' },
-        frozen:true
+        ...(selectedFrozenColumnNames.includes("indicator_name") ? { frozen: true } : {})
     },
     status: {
         field: "status",
@@ -2262,6 +2263,14 @@ const allColumns2 = {
         display="chip"
         className="w-full md:w-20rem"
       />
+       <MultiSelect
+            value={selectedFrozenColumnNames}
+            options={selectedColumns.map((col) => ({ label: col, value: col }))}
+            onChange={(e) => setSelectedFrozenColumnNames(e.value)}
+            placeholder="Freeze Columns"
+            display="chip"
+            className="w-full md:w-20rem mb-3"
+        />
       
       {/* Apply Button */}
       {/* <Button
