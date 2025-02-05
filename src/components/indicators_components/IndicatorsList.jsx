@@ -54,7 +54,7 @@ import { Card } from "primereact/card";
 const IndicatorsList = () => {
     const [indicators, setIndicators] = useState([]);
 
-    const [columnNames, setColumnNames] = useState([]);
+    const [columnNames, setColumnNames] = useState(['id', 'percentage']);
     const [balanceFrozen, setBalanceFrozen] = useState(false);
 
     const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
@@ -1128,7 +1128,7 @@ const percentageTemplate = (rowData) => {
 
   const allColumns = {
 
-    id : <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen ></Column> , 
+    // id : <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen ></Column> , 
 indicator_name : <Column field="indicator_name"  header={customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} alignFrozen="right" frozen={balanceFrozen}></Column> , 
 q4all_Ind_number : <Column field="q4all_Ind_number" header={customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number")}  filter filterField='q4all_Ind_number' filterElement={(option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} style={{ minWidth: '21rem' }}></Column> , 
 indicator_cluster : <Column field="indicator_cluster" header={customHeader(headers.indicator_cluster.label, headers.indicator_cluster.description, "indicator_cluster")} filter filterPlaceholder="Search by Indicator Cluster" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column> , 
@@ -1383,13 +1383,13 @@ pilot_success_criteria : <Column field="pilot_success_criteria"     header={cust
             <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
 
             <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen ></Column>
-            <Column
+            {/* <Column
              className='font-bold'
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
                 style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage' frozen
-            ></Column>
+            ></Column> */}
 
 {selectedColumns.map((col) => allColumns[col])}
 
