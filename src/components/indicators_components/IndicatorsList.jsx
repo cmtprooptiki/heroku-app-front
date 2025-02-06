@@ -1199,6 +1199,7 @@ const allColumns2 = {
     // <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
 
     selection: {
+        field:'selection',
         selectionMode: "multiple",
         headerStyle: { width: '3em' },
         frozen: true
