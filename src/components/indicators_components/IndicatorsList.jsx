@@ -1909,7 +1909,7 @@ const value = {
 
         useEffect(()=>{
             setColumns2(columns_func)
-        },[Updatedindicators])
+        },[filteredIndicators])
 
     return(
         <div>
