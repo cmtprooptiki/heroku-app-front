@@ -58,7 +58,7 @@ const IndicatorsList = () => {
     const [balanceFrozen, setBalanceFrozen] = useState(false);
     const [selectedFrozenColumnNames, setSelectedFrozenColumnNames] = useState(['selection','id', 'percentage']);
 
-    const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
+    const [selectedColumns, setSelectedColumns] = useState(['selection','id', 'percentage']); // User selected columns
 
     // const [filters, setFilters] = useState(null);
     const [filters, setFilters] = useState(initFiltersConfig);
