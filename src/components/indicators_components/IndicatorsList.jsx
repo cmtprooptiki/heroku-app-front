@@ -2053,7 +2053,7 @@ const allColumns2 = {
 
 
 <DataTable 
-            value={indicators}    
+            value={filteredIndicators}    
             editMode="cell" ref = {dt} 
             onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}}
             paginator stripedRows
@@ -2067,7 +2067,7 @@ const allColumns2 = {
             onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
             selectionMode="checkbox"
             >
-                
+
             <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
 
             <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }}  frozen></Column>
@@ -2076,7 +2076,7 @@ const allColumns2 = {
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
-                style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage' frozen
+                style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage' 
             ></Column>
            
             {selectedColumns.map((col) => (
