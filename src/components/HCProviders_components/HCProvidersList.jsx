@@ -122,6 +122,7 @@ const HCProvidersList = () => {
         if (user!=null && user.role=="user"){
             getIndicatorsByUser()
         }else if(user!=null && user.role=="admin"){
+            console.log("Is goin to GetIndicator")
             getIndicators()
         }
        
