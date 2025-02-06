@@ -1209,7 +1209,7 @@ const allColumns2 = {
         field:'percentage',
         header:"Filled Percentage",
         sortable:true,
-        style:{minWidth: '12rem',color: 'black', textAlign: 'center'},
+        style:{minWidth: '3rem',color: 'black', textAlign: 'center'},
         frozen:true,
         body:percentageTemplate
     },
