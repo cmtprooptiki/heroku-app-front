@@ -1122,31 +1122,7 @@ const percentageTemplate = (rowData) => {
 const allColumns2 = {
 
 
-    // <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
 
-    // selection: {
-    //     selectionMode: "multiple",
-    //     headerStyle: { width: '3em' },
-    //     // frozen: true
-    // },
-
-    // percentage:{
-    //     field:'percentage',
-    //     header:"Filled Percentage",
-    //     sortable:true,
-    //     style:{minWidth: '12rem',color: 'black', textAlign: 'center'},
-    //     // frozen:true,
-    //     body:percentageTemplate
-    // },
-
-    // id:{
-    //     field:"id" , 
-    //     header: "id",
-    //     style: {minWidth: '2rem', color: 'black' } ,
-    //     sortable:true,
-    //     // className='font-bold',
-    //     // frozen:true
-    // },
 
 
     indicator_name: {
@@ -1164,7 +1140,7 @@ const allColumns2 = {
         header: customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number"),
         filter: true,
         filterField: "q4all_Ind_number",
-        filterElement: (option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate} />),
+        filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.q4all_Ind_number)} itemTemplate={ItemTemplate} />),
         showFilterMatchModes: false,
         body: q4all_Ind_number_BodyTemplate,
         style: { minWidth: '21rem' },
@@ -1316,7 +1292,7 @@ const allColumns2 = {
         field: "type_of_healthcare_providers_D1_D7",
         header: customHeader(headers.type_of_healthcare_providers_D1_D7.label, headers.type_of_healthcare_providers_D1_D7.description, "type_of_healthcare_providers_D1_D7"),
         filter: true,
-        filterElement: (option) => (<FilterIndicators options={option} data={type_of_healthcare_D1_D7} itemTemplate={ItemTemplate}/>),
+        filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.type_of_healthcare_providers_D1_D7)} itemTemplate={ItemTemplate}/>),
         showFilterMatchModes: false,
         style: { minWidth: '12rem' },
         body: generalBodyTemplate(indicators, type_of_healthcare_providers_D1_D7list, 'type_of_healthcare_providers_D1_D7'),
