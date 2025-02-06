@@ -266,6 +266,75 @@ const IndicatorsList = () => {
             const response = await axios.get(`${apiBaseUrl}/indicators`, {timeout: 5000});
             const indData = response.data;
 
+            
+
+            const uniqueq4all_Ind_number= [...new Set(indData.map(item => item.q4all_Ind_number || ''))];
+            setQ4AllIndNumber(uniqueq4all_Ind_number);
+
+            const unique_catergory_of_Indicator = [...new Set(indData.map(item => item.catergory_of_Indicator || ''))]
+            set_Category_Of_Indicator(unique_catergory_of_Indicator)
+
+            const unique_type_of_healthcare = [...new Set(indData.map(item => item.type_of_healthcare || ''))]
+            
+            setType_Of_HealthCare(unique_type_of_healthcare)
+            console.log(type_of_healthcare)
+
+            const status2 = [...new Set(indData.map(item => item.status || ''))]
+            setStatusValue(status2);
+            console.log("statuses : ",status2)
+
+            const uniqueDimension = [...new Set(indData.map(item => item.dimension || ''))]
+            setDimension(uniqueDimension)
+
+            const unique_d1_d7 = [...new Set(indData.map(item => item.type_of_healthcare_providers_D1_D7 || ''))]
+            setType_Of_Healthcare_D1_D7(unique_d1_d7)
+
+            // const unique_cross_Cutting_Dimensions_A_I = [...new Set(indData.map(item => item.cross_Cutting_Dimensions_A_I || ''))]
+            // console.log("cross list ai",unique_cross_Cutting_Dimensions_A_I)
+            // setCross_Cutting_Dimensions_A_I(unique_cross_Cutting_Dimensions_A_I)
+
+            const unique_cross_Cutting_Dimensions_A_I = [
+                ...new Set(
+                    indData
+                        .map(item => item.cross_Cutting_Dimensions_A_I || '') // Extract values
+                        .flatMap(value => value.split(',').map(v => v.trim())) // Split by comma and trim spaces
+                )
+            ];
+            console.log("cross list ai", unique_cross_Cutting_Dimensions_A_I);
+            // Optionally, set the state with the unique values
+            setCross_Cutting_Dimensions_A_I(unique_cross_Cutting_Dimensions_A_I);
+
+            const unique_Cross_Cutting_Dimensions_Inputs_Outputs = [...new Set(indData.map(item => item.cross_Cutting_Dimensions_Inputs_Process_Outputs	|| ''))]
+            setCross_Cutting_Dimensions_Inputs_Outputs(unique_Cross_Cutting_Dimensions_Inputs_Outputs)
+
+            const unique_dimensions_of_quality = [...new Set(indData.map(item => item.dimensions_of_Quality_QoCOfficeReport	|| ''))]
+            setDimensions_Of_Quality(unique_dimensions_of_quality)
+
+            const uniquepriority = [...new Set(indData.map(item => item.priority || ''))]
+            setPriority(uniquepriority)
+
+            const unique_data_collection = [...new Set(indData.map(item => item.data_collection || ''))]
+            setData_Collection(unique_data_collection)
+
+            const unique_legal_organization_requirement = [...new Set(indData.map(item => item.legal_Organizational_Requirements || ''))]
+            setLegal_Organizational_Requirements(unique_legal_organization_requirement)
+
+            const unique_Selected_Indicator = [...new Set(indData.map(item => item.selected_indicator || ''))]
+            if(unique_Selected_Indicator!=''){
+                setSelectedIndicator(unique_Selected_Indicator)
+            }
+            
+
+            const unique_piloting = [...new Set(indData.map(item => item.piloting || ''))]
+            setPiloting(unique_piloting)
+
+            const unique_pilot_outcome = [...new Set(indData.map(item => item.pilot_outcome || ''))]
+            setPilot_Outcome(unique_pilot_outcome)
+
+            const unique_forPilot = [...new Set(indData.map(item => item.forPilot || ''))]
+            setforPilot(unique_forPilot)
+
+          
             const parDataWithDates = indData.map(item => ({
                 ...item,
                 percentage: calculateFilledPercentage(item), // Add percentage field
@@ -276,77 +345,6 @@ const IndicatorsList = () => {
             setIndicators(parDataWithDates);
             setFilteredIndicators(parDataWithDates)
             setRowsAffected(parDataWithDates.length)
-
-            
-
-            const uniqueq4all_Ind_number= [...new Set(filteredIndicators.map(item => item.q4all_Ind_number || ''))];
-            setQ4AllIndNumber(uniqueq4all_Ind_number);
-
-            const unique_catergory_of_Indicator = [...new Set(filteredIndicators.map(item => item.catergory_of_Indicator || ''))]
-            set_Category_Of_Indicator(unique_catergory_of_Indicator)
-
-            const unique_type_of_healthcare = [...new Set(filteredIndicators.map(item => item.type_of_healthcare || ''))]
-            
-            setType_Of_HealthCare(unique_type_of_healthcare)
-            console.log(type_of_healthcare)
-
-            const status2 = [...new Set(filteredIndicators.map(item => item.status || ''))]
-            setStatusValue(status2);
-            console.log("statuses : ",status2)
-
-            const uniqueDimension = [...new Set(filteredIndicators.map(item => item.dimension || ''))]
-            setDimension(uniqueDimension)
-
-            const unique_d1_d7 = [...new Set(filteredIndicators.map(item => item.type_of_healthcare_providers_D1_D7 || ''))]
-            setType_Of_Healthcare_D1_D7(unique_d1_d7)
-
-            // const unique_cross_Cutting_Dimensions_A_I = [...new Set(indData.map(item => item.cross_Cutting_Dimensions_A_I || ''))]
-            // console.log("cross list ai",unique_cross_Cutting_Dimensions_A_I)
-            // setCross_Cutting_Dimensions_A_I(unique_cross_Cutting_Dimensions_A_I)
-
-            const unique_cross_Cutting_Dimensions_A_I = [
-                ...new Set(
-                    filteredIndicators
-                        .map(item => item.cross_Cutting_Dimensions_A_I || '') // Extract values
-                        .flatMap(value => value.split(',').map(v => v.trim())) // Split by comma and trim spaces
-                )
-            ];
-            console.log("cross list ai", unique_cross_Cutting_Dimensions_A_I);
-            // Optionally, set the state with the unique values
-            setCross_Cutting_Dimensions_A_I(unique_cross_Cutting_Dimensions_A_I);
-
-            const unique_Cross_Cutting_Dimensions_Inputs_Outputs = [...new Set(filteredIndicators.map(item => item.cross_Cutting_Dimensions_Inputs_Process_Outputs	|| ''))]
-            setCross_Cutting_Dimensions_Inputs_Outputs(unique_Cross_Cutting_Dimensions_Inputs_Outputs)
-
-            const unique_dimensions_of_quality = [...new Set(filteredIndicators.map(item => item.dimensions_of_Quality_QoCOfficeReport	|| ''))]
-            setDimensions_Of_Quality(unique_dimensions_of_quality)
-
-            const uniquepriority = [...new Set(filteredIndicators.map(item => item.priority || ''))]
-            setPriority(uniquepriority)
-
-            const unique_data_collection = [...new Set(filteredIndicators.map(item => item.data_collection || ''))]
-            setData_Collection(unique_data_collection)
-
-            const unique_legal_organization_requirement = [...new Set(filteredIndicators.map(item => item.legal_Organizational_Requirements || ''))]
-            setLegal_Organizational_Requirements(unique_legal_organization_requirement)
-
-            const unique_Selected_Indicator = [...new Set(filteredIndicators.map(item => item.selected_indicator || ''))]
-            if(unique_Selected_Indicator!=''){
-                setSelectedIndicator(unique_Selected_Indicator)
-            }
-            
-
-            const unique_piloting = [...new Set(filteredIndicators.map(item => item.piloting || ''))]
-            setPiloting(unique_piloting)
-
-            const unique_pilot_outcome = [...new Set(filteredIndicators.map(item => item.pilot_outcome || ''))]
-            setPilot_Outcome(unique_pilot_outcome)
-
-            const unique_forPilot = [...new Set(filteredIndicators.map(item => item.forPilot || ''))]
-            setforPilot(unique_forPilot)
-
-          
-           
     
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -1118,10 +1116,10 @@ const percentageTemplate = (rowData) => {
 // };
 
 
-// const [key, setKey] = useState(0);
-// useEffect(()=>{
-//     setKey((prevKey) => prevKey + 1); 
-// },[])
+const [key, setKey] = useState(0);
+useEffect(()=>{
+    setKey((prevKey) => prevKey + 1); 
+},[filteredIndicators])
 
 
 const allColumns2 = {
@@ -2054,13 +2052,14 @@ const allColumns2 = {
         {/* <ToggleButton checked={balanceFrozen} onChange={(e) => setBalanceFrozen(e.value)} onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" /> */}
 
 
-<DataTable 
-            value={filteredIndicators}    
+<DataTable  key={key}
+            value={indicators}    
             editMode="cell" ref = {dt} 
             onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}}
             paginator stripedRows
             rows={25} 
-            scrollable scrollHeight="600px" loading={loading} dataKey="id" 
+            scrollable scrollHeight="600px" loading={loading} 
+            dataKey="id" 
             filters={filters} 
             globalFilterFields={columnNames}
             header={header} 
