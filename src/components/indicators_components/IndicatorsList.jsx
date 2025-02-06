@@ -1179,7 +1179,7 @@ const allColumns2 = {
 
     indicator_name: {
         field: "indicator_name",
-        header: renderColumnHeader(indicator_name,"indicator name",headers.indicator_name.label, headers.indicator_name.description, "indicator_name"),
+        header: customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name"),
         filter: true,
         filterPlaceholder: "Search by Indicator Name",
         style: { minWidth: '18rem' },
@@ -1189,7 +1189,7 @@ const allColumns2 = {
     },
     q4all_Ind_number: {
         field: "q4all_Ind_number",
-        header: renderColumnHeader(q4all_Ind_number, "q4all_Ind_number",headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number"),
+        header: customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number"),
         filter: true,
         filterField: "q4all_Ind_number",
         filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.q4all_Ind_number)} itemTemplate={ItemTemplate} />),
