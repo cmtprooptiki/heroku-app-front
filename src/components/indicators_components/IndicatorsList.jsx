@@ -1201,7 +1201,7 @@ const allColumns2 = {
     selection: {
         field:'selection',
         selectionMode: "multiple",
-        headerStyle: { width: '3em' },
+        // headerStyle: { width: '3em' },
         frozen: true
     },
 
@@ -1210,7 +1210,7 @@ const allColumns2 = {
     id:{
         field:"id" , 
         header: "id",
-        style: {minWidth: '10rem', color: 'black' } ,
+        // style: {minWidth: '10rem', color: 'black' } ,
         sortable:true,
         // className='font-bold',
         frozen:true
@@ -1219,7 +1219,9 @@ const allColumns2 = {
         field:'percentage',
         header:"Filled Percentage",
         sortable:true,
-        style:{minWidth: '3rem',color: 'black', textAlign: 'center'},
+        style:{color: 'black', textAlign: 'center'},
+
+        // style:{minWidth: '3rem',color: 'black', textAlign: 'center'},
         frozen:true,
         body:percentageTemplate
     },
@@ -1229,7 +1231,7 @@ const allColumns2 = {
         header: customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name"),
         filter: true,
         filterPlaceholder: "Search by Indicator Name",
-        style: { minWidth: '18rem' },
+        // style: { minWidth: '18rem' },
         editor: (options) => cellEditor(options),
         onCellEditComplete: onCellEditComplete,
         frozen: selectedFrozenColumnNames.includes("indicator_name") // Always define frozen
@@ -1242,7 +1244,7 @@ const allColumns2 = {
         filterElement: (option) => (<FilterIndicators options={option} data={q4all_Ind_number} itemTemplate={ItemTemplate} />),
         showFilterMatchModes: false,
         body: q4all_Ind_number_BodyTemplate,
-        style: { minWidth: '21rem' },
+        // style: { minWidth: '21rem' },
         frozen: selectedFrozenColumnNames.includes("q4all_Ind_number") // Always define frozen
     },
     status: {
