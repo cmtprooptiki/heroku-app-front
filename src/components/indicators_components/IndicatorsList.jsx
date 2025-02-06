@@ -59,7 +59,6 @@ const IndicatorsList = () => {
     // const [selectedFrozenColumnNames, setSelectedFrozenColumnNames] = useState(['selection','id', 'percentage']);
 
     const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
-    const [allColumns2,setColumns2]=useState([]);
 
     // const [filters, setFilters] = useState(null);
     const [filters, setFilters] = useState(initFiltersConfig);
@@ -1117,15 +1116,10 @@ const percentageTemplate = (rowData) => {
 // };
 
 
-const [key, setKey] = useState(0);
-useEffect(()=>{
-    setKey((prevKey) => prevKey + 1); 
-},[filteredIndicators])
 
-const columns_func=()=>{
 
-//}
-const value = {
+
+const allColumns2 = {
 
 
     // <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
@@ -1903,13 +1897,11 @@ const value = {
         onCellEditComplete: onCellEditComplete
     }
 
-}
-    return value
+
+
 };
 
-        useEffect(()=>{
-            setColumns2(columns_func)
-        },[filteredIndicators])
+    
 
     return(
         <div>
@@ -2052,12 +2044,12 @@ const value = {
         
         
         
-        </div> 
+        </div>
 
         {/* <ToggleButton checked={balanceFrozen} onChange={(e) => setBalanceFrozen(e.value)} onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" /> */}
 
 
-<DataTable  key={key}
+<DataTable  
             value={indicators}    
             editMode="cell" ref = {dt} 
             onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}}
