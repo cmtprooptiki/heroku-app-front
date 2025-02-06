@@ -2047,7 +2047,7 @@ const allColumns2 = {
         
         
         
-        </div>
+        </div> 
 
         {/* <ToggleButton checked={balanceFrozen} onChange={(e) => setBalanceFrozen(e.value)} onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" /> */}
 
