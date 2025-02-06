@@ -193,7 +193,7 @@ const IndicatorsList = () => {
         try {
             const response = await axios.get(`${apiBaseUrl}/indicatorsByUser/${user.id}`, {timeout: 5000});
             const indData = response.data;
-r
+
             const unique_Indicator_Name= [...new Set(indData.map(item => item.indicator_name || ''))];
             setQ4AllIndNumber(unique_Indicator_Name);
 
