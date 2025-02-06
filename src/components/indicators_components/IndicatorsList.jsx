@@ -1205,14 +1205,7 @@ const allColumns2 = {
         frozen: true
     },
 
-    percentage:{
-        field:'percentage',
-        header:"Filled Percentage",
-        sortable:true,
-        style:{minWidth: '3rem',color: 'black', textAlign: 'center'},
-        frozen:true,
-        body:percentageTemplate
-    },
+   
 
     id:{
         field:"id" , 
@@ -1222,7 +1215,14 @@ const allColumns2 = {
         // className='font-bold',
         frozen:true
     },
-
+    percentage:{
+        field:'percentage',
+        header:"Filled Percentage",
+        sortable:true,
+        style:{minWidth: '3rem',color: 'black', textAlign: 'center'},
+        frozen:true,
+        body:percentageTemplate
+    },
 
     indicator_name: {
         field: "indicator_name",
