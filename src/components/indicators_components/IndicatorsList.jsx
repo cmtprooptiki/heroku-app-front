@@ -59,6 +59,7 @@ const IndicatorsList = () => {
     // const [selectedFrozenColumnNames, setSelectedFrozenColumnNames] = useState(['selection','id', 'percentage']);
 
     const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
+    const [allColumns2,setColumns2]=useState([]);
 
     // const [filters, setFilters] = useState(null);
     const [filters, setFilters] = useState(initFiltersConfig);
@@ -1121,8 +1122,10 @@ useEffect(()=>{
     setKey((prevKey) => prevKey + 1); 
 },[filteredIndicators])
 
+const columns_func=()=>{
 
-const allColumns2 = {
+//}
+const value = {
 
 
     // <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
@@ -1900,11 +1903,13 @@ const allColumns2 = {
         onCellEditComplete: onCellEditComplete
     }
 
-
-
+}
+    return value
 };
 
-    
+        useEffect(()=>{
+            setColumns2(columns_func)
+        },[Updatedindicators])
 
     return(
         <div>
