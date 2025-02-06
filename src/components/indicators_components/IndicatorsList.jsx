@@ -1210,7 +1210,7 @@ const allColumns2 = {
     id:{
         field:"id" , 
         header: "id",
-        style: {minWidth: '2rem', color: 'black' } ,
+        style: {minWidth: '10rem', color: 'black' } ,
         sortable:true,
         // className='font-bold',
         frozen:true
