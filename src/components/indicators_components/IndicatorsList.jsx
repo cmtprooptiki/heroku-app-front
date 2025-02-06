@@ -148,7 +148,7 @@ const IndicatorsList = () => {
             </span>
             <span>{headerText}</span>
             <div>{title}</div>
-        <small
+        {/* <small
           id={`hint-${field}`}
           style={{
             display: "block",
@@ -161,7 +161,7 @@ const IndicatorsList = () => {
         >
           {hint}
         </small>
-        <Tooltip target={`#hint-${field}`} content={hint} />
+        <Tooltip target={`#hint-${field}`} content={hint} /> */}
         </div>
 
 
