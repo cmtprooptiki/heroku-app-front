@@ -5,7 +5,7 @@ const FilterIndicators = ({ options, data, itemTemplate }) => {
     return (
         <MultiSelect
             value={options.value}
-            options={data}
+            options={Array.from(new Set(data))} // arry for unique , data otherwise
             itemTemplate={itemTemplate}
             onChange={(e) => options.filterCallback(e.value)}
             placeholder="Any"
