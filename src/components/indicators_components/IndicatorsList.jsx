@@ -56,7 +56,7 @@ const IndicatorsList = () => {
 
     const [columnNames, setColumnNames] = useState(['id', 'percentage']);
     const [balanceFrozen, setBalanceFrozen] = useState(false);
-    const [selectedFrozenColumnNames, setSelectedFrozenColumnNames] = useState([]);
+    const [selectedFrozenColumnNames, setSelectedFrozenColumnNames] = useState(['id', 'percentage']);
 
     const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
 
@@ -1191,6 +1191,8 @@ const [key, setKey] = useState(0);
 useEffect(()=>{
     setKey((prevKey) => prevKey + 1); 
 },[selectedFrozenColumnNames])
+
+
 const allColumns2 = {
     indicator_name: {
         field: "indicator_name",
