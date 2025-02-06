@@ -45,15 +45,15 @@ import { headers } from './headersHCProvidersConfig';  // Import the header conf
 
 
 const HCProvidersList = () => {
-    const [indicators, setIndicators] = useState([]);
+    const [hcproviders, setHcproviders] = useState([]);
     const [filters, setFilters] = useState(null);
     // const [filters, setFilters] = useState(initFiltersConfig);
 
     const [loading, setLoading] = useState(true);
     const [globalFilterValue, setGlobalFilterValue] = useState('');
   
-    const [filteredIndicators, setFilteredIndicators] = useState([]);
-    const [RowsAffected, setRowsAffected] = useState(indicators.length)
+    const [filteredHcproviders, setFilteredHcproviders] = useState([]);
+    const [RowsAffected, setRowsAffected] = useState(hcproviders.length)
 
     const [q4all_Ind_number, setQ4AllIndNumber] = useState([]);
     const [category_of_Indicator, set_Category_Of_Indicator] = useState([])
@@ -120,21 +120,21 @@ const HCProvidersList = () => {
     useEffect(()=>{
 
         if (user!=null && user.role=="user"){
-            getIndicatorsByUser()
+            getHcprovidersByUser()
         }else if(user!=null && user.role=="admin"){
             console.log("Is goin to GetIndicator")
-            getIndicators()
+            getHcproviders()
         }
        
         setLoading(false);
-        setRowsAffected(indicators.length)
+        setRowsAffected(hcproviders.length)
         initFilters();
     },[user]);
     
     //get data for specific userid
-    const getIndicatorsByUser= async() =>{
+    const getHcprovidersByUser= async() =>{
         try {
-            const response = await axios.get(`${apiBaseUrl}/indicatorsByUser/${user.id}`, {timeout: 5000});
+            const response = await axios.get(`${apiBaseUrl}/HCProvidersByUser/${user.id}`, {timeout: 5000});
             const indData = response.data;
 
 
@@ -194,8 +194,8 @@ const HCProvidersList = () => {
             }));
 
 
-            setIndicators(parDataWithDates);
-            setFilteredIndicators(parDataWithDates)
+            setHcproviders(parDataWithDates);
+            setFilteredHcproviders(parDataWithDates)
             setRowsAffected(parDataWithDates.length)
     
         } catch (error) {
@@ -205,7 +205,7 @@ const HCProvidersList = () => {
 
 
     //get data for admin
-    const getIndicators= async() =>{
+    const getHcproviders= async() =>{
         try {
             const response = await axios.get(`${apiBaseUrl}/HCProviders`, {timeout: 5000});
             const indData = response.data;
@@ -293,8 +293,8 @@ const HCProvidersList = () => {
             }));
 
 
-            setIndicators(parDataWithDates);
-            setFilteredIndicators(parDataWithDates)
+            setHcproviders(parDataWithDates);
+            setFilteredHcproviders(parDataWithDates)
             setRowsAffected(parDataWithDates.length)
     
         } catch (error) {
@@ -305,9 +305,9 @@ const HCProvidersList = () => {
 
     const deleteIndicator = async(IndicatorId)=>{
         await axios.delete(`${apiBaseUrl}/HCProviders/${IndicatorId}`);
-        getIndicators();
+        getHcproviders();
     }
-    const deleteIndicatorsSelected = (ids) => {
+    const deleteHcprovidersSelected = (ids) => {
         if (Array.isArray(ids)) {
             // Handle multiple deletions
             ids.forEach(async (id) => {
@@ -319,9 +319,9 @@ const HCProvidersList = () => {
         }
     
         // Optionally update your state after deletion to remove the deleted items from the UI
-        setIndicators((prevIndicator) => prevIndicator.filter((indicator) => !ids.includes(indicator.id)));
-        setFilteredIndicators((prevIndicator) => prevIndicator.filter((indicator) => !ids.includes(indicator.id)))
-        setRowsAffected(indicators.length)
+        setHcproviders((prevIndicator) => prevIndicator.filter((indicator) => !ids.includes(indicator.id)));
+        setFilteredHcproviders((prevIndicator) => prevIndicator.filter((indicator) => !ids.includes(indicator.id)))
+        setRowsAffected(hcproviders.length)
         setSelectedIndicator([]); // Clear selection after deletion
     };
 
@@ -765,7 +765,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                 console.log("Data being sent to backend:", rowData);  // Log the data
 
                 // Make the API call to update the backend
-                const response = await axios.patch(`${apiBaseUrl}/indicators/${rowData.id}`, {
+                const response = await axios.patch(`${apiBaseUrl}/HCProviders/${rowData.id}`, {
                     [field]: newValue,
                 });
      
@@ -910,9 +910,9 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
             // Assuming the response contains the new row data, add it to the table
             const newRow = response.data; // Assuming the newly created row is returned from the backend
             console.log(newRow)
-            setIndicators((prevIndicators) => [...prevIndicators, newRow]); // Add to the current list of indicators
-            setFilteredIndicators((prevIndicators) => [...prevIndicators, newRow])
-            setRowsAffected(indicators.length)
+            setHcproviders((prevHcproviders) => [...prevHcproviders, newRow]); // Add to the current list of Hcproviders
+            setFilteredHcproviders((prevHcproviders) => [...prevHcproviders, newRow])
+            setRowsAffected(hcproviders.length)
             window.location.reload();
         } catch (error) {
             console.error('Error adding new row:', error);
@@ -1014,7 +1014,7 @@ const percentageTemplate = (rowData) => {
         <div className='d-flex align-items-center gap-4'>
         
         {user && user.role ==="admin" && (
-        <Link to={"/indicators/add"} ><Button label="New Indicator row" className='button is-primary mb-2 rounded' icon="pi pi-plus-circle"/></Link>
+        <Link to={"/hcproviders/add"} ><Button label="New Indicator row" className='button is-primary mb-2 rounded' icon="pi pi-plus-circle"/></Link>
         )}
 
         {user && user.role === "admin" && (
@@ -1036,7 +1036,7 @@ const percentageTemplate = (rowData) => {
                 icon="pi pi-trash" 
                 severity="danger"
                 style = {{marginLeft: "50px"}} 
-                onClick={() => deleteIndicatorsSelected(selectedIndicator.map(indicator => indicator.id))} // Pass an array of selected IDs
+                onClick={() => deleteHcprovidersSelected(selectedIndicator.map(indicator => indicator.id))} // Pass an array of selected IDs
             />
       
             
@@ -1049,7 +1049,7 @@ const percentageTemplate = (rowData) => {
         {  console.log("statusessssssss : ",piloting)}
 
 
-<DataTable value={indicators}  editMode="cell" ref = {dt} onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}} paginator stripedRows
+<DataTable value={hcproviders}  editMode="cell" ref = {dt} onValueChange={(Updatedhcproviders) => {setFilteredHcproviders(Updatedhcproviders);  console.log(filteredHcproviders.length, "Toso mikos"); setRowsAffected(Updatedhcproviders.length)}} paginator stripedRows
  rows={25} scrollable scrollHeight="600px" loading={loading} dataKey="id" 
             filters={filters} 
             globalFilterFields={['id', 'indicator_name',  'q4all_Ind_number',
@@ -1067,7 +1067,7 @@ const percentageTemplate = (rowData) => {
                         'selected_indicator', 'adaptation_Needs', 'piloting', 'opinion_from_ODIPY_Other_experts',
                          'pilot_outcome', 'pilot_success_criteria' ]} 
             header={header} 
-            emptyMessage="No Indicators found."
+            emptyMessage="No hcproviders found."
             selection={selectedIndicator} 
             onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
             selectionMode="checkbox"
