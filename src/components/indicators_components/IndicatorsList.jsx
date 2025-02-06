@@ -58,7 +58,7 @@ const IndicatorsList = () => {
     // const [balanceFrozen, setBalanceFrozen] = useState(false);
     // const [selectedFrozenColumnNames, setSelectedFrozenColumnNames] = useState(['selection','id', 'percentage']);
 
-    const [selectedColumns, setSelectedColumns] = useState(['selection','id', 'percentage']); // User selected columns
+    const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
 
     // const [filters, setFilters] = useState(null);
     const [filters, setFilters] = useState(initFiltersConfig);
@@ -1116,10 +1116,10 @@ const percentageTemplate = (rowData) => {
 // };
 
 
-const [key, setKey] = useState(0);
-useEffect(()=>{
-    setKey((prevKey) => prevKey + 1); 
-},[])
+// const [key, setKey] = useState(0);
+// useEffect(()=>{
+//     setKey((prevKey) => prevKey + 1); 
+// },[])
 
 
 const allColumns2 = {
@@ -1127,29 +1127,29 @@ const allColumns2 = {
 
     // <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
 
-    selection: {
-        selectionMode: "multiple",
-        headerStyle: { width: '3em' },
-        // frozen: true
-    },
+    // selection: {
+    //     selectionMode: "multiple",
+    //     headerStyle: { width: '3em' },
+    //     // frozen: true
+    // },
 
-    percentage:{
-        field:'percentage',
-        header:"Filled Percentage",
-        sortable:true,
-        style:{minWidth: '12rem',color: 'black', textAlign: 'center'},
-        // frozen:true,
-        body:percentageTemplate
-    },
+    // percentage:{
+    //     field:'percentage',
+    //     header:"Filled Percentage",
+    //     sortable:true,
+    //     style:{minWidth: '12rem',color: 'black', textAlign: 'center'},
+    //     // frozen:true,
+    //     body:percentageTemplate
+    // },
 
-    id:{
-        field:"id" , 
-        header: "id",
-        style: {minWidth: '2rem', color: 'black' } ,
-        sortable:true,
-        // className='font-bold',
-        // frozen:true
-    },
+    // id:{
+    //     field:"id" , 
+    //     header: "id",
+    //     style: {minWidth: '2rem', color: 'black' } ,
+    //     sortable:true,
+    //     // className='font-bold',
+    //     // frozen:true
+    // },
 
 
     indicator_name: {
@@ -2052,7 +2052,7 @@ const allColumns2 = {
         {/* <ToggleButton checked={balanceFrozen} onChange={(e) => setBalanceFrozen(e.value)} onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" /> */}
 
 
-<DataTable key={key} 
+<DataTable 
             value={indicators}    
             editMode="cell" ref = {dt} 
             onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}}
@@ -2067,6 +2067,17 @@ const allColumns2 = {
             onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
             selectionMode="checkbox"
             >
+                
+            <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
+
+            <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }}  frozen></Column>
+            <Column
+             className='font-bold'
+                header="Filled Percentage"
+                sortable
+                body={percentageTemplate}
+                style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage' frozen
+            ></Column>
            
             {selectedColumns.map((col) => (
                     <Column key={col} {...allColumns2[col]} />
