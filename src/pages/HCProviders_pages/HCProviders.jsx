@@ -1,9 +1,11 @@
 import React,{useEffect} from 'react'
 import Layout from '../Layout'
+
+import HCProvidersList from '../../components/HCProviders_components/HCProvidersList'
+
 import { useDispatch,useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getMe } from '../../features/authSlice'
-import HCProvidersList from '../../components/HCProviders_components/HCProvidersList'
 
 const HCProviders = () => {
     const dispatch = useDispatch();

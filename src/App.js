@@ -22,7 +22,8 @@ import 'primeflex/primeflex.css';
 import './flags.css';
 // import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.css';
-import HCProviders from "./components/HCProviders_components/HCProvidersList"
+
+import HCProviders from "./pages/HCProviders_pages/HCProviders";
 
 
 function App() {
