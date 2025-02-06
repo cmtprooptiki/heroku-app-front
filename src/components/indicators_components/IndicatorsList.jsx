@@ -56,7 +56,7 @@ const IndicatorsList = () => {
 
     const [columnNames, setColumnNames] = useState(['id', 'percentage']);
     const [balanceFrozen, setBalanceFrozen] = useState(false);
-    const [selectedFrozenColumnNames, setSelectedFrozenColumnNames] = useState(['id', 'percentage']);
+    const [selectedFrozenColumnNames, setSelectedFrozenColumnNames] = useState(['selection','id', 'percentage']);
 
     const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
 
@@ -1194,6 +1194,35 @@ useEffect(()=>{
 
 
 const allColumns2 = {
+
+
+    // <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
+
+    selection: {
+        selectionMode: "multiple",
+        headerStyle: { width: '3em' },
+        frozen: true
+    },
+
+    percentage:{
+        field:'percentage',
+        header:"Filled Percentage",
+        sortable:true,
+        style:{minWidth: '12rem',color: 'black', textAlign: 'center'},
+        frozen:true,
+        body:percentageTemplate
+    },
+
+    id:{
+        field:"id" , 
+        header: "id",
+        style: {minWidth: '2rem', color: 'black' } ,
+        sortable:true,
+        // className='font-bold',
+        frozen:true
+    },
+
+
     indicator_name: {
         field: "indicator_name",
         header: customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name"),
@@ -2453,10 +2482,10 @@ const allColumns2 = {
             onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
             selectionMode="checkbox"
             >
-            <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
+            {/* <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
 
             <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }}  frozen></Column>
-            {/* <Column
+            <Column
              className='font-bold'
                 header="Filled Percentage"
                 sortable
