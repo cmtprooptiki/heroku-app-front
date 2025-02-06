@@ -69,6 +69,8 @@ const IndicatorsList = () => {
     const [filteredIndicators, setFilteredIndicators] = useState([]);
     const [RowsAffected, setRowsAffected] = useState(indicators.length)
 
+    const [indicator_name, setIndicators_Name] = useState([])
+
     const [q4all_Ind_number, setQ4AllIndNumber] = useState([]);
     const [category_of_Indicator, set_Category_Of_Indicator] = useState([])
     const [type_of_healthcare, setType_Of_HealthCare] = useState([])
@@ -134,6 +136,37 @@ const IndicatorsList = () => {
       </div>
     );
 
+    const renderColumnHeader = (headerText, fieldName, title, hint, field) => (
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            
+            <span
+                onClick={() => toggleFreezeColumn(fieldName)}
+                style={{ cursor: 'pointer', marginRight: '8px' }}
+                title={frozenColumns.includes(fieldName) ? 'Unlock Column' : 'Lock Column'}
+            >
+                {frozenColumns.includes(fieldName) ? <i className="pi pi-lock" style={{ fontSize: '1rem' }}></i> : <i className="pi pi-lock-open" style={{ fontSize: '1rem' }}></i>}
+            </span>
+            <span>{headerText}</span>
+            <div>{title}</div>
+        <small
+          id={`hint-${field}`}
+          style={{
+            display: "block",
+            color: "#888",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            width:"250px"
+          }}
+        >
+          {hint}
+        </small>
+        <Tooltip target={`#hint-${field}`} content={hint} />
+        </div>
+
+
+    );
+
 
     useEffect(()=>{
 
@@ -160,6 +193,9 @@ const IndicatorsList = () => {
         try {
             const response = await axios.get(`${apiBaseUrl}/indicatorsByUser/${user.id}`, {timeout: 5000});
             const indData = response.data;
+r
+            const unique_Indicator_Name= [...new Set(indData.map(item => item.indicator_name || ''))];
+            setQ4AllIndNumber(unique_Indicator_Name);
 
 
             const uniqueq4all_Ind_number= [...new Set(indData.map(item => item.q4all_Ind_number || ''))];
@@ -1090,6 +1126,22 @@ const percentageTemplate = (rowData) => {
         const valueArray = value.split(',').map((v) => v.trim()); // Split and trim any extra spaces
         return filter.some((f) => valueArray.includes(f.trim()) || (f === '' && valueArray.length === 0)); // Check if any filter value matches
     });
+
+
+    const allColumnFields = ['indicator_name', 'q4all_Ind_number'];
+        const [frozenColumns, setFrozenColumns] = useState(['indicator_name', 'q4all_Ind_number']); // Initially frozen column(s)
+        const allColumnsFrozen = frozenColumns.length === allColumnFields.length;
+        
+        // Function to toggle a column's frozen state
+        const toggleFreezeColumn = (fieldName) => {
+            setFrozenColumns((prev) =>
+                prev.includes(fieldName)
+                    ? prev.filter(col => col !== fieldName) // Unfreeze column if already frozen
+                    : [...prev, fieldName]                  // Freeze column if not frozen
+            );
+        };
+        
+        
     
 
 
@@ -1127,7 +1179,7 @@ const allColumns2 = {
 
     indicator_name: {
         field: "indicator_name",
-        header: customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name"),
+        header: renderColumnHeader(indicator_name,"indicator name",headers.indicator_name.label, headers.indicator_name.description, "indicator_name"),
         filter: true,
         filterPlaceholder: "Search by Indicator Name",
         style: { minWidth: '18rem' },
@@ -1137,7 +1189,7 @@ const allColumns2 = {
     },
     q4all_Ind_number: {
         field: "q4all_Ind_number",
-        header: customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number"),
+        header: renderColumnHeader(q4all_Ind_number, "q4all_Ind_number",headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number"),
         filter: true,
         filterField: "q4all_Ind_number",
         filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.q4all_Ind_number)} itemTemplate={ItemTemplate} />),
