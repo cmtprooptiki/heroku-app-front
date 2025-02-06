@@ -1119,7 +1119,7 @@ const percentageTemplate = (rowData) => {
 const [key, setKey] = useState(0);
 useEffect(()=>{
     setKey((prevKey) => prevKey + 1); 
-},[selectedFrozenColumnNames])
+},[])
 
 
 const allColumns2 = {
