@@ -2071,7 +2071,7 @@ const allColumns2 = {
             {selectedColumns.map((col) => (
                     <Column key={col} {...allColumns2[col]} />
                 ))}
-            {/* {selectedColumns.map((col) => allColumns[col])} */}
+            {/* {selectedColumns.map((col) => allColumns[col])} 2*/}
 
 
             <Column header="Ενέργειες" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen  headerStyle={{ color: 'rgba(18, 0, 147, 1)' }}/>
