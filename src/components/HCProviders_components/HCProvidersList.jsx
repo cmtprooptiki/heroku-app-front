@@ -210,7 +210,7 @@ const HCProvidersList = () => {
             const indData = response.data;
 
             
-
+            console.log("aAAASDad",indData)
             // const uniqueq4all_Ind_number= [...new Set(indData.map(item => item.q4all_Ind_number || ''))];
             // setQ4AllIndNumber(uniqueq4all_Ind_number);
 
