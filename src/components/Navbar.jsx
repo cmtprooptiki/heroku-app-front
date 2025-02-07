@@ -11,6 +11,7 @@ import cashflow_logo from "../Images/whologo.png";
 import searchIconSvg from "../icons/search.svg";
 import settingsIconSvg from "../icons/settings.svg";
 import notificationsIconSvg from "../icons/notifications.svg";
+import hcprovidersIconSvg from "../icons/hcproviders.svg"
 import usersIconSvg from "../icons/users.svg";
 import homeSvg from "../icons/home.svg";
 import { Link } from 'react-router-dom';
@@ -95,7 +96,7 @@ const Navbar = () => {
            {/* Search users */}
 
            <Link to="/hcproviders" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
-                <img src={usersIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+                <img src={hcprovidersIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
 
                 <Ripple />
             </Link>
