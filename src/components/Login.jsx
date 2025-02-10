@@ -39,7 +39,7 @@ const Login = () => {
                     </div>
                     <form onSubmit={Auth}>
                         <div className="form-group">
-                            <label htmlFor="email" style={{ color: 'white',fontSize:'16px' }}>Email</label>
+                            <label htmlFor="email" style={{ color: 'white',fontSize:'16px' }}>Email 2222</label>
                             <InputText type="text" className="w-full mb-3" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
                         </div>
                         <div className="form-group">

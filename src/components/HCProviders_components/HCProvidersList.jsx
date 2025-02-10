@@ -23,6 +23,10 @@ import { MultiSelect } from 'primereact/multiselect';
 import { OverlayPanel } from 'primereact/overlaypanel';
 // import indicatorsData from '../../data/indicators.json'; // Adjust the path based on file location
 import { Tooltip } from "primereact/tooltip";
+import TotalIndicators from '../../icons/Total indicators.svg'
+import indicatortwo from '../../icons/Group 301.svg'
+import indicatorthree from '../../icons/Group 302.svg'
+import { Card } from 'primereact/card';
 // import { 
 //     statuses,
 //     domains, 
@@ -86,9 +90,16 @@ const HCProvidersList = () => {
 
     const [statusValue, setStatusValue] = useState([])
 
+    const [filteredbyHospital,setfilteredbyHospital]=useState([]);
+    const [filteredbyHCentre,setfilteredbyHCentre]=useState([]);
+    const [filteredTomy,setfilteredTomy]=useState([]);
+
   
     const {user} = useSelector((state)=>state.auth)
     console.log(user)
+
+    const[showMap,setShowMap]=useState(false);
+    const[shownLabel,setShownLabel]=useState("Table View")
 
 
    
@@ -292,7 +303,12 @@ const HCProvidersList = () => {
                 ...item,
             }));
 
-
+            const filteredbyHospital = parDataWithDates.filter(item => item.type_Of_Hcp === "Hospital");
+            const filteredbyHCentre = parDataWithDates.filter(item => item.type_Of_Hcp === "Health Centre");
+            const filteredTomy = parDataWithDates.filter(item => item.type_Of_Hcp === "TOMY");
+            setfilteredbyHospital(filteredbyHospital)
+            setfilteredbyHCentre(filteredbyHCentre)
+            setfilteredTomy(filteredTomy)
             setHcproviders(parDataWithDates);
             setFilteredHcproviders(parDataWithDates)
             setRowsAffected(parDataWithDates.length)
@@ -1005,11 +1021,95 @@ const percentageTemplate = (rowData) => {
         return filter.some((f) => valueArray.includes(f.trim()) || (f === '' && valueArray.length === 0)); // Check if any filter value matches
     });
     
+    
+    const checkRow = (row) => {
+        // Filter out 'user_Id' from the columns and check if all other values are not null
+        return Object.keys(row).every((key) => {
+          if (key !== 'user_Id') {
+            return row[key] !== null && row[key] !== '';
+          }
+          return true; // Allow 'user_Id' to be null or not
+        });
+      };
+    
 
     
 
     return(
-        <div className="card" >
+        <>
+        <Card className="kpi-section-card">
+            <div className="kpi-section">
+                {/* Total Customers */}
+                <div className="kpi-item">
+                    <div className="kpi-icon">
+                        {/* <i className="pi pi-users"></i> */}
+                        <img src={TotalIndicators} alt="Search" style={{ width: "64px", cursor: "pointer" }} />                   
+
+                    </div>
+                    <div className="kpi-details">
+                        <span className="kpi-label">Total Indicators</span>
+                        <h2 className="kpi-value">{hcproviders.length} </h2>
+                       
+                    </div>
+                </div>
+                {/* Separator Line */}
+                <div className="kpi-separator"></div>
+                {/* Members */}
+                <div className="kpi-item">
+                    <div className="kpi-icon">
+                        {/* <i className="pi pi-user"></i> */}
+                        <img src={indicatortwo} alt="Search" style={{ width: "32px", cursor: "pointer" }} />                   
+
+                    </div>
+                    <div className="kpi-details">
+                        <span className="kpi-label">Number of Hospitals</span>
+                        <h2 className="kpi-value">{filteredbyHospital.length}</h2>
+                     
+                    </div>
+                </div>
+                {/* Separator Line */}
+                <div className="kpi-separator"></div>
+                {/* Active Now */}
+                <div className="kpi-item">
+                    <div className="kpi-icon" style={{backgroundColor:"pink"}}>
+                        {/* <i className="pi pi-desktop"></i> */}
+                        <img src={indicatorthree} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+                    </div>
+                    <div className="kpi-details">
+                        <span className="kpi-label">Number of Health Centres</span>
+                        <h2 className="kpi-value">{filteredbyHCentre.length }</h2>
+
+                    </div>
+                </div>
+                <div className="kpi-item">
+                    <div className="kpi-icon" style={{backgroundColor:"pink"}}>
+                        {/* <i className="pi pi-desktop"></i> */}
+                        <img src={indicatorthree} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+                    </div>
+                    <div className="kpi-details">
+                        <span className="kpi-label">Number of TOMY</span>
+                        <h2 className="kpi-value">{filteredTomy.length}</h2>
+
+                    </div>
+                </div>
+            </div>
+        </Card>
+        
+        <div className='datatable-container'>
+            <div className='flex justify-content'>
+                <Button name="map" label={shownLabel}  onClick={() => {
+                        setShowMap(!showMap); // Toggle showMap state
+                        setShownLabel(!showMap ? "Map View" : "Table View"); // Change label accordingly
+                    }}  />
+                    
+                {console.log("map",showMap)}
+            </div>
+            
+        <div hidden={!showMap}>
+            HELLOOOOOOOOOO
+        </div>
+
+        <div className="card" hidden={showMap}>
         <h1 className='title'>HCProviders Table</h1>
         <div className='d-flex align-items-center gap-4'>
         
@@ -1071,35 +1171,33 @@ const percentageTemplate = (rowData) => {
             selection={selectedIndicator} 
             onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
             selectionMode="checkbox"
+            style={{textAlign:'center'}}
+            tableStyle={{ minWidth: '50rem' }}
+            bodyStyle={{textAlign:"center"}}
             >
-            <Column selectionMode="multiple" headerStyle={{ width: '3em' }} frozen></Column>
+            <Column selectionMode="multiple" style={{textAlign:"center" }} frozen></Column>
 
-            <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }} frozen ></Column>
-            <Column
-             className='font-bold'
-                header="Filled Percentage"
-                body={percentageTemplate}
-                style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} frozen
-            ></Column>
-            <Column field="ype"  header={customHeader(headers.ype.label, headers.ype.description, "YPE")}  filter filterPlaceholder="Search by Indicator Name" style={{ minWidth: '18rem' }}></Column>
-            <Column field="Q4ALL_code" header={customHeader(headers.Q4ALL_code.label, headers.Q4ALL_code.description, "Q4ALL code")}  filter filterField='Q4ALL_code'  itemTemplate={ItemTemplate} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} style={{ minWidth: '21rem' }}></Column>
-            <Column field="type_Of_Hcp" header={customHeader(headers.type_Of_Hcp.label, headers.type_Of_Hcp.description, "type Of Hcp")} filter filterField='type_Of_Hcp'
-                        itemTemplate={ItemTemplate} style={{ minWidth: '12rem' }} showFilterMatchModes={false}></Column>
-            <Column field="Name_GR" header={customHeader(headers.Name_GR.label, headers.Name_GR.description, "Name GR")} filter filterPlaceholder="Search by Indicator Cluster" style={{ minWidth: '12rem' }}></Column>
-            <Column field="Name_EN" header={customHeader(headers.Name_EN.label, headers.Name_EN.description, "Name EN")}filter filterPlaceholder="Search by Indicator Merge" style={{ minWidth: '12rem' }} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
-            <Column field="category_As_Per_HealthAtlas"  header={customHeader(headers.category_As_Per_HealthAtlas.label, headers.category_As_Per_HealthAtlas.description ,"Category as per HealthAtlas")} filter filterField='category_As_Per_HealthAtlas' itemTemplate={ItemTemplate} showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
-            <Column field="category_As_Per_Sha_2011_Elstat"  header={customHeader(headers.category_As_Per_Sha_2011_Elstat.label,headers.category_As_Per_Sha_2011_Elstat.description,"category_As_Per_Sha_2011_Elstat")} filter itemTemplate={ItemTemplate} showFilterMatchModes={false} filterField='category_As_Per_Sha_2011_Elstat' style={{ minWidth: '12rem' }}></Column>
-            <Column field="lat" header={customHeader(headers.lat.label,headers.lat.description,"Latitude")} filter filterField = 'lat'  itemTemplate={ItemTemplate} showFilterMatchModes={false} style={{ minWidth: '10rem' }}></Column>
-            <Column field="lon" header={customHeader(headers.lon.label,headers.lon.description  ,"Longitude")} filter  itemTemplate={ItemTemplate} showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
-            <Column field="address"  header={customHeader(headers.address.label,headers.address.description,"Address")} filter itemTemplate={ItemTemplate} filterField='address' showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
-            <Column field="post_Code"  header={customHeader(headers.post_Code.label,headers.post_Code.description,"Post Code")} filter itemTemplate={ItemTemplate} filterField='post_Code' showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
-            <Column field="email_Contact"  header={customHeader(headers.email_Contact.label,headers.email_Contact.description,"email contact VION file")} filter itemTemplate={ItemTemplate} filterField='email_Contact' showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
-            <Column field="general_Email_Contact"  header={customHeader(headers.general_Email_Contact.label,headers.general_Email_Contact.description,"general_Email_Contact")} filter itemTemplate={ItemTemplate} filterField='general_Email_Contact' showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
-            <Column field="website"  header={customHeader(headers.website.label,headers.website.description,"Website")} filter itemTemplate={ItemTemplate} filterField='website' showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
-            <Column field="Idika_Ehr"  header={customHeader(headers.Idika_Ehr.label,headers.Idika_Ehr.description,"IDIKA EHR")} filter itemTemplate={ItemTemplate} filterField='Idika_Ehr' showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
-            <Column field="Odipy_Inidcator_Collection"  header={customHeader(headers.Odipy_Inidcator_Collection.label,headers.Odipy_Inidcator_Collection.description,"ODIPY INDICATOR COLLECTION")} filter itemTemplate={ItemTemplate} filterField='Odipy_Inidcator_Collection' showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
-            <Column field="Drg_Mature_Usage"  header={customHeader(headers.Drg_Mature_Usage.label,headers.Drg_Mature_Usage.description,"DRG MATURE USAGE")} filter itemTemplate={ItemTemplate} filterField='Drg_Mature_Usage' showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
-            <Column field="HEALTH_Center_In_The_Network"  header={customHeader(headers.HEALTH_Center_In_The_Network.label,headers.HEALTH_Center_In_The_Network.description,"HEALTH CENTER IN THE NETWORK")} filter itemTemplate={ItemTemplate} filterField='HEALTH_Center_In_The_Network' showFilterMatchModes={false} style={{ minWidth: '12rem' }}></Column>
+            <Column className='font-bold' field="id" header="id" sortable  style={{ color: 'black' ,textAlign:'center'}} frozen ></Column>
+           
+            <Column field="ype" style={{textAlign:"center" }} header={customHeader(headers.ype.label, headers.ype.description, "YPE")}  filter filterPlaceholder="Search by Indicator Name" ></Column>
+            <Column field="Q4ALL_code" style={{textAlign:"center" }} header={customHeader(headers.Q4ALL_code.label, headers.Q4ALL_code.description, "Q4ALL code")}  filter filterField='Q4ALL_code'  itemTemplate={ItemTemplate} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} ></Column>
+            <Column field="type_Of_Hcp" style={{textAlign:"center" }} header={customHeader(headers.type_Of_Hcp.label, headers.type_Of_Hcp.description, "type Of Hcp")} filter filterField='type_Of_Hcp'
+                        itemTemplate={ItemTemplate}  showFilterMatchModes={false}></Column>
+            <Column field="Name_GR" style={{textAlign:"center" }} header={customHeader(headers.Name_GR.label, headers.Name_GR.description, "Name GR")} filter filterPlaceholder="Search by Indicator Cluster" ></Column>
+            <Column field="Name_EN" style={{textAlign:"center" }} header={customHeader(headers.Name_EN.label, headers.Name_EN.description, "Name EN")}filter filterPlaceholder="Search by Indicator Merge"  editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="category_As_Per_HealthAtlas"  style={{textAlign:"center" }} header={customHeader(headers.category_As_Per_HealthAtlas.label, headers.category_As_Per_HealthAtlas.description ,"Category as per HealthAtlas")} filter filterField='category_As_Per_HealthAtlas' itemTemplate={ItemTemplate} showFilterMatchModes={false} ></Column>
+            <Column field="category_As_Per_Sha_2011_Elstat" style={{textAlign:"center" }}  header={customHeader(headers.category_As_Per_Sha_2011_Elstat.label,headers.category_As_Per_Sha_2011_Elstat.description,"category_As_Per_Sha_2011_Elstat")} filter itemTemplate={ItemTemplate} showFilterMatchModes={false} filterField='category_As_Per_Sha_2011_Elstat' ></Column>
+            <Column field="lat" style={{textAlign:"center" }} header={customHeader(headers.lat.label,headers.lat.description,"Latitude")} filter filterField = 'lat'  itemTemplate={ItemTemplate} showFilterMatchModes={false} ></Column>
+            <Column field="lon" style={{textAlign:"center" }} header={customHeader(headers.lon.label,headers.lon.description  ,"Longitude")} filter  itemTemplate={ItemTemplate} showFilterMatchModes={false}></Column>
+            <Column field="address" style={{textAlign:"center" }} header={customHeader(headers.address.label,headers.address.description,"Address")} filter itemTemplate={ItemTemplate} filterField='address' showFilterMatchModes={false} ></Column>
+            <Column field="post_Code" style={{textAlign:"center" }}  header={customHeader(headers.post_Code.label,headers.post_Code.description,"Post Code")} filter itemTemplate={ItemTemplate} filterField='post_Code' showFilterMatchModes={false} ></Column>
+            <Column field="email_Contact" style={{textAlign:"center" }}  header={customHeader(headers.email_Contact.label,headers.email_Contact.description,"email contact VION file")} filter itemTemplate={ItemTemplate} filterField='email_Contact' showFilterMatchModes={false} ></Column>
+            <Column field="general_Email_Contact" style={{textAlign:"center" }} header={customHeader(headers.general_Email_Contact.label,headers.general_Email_Contact.description,"general_Email_Contact")} filter itemTemplate={ItemTemplate} filterField='general_Email_Contact' showFilterMatchModes={false} ></Column>
+            <Column field="website" style={{textAlign:"center" }} header={customHeader(headers.website.label,headers.website.description,"Website")} filter itemTemplate={ItemTemplate} filterField='website' showFilterMatchModes={false} ></Column>
+            <Column field="Idika_Ehr" style={{textAlign:"center" }} header={customHeader(headers.Idika_Ehr.label,headers.Idika_Ehr.description,"IDIKA EHR")} filter itemTemplate={ItemTemplate} filterField='Idika_Ehr' showFilterMatchModes={false} ></Column>
+            <Column field="Odipy_Inidcator_Collection" style={{textAlign:"center" }} header={customHeader(headers.Odipy_Inidcator_Collection.label,headers.Odipy_Inidcator_Collection.description,"ODIPY INDICATOR COLLECTION")} filter itemTemplate={ItemTemplate} filterField='Odipy_Inidcator_Collection' showFilterMatchModes={false} ></Column>
+            <Column field="Drg_Mature_Usage" style={{textAlign:"center" }} header={customHeader(headers.Drg_Mature_Usage.label,headers.Drg_Mature_Usage.description,"DRG MATURE USAGE")} filter itemTemplate={ItemTemplate} filterField='Drg_Mature_Usage' showFilterMatchModes={false} ></Column>
+            <Column field="HEALTH_Center_In_The_Network" style={{textAlign:"center" }}  header={customHeader(headers.HEALTH_Center_In_The_Network.label,headers.HEALTH_Center_In_The_Network.description,"HEALTH CENTER IN THE NETWORK")} filter itemTemplate={ItemTemplate} filterField='HEALTH_Center_In_The_Network' showFilterMatchModes={false} ></Column>
 
             <Column header="Ενέργειες" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen headerStyle={{ backgroundImage: 'linear-gradient(to right, #1400B9, #00B4D8)', color: '#ffffff' }}/>
 
@@ -1113,6 +1211,8 @@ const percentageTemplate = (rowData) => {
         
        
     </div>
+    </div>
+    </>
     )
 }
 

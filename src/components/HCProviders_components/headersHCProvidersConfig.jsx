@@ -11,7 +11,7 @@ export const headers = {
     },
     type_Of_Hcp: {
         label: "Type of HCP",
-        description: "Proposed; Draft; Formally approved; Piloting; Deployed"
+        description: "Hospital; PrimaryCareFacility; …."
     },
     Name_GR: {
         label: "Name (GR)",
