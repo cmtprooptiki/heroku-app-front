@@ -27,6 +27,7 @@ import TotalIndicators from '../../icons/Total indicators.svg'
 import indicatortwo from '../../icons/Group 301.svg'
 import indicatorthree from '../../icons/Group 302.svg'
 import { Card } from 'primereact/card';
+import { HcprovidersMap2 } from './hcpmap';
 // import { 
 //     statuses,
 //     domains, 
@@ -1100,14 +1101,7 @@ const percentageTemplate = (rowData) => {
         {/* <div >
             <HcprovidersMap data={hcproviders}></HcprovidersMap>
         </div> */}
-        {(hcproviders)?
-
-            <HcprovidersMap data={hcproviders}></HcprovidersMap>
-
-        :{
-
-
-        }}
+        {showMap?<HcprovidersMap2 data={hcproviders}></HcprovidersMap2>:""}
         <div className="card" hidden={showMap}>
         <h1 className='title'>HCProviders Table</h1>
         <div className='d-flex align-items-center gap-4'>
