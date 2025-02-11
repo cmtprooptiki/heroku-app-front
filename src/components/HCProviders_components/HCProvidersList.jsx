@@ -47,6 +47,8 @@ import { headers } from './headersHCProvidersConfig';  // Import the header conf
 // import { initFiltersConfig } from './filtersConfig';
 // import FilterIndicators from './FilterIndicators';
 
+import FilterHCProviders from './FilterHCProviders';
+
 
 const HCProvidersList = () => {
     const [hcproviders, setHcproviders] = useState([]);
@@ -62,9 +64,12 @@ const HCProvidersList = () => {
     const [q4all_Ind_number, setQ4AllIndNumber] = useState([]);
     const [category_of_Indicator, set_Category_Of_Indicator] = useState([])
     const [type_of_healthcare, setType_Of_HealthCare] = useState([])
+    const [ype, setYpe] = useState([])
+    const [type_Of_Hcp, setType_Of_Hcp] = useState([])
     const [dimension, setDimension] = useState([])
 
     const [legal_Organizational_Requirements, setLegal_Organizational_Requirements] = useState([])
+    
 
     const [selected_indicator, setSelected_Indicator] = useState([])
 
@@ -297,6 +302,11 @@ const HCProvidersList = () => {
             // const unique_pilot_outcome = [...new Set(indData.map(item => item.pilot_outcome || ''))]
             // setPilot_Outcome(unique_pilot_outcome)
 
+            const unique_ype = [...new Set(indData.map(item => item.ype || ''))]
+            setYpe(unique_ype)
+
+            const unique_type_of_hcp = [...new Set(indData.map(item => item.type_Of_Hcp || ''))]
+            setType_Of_Hcp(unique_type_of_hcp)
 
           
             const parDataWithDates = indData.map(item => ({
@@ -361,12 +371,12 @@ const HCProvidersList = () => {
         setFilters({
             global: { value: null, matchMode: FilterMatchMode.CONTAINS },
 
-            ype: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            Q4ALL_code: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            type_Of_Hcp: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            Name_GR: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            Name_EN: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            category_As_Per_HealthAtlas: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            ype: { value: null, matchMode: FilterMatchMode.IN },
+            Q4ALL_code: { value: null, matchMode: FilterMatchMode.IN },
+            type_Of_Hcp: { value: null, matchMode: FilterMatchMode.IN },
+            Name_GR: { value: null, matchMode: FilterMatchMode.IN },
+            Name_EN: { value: null, matchMode: FilterMatchMode.IN },
+            category_As_Per_HealthAtlas: { value: null, matchMode: FilterMatchMode.IN },
             category_As_Per_Sha_2011_Elstat: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
             lat: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
             lon: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
@@ -375,7 +385,7 @@ const HCProvidersList = () => {
             email_Contact: {operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }]},
             general_Email_Contact: {operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }]},
             website: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            Idika_Ehr: {operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }]},
+            Idika_Ehr: { value: null, matchMode: FilterMatchMode.IN },
             Odipy_Inidcator_Collection: {operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }]},
             Drg_Mature_Usage: {operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }]},
             HEALTH_Center_In_The_Network: {operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }]}
@@ -579,7 +589,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                 break;
 
      
-            case 'catergory_of_Indicator': // For dropdown, directly assign the selected value
+            case 'ype': // For dropdown, directly assign the selected value
                 if (newValue) {
                     console.log("Status is newvalue:",newValue)
                     rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; validEdit = true;
@@ -591,7 +601,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
 
                 break;
     
-            case 'type_of_healthcare': // For dropdown, directly assign the selected value
+            case 'type_Of_Hcp': // For dropdown, directly assign the selected value
                 if (newValue) {
                     console.log("type of heal is newvalue:",newValue)
                     rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; validEdit = true;
@@ -801,8 +811,8 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
 
     const cellEditor = (options) => {
         if (options.field === 'price') return priceEditor(options);
-        // else if (options.field === 'status') return dropdownEditor(options,); // Dropdown editor for category
-        // else if (options.field === 'catergory_of_Indicator') return dropdownEditor(options,category_of_Indicator); //dropdown editor of category of indicator
+        else if (options.field === 'ype') return dropdownEditor(options, ype); // Dropdown editor for category
+        else if (options.field === 'type_Of_Hcp') return dropdownEditor(options,type_Of_Hcp); //dropdown editor of category of indicator
         // else if (options.field === 'type_of_healthcare') return dropdownEditor(options,domains); // Dropdown editor for domain
         // else if (options.field === 'dimension') return dropdownEditor(options,dimensions); // Dropdown editor for domain
         // else if (options.field === 'cross_Cutting_Dimensions_A_I') return dropdownEditorMulti(options,classification_dimension); 
@@ -873,54 +883,24 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         try {
             // Send a request to create a new empty row in the database
             const response = await axios.post(`${apiBaseUrl}/HCProviders`, {
-                indicator_name: '',
-                q4all_Ind_number: '',
-                status: '',
-                indicator_cluster: '',
-                ind_Merge: '',
-                catergory_of_Indicator: '',
-                dimension: '',
-                type_of_healthcare: '',
-                type_of_healthcare_providers_D1_D7: '',
-                cross_Cutting_Dimensions_A_I: '',
-                cross_Cutting_Dimensions_Inputs_Process_Outputs: '',
-                dimensions_of_Quality_QoCOfficeReport: '',
-                priority: '',
-                data_collection: '',
-                collecting_National_Organization: '',
-                legal_Organizational_Requirements: '',
-                proponent_Organization_WG: '',
-                rationale_Description: '',
-                objective: '',
-                calculation_Formula: '',
-                numerator: '',
-                numerator_Definitions: '',
-                denominator: '',
-                denominator_Definitions: '',
-                target_Population: '',
-                field_Topic: '',
-                extraCol2: '',
-                periodicity: '',
-                data_Collection_Steps: '',
-                legal_Requirements: '',
-                responsible_for_Monitoring: '',
-                deadline_Reporting: '',
-                supervisor_Body: '',
-                management_Entity: '',
-                applicable_period: '',
-                unit_of_Measurement: '',
-                data_Source_Monitoring_Basis: '',
-                it_System_Source: '',
-                reference_Value_Target: '',
-                base_Value: '',
-                notes: '',
-                sources_and_Further_Reading: '',
-                selected_indicator: '',
-                adaptation_Needs: '',
-                piloting: '',
-                opinion_from_ODIPY_Other_experts: '',
-                pilot_outcome: '',
-                pilot_success_criteria: ''
+                ype: 1,
+                Q4ALL_code: '',
+                type_Of_Hcp: '',
+                Name_GR: '',
+                Name_EN: '',
+                category_As_Per_HealthAtlas: '',
+                category_As_Per_Sha_2011_Elstat: '',
+                lat: 1.0,
+                lon: 1.0,
+                address: '',
+                post_Code: '',
+                email_Contact: '',
+                general_Email_Contact: '',
+                website: '',
+                Idika_Ehr: '',
+                Odipy_Inidcator_Collection: '',
+                Drg_Mature_Usage: '',
+                HEALTH_Center_In_The_Network: ''
             });
     
             // Assuming the response contains the new row data, add it to the table
@@ -1031,6 +1011,17 @@ const percentageTemplate = (rowData) => {
           return true; // Allow 'user_Id' to be null or not
         });
       };
+
+      const YpeBodyTemplate = (rowData) =>
+      {
+            const ype = rowData.ype || '';      
+    
+            return (
+                <div className="flex align-items-center gap-2">
+                    <span>{ype}</span>
+                </div>
+        );
+      }
     
 
     
@@ -1146,26 +1137,19 @@ const percentageTemplate = (rowData) => {
         
         </div>
 
-        {  console.log("statusessssssss : ",piloting)}
+        
 
 
 <DataTable value={hcproviders}  editMode="cell" ref = {dt} onValueChange={(Updatedhcproviders) => {setFilteredHcproviders(Updatedhcproviders);  console.log(filteredHcproviders.length, "Toso mikos"); setRowsAffected(Updatedhcproviders.length)}} paginator stripedRows
  rows={25} scrollable scrollHeight="600px" loading={loading} dataKey="id" 
             filters={filters} 
-            globalFilterFields={['id', 'indicator_name',  'q4all_Ind_number',
-                 'status', 'indicator_cluster',      'ind_Merge',   'catergory_of_Indicator',   'dimension',     
-                   'type_of_healthcare',  'type_of_healthcare_providers_D1_D7',  'cross_Cutting_Dimensions_A_I', 
-                    'cross_Cutting_Dimensions_Inputs_Process_Outputs',   'dimensions_of_Quality_QoCOfficeReport', 
-                      'priority',  'data_collection',     'collecting_National_Organization',  
-                        'legal_Organizational_Requirements',    'proponent_Organization_WG',  
-                         'rationale_Description', 'objective',   'calculation_Formula',   
-                      'numerator','numerator_Definitions', 'denominator','denominator_Definitions', 
-                      'target_Population', 'field_Topic', 'extraCol2', 'periodicity', 'data_Collection_Steps', 
-                      'legal_Requirements', 'responsible_for_Monitoring', 'deadline_Reporting', 'supervisor_Body', 
-                      'management_Entity', 'applicable_period', 'unit_of_Measurement', 'data_Source_Monitoring_Basis',
-                       'it_System_Source', 'reference_Value_Target', 'base_Value', 'notes', 'sources_and_Further_Reading',
-                        'selected_indicator', 'adaptation_Needs', 'piloting', 'opinion_from_ODIPY_Other_experts',
-                         'pilot_outcome', 'pilot_success_criteria' ]} 
+            globalFilterFields={['id', 'ype',  'Q4ALL_code',
+                 'type_Of_Hcp', 'Name_GR',      'Name_EN',   'category_As_Per_HealthAtlas',   'category_As_Per_Sha_2011_Elstat',     
+                   'lat',  'lon',  'address', 
+                    'post_Code',   'email_Contact', 
+                      'general_Email_Contact',  'website',     'Idika_Ehr',  
+                        'Odipy_Inidcator_Collection',    'Drg_Mature_Usage',  
+                         'HEALTH_Center_In_The_Network']} 
             header={header} 
             emptyMessage="No hcproviders found."
             selection={selectedIndicator} 
@@ -1179,25 +1163,25 @@ const percentageTemplate = (rowData) => {
 
             <Column className='font-bold' field="id" header="id" sortable  style={{ color: 'black' ,textAlign:'center'}} frozen ></Column>
            
-            <Column field="ype" style={{textAlign:"center" }} header={customHeader(headers.ype.label, headers.ype.description, "YPE")}  filter filterPlaceholder="Search by Indicator Name" ></Column>
-            <Column field="Q4ALL_code" style={{textAlign:"center" }} header={customHeader(headers.Q4ALL_code.label, headers.Q4ALL_code.description, "Q4ALL code")}  filter filterField='Q4ALL_code'  itemTemplate={ItemTemplate} showFilterMatchModes={false} body={q4all_Ind_number_BodyTemplate} ></Column>
-            <Column field="type_Of_Hcp" style={{textAlign:"center" }} header={customHeader(headers.type_Of_Hcp.label, headers.type_Of_Hcp.description, "type Of Hcp")} filter filterField='type_Of_Hcp'
-                        itemTemplate={ItemTemplate}  showFilterMatchModes={false}></Column>
-            <Column field="Name_GR" style={{textAlign:"center" }} header={customHeader(headers.Name_GR.label, headers.Name_GR.description, "Name GR")} filter filterPlaceholder="Search by Indicator Cluster" ></Column>
-            <Column field="Name_EN" style={{textAlign:"center" }} header={customHeader(headers.Name_EN.label, headers.Name_EN.description, "Name EN")}filter filterPlaceholder="Search by Indicator Merge"  editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
-            <Column field="category_As_Per_HealthAtlas"  style={{textAlign:"center" }} header={customHeader(headers.category_As_Per_HealthAtlas.label, headers.category_As_Per_HealthAtlas.description ,"Category as per HealthAtlas")} filter filterField='category_As_Per_HealthAtlas' itemTemplate={ItemTemplate} showFilterMatchModes={false} ></Column>
-            <Column field="category_As_Per_Sha_2011_Elstat" style={{textAlign:"center" }}  header={customHeader(headers.category_As_Per_Sha_2011_Elstat.label,headers.category_As_Per_Sha_2011_Elstat.description,"category_As_Per_Sha_2011_Elstat")} filter itemTemplate={ItemTemplate} showFilterMatchModes={false} filterField='category_As_Per_Sha_2011_Elstat' ></Column>
-            <Column field="lat" style={{textAlign:"center" }} header={customHeader(headers.lat.label,headers.lat.description,"Latitude")} filter filterField = 'lat'  itemTemplate={ItemTemplate} showFilterMatchModes={false} ></Column>
-            <Column field="lon" style={{textAlign:"center" }} header={customHeader(headers.lon.label,headers.lon.description  ,"Longitude")} filter  itemTemplate={ItemTemplate} showFilterMatchModes={false}></Column>
-            <Column field="address" style={{textAlign:"center" }} header={customHeader(headers.address.label,headers.address.description,"Address")} filter itemTemplate={ItemTemplate} filterField='address' showFilterMatchModes={false} ></Column>
-            <Column field="post_Code" style={{textAlign:"center" }}  header={customHeader(headers.post_Code.label,headers.post_Code.description,"Post Code")} filter itemTemplate={ItemTemplate} filterField='post_Code' showFilterMatchModes={false} ></Column>
-            <Column field="email_Contact" style={{textAlign:"center" }}  header={customHeader(headers.email_Contact.label,headers.email_Contact.description,"email contact VION file")} filter itemTemplate={ItemTemplate} filterField='email_Contact' showFilterMatchModes={false} ></Column>
-            <Column field="general_Email_Contact" style={{textAlign:"center" }} header={customHeader(headers.general_Email_Contact.label,headers.general_Email_Contact.description,"general_Email_Contact")} filter itemTemplate={ItemTemplate} filterField='general_Email_Contact' showFilterMatchModes={false} ></Column>
-            <Column field="website" style={{textAlign:"center" }} header={customHeader(headers.website.label,headers.website.description,"Website")} filter itemTemplate={ItemTemplate} filterField='website' showFilterMatchModes={false} ></Column>
-            <Column field="Idika_Ehr" style={{textAlign:"center" }} header={customHeader(headers.Idika_Ehr.label,headers.Idika_Ehr.description,"IDIKA EHR")} filter itemTemplate={ItemTemplate} filterField='Idika_Ehr' showFilterMatchModes={false} ></Column>
-            <Column field="Odipy_Inidcator_Collection" style={{textAlign:"center" }} header={customHeader(headers.Odipy_Inidcator_Collection.label,headers.Odipy_Inidcator_Collection.description,"ODIPY INDICATOR COLLECTION")} filter itemTemplate={ItemTemplate} filterField='Odipy_Inidcator_Collection' showFilterMatchModes={false} ></Column>
-            <Column field="Drg_Mature_Usage" style={{textAlign:"center" }} header={customHeader(headers.Drg_Mature_Usage.label,headers.Drg_Mature_Usage.description,"DRG MATURE USAGE")} filter itemTemplate={ItemTemplate} filterField='Drg_Mature_Usage' showFilterMatchModes={false} ></Column>
-            <Column field="HEALTH_Center_In_The_Network" style={{textAlign:"center" }}  header={customHeader(headers.HEALTH_Center_In_The_Network.label,headers.HEALTH_Center_In_The_Network.description,"HEALTH CENTER IN THE NETWORK")} filter itemTemplate={ItemTemplate} filterField='HEALTH_Center_In_The_Network' showFilterMatchModes={false} ></Column>
+            <Column field="ype" style={{textAlign:"center" }} header={customHeader(headers.ype.label, headers.ype.description, "ype")}  filter = {true} filterField='ype' showFilterMatchModes = {false} filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.ype)} itemTemplate={ItemTemplate} />)} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} ></Column>
+            <Column field="Q4ALL_code" style={{textAlign:"center" }} header={customHeader(headers.Q4ALL_code.label, headers.Q4ALL_code.description, "Q4ALL code")}  filter filterField='Q4ALL_code' showFilterMatchModes = {false}   filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.Q4ALL_code)} itemTemplate={ItemTemplate} />)} body={q4all_Ind_number_BodyTemplate} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} ></Column>
+            <Column field="type_Of_Hcp" style={{textAlign:"center" }} header={customHeader(headers.type_Of_Hcp.label, headers.type_Of_Hcp.description, "type Of Hcp")} filter filterField='type_Of_Hcp' 
+                        filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  />)} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}  showFilterMatchModes={false}></Column>
+            <Column field="Name_GR" style={{textAlign:"center" }} header={customHeader(headers.Name_GR.label, headers.Name_GR.description, "Name GR")} filter filterField='Name_GR' filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.Name_GR)} itemTemplate={ItemTemplate} />)} showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} ></Column>
+            <Column field="Name_EN" style={{textAlign:"center" }} header={customHeader(headers.Name_EN.label, headers.Name_EN.description, "Name EN")}filter filterField='Name_EN' filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.Name_EN)} itemTemplate={ItemTemplate} />)} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} showFilterMatchModes={false}></Column>
+            <Column field="category_As_Per_HealthAtlas"  style={{textAlign:"center" }} header={customHeader(headers.category_As_Per_HealthAtlas.label, headers.category_As_Per_HealthAtlas.description ,"Category as per HealthAtlas")} filter filterField='category_As_Per_HealthAtlas' filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.category_As_Per_HealthAtlas)} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="category_As_Per_Sha_2011_Elstat" style={{textAlign:"center" }}  header={customHeader(headers.category_As_Per_Sha_2011_Elstat.label,headers.category_As_Per_Sha_2011_Elstat.description,"category_As_Per_Sha_2011_Elstat")} filter itemTemplate={ItemTemplate} showFilterMatchModes={false} filterField='category_As_Per_Sha_2011_Elstat' editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="lat" style={{textAlign:"center" }} header={customHeader(headers.lat.label,headers.lat.description,"Latitude")} filter filterField = 'lat'  itemTemplate={ItemTemplate} showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="lon" style={{textAlign:"center" }} header={customHeader(headers.lon.label,headers.lon.description  ,"Longitude")} filter  itemTemplate={ItemTemplate} showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="address" style={{textAlign:"center" }} header={customHeader(headers.address.label,headers.address.description,"Address")} filter itemTemplate={ItemTemplate} filterField='address' filterPlaceholder='Search by Address' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="post_Code" style={{textAlign:"center" }}  header={customHeader(headers.post_Code.label,headers.post_Code.description,"Post Code")} filter itemTemplate={ItemTemplate} filterField='post_Code' filterPlaceholder='Search by Post Code' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="email_Contact" style={{textAlign:"center" }}  header={customHeader(headers.email_Contact.label,headers.email_Contact.description,"email contact VION file")} filter itemTemplate={ItemTemplate} filterField='email_Contact' filterPlaceholder='Search by Email Contact' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="general_Email_Contact" style={{textAlign:"center" }} header={customHeader(headers.general_Email_Contact.label,headers.general_Email_Contact.description,"general_Email_Contact")} filter itemTemplate={ItemTemplate} filterField='general_Email_Contact' filterPlaceholder='General Email Contact' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="website" style={{textAlign:"center" }} header={customHeader(headers.website.label,headers.website.description,"Website")} filter itemTemplate={ItemTemplate} filterField='website' filterPlaceholder='Search by Website' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="Idika_Ehr" style={{textAlign:"center" }} header={customHeader(headers.Idika_Ehr.label,headers.Idika_Ehr.description,"IDIKA EHR")} filter filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.Idika_Ehr)} itemTemplate={ItemTemplate} />)} filterField='Idika_Ehr' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="Odipy_Inidcator_Collection" style={{textAlign:"center" }} header={customHeader(headers.Odipy_Inidcator_Collection.label,headers.Odipy_Inidcator_Collection.description,"ODIPY INDICATOR COLLECTION")} filter itemTemplate={ItemTemplate} filterField='Odipy_Inidcator_Collection' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="Drg_Mature_Usage" style={{textAlign:"center" }} header={customHeader(headers.Drg_Mature_Usage.label,headers.Drg_Mature_Usage.description,"DRG MATURE USAGE")} filter itemTemplate={ItemTemplate} filterField='Drg_Mature_Usage' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
+            <Column field="HEALTH_Center_In_The_Network" style={{textAlign:"center" }}  header={customHeader(headers.HEALTH_Center_In_The_Network.label,headers.HEALTH_Center_In_The_Network.description,"HEALTH CENTER IN THE NETWORK")} filter itemTemplate={ItemTemplate} filterField='HEALTH_Center_In_The_Network' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
 
             <Column header="Ενέργειες" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen headerStyle={{ backgroundImage: 'linear-gradient(to right, #1400B9, #00B4D8)', color: '#ffffff' }}/>
 
