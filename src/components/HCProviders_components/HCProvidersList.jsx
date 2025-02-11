@@ -24,10 +24,11 @@ import { OverlayPanel } from 'primereact/overlaypanel';
 // import indicatorsData from '../../data/indicators.json'; // Adjust the path based on file location
 import { Tooltip } from "primereact/tooltip";
 import TotalIndicators from '../../icons/Total indicators.svg'
-import indicatortwo from '../../icons/Group 301.svg'
-import indicatorthree from '../../icons/Group 302.svg'
+import indicatortwo from '../../icons/hospitalmarker.png'
+import indicatorthree from '../../icons/healthcenters.png'
+import indicatorfour from '../../icons/tomymarker.png'
 import { Card } from 'primereact/card';
-import { HcprovidersMap2 } from './hcpmap';
+import { HcprovidersMap2 } from './IpposMap';
 // import { 
 //     statuses,
 //     domains, 
@@ -1040,7 +1041,7 @@ const percentageTemplate = (rowData) => {
 
                     </div>
                     <div className="kpi-details">
-                        <span className="kpi-label">Total Indicators</span>
+                        <span className="kpi-label">Total HCProviders</span>
                         <h2 className="kpi-value">{hcproviders.length} </h2>
                        
                     </div>
@@ -1077,7 +1078,7 @@ const percentageTemplate = (rowData) => {
                 <div className="kpi-item">
                     <div className="kpi-icon" style={{backgroundColor:"pink"}}>
                         {/* <i className="pi pi-desktop"></i> */}
-                        <img src={indicatorthree} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+                        <img src={indicatorfour} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
                     </div>
                     <div className="kpi-details">
                         <span className="kpi-label">Number of TOMY</span>
@@ -1101,7 +1102,7 @@ const percentageTemplate = (rowData) => {
         {/* <div >
             <HcprovidersMap data={hcproviders}></HcprovidersMap>
         </div> */}
-        {showMap?<HcprovidersMap2 data={hcproviders}></HcprovidersMap2>:""}
+        {showMap?<HcprovidersMap2 data={filteredHcproviders}></HcprovidersMap2>:
         <div className="card" hidden={showMap}>
         <h1 className='title'>HCProviders Table</h1>
         <div className='d-flex align-items-center gap-4'>
@@ -1196,7 +1197,7 @@ const percentageTemplate = (rowData) => {
             </div>
         
        
-    </div>
+    </div> }
     </div>
     </>
     )
