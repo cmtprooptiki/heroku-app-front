@@ -48,6 +48,7 @@ import { headers } from './headersHCProvidersConfig';  // Import the header conf
 // import FilterIndicators from './FilterIndicators';
 
 import FilterHCProviders from './FilterHCProviders';
+import { HcprovidersMap } from './HcprovidersMap';
 
 
 const HCProvidersList = () => {
@@ -1096,10 +1097,17 @@ const percentageTemplate = (rowData) => {
                 {console.log("map",showMap)}
             </div>
             
-        <div hidden={!showMap}>
-            HELLOOOOOOOOOO
-        </div>
+        {/* <div >
+            <HcprovidersMap data={hcproviders}></HcprovidersMap>
+        </div> */}
+        {(hcproviders)?
 
+            <HcprovidersMap data={hcproviders}></HcprovidersMap>
+
+        :{
+
+
+        }}
         <div className="card" hidden={showMap}>
         <h1 className='title'>HCProviders Table</h1>
         <div className='d-flex align-items-center gap-4'>
