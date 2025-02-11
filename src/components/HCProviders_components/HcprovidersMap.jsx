@@ -21,69 +21,69 @@ export const HcprovidersMap = ({data}) => {
     const mapContainer = useRef(null);
   const map = useRef(null);
   
+  // useEffect(() => {
+  //   if (!mapContainer.current) return;
+
+  //   // Initialize the map
+  //   map.current = new mapboxgl.Map({
+  //     container: mapContainer.current,
+  //     style: "mapbox://styles/mapbox/streets-v12",
+  //     center: [0, 0], // Default center
+  //     zoom: 2,
+  //   });
+
+  //   return () => map.current && map.current.remove(); // Cleanup on unmount
+  // }, []);
+
+  // return <div ref={mapContainer} style={{ width: "100vw", height: "100vh" }} />;
   useEffect(() => {
-    if (!mapContainer.current) return;
+    if (!mapContainer.current || !data) return;
+
+    // Ensure the map container has dimensions
+    mapContainer.current.style.width = "100%";
+    mapContainer.current.style.height = "500px";
 
     // Initialize the map
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
-      center: [0, 0], // Default center
-      zoom: 2,
+      center: [data[0]?.lon || 0, data[0]?.lat || 0], // Default to first point
+      zoom: 12,
+    });
+
+    // Ensure map resizes properly
+    setTimeout(() => {
+      map.current.resize();
+    }, 500);
+
+    // Add markers to map
+    data.forEach((hcp) => {
+      const marker = new mapboxgl.Marker({ color: "red" })
+        .setLngLat([hcp.lon, hcp.lat])
+        .addTo(map.current);
+
+      const popup = new mapboxgl.Popup({ offset: 25 })
+        .setHTML(
+          `
+          <div class="box">
+            <h3 class="route-name"><strong>${hcp.Name_GR}</strong></h3>
+            <div class="route-metric-row">
+              <h4 class="row-title"><strong>Ρύπος: </strong>${hcp.Name_GR}</h4>
+            </div>
+            <div class="route-metric-row">
+              <h4 class="row-title"><strong>Τιμή για την επιλεγμένη περίοδο: </strong>${hcp.Name_GR}</h4>
+            </div>
+          </div>
+          <div style="font-size:14px;"><strong>${hcp.Name_GR}</strong><br/>Code: ${hcp.Q4ALL_code}</div>`
+        );
+
+      marker.setPopup(popup);
     });
 
     return () => map.current && map.current.remove(); // Cleanup on unmount
-  }, []);
+  }, [data]);
 
   return <div ref={mapContainer} style={{ width: "100vw", height: "100vh" }} />;
-//   useEffect(() => {
-//     if (!mapContainer.current || !data) return;
-
-//     // Ensure the map container has dimensions
-//     mapContainer.current.style.width = "100%";
-//     mapContainer.current.style.height = "500px";
-
-//     // Initialize the map
-//     map.current = new mapboxgl.Map({
-//       container: mapContainer.current,
-//       style: "mapbox://styles/mapbox/streets-v12",
-//       center: [data[0]?.lon || 0, data[0]?.lat || 0], // Default to first point
-//       zoom: 12,
-//     });
-
-//     // Ensure map resizes properly
-//     setTimeout(() => {
-//       map.current.resize();
-//     }, 500);
-
-//     // Add markers to map
-//     data.forEach((hcp) => {
-//       const marker = new mapboxgl.Marker({ color: "red" })
-//         .setLngLat([hcp.lon, hcp.lat])
-//         .addTo(map.current);
-
-//       const popup = new mapboxgl.Popup({ offset: 25 })
-//         .setHTML(
-//           `
-//           <div class="box">
-//             <h3 class="route-name"><strong>${hcp.Name_GR}</strong></h3>
-//             <div class="route-metric-row">
-//               <h4 class="row-title"><strong>Ρύπος: </strong>${hcp.Name_GR}</h4>
-//             </div>
-//             <div class="route-metric-row">
-//               <h4 class="row-title"><strong>Τιμή για την επιλεγμένη περίοδο: </strong>${hcp.Name_GR}</h4>
-//             </div>
-//           </div>
-//           <div style="font-size:14px;"><strong>${hcp.Name_GR}</strong><br/>Code: ${hcp.Q4ALL_code}</div>`
-//         );
-
-//       marker.setPopup(popup);
-//     });
-
-//     return () => map.current && map.current.remove(); // Cleanup on unmount
-//   }, [data]);
-
-//   return <div ref={mapContainer} style={{ width: "100vw", height: "100vh" }} />;
 
 //   function Popup({ buildingname, metricname, metricvalue }) {
 //     return (
