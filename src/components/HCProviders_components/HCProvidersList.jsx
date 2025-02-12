@@ -107,7 +107,7 @@ const HCProvidersList = () => {
     console.log(user)
 
     const[showMap,setShowMap]=useState(false);
-    const[shownLabel,setShownLabel]=useState("Table View")
+    const[shownLabel,setShownLabel]=useState("Map View")
 
 
    
@@ -1093,7 +1093,7 @@ const percentageTemplate = (rowData) => {
             <div className='flex justify-content'>
                 <Button name="map" label={shownLabel}  onClick={() => {
                         setShowMap(!showMap); // Toggle showMap state
-                        setShownLabel(!showMap ? "Map View" : "Table View"); // Change label accordingly
+                        setShownLabel(!showMap ? "Table View" : "Map View"); // Change label accordingly
                     }}  />
                     
                 {console.log("map",showMap)}
