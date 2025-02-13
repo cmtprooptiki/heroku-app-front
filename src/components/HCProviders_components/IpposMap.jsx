@@ -25,6 +25,7 @@ export const HcprovidersMap2 = ({ data }) => {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [visible, setVisible] = useState(false);
   const [visible2, setVisible2] = useState(false);
+  const [popup, setPopup] = useState(null); // Store the popup referenc
 
   useEffect(() => {
     if (!mapContainer.current || !data) return;
@@ -187,30 +188,60 @@ export const HcprovidersMap2 = ({ data }) => {
 
 ///////////////////////////////////
 
-      map.current.on("click", "unclustered-point", (e) => {
-        const properties = e.features[0].properties;
-        const coordinates = e.features[0].geometry.coordinates;
-        const point = map.current.project(coordinates);
-        setSelectedMarker({
-          name: properties.name,
-          name_en: properties.name_en,
-          id: properties.id,
-          Type_Of_hcp: properties.Type_Of_hcp,
-          Category: properties.Category,
-          address: properties.address,
-          post: properties.post,
-          email: properties.email,
-          g_email: properties.g_email,
-          website: properties.website,
-          latitude: coordinates[1], // Extract latitude
-          longitude: coordinates[0], // Extract longitude
-          x: point.x,  // Store x position
-          y: point.y,  // Store y position
-        });
-        console.log("Properties: ", properties)
-        setVisible(true);
-        setVisible2(true);
-      });
+map.current.on("click", "unclustered-point", (e) => {
+  const properties = e.features[0].properties;
+  const coordinates = e.features[0].geometry.coordinates;
+  const point = map.current.project(coordinates);
+  
+  // Update selected marker state
+  setSelectedMarker({
+    name: properties.name,
+    name_en: properties.name_en,
+    id: properties.id,
+    Type_Of_hcp: properties.Type_Of_hcp,
+    Category: properties.Category,
+    address: properties.address,
+    post: properties.post,
+    email: properties.email,
+    g_email: properties.g_email,
+    website: properties.website,
+    latitude: coordinates[1], // Extract latitude
+    longitude: coordinates[0], // Extract longitude
+    x: point.x,  // Store x position
+    y: point.y,  // Store y position
+  });
+
+  setVisible(true);
+  setVisible2(true);
+  console.log("Properties: ", properties);
+
+  // Create and show the popup using properties directly
+  const newPopup = new mapboxgl.Popup({
+    closeButton: true,
+    closeOnClick: false,
+  })
+    .setLngLat(coordinates)
+    .setHTML(`
+      <div style="max-height: 150px; overflow-y:auto; padding: 5px; width: 250px;">
+        <div>
+          <strong>Name (${properties.name_en})</strong><br/>
+          <span><strong>Id:</strong> ${properties.id}</span><br/>
+          <span><strong>HCP:</strong> ${properties.Type_Of_hcp}</span><br/>
+        </div>
+      </div>
+    `)
+    .addTo(map.current);
+  
+  // Store popup reference
+  setPopup(newPopup);
+  
+  // Handle popup close event
+  newPopup.on("close", () => {
+    setVisible(false); // Hide dialog when popup closes
+    setPopup(null); // Clear popup reference
+  });
+});
+      
       // Click event for individual markers
       // map.current.on("click", "unclustered-point", (e) => {
       //   const coordinates = e.features[0].geometry.coordinates.slice();
@@ -232,30 +263,7 @@ export const HcprovidersMap2 = ({ data }) => {
        
           
 
-        // new mapboxgl.Popup()
-        //   .setLngLat(coordinates)
-        //   .setHTML(`
-        //     <div style="max-height: 150px; overflow-y:auto; padding: 5px; width: 250px;">
-        //       <div>
-        //         <strong>${name} (${name_en})</strong><br/>
-        //         <span><strong>Code:</strong> ${id}</span><br/>
-        //         <span><strong>HCP:</strong> ${Type_Of_hcp}</span><br/>
-        //         <span><strong>Category:</strong> ${Category}</span><br/>
-        //       </div>
-        //       <div style="margin-top: 5px; border-top: 1px solid #ccc; padding-top: 5px;">
-        //         <strong>Contact details:</strong><br/>
-        //         <span><strong>Address:</strong> ${address}</span><br/>
-        //         <span><strong>Post:</strong> ${post}</span><br/>
-        //         <span><strong>Email:</strong> ${email}</span><br/>
-        //         <span><strong>General Email:</strong> ${g_email}</span><br/>
-        //         <span><strong>Website:</strong> <a href="${website}" target="_blank">${website}</a></span>
-        //       </div>
-        //     </div>
-        //   `)
-          
-        //   .addTo(map.current);
-      //});
-
+        
       // Cursor change on hover
       map.current.on("mouseenter", "clusters", () => {
         map.current.getCanvas().style.cursor = "pointer";
@@ -380,7 +388,7 @@ export const HcprovidersMap2 = ({ data }) => {
     <>
       <div ref={mapContainer} style={{ width: "100vw", height: "100vh" }} />
 
-      <Dialog
+      {/* <Dialog
         header="Healthcare Provider Info"
         visible={visible2}
         style={{ width: "30vw" , position: "absolute",
@@ -399,23 +407,23 @@ export const HcprovidersMap2 = ({ data }) => {
             <p><strong>{selectedMarker.name} ({selectedMarker.name_en})</strong></p>
             <p><strong>Id:</strong> {selectedMarker.id}</p>
             <p><strong>HCP:</strong> {selectedMarker.Type_Of_hcp}</p>
-            {/* <p><strong>Category:</strong> {selectedMarker.Category}</p>
-            <p><strong>Address:</strong> {selectedMarker.address}</p>
-            <p><strong>Post Code:</strong> {selectedMarker.post}</p>
-            <p><strong>Email:</strong> {selectedMarker.email}</p>
-            <p><strong>General Email:</strong> {selectedMarker.g_email}</p>
-            <p><strong>Website:</strong> <a href={selectedMarker.website} target="_blank" rel="noopener noreferrer">{selectedMarker.website}</a></p> */}
 
             
           </div>
         )}
-      </Dialog>
+      </Dialog> */}
 
       <Dialog
         header="Healthcare Provider Info"
         visible={visible}
         style={{ width: "30vw" }}
-        onHide={() => {setVisible(false); setVisible2(false);}}
+        onHide={() => {
+          setVisible(false);
+          if (popup) {
+            popup.remove(); // Remove the Mapbox popup when Dialog closes
+            setPopup(null);
+          }
+        }}
         position="right"
         dismissableMask
         modal={false} // Ensure both are active
