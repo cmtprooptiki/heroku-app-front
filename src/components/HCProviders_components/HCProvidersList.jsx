@@ -39,6 +39,7 @@ import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons"; // FontAweso
 
 const HCProvidersList = () => {
     const [hcproviders, setHcproviders] = useState([]);
+    const [hcproviders2, setHcproviders2] = useState([]);
     const [filters, setFilters] = useState(null);
     // const [filters, setFilters] = useState(initFiltersConfig);
     const [selectedHcpTypes, setSelectedHcpTypes] = useState([]); // Stores selected filters
@@ -47,6 +48,7 @@ const HCProvidersList = () => {
     const [globalFilterValue, setGlobalFilterValue] = useState('');
   
     const [filteredHcproviders, setFilteredHcproviders] = useState([]);
+    const [filteredHcproviders2, setFilteredHcproviders2] = useState([]);
     const [RowsAffected, setRowsAffected] = useState(hcproviders.length)
     const [category_of_Indicator, set_Category_Of_Indicator] = useState([])
     const [type_of_healthcare, setType_Of_HealthCare] = useState([])
@@ -73,9 +75,9 @@ const HCProvidersList = () => {
 
     useEffect(() => {
         if (selectedHcpTypes.length === 0) {
-            setFilteredHcproviders(hcproviders); // Show all when no filter is applied
+            setFilteredHcproviders2(hcproviders); // Show all when no filter is applied
         } else {
-            setFilteredHcproviders(
+            setFilteredHcproviders2(
                 hcproviders.filter(hcp => selectedHcpTypes.includes(hcp.type_Of_Hcp))
             );
         }
@@ -146,6 +148,7 @@ const HCProvidersList = () => {
             setfilteredbyHCentre(filteredbyHCentre)
             setfilteredTomy(filteredTomy)
             setHcproviders(parDataWithDates);
+            setHcproviders2(parDataWithDates);
             setFilteredHcproviders(parDataWithDates)
             setRowsAffected(parDataWithDates.length)
     
@@ -179,6 +182,7 @@ const HCProvidersList = () => {
             setfilteredbyHCentre(filteredbyHCentre)
             setfilteredTomy(filteredTomy)
             setHcproviders(parDataWithDates);
+            setHcproviders2(parDataWithDates);
             setFilteredHcproviders(parDataWithDates)
             setRowsAffected(parDataWithDates.length)
     
@@ -205,6 +209,7 @@ const HCProvidersList = () => {
     
         // Optionally update your state after deletion to remove the deleted items from the UI
         setHcproviders((prevIndicator) => prevIndicator.filter((indicator) => !ids.includes(indicator.id)));
+        setHcproviders2((prevIndicator) => prevIndicator.filter((indicator) => !ids.includes(indicator.id)));
         setFilteredHcproviders((prevIndicator) => prevIndicator.filter((indicator) => !ids.includes(indicator.id)))
         setRowsAffected(hcproviders.length)
         setSelectedIndicator([]); // Clear selection after deletion
@@ -567,6 +572,12 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         return ((filledFields / totalFields) * 100).toFixed(2); // Calculate percentage
     };
 
+    useEffect(() => {
+        if (!showMap) {
+          setSelectedHcpTypes([]);
+        }
+      }, [showMap]);
+
     return(
         <>
         <Card className="kpi-section-card">
@@ -660,7 +671,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         {/* <div >
             <HcprovidersMap data={hcproviders}></HcprovidersMap>
         </div> */}
-        {showMap? <div><h3 className="text-blue-500 font-bold">Type of HCP Filter</h3><FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  /><HcprovidersMap2 data={filteredHcproviders}></HcprovidersMap2></div>:
+        {showMap? <div><h3 className="text-blue-500 font-bold">Type of HCP Filter</h3><FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders2.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  /><HcprovidersMap2 data={filteredHcproviders2}></HcprovidersMap2></div>:
         <div className="card" hidden={showMap}>
         <h1 className='title'>HCProviders Table</h1>
 
