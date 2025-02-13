@@ -277,3 +277,43 @@
     }
   }
   
+
+  .custom-filter-dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.custom-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    color: black; /* Adjust color as needed */
+    font-weight: 500;
+}
+
+.filter-icon {
+    font-size: 14px; /* Adjust icon size */
+    color: black; /* Adjust icon color */
+}
+
+.custom-multiselect .p-multiselect-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+}
+
+.title {
+  font-family: Poppins;
+  font-size:32;
+  color:black;
+  font-weight:600;
+}
+
+
+.p-multiselect.p-multiselect-chip .p-multiselect-token {
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  background: unset;
+  color: green;
+  border-radius: 16px;}

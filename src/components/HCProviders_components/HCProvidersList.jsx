@@ -671,7 +671,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         {/* <div >
             <HcprovidersMap data={hcproviders}></HcprovidersMap>
         </div> */}
-        {showMap? <div><h3 className="text-blue-500 font-bold">Type of HCP Filter</h3><FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders2.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  /><HcprovidersMap2 data={filteredHcproviders2}></HcprovidersMap2></div>:
+        {showMap? <div><h1 className='title'>Map View</h1><FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders2.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  /><HcprovidersMap2 data={filteredHcproviders2}></HcprovidersMap2></div>:
         <div className="card" hidden={showMap}>
         <h1 className='title'>HCProviders Table</h1>
 
