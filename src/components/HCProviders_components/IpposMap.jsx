@@ -24,6 +24,7 @@ export const HcprovidersMap2 = ({ data }) => {
 
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [visible, setVisible] = useState(false);
+  const [visible2, setVisible2] = useState(false);
 
   useEffect(() => {
     if (!mapContainer.current || !data) return;
@@ -188,6 +189,8 @@ export const HcprovidersMap2 = ({ data }) => {
 
       map.current.on("click", "unclustered-point", (e) => {
         const properties = e.features[0].properties;
+        const coordinates = e.features[0].geometry.coordinates;
+        const point = map.current.project(coordinates);
         setSelectedMarker({
           name: properties.name,
           name_en: properties.name_en,
@@ -199,8 +202,14 @@ export const HcprovidersMap2 = ({ data }) => {
           email: properties.email,
           g_email: properties.g_email,
           website: properties.website,
+          latitude: coordinates[1], // Extract latitude
+          longitude: coordinates[0], // Extract longitude
+          x: point.x,  // Store x position
+          y: point.y,  // Store y position
         });
+        console.log("Properties: ", properties)
         setVisible(true);
+        setVisible2(true);
       });
       // Click event for individual markers
       // map.current.on("click", "unclustered-point", (e) => {
@@ -373,9 +382,43 @@ export const HcprovidersMap2 = ({ data }) => {
 
       <Dialog
         header="Healthcare Provider Info"
+        visible={visible2}
+        style={{ width: "30vw" , position: "absolute",
+        left: selectedMarker ? `${selectedMarker.x + 20}px` : "50%",
+        top: selectedMarker ? `${selectedMarker.y - 50}px` : "50%", // Position above the marker
+        transform: "translate(-50%, -100%)"}}
+        onHide={() => {setVisible(false); setVisible2(false);}}
+        // position="left"
+        dismissableMask
+        draggable
+        modal={false} // Ensure both are active
+      >
+        {selectedMarker && (
+         
+          <div>
+            <p><strong>{selectedMarker.name} ({selectedMarker.name_en})</strong></p>
+            <p><strong>Id:</strong> {selectedMarker.id}</p>
+            <p><strong>HCP:</strong> {selectedMarker.Type_Of_hcp}</p>
+            {/* <p><strong>Category:</strong> {selectedMarker.Category}</p>
+            <p><strong>Address:</strong> {selectedMarker.address}</p>
+            <p><strong>Post Code:</strong> {selectedMarker.post}</p>
+            <p><strong>Email:</strong> {selectedMarker.email}</p>
+            <p><strong>General Email:</strong> {selectedMarker.g_email}</p>
+            <p><strong>Website:</strong> <a href={selectedMarker.website} target="_blank" rel="noopener noreferrer">{selectedMarker.website}</a></p> */}
+
+            
+          </div>
+        )}
+      </Dialog>
+
+      <Dialog
+        header="Healthcare Provider Info"
         visible={visible}
         style={{ width: "30vw" }}
-        onHide={() => setVisible(false)}
+        onHide={() => {setVisible(false); setVisible2(false);}}
+        position="right"
+        dismissableMask
+        modal={false} // Ensure both are active
       >
         {selectedMarker && (
           <ScrollPanel style={{ width: '100%', height: '200px' }}>
