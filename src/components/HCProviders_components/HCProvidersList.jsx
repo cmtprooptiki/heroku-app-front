@@ -1,6 +1,6 @@
 import React,{useState,useEffect, useRef} from 'react'
 
-
+import FilterMap from './FilterMap';
 import {Link} from "react-router-dom"
 import axios from 'axios'
 import { useSelector } from 'react-redux';
@@ -23,10 +23,10 @@ import { MultiSelect } from 'primereact/multiselect';
 import { OverlayPanel } from 'primereact/overlaypanel';
 // import indicatorsData from '../../data/indicators.json'; // Adjust the path based on file location
 import { Tooltip } from "primereact/tooltip";
-import TotalIndicators from '../../icons/Total indicators.svg'
-import indicatortwo from '../../icons/hospitalmarker.png'
-import indicatorthree from '../../icons/healthcenters.png'
-import indicatorfour from '../../icons/tomymarker.png'
+import TotalIndicators from '../../icons/Totalhcp.png'
+import indicatortwo from '../../icons/hospitalicon.png'
+import indicatorthree from '../../icons/health-center.png'
+import indicatorfour from '../../icons/tomyicon.png'
 import { Card } from 'primereact/card';
 import { HcprovidersMap2 } from './IpposMap';
 // import { 
@@ -51,12 +51,17 @@ import { headers } from './headersHCProvidersConfig';  // Import the header conf
 
 import FilterHCProviders from './FilterHCProviders';
 import { HcprovidersMap } from './HcprovidersMap';
+import "./datatable2-custom.css"; // Your custom styles
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons"; // FontAwesome Swap Icon
 
 
 const HCProvidersList = () => {
     const [hcproviders, setHcproviders] = useState([]);
     const [filters, setFilters] = useState(null);
     // const [filters, setFilters] = useState(initFiltersConfig);
+    const [selectedHcpTypes, setSelectedHcpTypes] = useState([]); // Stores selected filters
 
     const [loading, setLoading] = useState(true);
     const [globalFilterValue, setGlobalFilterValue] = useState('');
@@ -109,7 +114,15 @@ const HCProvidersList = () => {
     const[showMap,setShowMap]=useState(false);
     const[shownLabel,setShownLabel]=useState("Map View")
 
-
+    useEffect(() => {
+        if (selectedHcpTypes.length === 0) {
+            setFilteredHcproviders(hcproviders); // Show all when no filter is applied
+        } else {
+            setFilteredHcproviders(
+                hcproviders.filter(hcp => selectedHcpTypes.includes(hcp.type_Of_Hcp))
+            );
+        }
+    }, [selectedHcpTypes, hcproviders]);
    
 
     const dt = useRef(null);
@@ -1035,14 +1048,14 @@ const percentageTemplate = (rowData) => {
             <div className="kpi-section">
                 {/* Total Customers */}
                 <div className="kpi-item">
-                    <div className="kpi-icon">
+                    <div >
                         {/* <i className="pi pi-users"></i> */}
-                        <img src={TotalIndicators} alt="Search" style={{ width: "64px", cursor: "pointer" }} />                   
+                        <img src={TotalIndicators} alt="Search" style={{ width: "70.3px", cursor: "pointer" }} />                   
 
                     </div>
                     <div className="kpi-details">
-                        <span className="kpi-label">Total HCProviders</span>
-                        <h2 className="kpi-value">{hcproviders.length} </h2>
+                        <span className="kpi-label" style={{color:'#0F00AB'}}>Total HCProviders</span>
+                        <h2 className="kpi-value" style={{color:'#0F00AB'}}>{hcproviders.length} </h2>
                        
                     </div>
                 </div>
@@ -1050,9 +1063,9 @@ const percentageTemplate = (rowData) => {
                 <div className="kpi-separator"></div>
                 {/* Members */}
                 <div className="kpi-item">
-                    <div className="kpi-icon">
+                    <div >
                         {/* <i className="pi pi-user"></i> */}
-                        <img src={indicatortwo} alt="Search" style={{ width: "32px", cursor: "pointer" }} />                   
+                        <img src={indicatortwo} alt="Search" style={{ width: "70.3px", cursor: "pointer" }} />                   
 
                     </div>
                     <div className="kpi-details">
@@ -1065,20 +1078,23 @@ const percentageTemplate = (rowData) => {
                 <div className="kpi-separator"></div>
                 {/* Active Now */}
                 <div className="kpi-item">
-                    <div className="kpi-icon" style={{backgroundColor:"pink"}}>
+                    <div  >
                         {/* <i className="pi pi-desktop"></i> */}
-                        <img src={indicatorthree} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+                        <img src={indicatorthree} alt="Search" style={{ width: "70.3px", cursor: "pointer" }} />
                     </div>
                     <div className="kpi-details">
                         <span className="kpi-label">Number of Health Centres</span>
                         <h2 className="kpi-value">{filteredbyHCentre.length }</h2>
 
-                    </div>
+                    </div> 
                 </div>
+
+                <div className="kpi-separator"></div>
+
                 <div className="kpi-item">
-                    <div className="kpi-icon" style={{backgroundColor:"pink"}}>
+                    <div  >
                         {/* <i className="pi pi-desktop"></i> */}
-                        <img src={indicatorfour} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+                        <img src={indicatorfour} alt="Search" style={{ width: "70.3px", cursor: "pointer" }} />
                     </div>
                     <div className="kpi-details">
                         <span className="kpi-label">Number of TOMY</span>
@@ -1091,10 +1107,26 @@ const percentageTemplate = (rowData) => {
         
         <div className='datatable-container'>
             <div className='flex justify-content'>
-                <Button name="map" label={shownLabel}  onClick={() => {
+                {/* <Button name="map" label={shownLabel}  onClick={() => {
                         setShowMap(!showMap); // Toggle showMap state
                         setShownLabel(!showMap ? "Table View" : "Map View"); // Change label accordingly
-                    }}  />
+                    }}  /> */}
+                    <Button
+                    label={shownLabel}
+                    icon={<FontAwesomeIcon icon={faArrowsRotate} className='mr-2' />}
+                    className="p-button-text p-3 border-none rounded-xl shadow-md hover:bg-indigo-100 transition" style={{fontFamily:"Poppins",fontWeight:"600",
+                        background:"rgb(15 0 150 / 9%)",
+                        color: "rgb(15, 0, 171)",
+                        fontSize: "19px"
+                        }}
+                        iconPos="left" // Ensures icon stays on the left
+
+                    onClick={() => {
+                        setShowMap(!showMap);
+                        setShownLabel(!showMap ? "Switch to Table View" : "Switch to Map View");
+                    }}
+                />
+                    
                     
                 {console.log("map",showMap)}
             </div>
@@ -1102,9 +1134,10 @@ const percentageTemplate = (rowData) => {
         {/* <div >
             <HcprovidersMap data={hcproviders}></HcprovidersMap>
         </div> */}
-        {showMap?<HcprovidersMap2 data={filteredHcproviders}></HcprovidersMap2>:
+        {showMap? <div><FilterHCProviders options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={filteredHcproviders.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  /><HcprovidersMap2 data={filteredHcproviders}></HcprovidersMap2></div>:
         <div className="card" hidden={showMap}>
         <h1 className='title'>HCProviders Table</h1>
+
         <div className='d-flex align-items-center gap-4'>
         
         {user && user.role ==="admin" && (
@@ -1193,7 +1226,7 @@ const percentageTemplate = (rowData) => {
     {/* Dialog for editing Paradotea */}
     
             <div>
-                <h3>{RowsAffected} rows were found based on search criteria</h3>
+                <h3 style={{fontFamily:'Poppins',fontSize:'14px',lineHeight:'21px',fontWeight:'500',color:'rgba(181, 183, 192, 1)'}}>{RowsAffected} rows were found based on search criteria</h3>
             </div>
         
        

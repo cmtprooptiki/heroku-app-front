@@ -1,12 +1,14 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect,useState  } from "react";
 import mapboxgl from "mapbox-gl";
 import apiBaseUrl from "../../apiConfig";
 
 // Import marker images
-import marker1 from "../../icons/hospitalmarker.png";
-import marker2 from "../../icons/healthcenters.png";
-import marker3 from "../../icons/tomymarker.png";
+import marker1 from "../../icons/hospitalicon.png";
+import marker2 from "../../icons/health-center.png";
+import marker3 from "../../icons/tomyicon.png";
 import { Category } from "@mui/icons-material";
+import { Dialog } from "primereact/dialog";
+import { ScrollPanel } from 'primereact/scrollpanel';
 
 // Mapbox access token
 mapboxgl.accessToken = "pk.eyJ1IjoiY210cHJvb3B0aWtpIiwiYSI6ImNtNzBhcDhodTAwMjAyanBjdXhza29wNmsifQ.4iT6Z7akhzlh0S2Tqj7P8g";
@@ -15,11 +17,22 @@ export const HcprovidersMap2 = ({ data }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
 
+  const GREECE_BOUNDS = [
+    [19.0, 34.5], // Southwest corner (longitude, latitude)
+    [30.0, 42.0]  // Northeast corner (longitude, latitude)
+  ];
+
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [visible, setVisible] = useState(false);
+
   useEffect(() => {
     if (!mapContainer.current || !data) return;
 
     mapContainer.current.style.width = "100%";
-    mapContainer.current.style.height = "500px";
+    mapContainer.current.style.height = "700px";
+    mapContainer.current.style.borderRadius="25px";
+    mapContainer.current.style.top="30px";
+
 
     const geojsonData = {
       type: "FeatureCollection",
@@ -47,9 +60,10 @@ export const HcprovidersMap2 = ({ data }) => {
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v12",
-      center: [data[0]?.lon || 0, data[0]?.lat || 0],
-      zoom: 12,
+      style: "mapbox://styles/mapbox/light-v11",
+      center: [23.7, 38.5],
+      zoom: 5.2,
+      maxBounds: GREECE_BOUNDS,
     });
 
     map.current.on("load", () => {
@@ -76,29 +90,50 @@ export const HcprovidersMap2 = ({ data }) => {
         });
       });
 
-      // Clustered layer (groups close markers)
+
+
       map.current.addLayer({
         id: "clusters",
         type: "circle",
         source: "hcp-clusters",
         filter: ["has", "point_count"],
         paint: {
-          "circle-color": "#f28cb1",
-          "circle-radius": [
-            "step",
-            ["get", "point_count"],
-            15,
-            10,
-            20,
-            50,
-            25,
-          ],
+          "circle-color": "#1010A0", // Deep blue core
+          "circle-radius": 15, // Size of the inner circle
           "circle-stroke-width": 1,
           "circle-stroke-color": "#fff",
         },
       });
-
-      // Cluster count (number of markers in a cluster)
+      
+      // First outer glow layer
+      map.current.addLayer({
+        id: "cluster-glow-1",
+        type: "circle",
+        source: "hcp-clusters",
+        filter: ["has", "point_count"],
+        paint: {
+          "circle-color": "#1010A0", // Same base color
+          "circle-radius": 30, // Expanding outward
+          "circle-opacity": 0.1, // Lower opacity for smooth transition
+        },
+      });
+      
+      // Second outer glow layer
+      map.current.addLayer({
+        id: "cluster-glow-2",
+        type: "circle",
+        source: "hcp-clusters",
+        filter: ["has", "point_count"],
+        paint: {
+          "circle-color": "#1010A0", // Same base color
+          "circle-radius": 40, // Larger spread
+          "circle-opacity": 0.1, // Even lower opacity
+        },
+      });
+      
+   
+      
+      // Cluster count (number inside the cluster circle)
       map.current.addLayer({
         id: "cluster-count",
         type: "symbol",
@@ -106,10 +141,15 @@ export const HcprovidersMap2 = ({ data }) => {
         filter: ["has", "point_count"],
         layout: {
           "text-field": "{point_count_abbreviated}",
-          "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
-          "text-size": 12,
+          "text-font": ["DIN Offc Pro Bold", "Arial Unicode MS Bold"],
+          "text-size": 16,
+        },
+        paint: {
+          "text-color": "#FFFFFF", // White text in the center
         },
       });
+
+
 
       // Individual points with dynamic icons
       map.current.addLayer({
@@ -119,7 +159,7 @@ export const HcprovidersMap2 = ({ data }) => {
         filter: ["!", ["has", "point_count"]],
         layout: {
           "icon-image": ["get", "icon"], // Use the dynamic icon assigned in properties
-          "icon-size": 0.22,
+          "icon-size": 0.60,
           "icon-allow-overlap": true,
         },
       });
@@ -141,38 +181,71 @@ export const HcprovidersMap2 = ({ data }) => {
           }
         );
       });
+/////////////////////////////////////
 
-      // Click event for individual markers
+
+///////////////////////////////////
+
       map.current.on("click", "unclustered-point", (e) => {
-        const coordinates = e.features[0].geometry.coordinates.slice();
-        const { name, id,Type_Of_hcp,name_en,Category,address,post,email,g_email,website } = e.features[0].properties;
+        const properties = e.features[0].properties;
+        setSelectedMarker({
+          name: properties.name,
+          name_en: properties.name_en,
+          id: properties.id,
+          Type_Of_hcp: properties.Type_Of_hcp,
+          Category: properties.Category,
+          address: properties.address,
+          post: properties.post,
+          email: properties.email,
+          g_email: properties.g_email,
+          website: properties.website,
+        });
+        setVisible(true);
+      });
+      // Click event for individual markers
+      // map.current.on("click", "unclustered-point", (e) => {
+      //   const coordinates = e.features[0].geometry.coordinates.slice();
+      //   const { name, id,Type_Of_hcp,name_en,Category,address,post,email,g_email,website } = e.features[0].properties;
+      //   setSelectedMarker({
+      //     name: properties.name,
+      //     name_en: properties.name_en,
+      //     id: properties.id,
+      //     Type_Of_hcp: properties.Type_Of_hcp,
+      //     Category: properties.Category,
+      //     address: properties.address,
+      //     post: properties.post,
+      //     email: properties.email,
+      //     g_email: properties.g_email,
+      //     website: properties.website,
+      //   });
+      //   setVisible(true);
         
        
           
 
-        new mapboxgl.Popup()
-          .setLngLat(coordinates)
-          .setHTML(`
-            <div style="max-height: 150px; overflow-y: auto; padding: 5px; width: 250px;">
-              <div>
-                <strong>${name} (${name_en})</strong><br/>
-                <span><strong>Code:</strong> ${id}</span><br/>
-                <span><strong>HCP:</strong> ${Type_Of_hcp}</span><br/>
-                <span><strong>Category:</strong> ${Category}</span><br/>
-              </div>
-              <div style="margin-top: 5px; border-top: 1px solid #ccc; padding-top: 5px;">
-                <strong>Contact details:</strong><br/>
-                <span><strong>Address:</strong> ${address}</span><br/>
-                <span><strong>Post:</strong> ${post}</span><br/>
-                <span><strong>Email:</strong> ${email}</span><br/>
-                <span><strong>General Email:</strong> ${g_email}</span><br/>
-                <span><strong>Website:</strong> <a href="${website}" target="_blank">${website}</a></span>
-              </div>
-            </div>
-          `)
+        // new mapboxgl.Popup()
+        //   .setLngLat(coordinates)
+        //   .setHTML(`
+        //     <div style="max-height: 150px; overflow-y:auto; padding: 5px; width: 250px;">
+        //       <div>
+        //         <strong>${name} (${name_en})</strong><br/>
+        //         <span><strong>Code:</strong> ${id}</span><br/>
+        //         <span><strong>HCP:</strong> ${Type_Of_hcp}</span><br/>
+        //         <span><strong>Category:</strong> ${Category}</span><br/>
+        //       </div>
+        //       <div style="margin-top: 5px; border-top: 1px solid #ccc; padding-top: 5px;">
+        //         <strong>Contact details:</strong><br/>
+        //         <span><strong>Address:</strong> ${address}</span><br/>
+        //         <span><strong>Post:</strong> ${post}</span><br/>
+        //         <span><strong>Email:</strong> ${email}</span><br/>
+        //         <span><strong>General Email:</strong> ${g_email}</span><br/>
+        //         <span><strong>Website:</strong> <a href="${website}" target="_blank">${website}</a></span>
+        //       </div>
+        //     </div>
+        //   `)
           
-          .addTo(map.current);
-      });
+        //   .addTo(map.current);
+      //});
 
       // Cursor change on hover
       map.current.on("mouseenter", "clusters", () => {
@@ -181,17 +254,151 @@ export const HcprovidersMap2 = ({ data }) => {
       map.current.on("mouseleave", "clusters", () => {
         map.current.getCanvas().style.cursor = "";
       });
+
+
+ // Legend Implementation
+ const legend = document.createElement("div");
+ legend.id = "map-legend";
+ legend.innerHTML = `
+   <div class="legend-item">
+     <img src="${marker1}" width="20" height="20" alt="Hospital" /> Hospital
+   </div>
+   <div class="legend-item" style="margin-left:12px;">
+     <img src="${marker2}" width="20" height="20" alt="Health Centre" /> Health Centre
+   </div>
+   <div class="legend-item" style="margin-left:12px;">
+     <img src="${marker3}" width="20" height="20" alt="Other" /> TOMY
+   </div>
+ `;
+ mapContainer.current.appendChild(legend);
+
+ // CSS for the legend
+ const style = document.createElement("style");
+ style.innerHTML = `
+   #map-legend {
+     display:flex;
+     position: absolute;
+     bottom: 20px;
+     left: 20px;
+     background: rgba(255, 255, 255, 0.8);
+     padding: 10px;
+     border-radius: 16px;
+     font-size: 14px;
+     box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+   }
+   .legend-item {
+     display: flex;
+     align-items: center;
+     margin-bottom: 5px;
+   }
+   .legend-item img {
+     margin-right: 5px;
+   }
+
+           #zoom-controls {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px; /* Small space between buttons */
+          background: rgba(255, 255, 255, 0);
+        }
+        #zoom-controls button {
+          width: 45px;
+          height: 45px;
+          font-size: 20px;
+          font-weight: bold;
+          border: none;
+          background: white;
+          border-radius: 50%; /* Circular shape */
+          cursor: pointer;
+          outline: none;
+          box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        #zoom-controls button:hover {
+          background: #f0f0f0;
+        }
+        #zoom-controls button:active {
+          background: #ddd;
+        }
+
+ `;
+
+ // Create Zoom Controls
+ const zoomControl = document.createElement("div");
+ zoomControl.id = "zoom-controls";
+ zoomControl.innerHTML = `
+   <button id="zoom-in">+</button>
+   <button id="zoom-out">-</button>
+ `;
+ mapContainer.current.appendChild(zoomControl);
+
+ // Add event listeners for zoom buttons
+ document.getElementById("zoom-in").addEventListener("click", () => {
+   map.current.zoomIn();
+ });
+
+ document.getElementById("zoom-out").addEventListener("click", () => {
+   map.current.zoomOut();
+ });
+
+
+ 
+ document.head.appendChild(style);
+
+
     });
+
+    
+
+
 
     return () => map.current && map.current.remove();
   }, [data]);
 
   // Function to dynamically assign an icon based on Name_GR
   const getIconName = (name) => {
-    if (name.includes("Health Centre")) return "marker1";
-    if (name.includes("Hospital")) return "marker2";
+    if (name.includes("Hospital")) return "marker1";
+    if (name.includes("Health Centre")) return "marker2";
     return "marker3"; // Default marker
   };
 
-  return <div ref={mapContainer} style={{ width: "100vw", height: "100vh" }} />;
+  return (
+    <>
+      <div ref={mapContainer} style={{ width: "100vw", height: "100vh" }} />
+
+      <Dialog
+        header="Healthcare Provider Info"
+        visible={visible}
+        style={{ width: "30vw" }}
+        onHide={() => setVisible(false)}
+      >
+        {selectedMarker && (
+          <ScrollPanel style={{ width: '100%', height: '200px' }}>
+
+          <div>
+            <p><strong>{selectedMarker.name} ({selectedMarker.name_en})</strong></p>
+            <p><strong>Code:</strong> {selectedMarker.id}</p>
+            <p><strong>HCP:</strong> {selectedMarker.Type_Of_hcp}</p>
+            <p><strong>Category:</strong> {selectedMarker.Category}</p>
+            <p><strong>Address:</strong> {selectedMarker.address}</p>
+            <p><strong>Post Code:</strong> {selectedMarker.post}</p>
+            <p><strong>Email:</strong> {selectedMarker.email}</p>
+            <p><strong>General Email:</strong> {selectedMarker.g_email}</p>
+            <p><strong>Website:</strong> <a href={selectedMarker.website} target="_blank" rel="noopener noreferrer">{selectedMarker.website}</a></p>
+
+            
+          </div>
+          </ScrollPanel>
+        )}
+      </Dialog>
+    </>
+  );
 };
+
+
+
