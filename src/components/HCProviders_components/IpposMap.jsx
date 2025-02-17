@@ -9,14 +9,15 @@ import marker3 from "../../icons/tomyicon.png";
 import { Category } from "@mui/icons-material";
 import { Dialog } from "primereact/dialog";
 import { ScrollPanel } from 'primereact/scrollpanel';
-
+import ReactDOM from "react-dom";
+import PopUpInfo from "./PopUpInfo";
 // Mapbox access token
 mapboxgl.accessToken = "pk.eyJ1IjoiY210cHJvb3B0aWtpIiwiYSI6ImNtNzBhcDhodTAwMjAyanBjdXhza29wNmsifQ.4iT6Z7akhzlh0S2Tqj7P8g";
 
 export const HcprovidersMap2 = ({ data }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
-
+//  const mappop =useRef(null);
   const GREECE_BOUNDS = [
     [19.0, 34.5], // Southwest corner (longitude, latitude)
     [30.0, 42.0]  // Northeast corner (longitude, latitude)
@@ -24,8 +25,8 @@ export const HcprovidersMap2 = ({ data }) => {
 
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [visible, setVisible] = useState(false);
-  const [visible2, setVisible2] = useState(false);
-  const [popup, setPopup] = useState(null); // Store the popup referenc
+  // const [visiblepop, setvisiblepop] = useState(false);
+  const [mappop, setPopup] = useState(null); // Store the popup referenc
 
   useEffect(() => {
     if (!mapContainer.current || !data) return;
@@ -36,16 +37,23 @@ export const HcprovidersMap2 = ({ data }) => {
     mapContainer.current.style.top="30px";
 
 
+
     const geojsonData = {
       type: "FeatureCollection",
       features: data.map((hcp) => ({
         type: "Feature",
         properties: {
           id: hcp.Q4ALL_code,
+          region:hcp.ype,
           name: hcp.Name_GR,
           Type_Of_hcp: hcp.type_Of_Hcp,
           name_en: hcp.Name_EN ,
           Category: hcp.category_As_Per_HealthAtlas ,
+          Category_Elstat:hcp.category_As_Per_Sha_2011_Elstat,
+          Idika:hcp.Idika_Ehr,
+          Odipy:hcp.Odipy_Indicator_Collection,
+          Drug:hcp.Drg_Mature_Usage,
+          HCenterNetwork:hcp.HEALTH_Center_In_The_Network,
           address: hcp.address,
           post: hcp.post_Code,
           email: hcp.email_Contact,
@@ -59,6 +67,8 @@ export const HcprovidersMap2 = ({ data }) => {
         },
       })),
     };
+
+    console.log(geojsonData)
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -193,13 +203,51 @@ map.current.on("click", "unclustered-point", (e) => {
   const coordinates = e.features[0].geometry.coordinates;
   const point = map.current.project(coordinates);
   
-  // Update selected marker state
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+  
+  const popupNode = document.createElement("div")
+
+  ReactDOM.render(
+    <PopUpInfo
+    properties={properties} onClose={() => mappop.remove()}
+    />,
+    popupNode
+  )
+  
+
+  const mappop=new mapboxgl.Popup()
+    .setLngLat(coordinates)
+    .setDOMContent(
+      popupNode
+    )
+    // .setHTML( `<div style="max-height: 150px; overflow-y:auto; padding: 5px; width: 250px;">
+    //   <div>
+    //     <strong>Name (${properties.name_en})</strong><br/>
+    //     <span><strong>Id:</strong> ${properties.id}</span><br/>
+    //     <span><strong>HCP:</strong> ${properties.Type_Of_hcp}</span><br/>
+    //   </div>
+    // </div>`)
+    .addTo(map.current);
+
+
+  // if (popup) {
+  //   popup.remove(); // Remove previous popup
+  // }
+  // // Update selected marker state
   setSelectedMarker({
     name: properties.name,
     name_en: properties.name_en,
+    region:properties.region,
     id: properties.id,
     Type_Of_hcp: properties.Type_Of_hcp,
     Category: properties.Category,
+    Category_Elstat:properties.Category_Elstat,
+    Idika:properties.Idika,
+    Odipy:properties.Odipy,
+    Drug:properties.Drug,
+    HCenterNetwork:properties.HCenterNetwork,
     address: properties.address,
     post: properties.post,
     email: properties.email,
@@ -212,54 +260,17 @@ map.current.on("click", "unclustered-point", (e) => {
   });
 
   setVisible(true);
-  setVisible2(true);
-  console.log("Properties: ", properties);
-
-  // Create and show the popup using properties directly
-  const newPopup = new mapboxgl.Popup({
-    closeButton: true,
-    closeOnClick: false,
-  })
-    .setLngLat(coordinates)
-    .setHTML(`
-      <div style="max-height: 150px; overflow-y:auto; padding: 5px; width: 250px;">
-        <div>
-          <strong>Name (${properties.name_en})</strong><br/>
-          <span><strong>Id:</strong> ${properties.id}</span><br/>
-          <span><strong>HCP:</strong> ${properties.Type_Of_hcp}</span><br/>
-        </div>
-      </div>
-    `)
-    .addTo(map.current);
-  
-  // Store popup reference
-  setPopup(newPopup);
+  // setvisiblepop(true);
+ 
   
   // Handle popup close event
-  newPopup.on("close", () => {
+  mappop.on("close", () => {
     setVisible(false); // Hide dialog when popup closes
     setPopup(null); // Clear popup reference
   });
 });
       
-      // Click event for individual markers
-      // map.current.on("click", "unclustered-point", (e) => {
-      //   const coordinates = e.features[0].geometry.coordinates.slice();
-      //   const { name, id,Type_Of_hcp,name_en,Category,address,post,email,g_email,website } = e.features[0].properties;
-      //   setSelectedMarker({
-      //     name: properties.name,
-      //     name_en: properties.name_en,
-      //     id: properties.id,
-      //     Type_Of_hcp: properties.Type_Of_hcp,
-      //     Category: properties.Category,
-      //     address: properties.address,
-      //     post: properties.post,
-      //     email: properties.email,
-      //     g_email: properties.g_email,
-      //     website: properties.website,
-      //   });
-      //   setVisible(true);
-        
+  
        
           
 
@@ -343,6 +354,66 @@ map.current.on("click", "unclustered-point", (e) => {
           background: #ddd;
         }
 
+
+          .dialog {
+     position: relative;
+     float:right;
+     margin:10px;
+     height:-webkit-fill-available;
+     z-index:100;
+    overflow: auto;
+     background: rgb(255, 255, 255);
+     border-radius: 16px;
+     font-size: 14px;
+     box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+   }
+     .p-scrollpanel-wrapper{
+      height:auto;
+     }
+      .p-scrollpanel-content{
+      padding:10px;
+     }
+
+    .mapboxgl-popup-close-button {
+      display:none;
+    }
+
+    .mapboxgl-popup-content {
+      width: fit-content;
+      background: transparent;
+      box-shadow: none;
+    }
+    .mapboxgl-pop-content-wrapper{
+      padding:1%;
+    }
+      .mapboxgl-popup{
+              max-width:unset;
+
+      } 
+      .mapboxgl-popup-anchor-top {
+        max-width:unset;
+      }
+
+      .MuiPaper-root{
+        width:auto;
+      }
+
+      strong {
+     color: #292d3299;
+    font-weight: 500;
+    font-size: 17px;
+    font-family: 'Poppins';
+
+      }
+
+       .mb-3 div{
+     color: #292D32;
+    font-weight: 300;
+    font-size: 14px;
+    font-family: 'Poppins';
+
+      }
+
  `;
 
  // Create Zoom Controls
@@ -372,8 +443,6 @@ map.current.on("click", "unclustered-point", (e) => {
 
     
 
-
-
     return () => map.current && map.current.remove();
   }, [data]);
 
@@ -386,70 +455,108 @@ map.current.on("click", "unclustered-point", (e) => {
 
   return (
     <>
-      <div ref={mapContainer} style={{ width: "100vw", height: "100vh" }} />
+      <div ref={mapContainer} style={{ width: "100vw", height: "100vh" }} >
+      <div className="dialog"   hidden={!visible}      
 
-      {/* <Dialog
         header="Healthcare Provider Info"
-        visible={visible2}
-        style={{ width: "30vw" , position: "absolute",
-        left: selectedMarker ? `${selectedMarker.x + 20}px` : "50%",
-        top: selectedMarker ? `${selectedMarker.y - 50}px` : "50%", // Position above the marker
-        transform: "translate(-50%, -100%)"}}
-        onHide={() => {setVisible(false); setVisible2(false);}}
-        // position="left"
-        dismissableMask
-        draggable
-        modal={false} // Ensure both are active
-      >
-        {selectedMarker && (
-         
-          <div>
-            <p><strong>{selectedMarker.name} ({selectedMarker.name_en})</strong></p>
-            <p><strong>Id:</strong> {selectedMarker.id}</p>
-            <p><strong>HCP:</strong> {selectedMarker.Type_Of_hcp}</p>
-
-            
-          </div>
-        )}
-      </Dialog> */}
-
-      <Dialog
-        header="Healthcare Provider Info"
-        visible={visible}
-        style={{ width: "30vw" }}
-        onHide={() => {
-          setVisible(false);
-          if (popup) {
-            popup.remove(); // Remove the Mapbox popup when Dialog closes
-            setPopup(null);
-          }
-        }}
-        position="right"
-        dismissableMask
-        modal={false} // Ensure both are active
+        
       >
         {selectedMarker && (
           <ScrollPanel style={{ width: '100%', height: '200px' }}>
-
-          <div>
-            <p><strong>{selectedMarker.name} ({selectedMarker.name_en})</strong></p>
-            <p><strong>Code:</strong> {selectedMarker.id}</p>
-            <p><strong>HCP:</strong> {selectedMarker.Type_Of_hcp}</p>
-            <p><strong>Category:</strong> {selectedMarker.Category}</p>
-            <p><strong>Address:</strong> {selectedMarker.address}</p>
-            <p><strong>Post Code:</strong> {selectedMarker.post}</p>
-            <p><strong>Email:</strong> {selectedMarker.email}</p>
-            <p><strong>General Email:</strong> {selectedMarker.g_email}</p>
-            <p><strong>Website:</strong> <a href={selectedMarker.website} target="_blank" rel="noopener noreferrer">{selectedMarker.website}</a></p>
-
-            
+ <div className="container mt-4 p-4 bg-white shadow-lg rounded-2xl border border-gray-200">
+      <h1 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Poppins' }}>
+        HCP Provider
+      </h1>
+      <div className="row">
+        <div className="col-md-6 mb-3">
+          <strong >YPE (Region):</strong>
+          <div>{selectedMarker.region}</div>
+        </div>
+        <div className="col-md-6 mb-3">
+          <strong>Q4ALL_code:</strong>
+          <div>{selectedMarker.id}</div>
+        </div>
+        <div className="col-md-6 mb-3">
+          <strong>Type of HCP:</strong>
+          <div>{selectedMarker.Type_Of_hcp}</div>
+        </div>
+        <div className="col-md-6 mb-3">
+          <strong>Name (GR):</strong>
+          <div>{selectedMarker.name}</div>
+        </div>
+        <div className="col-md-6 mb-3">
+          <strong>Name (EN):</strong>
+          <div>{selectedMarker.name_en}</div>
+        </div>
+        <div className="col-md-6 mb-3">
+          <strong>Category as per HealthAtlas:</strong>
+          <div>{selectedMarker.category}</div>
+        </div>
+        <div className="col-md-6 mb-3">
+          <strong>Category as per SHA 2011 ELSTAT:</strong>
+          <div>{selectedMarker.Category_Elstat}</div>
+        </div>
+        <div className="col-md-6 mb-3">
+          <strong>IDIKA EHR:</strong>
+          <div>{selectedMarker.Idika}</div>
+        </div>
+        <div className="col-md-6 mb-3">
+          <strong>ODIPY Indicator Collection:</strong>
+          <div>{selectedMarker.Odipy}</div>
+        </div>
+        <div className="col-md-6 mb-3">
+          <strong>DRG Mature Usage:</strong>
+          <div>{selectedMarker.Drug}</div>
+        </div>
+        <div className="col-md-6 mb-3">
+          <strong>HEALTH Center in the Network:</strong>
+          <div>{selectedMarker.HCenterNetwork}</div>
+        </div>
+      </div>
+      <div className="mt-4 border-top pt-3">
+      <h3 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Poppins' }}>Contact Details</h3>
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <strong>Address:</strong>
+            <div>{selectedMarker.address}</div>
           </div>
+          <div className="col-md-6 mb-3">
+            <strong>Post Code:</strong>
+            <div>{selectedMarker.post}</div>
+          </div>
+          <div className="col-md-6 mb-3">
+            <strong>Email:</strong>
+            <div>{selectedMarker.email}</div>
+          </div>
+          <div className="col-md-6 mb-3">
+            <strong>General Email:</strong>
+            <div>{selectedMarker.g_email}</div>
+          </div>
+          <div className="col-md-6 mb-3">
+            <strong>Website:</strong>
+            <div>
+              <a href={selectedMarker.website} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                {selectedMarker.website}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
           </ScrollPanel>
         )}
-      </Dialog>
+      </div>
+      
+      
+      </div>
+
+     
+
     </>
   );
 };
+
+
 
 
 
