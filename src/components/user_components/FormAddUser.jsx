@@ -171,6 +171,9 @@ const FormAddUser = () => {
                                             <option value="" disabled>Choose Role</option>
                                             <option value="admin">Administrator</option>
                                             <option value="user">User</option>
+                                            <option value="hcp">Hcp</option>
+                                            <option value="indicator">Indicator</option>
+
                                         </select>
                                     </div>
                                 </div>

@@ -24,6 +24,8 @@ import './flags.css';
 import 'primereact/resources/primereact.css';
 
 import HCProviders from "./pages/HCProviders_pages/HCProviders";
+import ProtectedRoute from "./components/protectedRoute";
+import Home from "./pages/home";
 
 
 function App() {
@@ -38,16 +40,17 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login/>}></Route>
-          <Route path="/dashboard" element={<Dashboard/>}></Route>
+          <Route path="/home" element={<Home/>}></Route>
+          <Route path="/dashboard" element={<ProtectedRoute requiredRole="indicator"><Dashboard/></ProtectedRoute>}></Route>
           {/* <Route path="/map" element={<MapPolution/>}></Route> */}
 
-          <Route path="/users" element={<Users/>}></Route>
-          <Route path="/users/add" element={<AddUser/>}></Route>
-          <Route path="/users/edit/:id" element={<EditUser/>}></Route>
+          <Route path="/users" element={<ProtectedRoute requiredRole="admin"><Users/></ProtectedRoute>}></Route>
+          <Route path="/users/add" element={<ProtectedRoute requiredRole="admin"><AddUser/></ProtectedRoute>}></Route>
+          <Route path="/users/edit/:id" element={<ProtectedRoute requiredRole="admin"><EditUser/></ProtectedRoute>}></Route>
 
-          <Route path="/indicators/add" element={<AddIndicator/>}></Route>
+          <Route path="/indicators/add" element={<ProtectedRoute requiredRole="indicator"><AddIndicator/></ProtectedRoute>}></Route>
 
-          <Route path="/hcproviders" element={<HCProviders/>}></Route>
+          <Route path="/hcproviders" element={<ProtectedRoute requiredRole="hcp"><HCProviders/></ProtectedRoute>}></Route>
 
 
 

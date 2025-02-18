@@ -173,7 +173,7 @@ const IndicatorsList = () => {
         if (user!=null && user.role=="user"){
             getColumnNames()
             getIndicatorsByUser()
-        }else if(user!=null && user.role=="admin"){
+        }else if(user!=null && (user.role=="admin" ||user.role=="indicator")){
             getColumnNames()
             getIndicators()
         }

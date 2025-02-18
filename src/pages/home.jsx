@@ -13,17 +13,39 @@ import IndicatorsList from '../components/indicators_components/IndicatorsList';
 
 
 
-const Dashboard = () => {
+const Home = () => {
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {isError} = useSelector((state=>state.auth));
+  const { user } = useSelector((state) => state.auth);
+//   const {isError} = useSelector((state=>state.auth));
+  console.log(user, "user")
 
   useEffect(()=>{
       
       dispatch(getMe());
   },[dispatch]);
 
+  useEffect(() => {
+
+    if(user)
+    {
+    
+          if(user.role === "hcp")
+            {
+              navigate("/hcproviders")
+            }
+          
+            if(user.role === "indicator" || user.role === "admin")
+              {
+                navigate("/dashboard")
+              }
+    }
+      }, [user]);
+
+ 
+
+ 
 
   // useEffect(()=>{
   //     if(isError){
@@ -35,11 +57,9 @@ const Dashboard = () => {
   return (
     <Layout>
         <Welcome />
-        <IndicatorsList/>
-    
     </Layout>
   );
   
 };
 
-export default Dashboard;
+export default Home;
