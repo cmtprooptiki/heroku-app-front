@@ -36,7 +36,7 @@ export const initFiltersConfig = () => ({
     type_of_healthcare: { value: null, matchMode: FilterMatchMode.IN },
     type_of_healthcare_providers_D1_D7: { value: null, matchMode: FilterMatchMode.IN },
     cross_Cutting_Dimensions_A_I: { value: null, matchMode: FilterMatchMode.CUSTOM },
-    cross_Cutting_Dimensions_Inputs_Process_Outputs: { value: null, matchMode: FilterMatchMode.IN },
+    cross_Cutting_Dimensions_Inputs_Process_Outputs: { value: null, matchMode: FilterMatchMode.CUSTOM },
     dimensions_of_Quality_QoCOfficeReport: { value: null, matchMode: FilterMatchMode.IN },
     priority: { value: null, matchMode: FilterMatchMode.IN },
     data_collection: { value: null, matchMode: FilterMatchMode.IN },

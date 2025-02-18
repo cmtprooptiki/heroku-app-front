@@ -336,12 +336,23 @@ const IndicatorsList = () => {
                         .flatMap(value => value.split(',').map(v => v.trim())) // Split by comma and trim spaces
                 )
             ];
+
             console.log("cross list ai", unique_cross_Cutting_Dimensions_A_I);
             // Optionally, set the state with the unique values
             setCross_Cutting_Dimensions_A_I(unique_cross_Cutting_Dimensions_A_I);
 
-            const unique_Cross_Cutting_Dimensions_Inputs_Outputs = [...new Set(indData.map(item => item.cross_Cutting_Dimensions_Inputs_Process_Outputs	|| ''))]
+            // const unique_Cross_Cutting_Dimensions_Inputs_Outputs = [...new Set(indData.map(item => item.cross_Cutting_Dimensions_Inputs_Process_Outputs	|| ''))]
+
+            const unique_Cross_Cutting_Dimensions_Inputs_Outputs = [
+                ...new Set(
+                    indData
+                        .map(item => item.cross_Cutting_Dimensions_Inputs_Process_Outputs || '') // Extract values
+                        .flatMap(value => value.split(',').map(v => v.trim())) // Split by comma and trim spaces
+                )
+            ];
             setCross_Cutting_Dimensions_Inputs_Outputs(unique_Cross_Cutting_Dimensions_Inputs_Outputs)
+
+
 
             const unique_dimensions_of_quality = [...new Set(indData.map(item => item.dimensions_of_Quality_QoCOfficeReport	|| ''))]
             setDimensions_Of_Quality(unique_dimensions_of_quality)
@@ -1127,6 +1138,21 @@ const percentageTemplate = (rowData) => {
         return filter.some((f) => valueArray.includes(f.trim()) || (f === '' && valueArray.length === 0)); // Check if any filter value matches
     });
 
+    FilterService.register('custom_cross_Cutting_Dimensions_Inputs_Process_Outputs', (value, filter) => {
+        // If no filter is applied (filter is null, undefined, or an empty array), show all rows
+        if (!filter || filter.length === 0) {
+            return true; // Show all rows when no filter is set
+        }
+        // If the value is null, undefined, or an empty string, check if empty value is selected in the filter
+        if (!value) {
+            // If filter contains an empty string or null, allow the row to be displayed
+            return filter.includes('') || filter.includes(null);
+        }
+        // Otherwise, split and trim the value to compare with the filter
+        const valueArray = value.split(',').map((v) => v.trim()); // Split and trim any extra spaces
+        return filter.some((f) => valueArray.includes(f.trim()) || (f === '' && valueArray.length === 0)); // Check if any filter value matches
+    });
+
 
     const allColumnFields = ['indicator_name', 'q4all_Ind_number'];
         const [frozenColumns, setFrozenColumns] = useState(['indicator_name', 'q4all_Ind_number']); // Initially frozen column(s)
@@ -1351,11 +1377,14 @@ const allColumns2 = {
         editor: (options) => cellEditor(options),
         onCellEditComplete: onCellEditComplete
     },
+
+
+    
     cross_Cutting_Dimensions_A_I: {
         field: "cross_Cutting_Dimensions_A_I",
         header: customHeader(headers.cross_Cutting_Dimensions_A_I.label, headers.cross_Cutting_Dimensions_A_I.description, "cross_Cutting_Dimensions_A_I"),
         filter: true,
-        filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.cross_Cutting_Dimensions_A_I)} itemTemplate={ItemTemplate}/>),
+        filterElement: (option) => (<FilterIndicators options={option} data={cross_Cutting_Dimensions_A_I} itemTemplate={ItemTemplate}/>),
         filterField: "cross_Cutting_Dimensions_A_I",
         showFilterMatchModes: false,
         style: { minWidth: '12rem' },
@@ -1367,7 +1396,8 @@ const allColumns2 = {
         field: "cross_Cutting_Dimensions_Inputs_Process_Outputs",
         header: customHeader(headers.cross_Cutting_Dimensions_Inputs_Process_Outputs.label, headers.cross_Cutting_Dimensions_Inputs_Process_Outputs.description, "cross_Cutting_Dimensions_Inputs_Process_Outputs"),
         filter: true,
-        filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.cross_Cutting_Dimensions_Inputs_Process_Outputs)}  itemTemplate={ItemTemplate}/>),
+        filterField: "cross_Cutting_Dimensions_Inputs_Process_Outputs",
+        filterElement: (option) => (<FilterIndicators options={option} data={Cross_Cutting_Dimensions_Inputs_Outputs}  itemTemplate={ItemTemplate}/>),
         showFilterMatchModes: false,
         style: { minWidth: '12rem' },
         body: generalBodyTemplate(indicators, cross_Cutting_Dimensions_Inputs_Process_Outputlist, 'cross_Cutting_Dimensions_Inputs_Process_Outputs'),
