@@ -387,6 +387,8 @@ const IndicatorsList = () => {
                 percentage: calculateFilledPercentage(item), // Add percentage field
             }));
 
+            setSelectedColumns(['indicator_name', 'q4all_Ind_number'])
+
             setfilledRows(parDataWithDates.filter(checkRow))
 
             setIndicators(parDataWithDates);
@@ -1071,7 +1073,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
     };
     
     const calculateFilledPercentage = (rowData) => {
-        console.log("data", rowData);
+        // console.log("data", rowData);
         
         // Filter out 'user_Id' when calculating total fields and filled fields
         const totalFields = Object.keys(rowData).filter(key => key !== 'user_Id').length; // Total number of fields excluding 'user_Id'
@@ -1966,6 +1968,7 @@ const allColumns2 = {
 
 <div className="p-4">
       <h3>Select Columns</h3>
+
       
       {/* MultiSelect Dropdown */}
       <MultiSelect
@@ -2134,7 +2137,6 @@ const allColumns2 = {
                 body={percentageTemplate}
                 style={{ minWidth: '12rem',color: 'black', textAlign: 'center' }} field='percentage' 
             ></Column>
-           
             {selectedColumns.map((col) => (
                     <Column key={col} {...allColumns2[col]} />
                 ))}
