@@ -36,6 +36,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons"; // FontAwesome Swap Icon
 
+import FilterYpe from './FilterYpe';
+
 
 const HCProvidersList = () => {
     const [hcproviders, setHcproviders] = useState([]);
@@ -43,6 +45,7 @@ const HCProvidersList = () => {
     const [filters, setFilters] = useState(null);
     // const [filters, setFilters] = useState(initFiltersConfig);
     const [selectedHcpTypes, setSelectedHcpTypes] = useState([]); // Stores selected filters
+    const [selectedYpe, setSelectedYpe] = useState([])
 
     const [loading, setLoading] = useState(true);
     const [globalFilterValue, setGlobalFilterValue] = useState('');
@@ -64,14 +67,38 @@ const HCProvidersList = () => {
     const[shownLabel,setShownLabel]=useState("Map View")
 
     useEffect(() => {
-        if (selectedHcpTypes.length === 0) {
+        if (selectedHcpTypes.length === 0 && selectedYpe.length === 0) {
             setFilteredHcproviders2(hcproviders); // Show all when no filter is applied
-        } else {
+        } else if(selectedHcpTypes.length > 0 && selectedYpe.length === 0){
             setFilteredHcproviders2(
                 hcproviders.filter(hcp => selectedHcpTypes.includes(hcp.type_Of_Hcp))
             );
         }
-    }, [selectedHcpTypes, hcproviders]);
+            else if(selectedYpe.length > 0 && selectedHcpTypes.length === 0) 
+            {
+                setFilteredHcproviders2(
+                hcproviders.filter(hcp => selectedYpe.includes(hcp.ype)));
+            }
+            else if(selectedYpe.length > 0 && selectedHcpTypes.length > 0)
+            {
+                setFilteredHcproviders2(
+                    hcproviders.filter(hcp => 
+                        
+                            selectedYpe.includes(hcp.ype) &&
+                            selectedHcpTypes.includes(hcp.type_Of_Hcp)))
+                    
+            }
+}, [selectedHcpTypes, selectedYpe,hcproviders]);
+
+    // useEffect(() => {
+    //     if (selectedYpe.length === 0) {
+    //         setFilteredHcproviders2(hcproviders); // Show all when no filter is applied
+    //     } else {
+    //         setFilteredHcproviders2(
+    //             hcproviders.filter(hcp => selectedYpe.includes(hcp.ype))
+    //         );
+    //     }
+    // }, [selectedYpe, hcproviders]);
    
 
     const dt = useRef(null);
@@ -563,6 +590,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
     useEffect(() => {
         if (!showMap) {
           setSelectedHcpTypes([]);
+          setSelectedYpe([])
         }
       }, [showMap]);
 
@@ -659,7 +687,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         {/* <div >
             <HcprovidersMap data={hcproviders}></HcprovidersMap>
         </div> */}
-        {showMap? <div><h1 className='title'>Map View</h1><FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders2.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  /><HcprovidersMap2 data={filteredHcproviders2}></HcprovidersMap2></div>:
+        {showMap? <div><h1 className='title'>Map View</h1><div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "nowrap" }} ><FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders2.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  /> <FilterYpe options={{ value: selectedYpe, filterCallback: setSelectedYpe }} data={hcproviders2.map(item => item.ype)} itemTemplate={ItemTemplate}  /> </div> <HcprovidersMap2 data={filteredHcproviders2}></HcprovidersMap2></div>:
         <div className="card" hidden={showMap}>
         <h1 className='title'>HCProviders Table</h1>
 
