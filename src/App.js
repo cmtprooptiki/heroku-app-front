@@ -26,6 +26,7 @@ import 'primereact/resources/primereact.css';
 import HCProviders from "./pages/HCProviders_pages/HCProviders";
 import ProtectedRoute from "./components/protectedRoute";
 import Home from "./pages/home";
+import EditSimpleUser from "./pages/user_pages/EditSimpleUser";
 
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
           <Route path="/users" element={<ProtectedRoute requiredRole="admin"><Users/></ProtectedRoute>}></Route>
           <Route path="/users/add" element={<ProtectedRoute requiredRole="admin"><AddUser/></ProtectedRoute>}></Route>
           <Route path="/users/edit/:id" element={<ProtectedRoute requiredRole="admin"><EditUser/></ProtectedRoute>}></Route>
+
+          <Route path="/simpleUser/edit/:id" element={<EditSimpleUser/>}></Route>
+
 
           <Route path="/indicators/add" element={<ProtectedRoute requiredRole="indicator"><AddIndicator/></ProtectedRoute>}></Route>
 
