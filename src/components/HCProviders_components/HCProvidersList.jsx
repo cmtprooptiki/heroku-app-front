@@ -50,25 +50,15 @@ const HCProvidersList = () => {
     const [filteredHcproviders, setFilteredHcproviders] = useState([]);
     const [filteredHcproviders2, setFilteredHcproviders2] = useState([]);
     const [RowsAffected, setRowsAffected] = useState(hcproviders.length)
-    const [category_of_Indicator, set_Category_Of_Indicator] = useState([])
-    const [type_of_healthcare, setType_Of_HealthCare] = useState([])
     const [ype, setYpe] = useState([])
     const [type_Of_Hcp, setType_Of_Hcp] = useState([])
     const [selectedIndicator, setSelectedIndicator] = useState([]);
-    console.log("first indicator,",selectedIndicator)
-
-    const [dialogVisible, setDialogVisible] = useState(false);
-    const [selectedType, setSelectedType] = useState(null);
-
-    
-
     const [filteredbyHospital,setfilteredbyHospital]=useState([]);
     const [filteredbyHCentre,setfilteredbyHCentre]=useState([]);
     const [filteredTomy,setfilteredTomy]=useState([]);
 
   
     const {user} = useSelector((state)=>state.auth)
-    console.log(user)
 
     const[showMap,setShowMap]=useState(false);
     const[shownLabel,setShownLabel]=useState("Map View")
@@ -113,7 +103,6 @@ const HCProvidersList = () => {
         if (user!=null && user.role=="user"){
             getHcprovidersByUser()
         }else if(user!=null && (user.role=="admin" ||user.role=="hcp")){
-            console.log("Is goin to GetIndicator")
             getHcproviders()
         }
        
@@ -192,15 +181,14 @@ const HCProvidersList = () => {
     }
 
 
-    const deleteIndicator = async(IndicatorId)=>{
-        await axios.delete(`${apiBaseUrl}/HCProviders/${IndicatorId}`);
+    const deleteHCProvider = async(HCProviderId)=>{
+        await axios.delete(`${apiBaseUrl}/HCProviders/${HCProviderId}`);
         getHcproviders();
     }
     const deleteHcprovidersSelected = (ids) => {
         if (Array.isArray(ids)) {
             // Handle multiple deletions
             ids.forEach(async (id) => {
-                console.log(`Deleting Dosi with ID: ${id}`);
                 await axios.delete(`${apiBaseUrl}/HCProviders/${id}`);
             });
         } else {
@@ -309,36 +297,36 @@ const HCProvidersList = () => {
         return (
             <div className="actions-container">
                 {/* Three dots button */}
-                <Button 
+                {/* <Button 
                     icon="pi pi-ellipsis-v" 
                     className="p-button-text"
                     aria-label="Actions"
-                    onMouseEnter={handleMouseEnter} // Show overlay on hover
-                    onMouseLeave={handleMouseLeave} // Start hide timeout on mouse leave
-                />
+                    onMouseEnter={handleMouseEnter} 
+                    onMouseLeave={handleMouseLeave} 
+                /> */}
     
                 {/* OverlayPanel containing action buttons in a row */}
-                <OverlayPanel 
+                {/* <OverlayPanel 
                     ref={op} 
                     onClick={() => op.current.hide()} 
                     dismissable 
-                    onMouseLeave={handleMouseLeave} // Hide on overlay mouse leave
+                    onMouseLeave={handleMouseLeave} 
                     onMouseEnter={() => {
                         if (hideTimeout) clearTimeout(hideTimeout);
                     }} 
-                >
+                > */}
                     <div className="flex flex-row gap-2">
                         {/* Only show the Profile button for non-admin users */}
-                        {user && user.role !== "admin" && (
+                        {/* {user && user.role !== "admin" && (
                             <Link to={`/paradotea/profile/${id}`}>
                                 <Button icon="pi pi-eye" severity="info" aria-label="User" />
                             </Link>
-                        )}
+                        )} */}
                         
                         {/* Show all action buttons for admin users */}
-                        {user && user.role === "admin" && (
+                        {user && user.role === "hcp" && (
                             <>
-                                <Button 
+                                {/* <Button 
                                 className='action-button'
                                     icon="pi pi-eye"
                                     severity="info"
@@ -359,18 +347,18 @@ const HCProvidersList = () => {
                                         setSelectedType('Edit');
                                         setDialogVisible(true);
                                     }}
-                                />
+                                /> */}
                                 <Button
                                 className='action-button'
                                     icon="pi pi-trash"
                                     severity="danger"
                                     aria-label="Delete"
-                                    onClick={() => deleteIndicator(id)}
+                                    onClick={() => deleteHCProvider(id)}
                                 />
                             </>
                         )}
                     </div>
-                </OverlayPanel>
+                {/* </OverlayPanel> */}
             </div>
         );
     };
@@ -681,10 +669,10 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         <Link to={"/hcproviders/add"} ><Button label="New HCProvider row" className='button is-primary mb-2 rounded' icon="pi pi-plus-circle"/></Link>
         )}
 
-        {user && user.role === "admin" && (
+        {user && (
                 <Button
                     label="New Empty Row"
-                    className="button is-primary mb-2 rounded"
+                    className="p-button2 is-primary mb-2 rounded"
                     icon="pi pi-plus-circle"
                     style = {{marginLeft: "50px"}}
                     onClick={addEmptyRow} // Trigger the addEmptyRow function
@@ -695,7 +683,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
       
             
             <Button
-                className='button is-primary mb-2 rounded' 
+                className='p-button3 is-primary mb-2 rounded' 
                 label="Delete Selected" 
                 icon="pi pi-trash" 
                 severity="danger"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Avatar } from "primereact/avatar";
 import { Button } from "primereact/button";
 import { Menu } from "@mui/material";
@@ -16,13 +16,20 @@ import usersIconSvg from "../icons/users.svg";
 import homeSvg from "../icons/home.svg";
 import { Link } from 'react-router-dom';
 import { Ripple } from 'primereact/ripple';
+import { getMe } from "../features/authSlice";
 
 import "../navbar-custom.css";
+import apiBaseUrl from "../apiConfig";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
+
+  useEffect(()=>{
+        
+        dispatch(getMe());
+    },[dispatch]);
 
   const logout = () => {
     dispatch(LogOut());
@@ -84,36 +91,53 @@ const Navbar = () => {
           justifyContent: "flex-end",
           flexWrap: "wrap"
         }} >
-
+        {(user?.role === "indicator" || user?.role === "admin") && (
         <Link to="/dashboard" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
         <img src={homeSvg} alt="home" style={{ width: "64px", cursor: "pointer" }} />
                 <Ripple />
             </Link>
+        )}
   
         {/* Notification Icon */}
-        <img src={notificationsIconSvg} alt="Notifications" style={{ width: "32px", cursor: "pointer" }} />
+        {/* <img src={notificationsIconSvg} alt="Notifications" style={{ width: "32px", cursor: "pointer" }} /> */}
 
            {/* Search users */}
+          {(user?.role === "hcp") && (
+            <Link to="/hcproviders" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+            <img src={homeSvg} alt="Search" style={{ width: "64px", cursor: "pointer" }} />
 
+            <Ripple />
+        </Link>
+          )}
+
+          {(user?.role === "admin") && (
            <Link to="/hcproviders" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
                 <img src={hcprovidersIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
 
                 <Ripple />
             </Link>
-
+          )}
         {/* Settings Icon */}
-        <img src={settingsIconSvg} alt="Settings" style={{ width: "32px", cursor: "pointer" }} />
+        {/* <img src={settingsIconSvg} alt="Settings" style={{ width: "32px", cursor: "pointer" }} /> */}
 
         {/* Search users */}
-
+          {(user?.role === "admin") && (
         <Link to="/users" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
                 <img src={usersIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
 
                 <Ripple />
             </Link>
+          )}
 
+          {(user?.role !== "admin") && (
+        <Link to= {`/simpleUser/edit/${user?.uuid}`} style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                <img src={usersIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+
+                <Ripple />
+            </Link>
+          )}
         {/* Search Icon */}
-        <img src={searchIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+        {/* <img src={searchIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} /> */}
 
     
         {/* User Profile Avatar */}
@@ -126,7 +150,7 @@ const Navbar = () => {
           <Avatar
             image={
               user?.profileImage
-                ? `${user?.profileImage}`
+                ? `${apiBaseUrl}/${user?.profileImage}`
                 : "https://via.placeholder.com/150"
             }
             shape="circle"
