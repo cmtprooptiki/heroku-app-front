@@ -38,6 +38,10 @@ import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons"; // FontAweso
 
 import FilterYpe from './FilterYpe';
 
+import HospitalTable from './HospitalTable';
+import { Slider } from "primereact/slider";
+
+import { TabView, TabPanel } from "primereact/tabview";
 
 
 const HCProvidersList = () => {
@@ -62,13 +66,129 @@ const HCProvidersList = () => {
     const [filteredbyHCentre,setfilteredbyHCentre]=useState([]);
     const [filteredTomy,setfilteredTomy]=useState([]);
 
-    const [distance, setDistance] = useState(5); // Default 5km
 
-  
+
+////
+
+const [activeTab, setActiveTab] = useState(0); // Manage active tab state
+
+
+const [globalFilter, setGlobalFilter] = useState("");
+    const [filteredHospitals, setFilteredHospitals] = useState([]);
+    const [distance, setDistance] = useState(5); // Default distance 5km
+    const [selectedHospital, setSelectedHospital] = useState(null); // Selected hospital as starting point
+    const [googleDistances, setGoogleDistances] = useState({}); // Store distances from Google API
+
+    // Function to Calculate Distance Using Haversine Formula
+    const getDistance = (lat1, lon1, lat2, lon2) => {
+        const R = 6371; // Radius of Earth in KM
+        const toRad = (deg) => (deg * Math.PI) / 180;
+
+        const dLat = toRad(lat2 - lat1);
+        const dLon = toRad(lon2 - lon1);
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(toRad(lat1)) *
+            Math.cos(toRad(lat2)) *
+            Math.sin(dLon / 2) *
+            Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c; // Distance in KM
+    };
+
+
+    
+
+
+    //Ilias filtering logic
+    // 🔥 Automatically filter hospitals when user selects a reference hospital or changes distance
+    useEffect(() => {
+        if (!selectedHospital) {
+            setFilteredHospitals([]);
+            return;
+        }
+
+        const referenceHospital = hcproviders.find(h => h.Name_GR === selectedHospital);
+        if (!referenceHospital) return;
+
+ // Use Google Distance API
+ getGoogleDistances(referenceHospital, hcproviders).then((distances) => {
+    const filtered = hcproviders
+        .filter(hospital => hospital.Name_GR !== selectedHospital)
+        .map(hospital => ({
+            ...hospital,
+            distance: distances[hospital.Name_GR] || "N/A"
+        }))
+        .filter(hospital => parseFloat(hospital.distance) <= distance); // Filter by selected distance
+
+    setFilteredHospitals(filtered);
+    setGoogleDistances(distances);
+});
+
+
+
+
+    //     const filtered = hcproviders
+    //     .filter(hospital => hospital.Name_GR !== selectedHospital) // Exclude selected hospital
+    //     .map(hospital => ({
+    //         ...hospital,
+    //         distance: getDistance(
+    //             referenceHospital.lat,
+    //             referenceHospital.lon,
+    //             hospital.lat,
+    //             hospital.lon
+    //         ) + " km"
+    //     }))
+    //     .filter(hospital => parseFloat(hospital.distance) <= distance); // Filter by selected distance
+
+    // setFilteredHospitals(filtered);
+    }, [selectedHospital, distance, hcproviders]);
+
+
+
+
+  // 🔥 Function to fetch real-world distance from Google Maps API
+  const getGoogleDistances = async (referenceHospital, allHospitals) => {
+    const API_KEY = "AIzaSyAYBQGrWkiF0KJTjOFpc6QXUDf_yP2fnSY";
+    const origin = `${referenceHospital.lat},${referenceHospital.lon}`;
+    const destinations = allHospitals
+        .map(h => `${h.lat},${h.lon}`)
+        .join("|");
+
+    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&key=${API_KEY}`;
+console.log(destinations)
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data.status === "OK") {
+            const distances = {};
+            data.rows[0].elements.forEach((element, index) => {
+                if (element.status === "OK") {
+                    distances[allHospitals[index].Name_GR] = (element.distance.value / 1000).toFixed(2); // Convert meters to KM
+                }
+            });
+            return distances;
+        }
+    } catch (error) {
+        console.error("Error fetching distances:", error);
+    }
+    return {};
+};
+
+
+
+
+  //////
+
+
+
     const {user} = useSelector((state)=>state.auth)
 
     const[showMap,setShowMap]=useState(false);
     const[shownLabel,setShownLabel]=useState("Map View")
+
+
+    //Ippos filtering logic
 
     useEffect(() => {
         if (selectedHcpTypes.length === 0 && selectedYpe.length === 0 && selectedName.length === 0) {
@@ -614,6 +734,13 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         }
       }, [showMap]);
 
+      const hospitalData = [
+        { id: 1, name: "Athens General", latitude: 37.9845, longitude: 23.7280 },
+        { id: 2, name: "Piraeus Hospital", latitude: 37.9400, longitude: 23.6500 },
+        { id: 3, name: "Central Clinic", latitude: 37.9900, longitude: 23.7300 },
+        { id: 4, name: "Suburban Medical", latitude: 38.0200, longitude: 23.7600 },
+    ];
+
     return(
         <>
         <Card className="kpi-section-card">
@@ -707,7 +834,89 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         {/* <div >
             <HcprovidersMap data={hcproviders}></HcprovidersMap>
         </div> */}
-        {showMap? <div><h1 className='title'>Map View</h1><div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "nowrap" }} ><FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders2.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  /> <FilterYpe options={{ value: selectedYpe, filterCallback: setSelectedYpe }} data={hcproviders2.map(item => item.ype)} itemTemplate={ItemTemplate}  /> <FilterName options={{ value: selectedName, filterCallback: setSelectedName }} data={filteredHcproviders2.map(item => item.Name_GR)} itemTemplate={ItemTemplate}  /></div> <HcprovidersMap2 data={filteredHcproviders2}></HcprovidersMap2></div>:
+        {showMap? 
+        <div><h1 className='title'>Map View</h1><div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "nowrap" }} >
+            {/* <div>
+                <h1>Filter by HCProvider,Region and Name</h1>
+        <FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders2.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  /> 
+        <FilterYpe options={{ value: selectedYpe, filterCallback: setSelectedYpe }} data={hcproviders2.map(item => item.ype)} itemTemplate={ItemTemplate}  /> 
+        <FilterName options={{ value: selectedName, filterCallback: setSelectedName }} data={filteredHcproviders2.map(item => item.Name_GR)} itemTemplate={ItemTemplate}  />
+            </div> */}
+
+            <TabView activeIndex={activeTab} onTabChange={(e) => setActiveTab(e.index)}  style={{ width: "100%" }}>
+            {/* Tab 1: HCProvider, Region, Name */}
+            <TabPanel header="Filter by HCProvider, Region & Name">
+                <h1>Filter by HCProvider, Region and Name</h1>
+                <FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders2.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate} />
+                <FilterYpe options={{ value: selectedYpe, filterCallback: setSelectedYpe }} data={hcproviders2.map(item => item.ype)} itemTemplate={ItemTemplate} />
+                <FilterName options={{ value: selectedName, filterCallback: setSelectedName }} data={filteredHcproviders2.map(item => item.Name_GR)} itemTemplate={ItemTemplate} />
+            
+                <HcprovidersMap2 data={filteredHcproviders2}></HcprovidersMap2>
+
+            
+            </TabPanel>
+
+
+
+            {/* Tab 2: Nearest Health Units */}
+            <TabPanel header="Find Nearest Health Units">                        {/* Selection Controls */}
+                        <h1>Filter by Nearest Health Units from a specific place</h1>
+
+                        <Card className="p-mb-3" style={{marginBottom:"25px"}}>
+                            <h3>Select Health Unit:</h3>
+                            <Dropdown
+                                value={selectedHospital}
+                                options={hcproviders.map(h => h.Name_GR)}
+                                onChange={(e) => setSelectedHospital(e.value)}
+                                placeholder="Choose a Health Unit..."
+                                className="p-mb-3"
+                            />
+            
+                            <h3>Find Health Unit in Distance (km): {distance} km</h3>
+                            <Slider
+                                value={distance}
+                                onChange={(e) => setDistance(e.value)}
+                                min={1}
+                                max={50}
+                                step={1}
+                                style={{ width: "80%" }}
+                            />
+                        </Card>
+            
+                        {/* Search Input */}
+                        <div className="p-inputgroup p-mb-3">
+                            <InputText
+                                placeholder="Search hospitals..."
+                                value={globalFilter}
+                                onChange={(e) => setGlobalFilter(e.target.value)}
+                            />
+                        </div>
+            
+                        {/* Data Table */}
+                        <DataTable 
+                            value={filteredHospitals} 
+                            paginator rows={10} 
+                            globalFilter={globalFilter}
+                            emptyMessage="No hospitals found within the selected distance."
+                        >
+                            <Column field="Name_GR" header="Hospital Name" sortable />
+                            <Column field="distance" header="Distance (km)" sortable />
+
+                            <Column field="lat" header="Latitude" sortable />
+                            <Column field="lon" header="Longitude" sortable />
+                        </DataTable>
+
+                        <HcprovidersMap2 data={filteredHospitals}></HcprovidersMap2>
+
+                        </TabPanel>
+                        </TabView>            
+            
+            
+            
+            </div> 
+       
+       
+       </div>:
         <div className="card" hidden={showMap}>
         <h1 className='title'>HCProviders Table</h1>
 
@@ -746,7 +955,10 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
         
         </div>
 
-        
+     
+
+{/* <HospitalTable hospitals={hcproviders} />; */}
+ 
 
 
 <DataTable value={hcproviders}  editMode="cell" ref = {dt} onValueChange={(Updatedhcproviders) => {setFilteredHcproviders(Updatedhcproviders);  console.log(filteredHcproviders.length, "Toso mikos"); setRowsAffected(Updatedhcproviders.length)}} paginator stripedRows
@@ -805,8 +1017,11 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
        
     </div> }
     </div>
+
+
     </>
     )
 }
 
 export default HCProvidersList;
+
