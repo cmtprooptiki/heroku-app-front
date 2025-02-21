@@ -77,7 +77,6 @@ const [globalFilter, setGlobalFilter] = useState("");
     const [filteredHospitals, setFilteredHospitals] = useState([]);
     const [distance, setDistance] = useState(5); // Default distance 5km
     const [selectedHospital, setSelectedHospital] = useState(null); // Selected hospital as starting point
-    const [googleDistances, setGoogleDistances] = useState({}); // Store distances from Google API
 
     // Function to Calculate Distance Using Haversine Formula
     const getDistance = (lat1, lon1, lat2, lon2) => {
@@ -97,9 +96,6 @@ const [globalFilter, setGlobalFilter] = useState("");
     };
 
 
-    
-
-
     //Ilias filtering logic
     // 🔥 Automatically filter hospitals when user selects a reference hospital or changes distance
     useEffect(() => {
@@ -111,70 +107,21 @@ const [globalFilter, setGlobalFilter] = useState("");
         const referenceHospital = hcproviders.find(h => h.Name_GR === selectedHospital);
         if (!referenceHospital) return;
 
- // Use Google Distance API
- getGoogleDistances(referenceHospital, hcproviders).then((distances) => {
-    const filtered = hcproviders
-        .filter(hospital => hospital.Name_GR !== selectedHospital)
+        const filtered = hcproviders
+        .filter(hospital => hospital.Name_GR !== selectedHospital) // Exclude selected hospital
         .map(hospital => ({
             ...hospital,
-            distance: distances[hospital.Name_GR] || "N/A"
+            distance: getDistance(
+                referenceHospital.lat,
+                referenceHospital.lon,
+                hospital.lat,
+                hospital.lon
+            ) + " km"
         }))
         .filter(hospital => parseFloat(hospital.distance) <= distance); // Filter by selected distance
 
     setFilteredHospitals(filtered);
-    setGoogleDistances(distances);
-});
-
-
-
-
-    //     const filtered = hcproviders
-    //     .filter(hospital => hospital.Name_GR !== selectedHospital) // Exclude selected hospital
-    //     .map(hospital => ({
-    //         ...hospital,
-    //         distance: getDistance(
-    //             referenceHospital.lat,
-    //             referenceHospital.lon,
-    //             hospital.lat,
-    //             hospital.lon
-    //         ) + " km"
-    //     }))
-    //     .filter(hospital => parseFloat(hospital.distance) <= distance); // Filter by selected distance
-
-    // setFilteredHospitals(filtered);
     }, [selectedHospital, distance, hcproviders]);
-
-
-
-
-  // 🔥 Function to fetch real-world distance from Google Maps API
-  const getGoogleDistances = async (referenceHospital, allHospitals) => {
-    const API_KEY = "AIzaSyAYBQGrWkiF0KJTjOFpc6QXUDf_yP2fnSY";
-    const origin = `${referenceHospital.lat},${referenceHospital.lon}`;
-    const destinations = allHospitals
-        .map(h => `${h.lat},${h.lon}`)
-        .join("|");
-
-    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&key=${API_KEY}`;
-console.log(destinations)
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        if (data.status === "OK") {
-            const distances = {};
-            data.rows[0].elements.forEach((element, index) => {
-                if (element.status === "OK") {
-                    distances[allHospitals[index].Name_GR] = (element.distance.value / 1000).toFixed(2); // Convert meters to KM
-                }
-            });
-            return distances;
-        }
-    } catch (error) {
-        console.error("Error fetching distances:", error);
-    }
-    return {};
-};
-
 
 
 
