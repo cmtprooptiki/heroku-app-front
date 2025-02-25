@@ -28,6 +28,7 @@ import indicatorthree from '../../icons/health-center.png'
 import indicatorfour from '../../icons/tomyicon.png'
 import { Card } from 'primereact/card';
 import { HcprovidersMap2 } from './HcprovidersMap2';
+import { HcprovidersMap3 } from './HcprovidersMap3';
 import { headers } from './headersHCProvidersConfig';  // Import the header configuration
 import FilterHCProviders from './FilterHCProviders';
 import { HcprovidersMap } from './HcprovidersMap';
@@ -42,6 +43,7 @@ import HospitalTable from './HospitalTable';
 import { Slider } from "primereact/slider";
 
 import { TabView, TabPanel } from "primereact/tabview";
+import CircleLayerComponent from './testmap';
 
 
 const HCProvidersList = () => {
@@ -70,10 +72,10 @@ const HCProvidersList = () => {
 
 ////
 
-const [activeTab, setActiveTab] = useState(0); // Manage active tab state
+    const [activeTab, setActiveTab] = useState(0); // Manage active tab state
 
 
-const [globalFilter, setGlobalFilter] = useState("");
+    const [globalFilter, setGlobalFilter] = useState("");
     const [filteredHospitals, setFilteredHospitals] = useState([]);
     const [distance, setDistance] = useState(5); // Default distance 5km
     const [selectedHospital, setSelectedHospital] = useState(null); // Selected hospital as starting point
@@ -108,7 +110,7 @@ const [globalFilter, setGlobalFilter] = useState("");
         if (!referenceHospital) return;
 
         const filtered = hcproviders
-        .filter(hospital => hospital.Name_GR !== selectedHospital) // Exclude selected hospital
+        // .filter(hospital => hospital.Name_GR !== selectedHospital) // Exclude selected hospital
         .map(hospital => ({
             ...hospital,
             distance: getDistance(
@@ -775,7 +777,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                 />
                     
                     
-                {console.log("map",showMap)}
+                {/* {console.log("map",showMap)} */}
             </div>
             
         {/* <div >
@@ -841,7 +843,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
             
                         {/* Data Table */}
                         <DataTable 
-                            value={filteredHospitals} 
+                            value={filteredHospitals.filter(hospital => hospital.Name_GR !== selectedHospital)} 
                             paginator rows={10} 
                             globalFilter={globalFilter}
                             emptyMessage="No hospitals found within the selected distance."
@@ -852,9 +854,26 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                             <Column field="lat" header="Latitude" sortable />
                             <Column field="lon" header="Longitude" sortable />
                         </DataTable>
-
-                        <HcprovidersMap2 data={filteredHospitals}></HcprovidersMap2>
-
+                        {/* <HcprovidersMap3 data={filteredHospitals} center={filteredHospitals.filter(hospital => hospital.Name_GR === selectedHospital)} radius={distance}></HcprovidersMap3> */}
+                        {filteredHospitals.length > 0 && distance !== undefined && distance !== null && (
+                        // Find the hospital object that matches the selectedHospital
+                        // and ensure it has a valid center value before rendering the map.
+                        (() => {
+                            const selectedHospitalData = filteredHospitals.find(hospital => hospital.Name_GR === selectedHospital);
+                            if (selectedHospitalData && selectedHospitalData.lat && selectedHospitalData.lon) {
+                                // console.log("center:",selectedHospitalData)
+                                return (
+                                    <HcprovidersMap3 
+                                        data={filteredHospitals} 
+                                        center={selectedHospitalData}  // Pass the whole object for center
+                                        radius={distance} 
+                                    />
+                                );
+                            }
+                            return null; // Return null if the selected hospital has no valid data for center
+                        })()
+                        )}
+                        {/* <CircleLayerComponent/> */}
                         </TabPanel>
                         </TabView>            
             
