@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import Layout from '../Layout'
 
 import HCProvidersList from '../../components/HCProviders_components/HCProvidersList'
+import HCPUsers from '../../components/HCProviders_components/HCPUsers'
 
 import { useDispatch,useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -31,12 +32,20 @@ const HCProviders = () => {
 //       }
 //   },[isError,user,navigate]);
 
+  if(user && user.role ==="admin"){
+    return (
+      <Layout>
+          <HCProvidersList/>
+      </Layout>
+    )
+  }else{
+    return (
+      <Layout>
+          <HCPUsers/>
+      </Layout>
+    )
+  }
   
-  return (
-    <Layout>
-        <HCProvidersList/>
-    </Layout>
-  )
 } 
 
 export default HCProviders;

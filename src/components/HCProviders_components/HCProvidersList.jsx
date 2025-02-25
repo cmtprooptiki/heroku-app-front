@@ -215,9 +215,9 @@ const HCProvidersList = () => {
 
     useEffect(()=>{
 
-        if (user!=null && user.role=="user"){
+        if (user!=null && user.role=="hcp"){
             getHcprovidersByUser()
-        }else if(user!=null && (user.role=="admin" ||user.role=="hcp")){
+        }else if(user!=null && (user.role=="admin" )){
             getHcproviders()
         }
        
