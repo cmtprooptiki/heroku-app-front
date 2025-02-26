@@ -44,6 +44,7 @@ import { Slider } from "primereact/slider";
 
 import { TabView, TabPanel } from "primereact/tabview";
 import CircleLayerComponent from './testmap';
+import HospitalBedsChart from './HospitalBeds';
 
 
 const HCPUsers = () => {
@@ -267,6 +268,8 @@ const HCPUsers = () => {
          
         </form>
       </Card>
+
+      <HospitalBedsChart/>
       <br/>
       <Card >
 
