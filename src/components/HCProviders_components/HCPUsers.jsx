@@ -268,12 +268,10 @@ const HCPUsers = () => {
          
         </form>
       </Card>
-
-      <HospitalBedsChart/>
-      <br/>
+      
       <Card >
 
-
+      <HospitalBedsChart/>
         
       </Card>
       </>
