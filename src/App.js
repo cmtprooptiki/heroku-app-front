@@ -27,7 +27,7 @@ import HCProviders from "./pages/HCProviders_pages/HCProviders";
 import ProtectedRoute from "./components/protectedRoute";
 import Home from "./pages/home";
 import EditSimpleUser from "./pages/user_pages/EditSimpleUser";
-
+import HcpUser from "./pages/HcpUser";
 
 function App() {
   const value = {
@@ -56,7 +56,7 @@ function App() {
 
           <Route path="/hcproviders" element={<ProtectedRoute requiredRole="hcp"><HCProviders/></ProtectedRoute>}></Route>
 
-
+          <Route path="/hcpUser/:id" element={<ProtectedRoute requiredRole="admin"><HcpUser/></ProtectedRoute>}></Route>
 
           {/* <Route path="/statistics" element={<KpisDashboard/>}></Route>
 

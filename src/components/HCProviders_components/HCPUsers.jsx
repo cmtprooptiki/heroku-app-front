@@ -10,6 +10,8 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 
+import { useParams } from 'react-router-dom';
+
 import { FilterMatchMode, FilterOperator, FilterService } from 'primereact/api';
 import { InputText } from 'primereact/inputtext';
 import { IconField } from 'primereact/iconfield';
@@ -49,7 +51,7 @@ import HospitalBedsChart from './HospitalBeds';
 
 const HCPUsers = () => {
     // Create individual state variables and setters for each field
-    const [id,setId]=useState('');
+    // const [id,setId]=useState('');
     const [ype, setYpe] = useState('');
     const [Q4ALL_code, setQ4ALL_code] = useState('');
     const [type_Of_Hcp, setType_Of_Hcp] = useState('');
@@ -70,6 +72,7 @@ const HCPUsers = () => {
     const [HEALTH_Center_In_The_Network, setHEALTH_Center_In_The_Network] = useState('');
     const [loading, setLoading] = useState(true);
     const [reload,setReload]=useState(false)
+    const{id} = useParams();
   
     const { user } = useSelector((state) => state.auth);
   
@@ -80,10 +83,11 @@ const HCPUsers = () => {
   
     const getHcprovidersByUser = async () => {
       try {
-        const response = await axios.get(`${apiBaseUrl}/HCProvidersByUser/${user.id}`, { timeout: 5000 });
-        if (response.data && response.data.length > 0) {
-          const provider = response.data[0];
-          setId(provider.id)
+        const response = await axios.get(`${apiBaseUrl}/HCProviders/${id}`, { timeout: 5000 });
+        
+          const provider = response.data;
+          console.log("PR: ",provider)
+        //   setId(provider.id)
           setYpe(provider.ype);
           setQ4ALL_code(provider.Q4ALL_code);
           setType_Of_Hcp(provider.type_Of_Hcp);
@@ -102,7 +106,6 @@ const HCPUsers = () => {
           setOdipy_Inidcator_Collection(provider.Odipy_Inidcator_Collection);
           setDrg_Mature_Usage(provider.Drg_Mature_Usage);
           setHEALTH_Center_In_The_Network(provider.HEALTH_Center_In_The_Network);
-        }
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -270,8 +273,15 @@ const HCPUsers = () => {
       </Card>
       
       <Card >
+        
+      {/* <HospitalBedsChart id={id}/> */}
 
-      <HospitalBedsChart id={id}/>
+      {type_Of_Hcp === "Hospital" && (
+      <Card>
+        <HospitalBedsChart id={id} />
+      </Card>
+    )}
+        
         
       </Card>
       </>
