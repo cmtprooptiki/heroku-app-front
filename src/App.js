@@ -56,7 +56,7 @@ function App() {
 
           <Route path="/hcproviders" element={<ProtectedRoute requiredRole="hcp"><HCProviders/></ProtectedRoute>}></Route>
 
-          <Route path="/hcpUser/:id" element={<ProtectedRoute requiredRole="admin"><HcpUser/></ProtectedRoute>}></Route>
+          <Route path="/hcpUser/:id" element={<HcpUser/>}></Route>
 
           {/* <Route path="/statistics" element={<KpisDashboard/>}></Route>
 
