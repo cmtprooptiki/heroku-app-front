@@ -271,7 +271,7 @@ const HCPUsers = () => {
       
       <Card >
 
-      <HospitalBedsChart/>
+      <HospitalBedsChart id={id}/>
         
       </Card>
       </>
