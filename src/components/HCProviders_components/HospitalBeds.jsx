@@ -4,7 +4,7 @@ import { Card, Typography, Button, Select, MenuItem, FormControl, InputLabel } f
 import apiBaseUrl from '../../apiConfig';
 import axios from 'axios';
 
-export default function HospitalBedsChart() {
+export default function HospitalBedsChart({ id }) {
   const [selectedSector, setSelectedSector] = useState(null);
   const [selectedDepartment, setSelectedDepartment] = useState(null);
   const [hospitalData, setHospitalData] = useState([]);
@@ -16,7 +16,7 @@ export default function HospitalBedsChart() {
 
   const getHcpInfo = async () => {
     try {
-      const response = await axios.get(`${apiBaseUrl}/hcpInfo`, { timeout: 5000 });
+      const response = await axios.get(`${apiBaseUrl}/hcpInfoSpec/${id}`, { timeout: 5000 });
       const transformedData = transformData(response.data);
       setHospitalData(transformedData);
 
