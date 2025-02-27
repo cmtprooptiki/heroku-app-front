@@ -47,6 +47,7 @@ import { Slider } from "primereact/slider";
 import { TabView, TabPanel } from "primereact/tabview";
 import CircleLayerComponent from './testmap';
 import HospitalBedsChart from './HospitalBeds';
+import hospitalicon from '../../icons/hospitalicon.png'
 
 
 const HCPUsers = () => {
@@ -172,7 +173,7 @@ const HCPUsers = () => {
   
     return (
         <>
-      <Card>
+      {/* <Card>
         
         <h3>Edit Healthcare Provider Data</h3>
         <form onSubmit={updateHCPUsers}>
@@ -270,20 +271,78 @@ const HCPUsers = () => {
           
          
         </form>
-      </Card>
-      
-      <Card >
-        
-      {/* <HospitalBedsChart id={id}/> */}
+      </Card> */}
 
-      {type_Of_Hcp === "Hospital" && (
-      <Card>
-        <HospitalBedsChart id={id} />
-      </Card>
-    )}
-        
-        
-      </Card>
+<Card className="p-5">
+      <h3 className="text-xl font-semibold">Provider Info</h3>
+      <div className="flex justify-between items-center bg-gray-100 p-4 rounded-lg">
+      <img src={hospitalicon} alt="Hospital Logo" className="w-16 h-16 rounded-full" />
+        <div className="flex-1">
+          <h4 className="font-bold text-lg text-blue-600">{Name_EN}</h4>
+          <p>Type of Healthcare Provider (HCP): <span className="text-blue-500">{type_Of_Hcp}</span></p>
+          <p>Q4ALL Code: <span className="text-blue-500">{Q4ALL_code}</span></p>
+        </div>
+      </div>
+      
+      <h4 className="mt-6 font-semibold">Basic Information</h4>
+      <form onSubmit={updateHCPUsers}>
+      <div className="grid grid-cols-2 gap-4 ">
+        <div>
+          <label>Name (GR):</label><br />
+          <InputText className='w-full' value={Name_GR} onChange={(e) => setName_GR(e.target.value)} />
+        </div>
+        <div>
+          <label>Name (EN):</label><br />
+          <InputText className='w-full' value={Name_EN} onChange={(e) => setName_EN(e.target.value)} />
+        </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4 mt-5">
+        <div>
+          <label>Type of Healthcare Provider (HCP):</label><br />
+          <InputText value={type_Of_Hcp} disabled />
+        </div>
+        <div>
+          <label>Q4ALL Code:</label><br />
+          <InputText value={Q4ALL_code} disabled />
+        </div>
+      </div>
+      
+      <h4 className="mt-6 font-semibold">Category Information</h4>
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label>HealthAtlas Category:</label>
+          <InputText value={category_As_Per_HealthAtlas} disabled />
+        </div>
+        <div>
+          <label>Sha 2011 Elstat Category:</label>
+          <InputText value={category_As_Per_Sha_2011_Elstat} disabled />
+        </div>
+      </div>
+      
+      <h4 className="mt-6 font-semibold">Digital & Network Information</h4>
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label>Idika EHR (Electronic Health Record):</label>
+          <InputText value={Idika_Ehr} disabled />
+        </div>
+        <div>
+          <label>Odipy Indicator Collection:</label>
+          <InputText value={Odipy_Inidcator_Collection} disabled />
+        </div>
+        <div>
+          <label>DRG Mature Usage:</label>
+          <InputText value={Drg_Mature_Usage} disabled />
+        </div>
+        <div>
+          <label>Health Center In The Network:</label>
+          <InputText value={HEALTH_Center_In_The_Network} disabled />
+        </div>
+      </div>
+      <div className="control" style={{paddingTop: "20px"}}>
+                <Button style={{width: "-webkit-fill-available",display: "flex",justifyContent: "center"}} type="submit" className="button is-success is-fullwidth">Ενημέρωση</Button>
+            </div>
+      </form>
+    </Card>
       </>
     );
   };
