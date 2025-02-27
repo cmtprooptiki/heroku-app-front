@@ -229,7 +229,7 @@ const HCProvidersList = () => {
     //get data for specific userid
     const getHcprovidersByUser= async() =>{
         try {
-            const response = await axios.get(`${apiBaseUrl}/HCProvidersByUser/${user.id}`, {timeout: 5000});
+            const response = await axios.get(`${apiBaseUrl}/HCProviders`, {timeout: 5000});
             const indData = response.data;
 
             const unique_ype = [...new Set(indData.map(item => item.ype || ''))]
@@ -439,8 +439,12 @@ const HCProvidersList = () => {
                         )} */}
                         
                         {/* Show all action buttons for admin users */}
-                        {user && user.role === "hcp" && (
+                        {user && (user.role === "admin" || user.role === "hcp") && (
                             <>
+
+                            <Link to={`/HcpUser/${id}`}>
+                                <Button icon="pi pi-eye" severity="info" aria-label="User" />
+                            </Link>
                                 {/* <Button 
                                 className='action-button'
                                     icon="pi pi-eye"
