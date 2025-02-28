@@ -233,3 +233,71 @@
     height: 2rem;
     top: -15px;
  } */
+
+ .border-temp{
+    border: 1px solid #DBDBDB;
+    border-radius: 12px;
+    background-color: #ffffff !important;
+    gap:20px;
+ }
+
+.class-custom{
+ display: flex !important;
+     justify-content: flex-start;
+     flex-direction: row;
+     align-content: center;
+     align-items: center;
+     padding:20px;
+    }
+
+    .title-temp{
+        font-family: Poppins;
+        font-size:1.5rem;
+        color:rgb(15, 0, 171);
+    }
+
+.p-temp{
+    margin-top: 10px;
+    font-family: Poppins;
+    font-size:14px;
+    color:#767676;
+}
+.section-title{
+    color: black;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 600;
+}
+
+label{
+    color: #707070;
+    font-size: 14px;
+    font-family: 'Poppins';
+}
+
+.p-inputtext{
+font-family: Poppins!important;
+font-size: 14px!important;
+line-height: 33px!important;
+color: #0F00AB!important;
+font-size: 14px!important;
+background: rgb(255 255 255)!important;
+border: 1px solid #D1D5DB!important;
+border-radius: 8px!important;
+}
+
+
+.title2-temp{
+    font-family: Poppins;
+    font-weight: 600;
+    margin-bottom: 60px;
+    font-size:1.3rem;
+    color:rgb(15, 0, 171);
+}
+
+.text-decor{
+    text-decoration: underline;
+    text-decoration-color: #D0D0D0;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 16px;
+}

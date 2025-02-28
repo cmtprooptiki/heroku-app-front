@@ -47,12 +47,21 @@ import { Slider } from "primereact/slider";
 import { TabView, TabPanel } from "primereact/tabview";
 import CircleLayerComponent from './testmap';
 import HospitalBedsChart from './HospitalBeds';
-import hospitalicon from '../../icons/hospitalicon.png'
 
 
+import hospitalIcon from "../../icons/hospitalicon.png";
+import healthCareIcon from "../../icons/health-center.png";
+import tomyIcon from "../../icons/tomyicon.png";
+import { useNavigate } from "react-router-dom";
+
+import { Toast } from 'primereact/toast';
 const HCPUsers = () => {
     // Create individual state variables and setters for each field
     // const [id,setId]=useState('');
+    const [notification, setNotification] = useState('');
+    const toast = useRef(null);
+    const navigate = useNavigate();
+
     const [ype, setYpe] = useState('');
     const [Q4ALL_code, setQ4ALL_code] = useState('');
     const [type_Of_Hcp, setType_Of_Hcp] = useState('');
@@ -132,6 +141,7 @@ const HCPUsers = () => {
                 address: address,
                 post_Code: post_Code,
                 email_Contact: email_Contact,
+                general_Email_Contact:general_Email_Contact,
                 website:website,
                 Idika_Ehr:Idika_Ehr,
                 Odipy_Inidcator_Collection : Odipy_Inidcator_Collection,
@@ -139,6 +149,10 @@ const HCPUsers = () => {
                 HEALTH_Center_In_The_Network: HEALTH_Center_In_The_Network
 
             });
+            setTimeout(() => {
+                setNotification('Changes have been saved successfully!');
+                toast.current.show({ severity: 'success', summary: 'Success', detail: 'Changes saved!', life: 3000 });
+            }, 1000);
             setReload((prev)=>!prev)
                 // window.location.reload();
 
@@ -170,179 +184,200 @@ const HCPUsers = () => {
     }
 
     console.log("User", user)
+
+
+    const getHcpIcon = (type) => {
+        switch (type) {
+            case 'Hospital':
+                return hospitalIcon;
+            case 'Health Centre':
+                return healthCareIcon;
+            case 'TOMY':
+                return tomyIcon;
+            default:
+                return hospitalIcon;
+        }
+    };
   
     return (
         <>
-      {/* <Card>
-        
-        <h3>Edit Healthcare Provider Data</h3>
-        <form onSubmit={updateHCPUsers}>
-            <div className="flex flex-wrap justify-content-around gap-1">
-                <Card >
-                    <h4>Provider Info</h4>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>ype: </label>
-                        <InputText value={ype} onChange={(e) => setYpe(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Q4ALL Code: </label>
-                        <InputText value={Q4ALL_code} onChange={(e) => setQ4ALL_code(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Type Of HCP: </label>
-                        <InputText value={type_Of_Hcp} onChange={(e) => setType_Of_Hcp(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Name (GR): </label>
-                        <InputText value={Name_GR} onChange={(e) => setName_GR(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Name (EN): </label>
-                        <InputText value={Name_EN} onChange={(e) => setName_EN(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Category (HealthAtlas): </label>
-                        <InputText value={category_As_Per_HealthAtlas} onChange={(e) => setCategory_As_Per_HealthAtlas(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Category (Sha 2011 Elstat): </label>
-                        <InputText value={category_As_Per_Sha_2011_Elstat} onChange={(e) => setCategory_As_Per_Sha_2011_Elstat(e.target.value)} />
-                    </div>
-
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Idika EHR: </label>
-                        <InputText value={Idika_Ehr} onChange={(e) => setIdika_Ehr(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Odipy Indicator Collection: </label>
-                        <InputText value={Odipy_Inidcator_Collection} onChange={(e) => setOdipy_Inidcator_Collection(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>DRG Mature Usage: </label>
-                        <InputText value={Drg_Mature_Usage} onChange={(e) => setDrg_Mature_Usage(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Health Center In The Network: </label>
-                        <InputText value={HEALTH_Center_In_The_Network} onChange={(e) => setHEALTH_Center_In_The_Network(e.target.value)} />
-                    </div>
-                </Card>
-
-                <Card>
-                    <h4>Contact Details</h4>
-
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Latitude: </label>
-                        <InputText value={lat} onChange={(e) => setLat(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Longitude: </label>
-                        <InputText value={lon} onChange={(e) => setLon(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Address: </label>
-                        <InputText value={address} onChange={(e) => setAddress(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Post Code: </label>
-                        <InputText value={post_Code} onChange={(e) => setPost_Code(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Email Contact: </label>
-                        <InputText value={email_Contact} onChange={(e) => setEmail_Contact(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>General Email Contact: </label>
-                        <InputText value={general_Email_Contact} onChange={(e) => setGeneral_Email_Contact(e.target.value)} />
-                    </div>
-                    <div style={{paddingBottom:"10px"}}>
-                        <label>Website: </label>
-                        <InputText value={website} onChange={(e) => setWebsite(e.target.value)} />
-                    </div>
-                </Card>
-            </div>
-            <div className="control" style={{paddingTop: "20px"}}>
-                <Button style={{width: "-webkit-fill-available",display: "flex",justifyContent: "center"}} type="submit" className="button is-success is-fullwidth">Ενημέρωση</Button>
-            </div>
-          
-          
-          
-          
-          
-          
-         
-        </form>
-      </Card> */}
+            <Toast ref={toast} />
 
 <Card className="p-5">
-      <h3 className="text-xl font-semibold">Provider Info</h3>
-      <div className="flex justify-between items-center bg-gray-100 p-4 rounded-lg">
-      <img src={hospitalicon} alt="Hospital Logo" className="w-16 h-16 rounded-full" />
+      <h3 className="title2-temp text-decor">Provider Info</h3>
+      <Button 
+        onClick={() => navigate(-1)} 
+        className="mb-4"
+        style={{
+          background: "#0F00AB",
+          color: "white",
+          fontSize: "14px",
+          padding: "8px 20px",
+          borderRadius: "6px",
+          border: "none",
+          cursor: "pointer",
+        }}
+      >
+        ← Back
+      </Button>
+      <div className="class-custom border-temp" >
+      <img src={getHcpIcon(type_Of_Hcp)} alt="Hospital Logo" className="w-16 h-16 rounded-full" />
         <div className="flex-1">
-          <h4 className="font-bold text-lg text-blue-600">{Name_EN}</h4>
-          <p>Type of Healthcare Provider (HCP): <span className="text-blue-500">{type_Of_Hcp}</span></p>
-          <p>Q4ALL Code: <span className="text-blue-500">{Q4ALL_code}</span></p>
+          <h4 className="font-bold title-temp">{Name_EN}</h4>
+          <p className='p-temp'>Type of Healthcare Provider (HCP): <span style={{color:"#0F00AB"}}>{type_Of_Hcp}</span></p>
+          <p className='p-temp' >Q4ALL Code: <span style={{color:"#0F00AB"}}>{Q4ALL_code}</span></p>
         </div>
       </div>
       
-      <h4 className="mt-6 font-semibold">Basic Information</h4>
       <form onSubmit={updateHCPUsers}>
-      <div className="grid grid-cols-2 gap-4 ">
-        <div>
-          <label>Name (GR):</label><br />
-          <InputText className='w-full' value={Name_GR} onChange={(e) => setName_GR(e.target.value)} />
+      <h4 className="section-title mt-6">Basic Information</h4>
+
+        <div class="form-row">
+            <div class="col">
+            <label>Name (GR)</label>
+
+            <InputText className='form-control' value={Name_GR} onChange={(e) => setName_GR(e.target.value)} />
+
+            {/* <input type="text" class="form-control" placeholder="First name"> */}
+            </div>
+            <div class="col">
+            <label>Name (EN)                          </label>
+            <InputText className='form-control' value={Name_EN} onChange={(e) => setName_EN(e.target.value)} />
+
+            {/* <input type="text" class="form-control" placeholder="Last name"> */}
+            </div>
+
         </div>
-        <div>
-          <label>Name (EN):</label><br />
-          <InputText className='w-full' value={Name_EN} onChange={(e) => setName_EN(e.target.value)} />
+        <div class="form-row">
+
+            <div class="col">
+                <label>Type of Healthcare Provider (HCP)</label>
+                <InputText className='form-control'  value={type_Of_Hcp} onChange={(e) => setType_Of_Hcp(e.target.value)} />
+            </div>
+            <div class="col">
+                <label>Q4ALL Code</label>
+                <InputText className='form-control'  value={Q4ALL_code} onChange={(e) => setQ4ALL_code(e.target.value)}/>
+            </div>
         </div>
+
+        <h4 className="section-title mt-6">Category Information</h4>
+        <div class="form-row">
+            <div class="col">
+            <label>HealthAtlas Category:</label>
+            <InputText className='form-control' value={category_As_Per_HealthAtlas} onChange={(e) => setCategory_As_Per_HealthAtlas(e.target.value)} />
+            </div>
+            <div class="col">
+            <label>Sha 2011 Elstat Category:</label>
+            <InputText className='form-control' value={category_As_Per_Sha_2011_Elstat} onChange={(e) => setCategory_As_Per_Sha_2011_Elstat(e.target.value)}  />
+            </div>
+
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-5">
-        <div>
-          <label>Type of Healthcare Provider (HCP):</label><br />
-          <InputText value={type_Of_Hcp} disabled />
+
+        <h4 className="section-title mt-6">Digital Network</h4>
+        <div class="form-row">
+            <div class="col">
+            <label>Idika EHR (Electronic Health Record):</label>
+            <InputText className='form-control' value={Idika_Ehr} onChange={(e) => setIdika_Ehr(e.target.value)}  />
+            </div>
+            <div class="col">
+            <label>Odipy Indicator Collection:</label>
+            <InputText className='form-control' value={Odipy_Inidcator_Collection}  onChange={(e) => setOdipy_Inidcator_Collection(e.target.value)} />
+            </div>
         </div>
-        <div>
-          <label>Q4ALL Code:</label><br />
-          <InputText value={Q4ALL_code} disabled />
-        </div>
-      </div>
-      
-      <h4 className="mt-6 font-semibold">Category Information</h4>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label>HealthAtlas Category:</label>
-          <InputText value={category_As_Per_HealthAtlas} disabled />
-        </div>
-        <div>
-          <label>Sha 2011 Elstat Category:</label>
-          <InputText value={category_As_Per_Sha_2011_Elstat} disabled />
-        </div>
-      </div>
-      
-      <h4 className="mt-6 font-semibold">Digital & Network Information</h4>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label>Idika EHR (Electronic Health Record):</label>
-          <InputText value={Idika_Ehr} disabled />
-        </div>
-        <div>
-          <label>Odipy Indicator Collection:</label>
-          <InputText value={Odipy_Inidcator_Collection} disabled />
-        </div>
-        <div>
+        <div class="form-row">
+        <div class="col">
           <label>DRG Mature Usage:</label>
-          <InputText value={Drg_Mature_Usage} disabled />
+          <InputText className='form-control' value={Drg_Mature_Usage} onChange={(e) => setDrg_Mature_Usage(e.target.value)}  />
         </div>
-        <div>
+        <div class="col">
           <label>Health Center In The Network:</label>
-          <InputText value={HEALTH_Center_In_The_Network} disabled />
+          <InputText className='form-control' value={HEALTH_Center_In_The_Network}  onChange={(e) => setHEALTH_Center_In_The_Network(e.target.value)} />
         </div>
-      </div>
+        </div>
+
+        <h4 className="section-title mt-6">Location & Contact Details</h4>
+        <div class="form-row">
+            <div class="col">
+            <label>Address</label>
+            <InputText className='form-control' value={address} onChange={(e) => setAddress(e.target.value)} />
+            </div>
+            <div class="col">
+            <label>Post Code</label>
+            <InputText className='form-control' value={post_Code} onChange={(e) => setPost_Code(e.target.value)}  />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+            <label>Latitude</label>
+            <InputText className='form-control' value={lat} onChange={(e) => setLat(e.target.value)} />
+            </div>
+            <div class="col">
+            <label>Longitude</label>
+            <InputText className='form-control' value={lon} onChange={(e) => setLon(e.target.value)} />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+            <label>Email Contact</label>
+            <InputText className='form-control' value={email_Contact} onChange={(e) => setEmail_Contact(e.target.value)} />
+            </div>
+            <div class="col">
+            <label>General Email Contact</label>
+            <InputText className='form-control' value={general_Email_Contact} onChange={(e) => setGeneral_Email_Contact(e.target.value)} />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+            <label>Website</label>
+            <InputText className='form-control' value={website} onChange={(e) => setWebsite(e.target.value)} />
+            </div>
+            <div class="col">
+            </div>
+        </div>
+
+
       <div className="control" style={{paddingTop: "20px"}}>
-                <Button style={{width: "-webkit-fill-available",display: "flex",justifyContent: "center"}} type="submit" className="button is-success is-fullwidth">Ενημέρωση</Button>
+                <Button  type="submit" style={{
+                    display: "flex",
+                    justifyContent: "center",
+                        color: "white",
+                        fontFamily: 'Poppins',
+                        fontSize: "13px",
+                        paddingLeft: "23px",
+                        paddingRight: "23px",
+                        lineHeight: "2rem",
+                        background: "#0F00AB",
+                        border: "1px solid #ffffff",
+                        borderRadius: "6px",
+                }}>Save Changes</Button>
             </div>
       </form>
+      {notification && (
+                    <div className="notification" style={{
+                        marginTop: "20px",
+                        padding: "10px",
+                        backgroundColor: "#d4edda",
+                        color: "#155724",
+                        border: "1px solid #c3e6cb",
+                        borderRadius: "5px"
+                    }}>
+                        {notification}
+                    </div>
+                )}
     </Card>
+    {type_Of_Hcp === "Hospital" && (
+
+    <Card className="p-5" style={{marginTop:"25px"}}>
+    <h3 className="title2-temp text-decor">Beds Information</h3>
+
+    <HospitalBedsChart id={id}/>
+
+    </Card>
+    )}
+
       </>
     );
   };
