@@ -366,7 +366,7 @@ const HCProvidersList = () => {
     const renderHeader = () => {
         return (
             <div className="header-container flex justify-content-between">
-                <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined onClick={clearFilter} />
+                <Button style = {{fontSize: "18px"}} type="button" icon="pi pi-filter-slash" label="Clear" outlined onClick={clearFilter} />
                {/* Responsive Search Field */}
                <div className="responsive-search-field">
                     <IconField iconPosition="left">
@@ -799,11 +799,13 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
             <TabView activeIndex={activeTab} onTabChange={(e) => setActiveTab(e.index)}  style={{ width: "100%" }}>
             {/* Tab 1: HCProvider, Region, Name */}
             <TabPanel header="Filter by HCProvider, Region & Name">
-                <h1>Filter by HCProvider, Region and Name</h1>
-                <FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders2.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate} />
-                <FilterYpe options={{ value: selectedYpe, filterCallback: setSelectedYpe }} data={hcproviders2.map(item => item.ype)} itemTemplate={ItemTemplate} />
-                <FilterName options={{ value: selectedName, filterCallback: setSelectedName }} data={filteredHcproviders2.map(item => item.Name_GR)} itemTemplate={ItemTemplate} />
-            
+                
+                <h3 style = {{fontFamily: "Poppins"}}>Filter by HCProvider, Region and Name</h3>
+                <div className='flex'>
+                    <FilterMap options={{ value: selectedHcpTypes, filterCallback: setSelectedHcpTypes }} data={hcproviders2.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate} />
+                    <FilterYpe options={{ value: selectedYpe, filterCallback: setSelectedYpe }} data={hcproviders2.map(item => item.ype)} itemTemplate={ItemTemplate} />
+                    <FilterName options={{ value: selectedName, filterCallback: setSelectedName }} data={filteredHcproviders2.map(item => item.Name_GR)} itemTemplate={ItemTemplate} />
+                </div>
                 <HcprovidersMap2 data={filteredHcproviders2}></HcprovidersMap2>
 
             
@@ -813,10 +815,10 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
 
             {/* Tab 2: Nearest Health Units */}
             <TabPanel header="Find Nearest Health Units">                        {/* Selection Controls */}
-                        <h1>Filter by Nearest Health Units from a specific place</h1>
+                        <h3 style={{fontFamily: "Poppins"}}>Filter by Nearest Health Units from a specific place</h3>
 
                         <Card className="p-mb-3" style={{marginBottom:"25px"}}>
-                            <h3>Select Health Unit:</h3>
+                            <h4 style={{fontFamily: "Poppins"}}>Select Health Unit:</h4>
                             <Dropdown
                                 value={selectedHospital}
                                 options={hcproviders.map(h => h.Name_GR)}
@@ -825,7 +827,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                                 className="p-mb-3"
                             />
             
-                            <h3>Find Health Unit in Distance (km): {distance} km</h3>
+                            <h4 style={{fontFamily: "Poppins"}}>Find Health Unit in Distance (km): {distance} km</h4>
                             <Slider
                                 value={distance}
                                 onChange={(e) => setDistance(e.value)}

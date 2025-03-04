@@ -611,7 +611,7 @@ export const HcprovidersMap3 = ({ data ,center ,radius }) => {
       >
         {selectedMarker && (
           <ScrollPanel style={{ width: '30vw', height: '200px' }}>
- <div className="container mt-4 p-4 bg-white shadow-lg rounded-2xl border border-gray-200">
+ <div className="container mt-4 p-4 bg-white shadow-lg rounded-2xl">
       <h1 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Poppins' }}>
         HCP Provider
       </h1>
