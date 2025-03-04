@@ -462,7 +462,7 @@ map.current.on("click", "unclustered-point", (e) => {
         
       >
         {selectedMarker && (
-          <ScrollPanel style={{ width: '100%', height: '200px' }}>
+          <ScrollPanel style={{ width: '30vw', height: '200px' }}>
  <div className="container mt-4 p-4 bg-white shadow-lg rounded-2xl border border-gray-200">
       <h1 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Poppins' }}>
         HCP Provider
