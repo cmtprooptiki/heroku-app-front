@@ -367,7 +367,7 @@ const IndicatorsList = () => {
     const renderHeader = () => {
         return (
             <div className="header-container flex justify-content-between">
-                <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined onClick={clearFilter} />
+                <Button style = {{fontSize: "18px"}} type="button" icon="pi pi-filter-slash" label="Clear" outlined onClick={clearFilter} />
                {/* Responsive Search Field */}
                <div className="responsive-search-field">
                     <IconField iconPosition="left">
