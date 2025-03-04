@@ -11,6 +11,10 @@ import { Dialog } from "primereact/dialog";
 import { ScrollPanel } from 'primereact/scrollpanel';
 import ReactDOM from "react-dom";
 import PopUpInfo from "./PopUpInfo";
+import selHospital from "../../icons/selHospital3.png"
+import selHC from "../../icons/selHC2.png"
+import selTOMY from "../../icons/selTOMY2.png"
+
 // Mapbox access token
 mapboxgl.accessToken = "pk.eyJ1IjoiY210cHJvb3B0aWtpIiwiYSI6ImNtNzBhcDhodTAwMjAyanBjdXhza29wNmsifQ.4iT6Z7akhzlh0S2Tqj7P8g";
 
@@ -68,7 +72,7 @@ export const HcprovidersMap3 = ({ data ,center ,radius }) => {
             email: hcp.email_Contact,
             g_email: hcp.general_Email_Contact,
             website:hcp.website ,
-            icon: getIconName(hcp.type_Of_Hcp), // Dynamically assign the icon name
+            icon: getIconName(hcp.type_Of_Hcp,hcp.Q4ALL_code,center.Q4ALL_code), // Dynamically assign the icon name
         },
         geometry: {
             type: "Point",
@@ -133,6 +137,9 @@ export const HcprovidersMap3 = ({ data ,center ,radius }) => {
             marker1: marker1,
             marker2: marker2,
             marker3: marker3,
+            selHospital:selHospital,
+            selHC:selHC,
+            selTOMY:selTOMY
         };
 
         Object.keys(markers).forEach((key) => {
@@ -583,7 +590,12 @@ export const HcprovidersMap3 = ({ data ,center ,radius }) => {
   }, [data]);
 
   // Function to dynamically assign an icon based on Name_GR
-  const getIconName = (name) => {
+  const getIconName = (name,id,centerid) => {
+    if(id===centerid){
+      if (name.includes("Hospital")) return "selHospital";
+      if (name.includes("Health Centre")) return "selHC";
+    return "selTOMY"; // Default marker
+    }
     if (name.includes("Hospital")) return "marker1";
     if (name.includes("Health Centre")) return "marker2";
     return "marker3"; // Default marker
@@ -598,7 +610,7 @@ export const HcprovidersMap3 = ({ data ,center ,radius }) => {
         
       >
         {selectedMarker && (
-          <ScrollPanel style={{ width: '100%', height: '200px' }}>
+          <ScrollPanel style={{ width: '30vw', height: '200px' }}>
  <div className="container mt-4 p-4 bg-white shadow-lg rounded-2xl border border-gray-200">
       <h1 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Poppins' }}>
         HCP Provider
