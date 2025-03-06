@@ -375,7 +375,7 @@ const IndicatorsList = () => {
                         <InputText
                             value={globalFilterValue}
                             onChange={onGlobalFilterChange}
-                            placeholder="Keyword Search"
+                            placeholder="Search"
                         />
                     </IconField>
                 </div>
@@ -850,13 +850,13 @@ const percentageTemplate = (rowData) => {
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
-                style={{ minWidth: '6rem',color: 'black', textAlign: 'center' }} field='percentage' 
+                style={{ minWidth: '6rem',color:'rgba(181, 183, 192, 1)', textAlign: 'center' }} field='percentage' 
             ></Column>
             {selectedColumns.map((col) => (
                     <Column key={col} {...allColumns2[col]} />
                 ))}
             {/* {selectedColumns.map((col) => allColumns[col])} 2*/}
-            <Column header="Ενέργειες" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen  headerStyle={{ color: 'rgba(18, 0, 147, 1)' }}/>
+            <Column header="Actions" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen headerStyle={{  color: 'rgba(18, 0, 147, 1)' }}/>
 
  </DataTable>
 

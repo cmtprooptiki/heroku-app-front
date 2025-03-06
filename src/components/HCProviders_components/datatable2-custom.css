@@ -168,8 +168,8 @@
       line-height: 21px;
       color: rgb(0 0 0);
       font-size: 14px;
-      background: rgba(249, 251, 255, 1);
-      border: 1px solid #ffffff;
+      background: rgba(249, 251, 255, 1)!important;
+      border: 0px solid #ffffff !important;
       border-radius: 10px;
   }
   
@@ -317,3 +317,34 @@
   background: unset;
   color: green;
   border-radius: 16px;}
+
+
+  .card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: unset;
+    border-radius: .25rem;
+}
+th.p-frozen-column
+{
+  background:rgba(249, 251, 255, 1);
+
+}
+
+
+
+.p-frozen-column {
+
+  background:rgba(249, 251, 255, 1);
+}

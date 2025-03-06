@@ -112,7 +112,7 @@ const Navbar = () => {
 
           {(user?.role === "admin") && (
            <Link to="/hcproviders" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
-                <img src={hcprovidersIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+                <img src={hcprovidersIconSvg} alt="Search" style={{ width: "64px", cursor: "pointer" }} />
 
                 <Ripple />
             </Link>
@@ -123,7 +123,7 @@ const Navbar = () => {
         {/* Search users */}
           {(user?.role === "admin") && (
         <Link to="/users" style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
-                <img src={usersIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
+                <img src={usersIconSvg} alt="Search" style={{ width: "64px", cursor: "pointer" }} />
 
                 <Ripple />
             </Link>
