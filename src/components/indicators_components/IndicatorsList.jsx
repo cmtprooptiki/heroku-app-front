@@ -28,6 +28,11 @@ import { Card } from "primereact/card";
 
 import ColumnsConfig from './ColumnsConfig';
 
+import { ConfirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog /> component
+import { confirmDialog } from 'primereact/confirmdialog'; // For confirmDialog method
+import { Toast } from 'primereact/toast';
+
+
 
 const IndicatorsList = () => {
     const [indicators, setIndicators] = useState([]);
@@ -318,6 +323,41 @@ const IndicatorsList = () => {
         }
     }
 
+    const toast = useRef(null)
+    
+        const accept = (id) => {
+            try {
+                deleteIndicator(id);
+                toast.current.show({ severity: 'success', summary: 'Deleted Successfully', detail: `Item ${id} has been deleted.` });
+            } catch (error) {
+                console.error('Failed to delete:', error);
+                toast.current.show({
+                    severity: 'error',
+                    summary: 'Error',
+                    detail: 'Failed to delete the item. Please try again.',
+                    life: 3000,
+                });
+            } 
+        };
+    
+        const reject = () => {
+            toast.current.show({ severity: 'warn', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+            getIndicators()
+        }
+    
+        const confirm = (id) => {
+            confirmDialog({
+                message: 'Do you want to delete this record?',
+                header: 'Delete Confirmation',
+                icon: 'pi pi-info-circle',
+                defaultFocus: 'reject',
+                acceptClassName: 'p-button-danger',
+                accept: () => accept(id),
+                reject: () => reject() // Optional
+            });
+        };
+
+
 
     const deleteIndicator = async(IndicatorId)=>{
         await axios.delete(`${apiBaseUrl}/indicators/${IndicatorId}`);
@@ -469,7 +509,7 @@ const IndicatorsList = () => {
                                     icon="pi pi-trash"
                                     severity="danger"
                                     aria-label="Delete"
-                                    onClick={() => deleteIndicator(id)}
+                                    onClick={() => confirm(id)}
                                 />
                             </>
                         )}
@@ -823,7 +863,8 @@ const percentageTemplate = (rowData) => {
         </div>
 
         {/* <ToggleButton checked={balanceFrozen} onChange={(e) => setBalanceFrozen(e.value)} onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" /> */}
-
+        <Toast ref={toast} />
+        <ConfirmDialog />
 
 <DataTable  
             value={indicators}    
