@@ -3,6 +3,8 @@ import axios from 'axios'
 import { useNavigate,useParams } from 'react-router-dom'
 import apiBaseUrl from '../../apiConfig'
 import { Avatar } from 'primereact/avatar';
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
 
 const FormEditSimpleUser = () => {
     const[name,setName]=useState("");
@@ -83,7 +85,7 @@ const FormEditSimpleUser = () => {
     <div>
         <h1 className='title'>Users Settings</h1>
         <h2 className='subtitle'>Update User</h2>
-        <div className="card is-shadowless">
+        <div className="card p-fluid">
             <div className="card-content">
                 <div className="content">
                 <form onSubmit={updateUser}>
@@ -118,31 +120,36 @@ const FormEditSimpleUser = () => {
                 <div className="field">
                         <label  className="label">Name</label>
                         <div className="control">
-                            <input type="text" className="input" value={name} onChange={(e)=>setName(e.target.value)} placeholder='Name'/>
+                            {/* <input type="text" className="input" value={name} onChange={(e)=>setName(e.target.value)} placeholder='Name'/> */}
+                            <InputText id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Name'/>
+                            
                         </div>
                     </div>
                     <div className="field">
                         <label  className="label">Email</label>
                         <div className="control">
-                            <input type="text" className="input" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='Email'/>
+                            {/* <input type="text" className="input" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='Email'/> */}
+                            <InputText id="email" type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='Email'/>
                         </div>
                     </div>
                     <div className="field">
                         <label  className="label">Password</label>
                         <div className="control">
-                            <input type="password" className="input" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='*********'/>
+                            {/* <input type="password" className="input" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='*********'/> */}
+                            <InputText id="password" type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='*********'/>
                         </div>
                     </div>
                     <div className="field">
                         <label  className="label">Confirm Password</label>
                         <div className="control">
-                            <input type="password" className="input" value={confPassword} onChange={(e)=>setConfPassword(e.target.value)} placeholder='*********'/>
+                            <InputText id="Confpassword" type="password" value={confPassword} onChange={(e)=>setConfPassword(e.target.value)} placeholder='*********'/>
+                            {/* <input type="password" className="input" value={confPassword} onChange={(e)=>setConfPassword(e.target.value)} placeholder='*********'/> */}
                         </div>
                     </div>
                  
                     <div className="field">
                         <div className="control">
-                            <button type='submit' className="button is-success is-fullwidth">Update</button>
+                            <Button type="submit" label="Update" className="p-button-success is-fullwidth" />
                         </div>
                     </div>
                 </form>

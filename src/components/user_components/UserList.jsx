@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, useRef} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import apiBaseUrl from '../../apiConfig'
@@ -13,6 +13,9 @@ import { InputIcon } from 'primereact/inputicon';
 import { InputNumber } from 'primereact/inputnumber';
 import { MultiSelect } from 'primereact/multiselect';
 import { PrimeIcons } from 'primereact/api';
+import { ConfirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog /> component
+import { confirmDialog } from 'primereact/confirmdialog'; // For confirmDialog method
+import { Toast } from 'primereact/toast';
 
 const UserList = () => {
     const [filters, setFilters] = useState(null);
@@ -60,6 +63,40 @@ const UserList = () => {
         setGlobalFilterValue(value);
     };
 
+    const toast = useRef(null)
+
+    const accept = (id) => {
+        try {
+            deleteUser(id);
+            toast.current.show({ severity: 'success', summary: 'Deleted Successfully', detail: `Item ${id} has been deleted.` });
+        } catch (error) {
+            console.error('Failed to delete:', error);
+            toast.current.show({
+                severity: 'error',
+                summary: 'Error',
+                detail: 'Failed to delete the item. Please try again.',
+                life: 3000,
+            });
+        } 
+    };
+
+    const reject = () => {
+        toast.current.show({ severity: 'warn', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+        getUsers()
+    }
+
+    const confirm = (id) => {
+        confirmDialog({
+            message: 'Do you want to delete this record?',
+            header: 'Delete Confirmation',
+            icon: 'pi pi-info-circle',
+            defaultFocus: 'reject',
+            acceptClassName: 'p-button-danger',
+            accept: () => accept(id),
+            reject: () => reject() // Optional
+        });
+    };
+
 
     const initFilters = () => {
         setFilters({
@@ -81,7 +118,7 @@ const UserList = () => {
     const renderHeader = () => {
         return (
             <div className="flex justify-content-between">
-                <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined onClick={clearFilter} />
+                <Button style = {{fontSize: "18px"}} type="button" icon="pi pi-filter-slash" label="Clear" outlined onClick={clearFilter} />
                 <IconField iconPosition="left">
                     <InputIcon className="pi pi-search" />
                     <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" />
@@ -104,7 +141,7 @@ const UserList = () => {
             <span className='flex gap-1'>
                
                 <Link to={`/users/edit/${id}`}><Button className='action-button'  icon="pi pi-pen-to-square" severity="info" aria-label="Εdit" /></Link>
-                <Button className='action-button'  icon="pi pi-trash" severity="danger" aria-label="delete" onClick={()=>deleteUser(id)} />
+                <Button className='action-button'  icon="pi pi-trash" severity="danger" aria-label="delete" onClick={()=>confirm(id)} />
                 {/* <Button label="Διαγραφή" severity="danger" onClick={()=>deleteParadotea(id)} text raised /> */}
             </span>
            
@@ -152,7 +189,8 @@ const UserList = () => {
     {user && user.role ==="admin" && (
     <Link to={"/users/add"} className='button is-primary mb-2'><Button label="Add New User" icon="pi pi-plus-circle"/></Link>
     )}
-
+     <Toast ref={toast} />
+     <ConfirmDialog />
 <DataTable value={users} paginator stripedRows
  rows={20} scrollable scrollHeight="600px" loading={loading} dataKey="id" 
         filters={filters} 

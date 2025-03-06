@@ -93,6 +93,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import apiBaseUrl from '../../apiConfig';
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
 
 const FormAddUser = () => {
     const [name, setName] = useState("");
@@ -134,7 +136,7 @@ const FormAddUser = () => {
         <div>
             <h1 className='title'>User Settings</h1>
             <h2 className='subtitle'>Add New User</h2>
-            <div className="card is-shadowless">
+            <div className="card p-fluid">
                 <div className="card-content">
                     <div className="content">
                         <form onSubmit={saveUser} encType="multipart/form-data">
@@ -142,32 +144,36 @@ const FormAddUser = () => {
                             <div className="field">
                                 <label className="label">Name</label>
                                 <div className="control">
-                                    <input type="text" className="input" value={name} onChange={(e) => setName(e.target.value)} placeholder='Type Name' />
+                                    {/* <input type="text" className="input" value={name} onChange={(e) => setName(e.target.value)} placeholder='Type Name' /> */}
+                                    <InputText id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Name'/>
                                 </div>
                             </div>
                             <div className="field">
                                 <label className="label">Email</label>
                                 <div className="control">
-                                    <input type="text" className="input" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Type Email' />
+                                    {/* <input type="text" className="input" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Type Email' /> */}
+                                    <InputText id="email" type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='Email'/>
                                 </div>
                             </div>
                             <div className="field">
                                 <label className="label">Password</label>
                                 <div className="control">
-                                    <input type="password" className="input" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='*********' />
+                                    {/* <input type="password" className="input" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='*********' /> */}
+                                    <InputText id="password" type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='*********'/>
                                 </div>
                             </div>
                             <div className="field">
                                 <label className="label">Confirm Password</label>
                                 <div className="control">
-                                    <input type="password" className="input" value={confPassword} onChange={(e) => setConfPassword(e.target.value)} placeholder='*********' />
+                                    {/* <input type="password" className="input" value={confPassword} onChange={(e) => setConfPassword(e.target.value)} placeholder='*********' /> */}
+                                    <InputText id="Confpassword" type="password" value={confPassword} onChange={(e)=>setConfPassword(e.target.value)} placeholder='*********'/>
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Role</label>
+                                <label className="form-label">Role</label>
                                 <div className="control">
                                     <div className="select is-fullwidth">
-                                        <select value={role} onChange={(e) => setRole(e.target.value)}>
+                                        <select className="form-select w-100" value={role} onChange={(e) => setRole(e.target.value)}>
                                             <option value="" disabled>Choose Role</option>
                                             <option value="admin">Administrator</option>
                                             <option value="user">User</option>
@@ -180,13 +186,14 @@ const FormAddUser = () => {
                             </div>
                             <div className="field">
                                 <label className="label">Profile Image</label> {/* New field for profile image */}
-                                <div className="control">
+                                <div className="control is-fullwidth">
                                     <input type="file" className="input" onChange={(e) => setProfileImage(e.target.files[0])} accept="image/*" />
                                 </div>
                             </div>
                             <div className="field">
                                 <div className="control">
-                                    <button type='submit' className="button is-success is-fullwidth">Save</button>
+                                    {/* <button type='submit' className="button is-success is-fullwidth">Save</button> */}
+                                    <Button type="submit" label="Save" className="p-button-success is-fullwidth" />
                                 </div>
                             </div>
                         </form>
