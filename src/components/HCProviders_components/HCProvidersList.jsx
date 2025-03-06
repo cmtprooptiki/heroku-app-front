@@ -45,6 +45,10 @@ import { Slider } from "primereact/slider";
 import { TabView, TabPanel } from "primereact/tabview";
 import CircleLayerComponent from './testmap';
 
+import { ConfirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog /> component
+import { confirmDialog } from 'primereact/confirmdialog'; // For confirmDialog method
+import { Toast } from 'primereact/toast';
+
 
 const HCProvidersList = () => {
     const [hcproviders, setHcproviders] = useState([]);
@@ -295,11 +299,45 @@ const HCProvidersList = () => {
         }
     }
 
-
     const deleteHCProvider = async(HCProviderId)=>{
         await axios.delete(`${apiBaseUrl}/HCProviders/${HCProviderId}`);
         getHcproviders();
     }
+
+
+    const toast = useRef(null)
+        
+    const accept = (id) => {
+        try {
+                    deleteHCProvider(id);
+                    toast.current.show({ severity: 'success', summary: 'Deleted Successfully', detail: `Item ${id} has been deleted.` });
+                } catch (error) {
+                    console.error('Failed to delete:', error);
+                    toast.current.show({
+                        severity: 'error',
+                        summary: 'Error',
+                        detail: 'Failed to delete the item. Please try again.',
+                        life: 3000,
+                    });
+                } 
+            };
+        
+            const reject = () => {
+                toast.current.show({ severity: 'warn', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+                getHcproviders()
+            }
+        
+            const confirm = (id) => {
+                confirmDialog({
+                    message: 'Do you want to delete this record?',
+                    header: 'Delete Confirmation',
+                    icon: 'pi pi-info-circle',
+                    defaultFocus: 'reject',
+                    acceptClassName: 'p-button-danger',
+                    accept: () => accept(id),
+                    reject: () => reject() // Optional
+                });
+            };
     const deleteHcprovidersSelected = (ids) => {
         if (Array.isArray(ids)) {
             // Handle multiple deletions
@@ -317,6 +355,37 @@ const HCProvidersList = () => {
         setRowsAffected(hcproviders.length)
         setSelectedIndicator([]); // Clear selection after deletion
     };
+
+    const confirmMultipleDelete = () => {
+            confirmDialog({
+                message: 'Are you sure you want to delete the selected records?',
+                header: 'Delete Confirmation',
+                icon: 'pi pi-info-circle',
+                defaultFocus: 'reject',
+                acceptClassName: 'p-button-danger',
+                accept: () => {
+                    // Delete all selected items after confirmation
+                    deleteHcprovidersSelected(selectedIndicator.map(indicators => indicators.id));
+                    
+                    // Show success toast
+                    toast.current.show({
+                        severity: 'success',
+                        summary: 'Deleted Successfully',
+                        detail: 'Selected items have been deleted.',
+                        life: 3000,
+                    });
+                },
+                reject: () => {
+                    // Show cancellation toast
+                    toast.current.show({
+                        severity: 'info',
+                        summary: 'Cancelled',
+                        detail: 'Deletion was cancelled.',
+                        life: 3000,
+                    });
+                },
+            });
+        };
 
 
 
@@ -472,7 +541,7 @@ const HCProvidersList = () => {
                                     icon="pi pi-trash"
                                     severity="danger"
                                     aria-label="Delete"
-                                    onClick={() => deleteHCProvider(id)}
+                                    onClick={() => confirm(id)}
                                 />
                             </>
                         )}
@@ -641,25 +710,10 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
             // Send a request to create a new empty row in the database
             const response = await axios.post(`${apiBaseUrl}/HCProviders`, {
                 ype: 1,
-                Q4ALL_code: '',
-                type_Of_Hcp: '',
-                Name_GR: '',
-                Name_EN: '',
-                category_As_Per_HealthAtlas: '',
-                category_As_Per_Sha_2011_Elstat: '',
                 lat: 1.0,
                 lon: 1.0,
-                address: '',
-                post_Code: '',
-                email_Contact: '',
-                general_Email_Contact: '',
-                website: '',
-                Idika_Ehr: '',
-                Odipy_Inidcator_Collection: '',
-                Drg_Mature_Usage: '',
-                HEALTH_Center_In_The_Network: ''
             });
-    
+            
             // Assuming the response contains the new row data, add it to the table
             const newRow = response.data; // Assuming the newly created row is returned from the backend
             console.log(newRow)
@@ -917,7 +971,8 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                 icon="pi pi-trash" 
                 severity="danger"
                 style = {{marginLeft: "50px"}} 
-                onClick={() => deleteHcprovidersSelected(selectedIndicator.map(indicator => indicator.id))} // Pass an array of selected IDs
+                onClick = {confirmMultipleDelete}
+                // onClick={() => deleteHcprovidersSelected(selectedIndicator.map(indicator => indicator.id))} // Pass an array of selected IDs
             />
       
             
@@ -930,6 +985,9 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
      
 
 {/* <HospitalTable hospitals={hcproviders} />; */}
+
+<Toast ref={toast} />
+<ConfirmDialog />
  
 
 

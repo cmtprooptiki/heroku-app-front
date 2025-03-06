@@ -519,6 +519,37 @@ const IndicatorsList = () => {
         );
     };
     const allColumns2 = ColumnsConfig(filteredIndicators, indicators, statusValue, cross_Cutting_Dimensions_A_I, Cross_Cutting_Dimensions_Inputs_Outputs, filledRows,category_of_Indicator); // Pass the data
+    const confirmMultipleDelete = () => {
+        confirmDialog({
+            message: 'Are you sure you want to delete the selected records?',
+            header: 'Delete Confirmation',
+            icon: 'pi pi-info-circle',
+            defaultFocus: 'reject',
+            acceptClassName: 'p-button-danger',
+            accept: () => {
+                // Delete all selected items after confirmation
+                deleteIndicatorsSelected(selectedIndicator.map(indicators => indicators.id));
+                
+                // Show success toast
+                toast.current.show({
+                    severity: 'success',
+                    summary: 'Deleted Successfully',
+                    detail: 'Selected items have been deleted.',
+                    life: 3000,
+                });
+            },
+            reject: () => {
+                // Show cancellation toast
+                toast.current.show({
+                    severity: 'info',
+                    summary: 'Cancelled',
+                    detail: 'Deletion was cancelled.',
+                    life: 3000,
+                });
+            },
+        });
+    };
+
     const addEmptyRow = async () => {
         try {
             // Send a request to create a new empty row in the database
@@ -855,7 +886,7 @@ const percentageTemplate = (rowData) => {
                 icon="pi pi-trash" 
                 severity="danger"
                 style = {{marginLeft: "50px"}} 
-                onClick={() => deleteIndicatorsSelected(selectedIndicator.map(indicator => indicator.id))} // Pass an array of selected IDs
+                onClick={confirmMultipleDelete} // Pass an array of selected IDs
             />
       
             
