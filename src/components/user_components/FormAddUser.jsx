@@ -95,16 +95,24 @@ import { useNavigate } from 'react-router-dom';
 import apiBaseUrl from '../../apiConfig';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
+import { Dropdown } from 'primereact/dropdown';
 
 const FormAddUser = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confPassword, setConfPassword] = useState("");
-    const [role, setRole] = useState("");
+    const [role, setRole] = useState(null);
     const [profileImage, setProfileImage] = useState(null); // New state for profile image
     const [msg, setMsg] = useState("");
     const navigate = useNavigate();
+
+    const roles = [
+        { label: 'Administrator', value: 'admin' },
+        { label: 'User', value: 'user' },
+        { label: 'Hcp', value: 'hcp' },
+        { label: 'Indicator', value: 'indicator' }
+    ];
 
     const saveUser = async (e) => {
         e.preventDefault();
@@ -173,14 +181,13 @@ const FormAddUser = () => {
                                 <label className="form-label">Role</label>
                                 <div className="control">
                                     <div className="select is-fullwidth">
-                                        <select className="form-select w-100" value={role} onChange={(e) => setRole(e.target.value)}>
-                                            <option value="" disabled>Choose Role</option>
-                                            <option value="admin">Administrator</option>
-                                            <option value="user">User</option>
-                                            <option value="hcp">Hcp</option>
-                                            <option value="indicator">Indicator</option>
-
-                                        </select>
+                                    <Dropdown 
+                                        value={role} 
+                                        onChange={(e) => setRole(e.value)} 
+                                        options={roles} 
+                                        placeholder="Select Role"
+                                        className="w-100"
+                                    />
                                     </div>
                                 </div>
                             </div>

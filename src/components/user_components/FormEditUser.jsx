@@ -6,18 +6,28 @@ import { Avatar } from 'primereact/avatar';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { FileUpload } from 'primereact/fileupload';
+import { Dropdown } from 'primereact/dropdown';
 const FormEditUser = () => {
     const[name,setName]=useState("");
     const[email,setEmail]=useState("");
     const[password,setPassword]=useState("");
     const[confPassword,setConfPassword]=useState("");
-    const[role,setRole]=useState("");
+    // const[role,setRole]=useState("");
     const [profileImage, setProfileImage] = useState(""); // New state for profile image
     const [previewImage, setPreviewImage] = useState(''); // State for previewing selected image
 
     const[msg,setMsg]=useState("");
     const navigate = useNavigate();
     const{id} = useParams();
+
+    const [role, setRole] = useState(null);
+
+    const roles = [
+        { label: 'Administrator', value: 'admin' },
+        { label: 'User', value: 'user' },
+        { label: 'Hcp', value: 'hcp' },
+        { label: 'Indicator', value: 'indicator' }
+    ];
 
     useEffect(()=>{
         const getUserById = async()=>{
@@ -147,12 +157,19 @@ const FormEditUser = () => {
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Role</label>
-                        <select className="form-select w-100" value={role} onChange={(e) => setRole(e.target.value)}>
+                        {/* <select className="form-select w-100" value={role} onChange={(e) => setRole(e.target.value)}>
                             <option value="admin">Administrator</option>
                             <option value="user">User</option>
                             <option value="hcp">Hcp</option>
                             <option value="indicator">Indicator</option>
-                        </select>
+                        </select> */}
+                        <Dropdown 
+                        value={role} 
+                        onChange={(e) => setRole(e.value)} 
+                        options={roles} 
+                        placeholder="Select Role"
+                        className="w-100"
+                        />
                     </div>
                  
                     <div className="field">
