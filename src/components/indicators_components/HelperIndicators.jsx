@@ -362,12 +362,12 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
         else if (options.field ==='pilot_outcome') return dropdownEditor(options,pilot_outcome_list)
         else if (options.field ==='forPilot') return dropdownEditor(options,forPilotlist)
 
-        else if (options.field === 'dpolist') return dropdownEditor(options, dpoList)
-        else if (options.field === 'idika') return dropdownEditor(options, idikaList)
-        else if (options.field === 'ketekny') return dropdownEditor(options, keteknyList)
-        else if (options.field === 'eoppy') return dropdownEditor(options, eoppyList)
-        else if (options.field === 'odipy') return dropdownEditor(options, odipyList)
-        else if (options.field === 'moh') return dropdownEditor(options, mohList)
+        // else if (options.field === 'dpolist') return dropdownEditor(options, dpoList)
+        // else if (options.field === 'idika') return dropdownEditor(options, idikaList)
+        // else if (options.field === 'ketekny') return dropdownEditor(options, keteknyList)
+        // else if (options.field === 'eoppy') return dropdownEditor(options, eoppyList)
+        // else if (options.field === 'odipy') return dropdownEditor(options, odipyList)
+        // else if (options.field === 'moh') return dropdownEditor(options, mohList)
 
         else if (options.field === 'shortlist_indicators') return dropdownEditor(options, shortlist_indicators)
 
