@@ -18,7 +18,8 @@ import {
     selected_indicator_list, 
     piloting_list, 
     pilot_outcome_list,
-    forPilotlist 
+    forPilotlist ,
+    shortlist_indicators,
 } from './IndicatorUtils';  // Adjust the path as necessary
 
 import { Dropdown} from "primereact/dropdown";
@@ -98,6 +99,17 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
 
                 break;
 
+            case 'shortlist_indicators': // For dropdown, directly assign the selected value
+                if (newValue) {
+                    console.log("shortlist_indicators is newvalue:",newValue)
+                    rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; validEdit = true;
+                    
+                } 
+                else {
+                    event.preventDefault();
+                }
+
+                break;
     
             case 'catergory_of_Indicator': // For dropdown, directly assign the selected value
                 if (newValue) {
@@ -349,6 +361,15 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
         else if (options.field ==='piloting') return dropdownEditor(options,piloting_list)
         else if (options.field ==='pilot_outcome') return dropdownEditor(options,pilot_outcome_list)
         else if (options.field ==='forPilot') return dropdownEditor(options,forPilotlist)
+
+        else if (options.field === 'dpolist') return dropdownEditor(options, dpoList)
+        else if (options.field === 'idika') return dropdownEditor(options, idikaList)
+        else if (options.field === 'ketekny') return dropdownEditor(options, keteknyList)
+        else if (options.field === 'eoppy') return dropdownEditor(options, eoppyList)
+        else if (options.field === 'odipy') return dropdownEditor(options, odipyList)
+        else if (options.field === 'moh') return dropdownEditor(options, mohList)
+
+        else if (options.field === 'shortlist_indicators') return dropdownEditor(options, shortlist_indicators)
 
         else return textEditor(options);
     };

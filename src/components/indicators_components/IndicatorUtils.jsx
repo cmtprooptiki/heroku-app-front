@@ -1,13 +1,20 @@
 export const statuses = [
-    { label: 'Proposed', value: 'Proposed' },
-    { label: 'Draft', value: 'Draft' },
-    { label: 'Formally approved', value: 'Formally approved' },
-    { label: 'Piloting', value: 'Piloting' },
-    { label: 'keno', value: '' },
-    { label: 'Deployed', value: 'Deployed' },
+    { label: 'Suggested', value: 'S' },
+    { label: 'Draft', value: 'D' },
+    { label: 'Approved', value: 'A' },
+    { label: 'Pilot', value: 'P' },
+    { label: 'empty', value: '' },
+    { label: 'Operational', value: 'O' },
 
 
 ]; // Example list of options for dropdown
+
+export const shortlist_indicators =[
+    { label: 'Manual', value: 'M' },
+    { label: 'Automated', value: 'A' },
+    { label: 'empty', value: '' },
+    { label: 'Proxy', value: 'P' }
+]
 
 
 export const domains = [
@@ -60,9 +67,10 @@ export const classification_dimension = [
 
 
 export const cross_Cutting_Dimensions_Inputs_Process_Outputlist = [
-     { label: 'Input', value: 'Input' },
+     { label: 'Inputs', value: 'Inputs' },
     { label: 'Process', value: 'Process' },
-    { label: 'Output', value: 'Outputs' },
+    { label: 'Outputs', value: 'Outputs' },
+    { label: 'Cost containing and efficiency', value: 'Cost containing and efficiency' },
 ];
 
 export const category_of_indicators = [

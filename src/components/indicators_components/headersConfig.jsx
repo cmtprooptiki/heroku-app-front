@@ -262,7 +262,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
 
     name_of_selected_indicator_en: {
         label: "Indicator Name for DPO list (EN)",
-        description: "Should be short yet unique; if measurement has diferent frequencies add (x) in from of the name: (A) for Annual; (Q) Quarterly; (M) monthly; (D) Daily; (xMin) for every x minutes; (R ) Realtime"
+        description: ""
     },
     // frequency_of_measurement_en: {
     //     label: "Frequency of Measurement (EN)",
@@ -302,7 +302,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
     // },
     name_of_selected_indicator_gr: {
         label: "Indicator Name for DPO list (GR)",
-        description: "Should be short yet unique IN GREEK; if measurement has diferent frequencies add BUT KEEP ENGLISH LETTERS  (x) in from of the name: (A) for Annual; (Q) Quarterly; (M) monthly; (D) Daily; (xMin) for every x minutes; (R ) Realtime"
+        description: ""
     },
     // frequency_of_measurement_gr: {
     //     label: "Frequency of Measurement (GR)",
@@ -334,7 +334,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
     // },
     observation_gr: {
         label: "Observation for Visualization /Display",
-        description: "General observations about the indicator NOT visible to the general user of Q4ALL"
+        description: ""
     },
     // extrafield_empty_gr: {
     //     label: "ExtraField-EMPTY (GR)",
