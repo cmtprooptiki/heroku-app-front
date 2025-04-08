@@ -2,7 +2,7 @@
 
 export const headers = {
     indicator_name: {
-        label: "Indicator Name",
+        label: "Indicator Descriptive Name (EN)",
         description: "The specific name used to identify the Key Performance Indicator (KPI)."
     },
     q4all_Ind_number: {
@@ -11,11 +11,11 @@ export const headers = {
     },
     status: {
         label: "Status",
-        description: "Proposed; Draft; Formally approved; Piloting; Deployed"
+        description: "S - Suggested; D-Draft; A - Approved; P-Pilot; O-Operational"
     },
     indicator_cluster: {
         label: "Indicator Cluster",
-        description: "Cluster of a set of related indicators that share common aspects (group of indicators of related categories)."
+        description: "STILL TO BE DONE - An Indicator Cluster is a logical clustering  of a set of related indicators that share common aspects (group of indicators of related categories) "
     },
 
     // feedback_from_ODIPY:{
@@ -37,21 +37,21 @@ export const headers = {
     //     description: `If 2 indicators are "merged", the one with the lowest number remains and the other is "inactive"; e.g. Q4Alln.000x + Q4Alln.00xy --> Q4Alln.000x - text is adjusted and the "inactivated indicator line of cells is colored light grey.`
     // },
     catergory_of_Indicator: {
-        label: "Category of Indicator",
+        label: "Source of proposal for the indicator",
         description: "The origin or source of inspiration for the KPI, such as whether it is adapted from another country's indicator, an international standard, or developed internally."
     },
 
     observations_from_meetings:{
         label: "OBSERVATIONS FROM MEETINGS",
-        description: "OBSERVATIONS FROM MEETINGS"
+        description: ""
     },
     shortlist_indicators:{
-        label: "SHORTLIST INDICATORS",
-        description: "(M-Manual; A-Automated; P-Proxy)"
+        label: "Type of Indicator (M, A, P)",
+        description: "M-Manual; A-Automated; P-Proxy"
     },
     decision_and_next_steps:{
         label: "DECISION AND NEXT STEPS",
-        description: "DECISION AND NEXT STEPS"
+        description: ""
     },
     forPilot:{
         label: "ForPilot",
@@ -103,11 +103,11 @@ H_Outputs_Patient Satisfaction
 I_Outputs Health Gains`
     },
     cross_Cutting_Dimensions_Inputs_Process_Outputs: {
-        label: "Cross Cutting Dimensions Inputs/Outputs",
+        label: "Cross Cutting Dimensions (Inputs-Process - Outputs)",
         description: "Classification according to: Inputs; Process; Outputs"
     },
     dimensions_of_Quality_QoCOfficeReport: {
-        label: "Dimensions of Quality",
+        label: "6 dimensions of Quality (QoCOfficeReport)",
         description: `Classification according to QoCOfficeReport:
 Efficiency
 Access
@@ -124,13 +124,13 @@ Safety`
 3 3rd priority (interesting but very difficult) ==== target for "proposed indicators" 180 of cat 1; 100 cat 2; 20 cat 3;`
     },
     data_collection: {
-        label: "Data Collection",
+        label: "Data collection process types",
         description: `AUTOMATED (Pre-existing data Source/System): There is a pre-existing data source that could totally or partially cover data needed to use this indicator in the Greek context
 MANUAL: Data needs to be collected manually, and retrieved by an existing system (e.g., MoH BI, other) or NEW System
 AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (e.g., collecting "nº steps" from each Greek person via connecting their phones' pedometer to a system that collects that for a large sample in real time`
     },
     collecting_National_Organization: {
-        label: "Collecting Organization",
+        label: "Collecting National Organization",
         description: "Name (ideally also system) of the National Level Organization that collects data related to the proposed indicator"
     },
 //     legal_Organizational_Requirements: {
@@ -141,7 +141,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
 // 4 - New Legal base is needed (Law)`
 //     },
     proponent_Organization_WG: {
-        label: "Proponent Organization",
+        label: "Proponent Organization/WG",
         description: "Organization or team that proposed or supports the use of this indicator."
     },
     rationale_Description: {
@@ -185,7 +185,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
     //     description: "Search by Extra Column 2"
     // },
     periodicity: {
-        label: "Periodicity",
+        label: "Periodicity (frequency of measurement) ",
         description: "How often the data for this indicator is collected, e.g., weekly, monthly, quarterly, annually, etc."
     },
     data_Collection_Steps: {
@@ -227,8 +227,8 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
     //     description: "The origin of the data used to calculate the indicator, such as patient records, surveys, or administrative data."
     // },
     it_System_Source: {
-        label: "IT System Source",
-        description: "The system or database where the data for this indicator is recorded or stored."
+        label: "IT system/data source ",
+        description: "The origin of the data used to calculate the indicator, such as patient records, surveys, or administrative data. Exact IT system "
     },
     reference_Value_Target: {
         label: "Reference Value Target",
@@ -261,7 +261,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
 //hideen column added
 
     name_of_selected_indicator_en: {
-        label: "Name of Selected Indicator (EN)",
+        label: "Indicator Name for DPO list (EN)",
         description: "Should be short yet unique; if measurement has diferent frequencies add (x) in from of the name: (A) for Annual; (Q) Quarterly; (M) monthly; (D) Daily; (xMin) for every x minutes; (R ) Realtime"
     },
     // frequency_of_measurement_en: {
@@ -301,7 +301,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
     //     description: "Placeholder for additional data."
     // },
     name_of_selected_indicator_gr: {
-        label: "Name of Selected Indicator (GR)",
+        label: "Indicator Name for DPO list (GR)",
         description: "Should be short yet unique IN GREEK; if measurement has diferent frequencies add BUT KEEP ENGLISH LETTERS  (x) in from of the name: (A) for Annual; (Q) Quarterly; (M) monthly; (D) Daily; (xMin) for every x minutes; (R ) Realtime"
     },
     // frequency_of_measurement_gr: {
@@ -333,7 +333,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
     //     description: "Comments about the indicator VISIBLE to the general user of Q4ALL "
     // },
     observation_gr: {
-        label: "Observation (GR)",
+        label: "Observation for Visualization /Display",
         description: "General observations about the indicator NOT visible to the general user of Q4ALL"
     },
     // extrafield_empty_gr: {
@@ -358,7 +358,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
 // N/A - this "SELECTED INDICATOR" is to be used but does not need to be included in the pilot.`
 //     },
     opinion_from_ODIPY_Other_experts: {
-        label: "Expert Opinion",
+        label: "Piloting Phase: Opinion from ODIPY/Other experts ",
         description: "Opinion from ODIPY, and any other experts, including the endorsement/refusal from HealthIQ mission experts."
     },
     pilot_outcome: {
@@ -371,6 +371,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
         label: "Pilot Success Criteria",
         description: "TBD at a later stage - ideas can be listed in cells below."
     },
+
     internal_observations: {
     label: "Internal Observations",
     description: "This is where we record/document any observations and ongoing work on the indicators, not to be shown outside scope of the project."
