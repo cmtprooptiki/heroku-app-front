@@ -72,41 +72,141 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        feedback_from_ODIPY: {
-            field: "feedback_from_ODIPY",
-            header: customHeader(headers.feedback_from_ODIPY.label, headers.feedback_from_ODIPY.description, "feedback_from_ODIPY"),
+        internal_observations:
+        {
+            field: "internal_observations",
+            header: customHeader(headers.internal_observations.label, headers.internal_observations.description, "internal_observations"),
             filter: true,
-            filterPlaceholder: "Search by feedback_from_ODIPY",
+            filterPlaceholder: "Search by Internal Observation",
             style: { minWidth: '8rem' },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        feedback_from_EOPYY: {
-            field: "feedback_from_EOPYY",
-            header: customHeader(headers.feedback_from_EOPYY.label, headers.feedback_from_EOPYY.description, "feedback_from_EOPYY"),
+        // feedback_from_ODIPY: {
+        //     field: "feedback_from_ODIPY",
+        //     header: customHeader(headers.feedback_from_ODIPY.label, headers.feedback_from_ODIPY.description, "feedback_from_ODIPY"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by feedback_from_ODIPY",
+        //     style: { minWidth: '8rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // feedback_from_EOPYY: {
+        //     field: "feedback_from_EOPYY",
+        //     header: customHeader(headers.feedback_from_EOPYY.label, headers.feedback_from_EOPYY.description, "feedback_from_EOPYY"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by feedback_from_EOPYY",
+        //     style: { minWidth: '8rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // feedback_from_IDIKA: {
+        //     field: "feedback_from_IDIKA",
+        //     header: customHeader(headers.feedback_from_IDIKA.label, headers.feedback_from_IDIKA.description, "feedback_from_IDIKA"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by feedback_from_IDIKA",
+        //     style: { minWidth: '8rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // ind_Merge: {
+        //     field: "ind_Merge",
+        //     header: customHeader(headers.ind_Merge.label, headers.ind_Merge.description, "ind_Merge"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Indicator Merge",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        dpolist:
+        {
+            field: "dpolist",
+            header: customHeader(headers.dpolist.label, headers.dpolist.description, "dpolist"),
             filter: true,
-            filterPlaceholder: "Search by feedback_from_EOPYY",
+            filterField: "dpolist",
+            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.dpolist)} itemTemplate={ItemTemplate} />),
+            showFilterMatchModes: false,
+            style: { minWidth: '11rem' },
+        },
+        dpo_org_source1:
+        {
+            field: "dpo_org_source1",
+            header: customHeader(headers.dpo_org_source1.label, headers.dpo_org_source1.description, "dpo_org_source1"),
+            filter: true,
+            filterPlaceholder: "Search by dpo org source1",
             style: { minWidth: '8rem' },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        feedback_from_IDIKA: {
-            field: "feedback_from_IDIKA",
-            header: customHeader(headers.feedback_from_IDIKA.label, headers.feedback_from_IDIKA.description, "feedback_from_IDIKA"),
+        dpo_org_source2:
+        {
+            field: "dpo_org_source2",
+            header: customHeader(headers.dpo_org_source2.label, headers.dpo_org_source2.description, "dpo_org_source2"),
             filter: true,
-            filterPlaceholder: "Search by feedback_from_IDIKA",
+            filterPlaceholder: "Search by dpo org source2",
             style: { minWidth: '8rem' },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        ind_Merge: {
-            field: "ind_Merge",
-            header: customHeader(headers.ind_Merge.label, headers.ind_Merge.description, "ind_Merge"),
+        dpo_org_source3:
+        {
+            field: "dpo_org_source3",
+            header: customHeader(headers.dpo_org_source3.label, headers.dpo_org_source3.description, "dpo_org_source3"),
             filter: true,
-            filterPlaceholder: "Search by Indicator Merge",
-            style: { minWidth: '12rem' },
+            filterPlaceholder: "Search by dpo org source3",
+            style: { minWidth: '8rem' },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
+        },
+        idika:
+        {
+            field: "idika",
+            header: customHeader(headers.idika.label, headers.idika.description, "idika"),
+            filter: true,
+            filterField: "idika",
+            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.idika)} itemTemplate={ItemTemplate} />),
+            showFilterMatchModes: false,
+            style: { minWidth: '11rem' },
+        },
+        ketekny:
+        {
+            field: "ketekny",
+            header: customHeader(headers.ketekny.label, headers.ketekny.description, "ketekny"),
+            filter: true,
+            filterField: "ketekny",
+            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.ketekny)} itemTemplate={ItemTemplate} />),
+            showFilterMatchModes: false,
+            style: { minWidth: '11rem' },
+        },
+        eoppy:
+        {
+            field: "eoppy",
+            header: customHeader(headers.eoppy.label, headers.eoppy.description, "eoppy"),
+            filter: true,
+            filterField: "eoppy",
+            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.eoppy)} itemTemplate={ItemTemplate} />),
+            showFilterMatchModes: false,
+            style: { minWidth: '11rem' },
+        },
+        odipy:
+        {
+            field: "odipy",
+            header: customHeader(headers.odipy.label, headers.odipy.description, "odipy"),
+            filter: true,
+            filterField: "odipy",
+            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.odipy)} itemTemplate={ItemTemplate} />),
+            showFilterMatchModes: false,
+            style: { minWidth: '11rem' },
+        },
+        moh:
+        {
+            field: "moh",
+            header: customHeader(headers.moh.label, headers.moh.description, "moh"),
+            filter: true,
+            filterField: "moh",
+            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.moh)} itemTemplate={ItemTemplate} />),
+            showFilterMatchModes: false,
+            style: { minWidth: '11rem' },
         },
         catergory_of_Indicator: {
             field: "catergory_of_Indicator",
@@ -181,18 +281,18 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        type_of_healthcare: {
-            field: "type_of_healthcare",
-            header: customHeader(headers.type_of_healthcare.label, headers.type_of_healthcare.description, "type_of_healthcare"),
-            filter: true,
-            filterField: "type_of_healthcare",
-            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.type_of_healthcare)} itemTemplate={ItemTemplate}/>),
-            showFilterMatchModes: false,
-            style: { minWidth: '10rem' },
-            body: generalBodyTemplate(indicators, domains, 'type_of_healthcare'),
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
+        // type_of_healthcare: {
+        //     field: "type_of_healthcare",
+        //     header: customHeader(headers.type_of_healthcare.label, headers.type_of_healthcare.description, "type_of_healthcare"),
+        //     filter: true,
+        //     filterField: "type_of_healthcare",
+        //     filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.type_of_healthcare)} itemTemplate={ItemTemplate}/>),
+        //     showFilterMatchModes: false,
+        //     style: { minWidth: '10rem' },
+        //     body: generalBodyTemplate(indicators, domains, 'type_of_healthcare'),
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
         type_of_healthcare_providers_D1_D7: {
             field: "type_of_healthcare_providers_D1_D7",
             header: customHeader(headers.type_of_healthcare_providers_D1_D7.label, headers.type_of_healthcare_providers_D1_D7.description, "type_of_healthcare_providers_D1_D7"),
@@ -275,17 +375,17 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        legal_Organizational_Requirements: {
-            field: "legal_Organizational_Requirements",
-            header: customHeader(headers.legal_Organizational_Requirements.label, headers.legal_Organizational_Requirements.description, "legal_Organizational_Requirements"),
-            filter: true,
-            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.legal_Organizational_Requirements)}  itemTemplate={ItemTemplate}/>),
-            showFilterMatchModes: false,
-            style: { minWidth: '12rem' },
-            body: generalBodyTemplate(indicators, legal_Organizational_Requirements_list, 'legal_Organizational_Requirements'),
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
+        // legal_Organizational_Requirements: {
+        //     field: "legal_Organizational_Requirements",
+        //     header: customHeader(headers.legal_Organizational_Requirements.label, headers.legal_Organizational_Requirements.description, "legal_Organizational_Requirements"),
+        //     filter: true,
+        //     filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.legal_Organizational_Requirements)}  itemTemplate={ItemTemplate}/>),
+        //     showFilterMatchModes: false,
+        //     style: { minWidth: '12rem' },
+        //     body: generalBodyTemplate(indicators, legal_Organizational_Requirements_list, 'legal_Organizational_Requirements'),
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
         proponent_Organization_WG: {
             field: "proponent_Organization_WG",
             header: customHeader(headers.proponent_Organization_WG.label, headers.proponent_Organization_WG.description, "proponent_Organization_WG"),
@@ -341,6 +441,16 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
+        data_fields_vk:
+        {
+            field: "data_fields_vk",
+            header: customHeader(headers.data_fields_vk.label, headers.data_fields_vk.description, "data_fields_vk"),
+            filter: true,
+            filterPlaceholder: "Search by Data Fields VK",
+            style: { minWidth: '8rem' },
+            editor: (options) => cellEditor(options),
+            onCellEditComplete: onCellEditComplete
+        },
         denominator: {
             field: "denominator",
             header: customHeader(headers.denominator.label, headers.denominator.description, "denominator"),
@@ -368,24 +478,57 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        field_Topic: {
-            field: "field_Topic",
-            header: customHeader(headers.field_Topic.label, headers.field_Topic.description, "field_Topic"),
+        // field_Topic: {
+        //     field: "field_Topic",
+        //     header: customHeader(headers.field_Topic.label, headers.field_Topic.description, "field_Topic"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Field Topic",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // extraCol2: {
+        //     field: "extraCol2",
+        //     header: customHeader(headers.extraCol2.label, headers.extraCol2.description, "extraCol2"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Extra Column 2",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+
+        early_demo_dash_Id:
+        {
+            field: "early_demo_dash_Id",
+            header: customHeader(headers.early_demo_dash_Id.label, headers.early_demo_dash_Id.description, "early_demo_dash_Id"),
             filter: true,
-            filterPlaceholder: "Search by Field Topic",
-            style: { minWidth: '12rem' },
+            filterPlaceholder: "Search by early demo dash Id",
+            style: { minWidth: '8rem' },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        extraCol2: {
-            field: "extraCol2",
-            header: customHeader(headers.extraCol2.label, headers.extraCol2.description, "extraCol2"),
+        early_demo_dash_ind_Id:
+        {
+            field: "early_demo_dash_ind_Id",
+            header: customHeader(headers.early_demo_dash_ind_Id.label, headers.early_demo_dash_ind_Id.description, "early_demo_dash_ind_Id"),
             filter: true,
-            filterPlaceholder: "Search by Extra Column 2",
-            style: { minWidth: '12rem' },
+            filterPlaceholder: "Search by early demo dash Ind Id",
+            style: { minWidth: '8rem' },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
+
+        early_demo_dash_source:
+        {
+            field: "early_demo_dash_source",
+            header: customHeader(headers.early_demo_dash_source.label, headers.early_demo_dash_source.description, "early_demo_dash_source"),
+            filter: true,
+            filterPlaceholder: "Search by early demo dash source",
+            style: { minWidth: '8rem' },
+            editor: (options) => cellEditor(options),
+            onCellEditComplete: onCellEditComplete
+        },
+
         periodicity: {
             field: "periodicity",
             header: customHeader(headers.periodicity.label, headers.periodicity.description, "periodicity"),
@@ -467,15 +610,15 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        data_Source_Monitoring_Basis: {
-            field: "data_Source_Monitoring_Basis",
-            header: customHeader(headers.data_Source_Monitoring_Basis.label, headers.data_Source_Monitoring_Basis.description, "data_Source_Monitoring_Basis"),
-            filter: true,
-            filterPlaceholder: "Search by Data Source Monitoring",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
+        // data_Source_Monitoring_Basis: {
+        //     field: "data_Source_Monitoring_Basis",
+        //     header: customHeader(headers.data_Source_Monitoring_Basis.label, headers.data_Source_Monitoring_Basis.description, "data_Source_Monitoring_Basis"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Data Source Monitoring",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
         it_System_Source: {
             field: "it_System_Source",
             header: customHeader(headers.it_System_Source.label, headers.it_System_Source.description, "it_System_Source"),
@@ -521,26 +664,26 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        selected_indicator: {
-            field: "selected_indicator",
-            header: customHeader(headers.selected_indicator.label, headers.selected_indicator.description, "selected_indicator"),
-            filter: true,
-            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.selected_indicator)} itemTemplate={ItemTemplate}/>),
-            showFilterMatchModes: false,
-            style: { minWidth: '12rem' },
-            body: generalBodyTemplate(indicators, selected_indicator_list, 'selected_indicator'),
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        adaptation_Needs: {
-            field: "adaptation_Needs",
-            header: customHeader(headers.adaptation_Needs.label, headers.adaptation_Needs.description, "adaptation_Needs"),
-            filter: true,
-            filterPlaceholder: "Search by Adaptation Needs",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
+        // selected_indicator: {
+        //     field: "selected_indicator",
+        //     header: customHeader(headers.selected_indicator.label, headers.selected_indicator.description, "selected_indicator"),
+        //     filter: true,
+        //     filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.selected_indicator)} itemTemplate={ItemTemplate}/>),
+        //     showFilterMatchModes: false,
+        //     style: { minWidth: '12rem' },
+        //     body: generalBodyTemplate(indicators, selected_indicator_list, 'selected_indicator'),
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // adaptation_Needs: {
+        //     field: "adaptation_Needs",
+        //     header: customHeader(headers.adaptation_Needs.label, headers.adaptation_Needs.description, "adaptation_Needs"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Adaptation Needs",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
         name_of_selected_indicator_en: {
             field: "name_of_selected_indicator_en",
             header: customHeader(headers.name_of_selected_indicator_en.label, headers.name_of_selected_indicator_en.description, "name_of_selected_indicator_en"),
@@ -550,87 +693,87 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        frequency_of_measurement_en: {
-            field: "frequency_of_measurement_en",
-            header: customHeader(headers.frequency_of_measurement_en.label, headers.frequency_of_measurement_en.description, "frequency_of_measurement_en"),
-            filter: true,
-            filterPlaceholder: "Search by Frequency of Measurement (EN)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        description_en: {
-            field: "description_en",
-            header: customHeader(headers.description_en.label, headers.description_en.description, "description_en"),
-            filter: true,
-            filterPlaceholder: "Search by Description (EN)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        unit_of_measurement_en: {
-            field: "unit_of_measurement_en",
-            header: customHeader(headers.unit_of_measurement_en.label, headers.unit_of_measurement_en.description, "unit_of_measurement_en"),
-            filter: true,
-            filterPlaceholder: "Search by Unit of Measurement (EN)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        calculation_formula_en: {
-            field: "calculation_formula_en",
-            header: customHeader(headers.calculation_formula_en.label, headers.calculation_formula_en.description, "calculation_formula_en"),
-            filter: true,
-            filterPlaceholder: "Search by Calculation Formula (EN)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        numerator_en: {
-            field: "numerator_en",
-            header: customHeader(headers.numerator_en.label, headers.numerator_en.description, "numerator_en"),
-            filter: true,
-            filterPlaceholder: "Search by Numerator (EN)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        denominator_en: {
-            field: "denominator_en",
-            header: customHeader(headers.denominator_en.label, headers.denominator_en.description, "denominator_en"),
-            filter: true,
-            filterPlaceholder: "Search by Denominator (EN)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        comments_en: {
-            field: "comments_en",
-            header: customHeader(headers.comments_en.label, headers.comments_en.description, "comments_en"),
-            filter: true,
-            filterPlaceholder: "Search by Comments (EN)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        observation_en: {
-            field: "observation_en",
-            header: customHeader(headers.observation_en.label, headers.observation_en.description, "observation_en"),
-            filter: true,
-            filterPlaceholder: "Search by Observation (EN)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        extrafield_empty: {
-            field: "extrafield_empty",
-            header: customHeader(headers.extrafield_empty.label, headers.extrafield_empty.description, "extrafield_empty"),
-            filter: true,
-            filterPlaceholder: "Search by ExtraField-EMPTY",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
+        // frequency_of_measurement_en: {
+        //     field: "frequency_of_measurement_en",
+        //     header: customHeader(headers.frequency_of_measurement_en.label, headers.frequency_of_measurement_en.description, "frequency_of_measurement_en"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Frequency of Measurement (EN)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // description_en: {
+        //     field: "description_en",
+        //     header: customHeader(headers.description_en.label, headers.description_en.description, "description_en"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Description (EN)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // unit_of_measurement_en: {
+        //     field: "unit_of_measurement_en",
+        //     header: customHeader(headers.unit_of_measurement_en.label, headers.unit_of_measurement_en.description, "unit_of_measurement_en"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Unit of Measurement (EN)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // calculation_formula_en: {
+        //     field: "calculation_formula_en",
+        //     header: customHeader(headers.calculation_formula_en.label, headers.calculation_formula_en.description, "calculation_formula_en"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Calculation Formula (EN)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // numerator_en: {
+        //     field: "numerator_en",
+        //     header: customHeader(headers.numerator_en.label, headers.numerator_en.description, "numerator_en"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Numerator (EN)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // denominator_en: {
+        //     field: "denominator_en",
+        //     header: customHeader(headers.denominator_en.label, headers.denominator_en.description, "denominator_en"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Denominator (EN)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // comments_en: {
+        //     field: "comments_en",
+        //     header: customHeader(headers.comments_en.label, headers.comments_en.description, "comments_en"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Comments (EN)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // observation_en: {
+        //     field: "observation_en",
+        //     header: customHeader(headers.observation_en.label, headers.observation_en.description, "observation_en"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Observation (EN)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // extrafield_empty: {
+        //     field: "extrafield_empty",
+        //     header: customHeader(headers.extrafield_empty.label, headers.extrafield_empty.description, "extrafield_empty"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by ExtraField-EMPTY",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
         name_of_selected_indicator_gr: {
             field: "name_of_selected_indicator_gr",
             header: customHeader(headers.name_of_selected_indicator_gr.label, headers.name_of_selected_indicator_gr.description, "name_of_selected_indicator_gr"),
@@ -640,69 +783,69 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        frequency_of_measurement_gr: {
-            field: "frequency_of_measurement_gr",
-            header: customHeader(headers.frequency_of_measurement_gr.label, headers.frequency_of_measurement_gr.description, "frequency_of_measurement_gr"),
-            filter: true,
-            filterPlaceholder: "Search by Frequency of Measurement (GR)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        description_gr: {
-            field: "description_gr",
-            header: customHeader(headers.description_gr.label, headers.description_gr.description, "description_gr"),
-            filter: true,
-            filterPlaceholder: "Search by Description (GR)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        unit_of_measurement_gr: {
-            field: "unit_of_measurement_gr",
-            header: customHeader(headers.unit_of_measurement_gr.label, headers.unit_of_measurement_gr.description, "unit_of_measurement_gr"),
-            filter: true,
-            filterPlaceholder: "Search by Unit of Measurement (GR)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        calculation_formula_gr: {
-            field: "calculation_formula_gr",
-            header: customHeader(headers.calculation_formula_gr.label, headers.calculation_formula_gr.description, "calculation_formula_gr"),
-            filter: true,
-            filterPlaceholder: "Search by Calculation Formula (GR)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        numerator_gr: {
-            field: "numerator_gr",
-            header: customHeader(headers.numerator_gr.label, headers.numerator_gr.description, "numerator_gr"),
-            filter: true,
-            filterPlaceholder: "Search by Numerator (GR)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        denominator_gr: {
-            field: "denominator_gr",
-            header: customHeader(headers.denominator_gr.label, headers.denominator_gr.description, "denominator_gr"),
-            filter: true,
-            filterPlaceholder: "Search by Denominator (GR)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        comments_gr: {
-            field: "comments_gr",
-            header: customHeader(headers.comments_gr.label, headers.comments_gr.description, "comments_gr"),
-            filter: true,
-            filterPlaceholder: "Search by Comments (GR)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
+        // frequency_of_measurement_gr: {
+        //     field: "frequency_of_measurement_gr",
+        //     header: customHeader(headers.frequency_of_measurement_gr.label, headers.frequency_of_measurement_gr.description, "frequency_of_measurement_gr"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Frequency of Measurement (GR)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // description_gr: {
+        //     field: "description_gr",
+        //     header: customHeader(headers.description_gr.label, headers.description_gr.description, "description_gr"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Description (GR)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // unit_of_measurement_gr: {
+        //     field: "unit_of_measurement_gr",
+        //     header: customHeader(headers.unit_of_measurement_gr.label, headers.unit_of_measurement_gr.description, "unit_of_measurement_gr"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Unit of Measurement (GR)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // calculation_formula_gr: {
+        //     field: "calculation_formula_gr",
+        //     header: customHeader(headers.calculation_formula_gr.label, headers.calculation_formula_gr.description, "calculation_formula_gr"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Calculation Formula (GR)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // numerator_gr: {
+        //     field: "numerator_gr",
+        //     header: customHeader(headers.numerator_gr.label, headers.numerator_gr.description, "numerator_gr"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Numerator (GR)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // denominator_gr: {
+        //     field: "denominator_gr",
+        //     header: customHeader(headers.denominator_gr.label, headers.denominator_gr.description, "denominator_gr"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Denominator (GR)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // comments_gr: {
+        //     field: "comments_gr",
+        //     header: customHeader(headers.comments_gr.label, headers.comments_gr.description, "comments_gr"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by Comments (GR)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
         observation_gr: {
             field: "observation_gr",
             header: customHeader(headers.observation_gr.label, headers.observation_gr.description, "observation_gr"),
@@ -712,45 +855,45 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
-        extrafield_empty_gr: {
-            field: "extrafield_empty_gr",
-            header: customHeader(headers.extrafield_empty_gr.label, headers.extrafield_empty_gr.description, "extrafield_empty_gr"),
-            filter: true,
-            filterPlaceholder: "Search by ExtraField-EMPTY (GR)",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        it_system_source_process: {
-            field: "it_system_source_process",
-            header: customHeader(headers.it_system_source_process.label, headers.it_system_source_process.description, "it_system_source_process"),
-            filter: true,
-            filterPlaceholder: "Search by IT System/Source/Process",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        aim_of_the_indicator: {
-            field: "aim_of_the_indicator",
-            header: customHeader(headers.aim_of_the_indicator.label, headers.aim_of_the_indicator.description, "aim_of_the_indicator"),
-            filter: true,
-            filterPlaceholder: "Search by AIM of the INDICATOR",
-            style: { minWidth: '12rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
-        piloting: {
-            field: "piloting",
-            header: customHeader(headers.piloting.label, headers.piloting.description, "piloting"),
-            filter: true,
-            filterField: "piloting",
-            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.piloting)}  itemTemplate={ItemTemplate}/>),
-            showFilterMatchModes: false,
-            style: { minWidth: '12rem' },
-            body: generalBodyTemplate(indicators, piloting_list, 'piloting'),
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
-        },
+        // extrafield_empty_gr: {
+        //     field: "extrafield_empty_gr",
+        //     header: customHeader(headers.extrafield_empty_gr.label, headers.extrafield_empty_gr.description, "extrafield_empty_gr"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by ExtraField-EMPTY (GR)",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // it_system_source_process: {
+        //     field: "it_system_source_process",
+        //     header: customHeader(headers.it_system_source_process.label, headers.it_system_source_process.description, "it_system_source_process"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by IT System/Source/Process",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // aim_of_the_indicator: {
+        //     field: "aim_of_the_indicator",
+        //     header: customHeader(headers.aim_of_the_indicator.label, headers.aim_of_the_indicator.description, "aim_of_the_indicator"),
+        //     filter: true,
+        //     filterPlaceholder: "Search by AIM of the INDICATOR",
+        //     style: { minWidth: '12rem' },
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
+        // piloting: {
+        //     field: "piloting",
+        //     header: customHeader(headers.piloting.label, headers.piloting.description, "piloting"),
+        //     filter: true,
+        //     filterField: "piloting",
+        //     filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.piloting)}  itemTemplate={ItemTemplate}/>),
+        //     showFilterMatchModes: false,
+        //     style: { minWidth: '12rem' },
+        //     body: generalBodyTemplate(indicators, piloting_list, 'piloting'),
+        //     editor: (options) => cellEditor(options),
+        //     onCellEditComplete: onCellEditComplete
+        // },
         opinion_from_ODIPY_Other_experts: {
             field: "opinion_from_ODIPY_Other_experts",
             header: customHeader(headers.opinion_from_ODIPY_Other_experts.label, headers.opinion_from_ODIPY_Other_experts.description, "opinion_from_ODIPY_Other_experts"),

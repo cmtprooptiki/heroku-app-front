@@ -18,24 +18,24 @@ export const headers = {
         description: "Cluster of a set of related indicators that share common aspects (group of indicators of related categories)."
     },
 
-    feedback_from_ODIPY:{
-        label: "FEEDBACK FROM ODIPY",
-        description: "PLEASE COMMENT ABOUT THE INDICATOR"
-    },
+    // feedback_from_ODIPY:{
+    //     label: "FEEDBACK FROM ODIPY",
+    //     description: "PLEASE COMMENT ABOUT THE INDICATOR"
+    // },
 
-    feedback_from_EOPYY:{
-        label: "FEEDBACK FROM EOPYY",
-        description: "PLEASE COMMENT ABOUT THE INDICATOR"
-    },
-    feedback_from_IDIKA:{
-        label: "FEEDBACK FROM IDIKA",
-        description: "PLEASE COMMENT ABOUT THE INDICATOR"
-    },
+    // feedback_from_EOPYY:{
+    //     label: "FEEDBACK FROM EOPYY",
+    //     description: "PLEASE COMMENT ABOUT THE INDICATOR"
+    // },
+    // feedback_from_IDIKA:{
+    //     label: "FEEDBACK FROM IDIKA",
+    //     description: "PLEASE COMMENT ABOUT THE INDICATOR"
+    // },
 
-    ind_Merge: {
-        label: "Indicator Merge",
-        description: `If 2 indicators are "merged", the one with the lowest number remains and the other is "inactive"; e.g. Q4Alln.000x + Q4Alln.00xy --> Q4Alln.000x - text is adjusted and the "inactivated indicator line of cells is colored light grey.`
-    },
+    // ind_Merge: {
+    //     label: "Indicator Merge",
+    //     description: `If 2 indicators are "merged", the one with the lowest number remains and the other is "inactive"; e.g. Q4Alln.000x + Q4Alln.00xy --> Q4Alln.000x - text is adjusted and the "inactivated indicator line of cells is colored light grey.`
+    // },
     catergory_of_Indicator: {
         label: "Category of Indicator",
         description: "The origin or source of inspiration for the KPI, such as whether it is adapted from another country's indicator, an international standard, or developed internally."
@@ -68,16 +68,16 @@ export const headers = {
         label: "Dimension",
         description: "The aspect of healthcare quality the indicator measures, e.g., safety, effectiveness, etc."
     },
-    type_of_healthcare: {
-        label: "Type of Healthcare",
-        description: `D1: Secondary Healthcare (all hospitals, secondary and tertiary hospitals, hospital at home, telehealth services, data from wearables)
-D2: Home/telecare and Active life (hospital at home, telehealth services, data from wearables, health at home social service)
-D3: Primary Care (342 health centers; 127 TOMY local health units; 110 COMY mobile health units; Outpatient prescription)
-D4: Public health indicators (EODY-national center of public health; with-- ODIPY - hospital infections; IDIKA (HIV registry and COVID19)
-D5: NCDs and Mental Health (diagnosis of NCDs in drug prescription; healthstat, perceptions, service use, drugs use, mental health clinics of university hospitals, and 3 psychiatry hospitals), day care centers for mental health units?
-D6: Palliative and Long term care
-D7: All domains`
-    },
+//     type_of_healthcare: {
+//         label: "Type of Healthcare",
+//         description: `D1: Secondary Healthcare (all hospitals, secondary and tertiary hospitals, hospital at home, telehealth services, data from wearables)
+// D2: Home/telecare and Active life (hospital at home, telehealth services, data from wearables, health at home social service)
+// D3: Primary Care (342 health centers; 127 TOMY local health units; 110 COMY mobile health units; Outpatient prescription)
+// D4: Public health indicators (EODY-national center of public health; with-- ODIPY - hospital infections; IDIKA (HIV registry and COVID19)
+// D5: NCDs and Mental Health (diagnosis of NCDs in drug prescription; healthstat, perceptions, service use, drugs use, mental health clinics of university hospitals, and 3 psychiatry hospitals), day care centers for mental health units?
+// D6: Palliative and Long term care
+// D7: All domains`
+//     },
     type_of_healthcare_providers_D1_D7: {
         label: "Type of Healthcare Providers",
         description: `D1: Secondary Healthcare (all hospitals, secondary and tertiary hospitals, hospital at home, telehealth services, data from wearables)
@@ -133,13 +133,13 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
         label: "Collecting Organization",
         description: "Name (ideally also system) of the National Level Organization that collects data related to the proposed indicator"
     },
-    legal_Organizational_Requirements: {
-        label: "Legal Requirements",
-        description: `1 - No need
-2 - Legal base exists but needs to be "operationalized" via a guideline/regulation by ODIPY/Other org
-3 - New Legal base is needed (MoH order)
-4 - New Legal base is needed (Law)`
-    },
+//     legal_Organizational_Requirements: {
+//         label: "Legal Requirements",
+//         description: `1 - No need
+// 2 - Legal base exists but needs to be "operationalized" via a guideline/regulation by ODIPY/Other org
+// 3 - New Legal base is needed (MoH order)
+// 4 - New Legal base is needed (Law)`
+//     },
     proponent_Organization_WG: {
         label: "Proponent Organization",
         description: "Organization or team that proposed or supports the use of this indicator."
@@ -176,14 +176,14 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
         label: "Target Population",
         description: "The group of patients or institutions to which the indicator applies."
     },
-    field_Topic: {
-        label: "Field Topic",
-        description: "Search by Field Topic"
-    },
-    extraCol2: {
-        label: "Extra Column 2",
-        description: "Search by Extra Column 2"
-    },
+    // field_Topic: {
+    //     label: "Field Topic",
+    //     description: "Search by Field Topic"
+    // },
+    // extraCol2: {
+    //     label: "Extra Column 2",
+    //     description: "Search by Extra Column 2"
+    // },
     periodicity: {
         label: "Periodicity",
         description: "How often the data for this indicator is collected, e.g., weekly, monthly, quarterly, annually, etc."
@@ -222,10 +222,10 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
         label: "Unit of Measurement",
         description: "The metric or unit used to express the value of the indicator (e.g., percentage, number of events)."
     },
-    data_Source_Monitoring_Basis: {
-        label: "Data Source Monitoring",
-        description: "The origin of the data used to calculate the indicator, such as patient records, surveys, or administrative data."
-    },
+    // data_Source_Monitoring_Basis: {
+    //     label: "Data Source Monitoring",
+    //     description: "The origin of the data used to calculate the indicator, such as patient records, surveys, or administrative data."
+    // },
     it_System_Source: {
         label: "IT System Source",
         description: "The system or database where the data for this indicator is recorded or stored."
@@ -246,16 +246,16 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
         label: "Sources and Further Reading",
         description: "References to documents, studies, or websites that provide more information about the indicator."
     },
-    selected_indicator: {
-        label: "Selected Indicator",
-        description: `YES - the Potential Indicator is considered useful, feasible, and can be adjusted to the Greek context;
-NO - the Potential Indicator does not seem relevant for Q4All now or in the near (2y) future;
-MAYBE - the Potential Indicator can be useful IF a certain set of conditions (e.g. data collection, legal basis, etc ) are changed.`
-    },
-    adaptation_Needs: {
-        label: "Adaptation Needs",
-        description: "Brief description of the needs to adapt the suggested indicator to the Greek Context and Q4ALL/healthIQ aims."
-    },
+//     selected_indicator: {
+//         label: "Selected Indicator",
+//         description: `YES - the Potential Indicator is considered useful, feasible, and can be adjusted to the Greek context;
+// NO - the Potential Indicator does not seem relevant for Q4All now or in the near (2y) future;
+// MAYBE - the Potential Indicator can be useful IF a certain set of conditions (e.g. data collection, legal basis, etc ) are changed.`
+//     },
+    // adaptation_Needs: {
+    //     label: "Adaptation Needs",
+    //     description: "Brief description of the needs to adapt the suggested indicator to the Greek Context and Q4ALL/healthIQ aims."
+    // },
 
 
 //hideen column added
@@ -264,99 +264,99 @@ MAYBE - the Potential Indicator can be useful IF a certain set of conditions (e.
         label: "Name of Selected Indicator (EN)",
         description: "Should be short yet unique; if measurement has diferent frequencies add (x) in from of the name: (A) for Annual; (Q) Quarterly; (M) monthly; (D) Daily; (xMin) for every x minutes; (R ) Realtime"
     },
-    frequency_of_measurement_en: {
-        label: "Frequency of Measurement (EN)",
-        description: "Annual, Quarterly, Monthly, Daily, Every x mins; Realtime"
-    },
-    description_en: {
-        label: "Description (EN)",
-        description: "Can be created from formula…"
-    },
-    unit_of_measurement_en: {
-        label: "Unit of Measurement (EN)",
-        description: "The unit used to measure the indicator (English)."
-    },
-    calculation_formula_en: {
-        label: "Calculation Formula (EN)",
-        description: "The formula used to calculate the indicator (English)."
-    },
-    numerator_en: {
-        label: "Numerator (EN)",
-        description: "The numerator used in the calculation of the indicator (English)."
-    },
-    denominator_en: {
-        label: "Denominator (EN)",
-        description: "The denominator used in the calculation of the indicator (English)."
-    },
-    comments_en: {
-        label: "Comments (EN)",
-        description: "Comments about the indicator VISIBLE to the general user of Q4ALL"
-    },
-    observation_en: {
-        label: "Observation (EN)",
-        description: "General observations about the indicator NOT visible to the general user of Q4ALL"
-    },
-    extrafield_empty: {
-        label: "ExtraField-EMPTY",
-        description: "Placeholder for additional data."
-    },
+    // frequency_of_measurement_en: {
+    //     label: "Frequency of Measurement (EN)",
+    //     description: "Annual, Quarterly, Monthly, Daily, Every x mins; Realtime"
+    // },
+    // description_en: {
+    //     label: "Description (EN)",
+    //     description: "Can be created from formula…"
+    // },
+    // unit_of_measurement_en: {
+    //     label: "Unit of Measurement (EN)",
+    //     description: "The unit used to measure the indicator (English)."
+    // },
+    // calculation_formula_en: {
+    //     label: "Calculation Formula (EN)",
+    //     description: "The formula used to calculate the indicator (English)."
+    // },
+    // numerator_en: {
+    //     label: "Numerator (EN)",
+    //     description: "The numerator used in the calculation of the indicator (English)."
+    // },
+    // denominator_en: {
+    //     label: "Denominator (EN)",
+    //     description: "The denominator used in the calculation of the indicator (English)."
+    // },
+    // comments_en: {
+    //     label: "Comments (EN)",
+    //     description: "Comments about the indicator VISIBLE to the general user of Q4ALL"
+    // },
+    // observation_en: {
+    //     label: "Observation (EN)",
+    //     description: "General observations about the indicator NOT visible to the general user of Q4ALL"
+    // },
+    // extrafield_empty: {
+    //     label: "ExtraField-EMPTY",
+    //     description: "Placeholder for additional data."
+    // },
     name_of_selected_indicator_gr: {
         label: "Name of Selected Indicator (GR)",
         description: "Should be short yet unique IN GREEK; if measurement has diferent frequencies add BUT KEEP ENGLISH LETTERS  (x) in from of the name: (A) for Annual; (Q) Quarterly; (M) monthly; (D) Daily; (xMin) for every x minutes; (R ) Realtime"
     },
-    frequency_of_measurement_gr: {
-        label: "Frequency of Measurement (GR)",
-        description: "Annual, Quarterly, Monthly, Daily, Every x mins; Realtime"
-    },
-    description_gr: {
-        label: "Description (GR)",
-        description: "Can be created from formula… "
-    },
-    unit_of_measurement_gr: {
-        label: "Unit of Measurement (GR)",
-        description: "The unit used to measure the indicator (Greek)."
-    },
-    calculation_formula_gr: {
-        label: "Calculation Formula (GR)",
-        description: "The formula used to calculate the indicator (Greek)."
-    },
-    numerator_gr: {
-        label: "Numerator (GR)",
-        description: "The numerator used in the calculation of the indicator (Greek)."
-    },
-    denominator_gr: {
-        label: "Denominator (GR)",
-        description: "The denominator used in the calculation of the indicator (Greek)."
-    },
-    comments_gr: {
-        label: "Comments (GR)",
-        description: "Comments about the indicator VISIBLE to the general user of Q4ALL "
-    },
+    // frequency_of_measurement_gr: {
+    //     label: "Frequency of Measurement (GR)",
+    //     description: "Annual, Quarterly, Monthly, Daily, Every x mins; Realtime"
+    // },
+    // description_gr: {
+    //     label: "Description (GR)",
+    //     description: "Can be created from formula… "
+    // },
+    // unit_of_measurement_gr: {
+    //     label: "Unit of Measurement (GR)",
+    //     description: "The unit used to measure the indicator (Greek)."
+    // },
+    // calculation_formula_gr: {
+    //     label: "Calculation Formula (GR)",
+    //     description: "The formula used to calculate the indicator (Greek)."
+    // },
+    // numerator_gr: {
+    //     label: "Numerator (GR)",
+    //     description: "The numerator used in the calculation of the indicator (Greek)."
+    // },
+    // denominator_gr: {
+    //     label: "Denominator (GR)",
+    //     description: "The denominator used in the calculation of the indicator (Greek)."
+    // },
+    // comments_gr: {
+    //     label: "Comments (GR)",
+    //     description: "Comments about the indicator VISIBLE to the general user of Q4ALL "
+    // },
     observation_gr: {
         label: "Observation (GR)",
         description: "General observations about the indicator NOT visible to the general user of Q4ALL"
     },
-    extrafield_empty_gr: {
-        label: "ExtraField-EMPTY (GR)",
-        description: "Placeholder for additional data in Greek."
-    },
-    it_system_source_process: {
-        label: "IT System/Source/Process",
-        description: "Details of the IT system, source, or process used."
-    },
-    aim_of_the_indicator: {
-        label: "AIM of the INDICATOR",
-        description: "Brief description of WHY we are measuring this indicator, potential impacts, etc"
-    },
+    // extrafield_empty_gr: {
+    //     label: "ExtraField-EMPTY (GR)",
+    //     description: "Placeholder for additional data in Greek."
+    // },
+    // it_system_source_process: {
+    //     label: "IT System/Source/Process",
+    //     description: "Details of the IT system, source, or process used."
+    // },
+    // aim_of_the_indicator: {
+    //     label: "AIM of the INDICATOR",
+    //     description: "Brief description of WHY we are measuring this indicator, potential impacts, etc"
+    // },
 //hidden
 
 
-    piloting: {
-        label: "Piloting",
-        description: `YES - This "SELECTED INDICATOR" as is to be included in the Pilot;
-NO - this "SELECTED INDICATOR" is NOT to be included in the Pilot;
-N/A - this "SELECTED INDICATOR" is to be used but does not need to be included in the pilot.`
-    },
+//     piloting: {
+//         label: "Piloting",
+//         description: `YES - This "SELECTED INDICATOR" as is to be included in the Pilot;
+// NO - this "SELECTED INDICATOR" is NOT to be included in the Pilot;
+// N/A - this "SELECTED INDICATOR" is to be used but does not need to be included in the pilot.`
+//     },
     opinion_from_ODIPY_Other_experts: {
         label: "Expert Opinion",
         description: "Opinion from ODIPY, and any other experts, including the endorsement/refusal from HealthIQ mission experts."
@@ -370,6 +370,62 @@ N/A - this "SELECTED INDICATOR" is to be used but does not need to be included i
     pilot_success_criteria: {
         label: "Pilot Success Criteria",
         description: "TBD at a later stage - ideas can be listed in cells below."
+    },
+    internal_observations: {
+    label: "Internal Observations",
+    description: "This is where we record/document any observations and ongoing work on the indicators, not to be shown outside scope of the project."
+    },
+    dpolist: {
+        label: "DPOList (1/0)",
+        description: ""
+    },
+    dpo_org_source1: {
+        label: "DPO Org Source1",
+        description: ""
+    },
+    dpo_org_source2: {
+        label: "DPO Org Source2",
+        description: ""
+    },
+    dpo_org_source3: {
+        label: "DPO Org Source3",
+        description: ""
+    },
+    idika: {
+        label: "IDIKA",
+        description: ""
+    },
+    ketekny: {
+        label: "KETEKNY",
+        description: ""
+    },
+    eoppy: {
+        label: "EOPPY",
+        description: ""
+    },
+    odipy: {
+        label: "ODIPY",
+        description: ""
+    },
+    moh: {
+        label: "MoH",
+        description: ""
+    },
+    data_fields_vk: {
+        label: "Data Fields (VK)",
+        description: ""
+    },
+    early_demo_dash_Id: {
+        label: "EarlyDemo Dashboard ID",
+        description: "PLEASE COMMENT ABOUT THE INDICATOR"
+    },
+    early_demo_dash_ind_Id: {
+        label: "EarlyDemo Dashbord Indicator ID",
+        description: "PLEASE COMMENT ABOUT THE INDICATOR"
+    },
+    early_demo_dash_source: {
+        label: "EarlyDemo Dashboard SOURCE",
+        description: "PLEASE COMMENT ABOUT THE INDICATOR"
     }
   };
   
