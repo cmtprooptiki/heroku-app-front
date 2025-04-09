@@ -568,15 +568,15 @@ const IndicatorsList = () => {
                 status: '',
                 indicator_cluster: '',
                 internal_observations: '',
-                dpolist: null,
+                dpolist: '',
                 dpo_org_source1: '',
                 dpo_org_source2: '',
                 dpo_org_source3: '',
-                idika: null,
-                ketekny: null,
-                eoppy: null,
-                odipy: null,
-                moh: null,
+                idika: '',
+                ketekny: '',
+                eoppy: '',
+                odipy: '',
+                moh: '',
                 
                 catergory_of_Indicator: '',
                 observations_from_meetings:'',
@@ -670,7 +670,7 @@ const percentageTemplate = (rowData) => {
         color = 'red'; // Below 30% - Red
     } 
     else if (percentage >= 30 && percentage < 60) {
-        color = 'yellow'; // Between 30% and 80% - Yellow
+        color = '#ff7a00'; // Between 30% and 80% - Yellow
     }
     else if (percentage >= 60 && percentage < 90) {
         color = 'orange'; // Between 30% and 80% - Yellow
