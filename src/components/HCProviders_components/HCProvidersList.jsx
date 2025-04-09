@@ -906,9 +906,9 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                             value={filteredHospitals.filter(hospital => hospital.Name_GR !== selectedHospital)} 
                             paginator rows={10} 
                             globalFilter={globalFilter}
-                            emptyMessage="No hospitals found within the selected distance."
+                            emptyMessage="No Health Units found within the selected distance."
                         >
-                            <Column field="Name_GR" header="Hospital Name" sortable />
+                            <Column field="Name_GR" header="Health Unit" sortable />
                             <Column field="distance" header="Distance (km)" sortable />
 
                             <Column field="lat" header="Latitude" sortable />

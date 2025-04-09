@@ -53,11 +53,11 @@ PSYCHIATRIC HOSPITALS  and REHABILITATION"
         description: ""
     },
     email_Contact: {
-        label: "email contact VION file",
+        label: "email contact",
         description: ""
     },
     general_Email_Contact: {
-        label: "general email contact (filled by Anastasia)",
+        label: "general email contact",
         description: ""
     },
     website: {
