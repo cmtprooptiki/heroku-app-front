@@ -46,8 +46,8 @@ export const headers = {
         description: ""
     },
     shortlist_indicators:{
-        label: "Type of Indicator (M, A, P)",
-        description: "M-Manual; A-Automated; P-Proxy"
+        label: "Type of Indicator (M, A, P, A/P)",
+        description: "M-Manual; A-Automated; P-Proxy; A/P-Automated / Proxy"
     },
     decision_and_next_steps:{
         label: "DECISION AND NEXT STEPS",

@@ -13,7 +13,8 @@ export const shortlist_indicators =[
     { label: 'Manual', value: 'M' },
     { label: 'Automated', value: 'A' },
     { label: 'empty', value: '' },
-    { label: 'Proxy', value: 'P' }
+    { label: 'Proxy', value: 'P' },
+    { label:'Automated / Proxy', value:'A/P'},
 ]
 
 
@@ -156,33 +157,33 @@ export const forPilotlist = [
 // ];
 
 export const dpoList = [
-    {label: "1" , value: 1 },
-    {label: "empty" , value: null },
+    {label: "1" , value: "1" },
+    {label: "empty" , value: "" },
 ]
 
 export const idikaList = [
-    {label: "1" , value: 1 },
-    {label: "empty" , value: null },
+    {label: "1" , value: "1" },
+    {label: "empty" , value: "" },
 ]
 
 export const keteknyList = [
-    {label: "1" , value: 1 },
-    {label: "empty" , value: null },
+    {label: "1" , value: "1" },
+    {label: "empty" , value: "" },
 ]
 
 export const eoppyList = [
-    {label: "1" , value: 1 },
-    {label: "empty" , value: null },
+    {label: "1" , value: "1" },
+    {label: "empty" , value: "" },
 ]
 
 export const odipyList = [
-    {label: "1" , value: 1 },
-    {label: "empty" , value: null },
+    {label: "1" , value: "1" },
+    {label: "empty" , value: "" },
 ]
 
 export const mohList = [
-    {label: "1" , value: 1 },
-    {label: "empty" , value: null },
+    {label: "1" , value: "1" },
+    {label: "empty" , value: "" },
 ]
 
 

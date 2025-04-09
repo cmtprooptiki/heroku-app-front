@@ -496,7 +496,12 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                         options={list} // Use the list of options
                         onChange={(e) => options.editorCallback(e.value)}
                         placeholder="Select option"
-                        onKeyDown={(e) => e.stopPropagation()}
+                        onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    e.target.blur(); // Triggers edit completion
+                }
+            }}
+            autoFocus
                     />
                 );
             };
@@ -515,7 +520,12 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                         options.editorCallback(selectedValues); // Update the table data with the string
                     }}            placeholder="Select "
                     display="chip"
-                    onKeyDown={(e) => e.stopPropagation()}
+                    onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    e.target.blur(); // Triggers edit completion
+                }
+            }}
+            autoFocus
         
                 />
         
@@ -545,7 +555,12 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
             <textarea
                 value={options.value || ""}
                 onChange={handleInput}
-                onKeyDown={(e) => e.stopPropagation()}
+                 onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    e.target.blur(); // This will trigger onCellEditComplete
+                }
+            }}
+            autoFocus
                 style={{
                     width: "100%",
                     minHeight: "50px",

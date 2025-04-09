@@ -2,6 +2,8 @@ import React from 'react';
 import { MultiSelect } from 'primereact/multiselect'; // Import the MultiSelect component from PrimeReact
 
 const FilterIndicators = ({ options, data, itemTemplate }) => {
+    console.log("hee: ", options.value)
+    console.log("mmm: ", data)
     return (
         <MultiSelect
             value={options.value}
