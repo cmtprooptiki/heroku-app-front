@@ -273,7 +273,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             header: customHeader(headers.decision_and_next_steps.label, headers.decision_and_next_steps.description, "decision_and_next_steps"),
             filter: true,
             filterPlaceholder: "Search by decision_and_next_steps",
-            style: { minWidth: '12rem' },
+            style: { minWidth: '5rem' },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
