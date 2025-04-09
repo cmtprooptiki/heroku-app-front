@@ -25,13 +25,14 @@ import {
     keteknyList,
     eoppyList,
     odipyList,
-    mohList
+    mohList,
+    shortlist_indicators
 } from './IndicatorUtils';  // Adjust the path as necessary
 
 
 //hint custom
 
-const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cutting_Dimensions_A_I, Cross_Cutting_Dimensions_Inputs_Outputs, filledRows, category_of_Indicator) =>
+const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cross_Cutting_Dimensions_A_I, Cross_Cutting_Dimensions_Inputs_Outputs, filledRows, category_of_Indicator) =>
 {
 
     const {customHeader, renderColumnHeader, onCellEditComplete, cellEditor, generalBodyTemplate, ItemTemplate, q4all_Ind_number_BodyTemplate} = HelperIndicators(indicators, filledRows, category_of_Indicator);
@@ -133,7 +134,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.dpolist)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
             style: { minWidth: '11rem' },
-            body: generalBodyTemplate(indicators, dpoList, 'dpolist'),
+            body: generalBodyTemplate(indicators, dpolist, 'dpolist'),
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
 
@@ -257,9 +258,12 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
     
         shortlist_indicators: {
             field: "shortlist_indicators",
-            header: customHeader(headers.shortlist_indicators.label, headers.shortlist_indicators.description, "feedback_from_IDIKA"),
+            header: customHeader(headers.shortlist_indicators.label, headers.shortlist_indicators.description, "shortlist_indicators"),
             filter: true,
-            filterPlaceholder: "Search by shortlist_indicators",
+            filterField: "shortlist_indicators",
+            showFilterMatchModes: false,
+            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.shortlist_indicators)} itemTemplate={ItemTemplate} />),
+            body: generalBodyTemplate(indicators, shortlist_indicators, 'shortlist_indicators'),
             style: { minWidth: '12rem' },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete

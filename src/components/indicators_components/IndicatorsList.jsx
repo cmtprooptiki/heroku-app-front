@@ -53,6 +53,7 @@ const IndicatorsList = () => {
     const [RowsAffected, setRowsAffected] = useState(indicators.length)
 
     const [indicator_name, setIndicators_Name] = useState([])
+    const [dpolist, setDpolist] = useState([])
 
     const [q4all_Ind_number, setQ4AllIndNumber] = useState([]);
     const [category_of_Indicator, set_Category_Of_Indicator] = useState([])
@@ -135,6 +136,9 @@ const IndicatorsList = () => {
             const status2 = [...new Set(indData.map(item => item.status || ''))]
             setStatusValue(status2);
             console.log("statuses : ",status2)
+
+            const dpolist2 = [...new Set(indData.map(item => item.dpolist || null))]
+            setDpolist(dpolist2)
 
             const uniqueDimension = [...new Set(indData.map(item => item.dimension || ''))]
             setDimension(uniqueDimension)
@@ -242,6 +246,9 @@ const IndicatorsList = () => {
             setStatusValue(status2);
             console.log("statuses : ",status2)
 
+            const dpolist2 = [...new Set(indData.map(item => item.dpolist || null))]
+            setDpolist(dpolist2)
+
             const uniqueDimension = [...new Set(indData.map(item => item.dimension || ''))]
             setDimension(uniqueDimension)
 
@@ -303,6 +310,8 @@ const IndicatorsList = () => {
 
             const unique_forPilot = [...new Set(indData.map(item => item.forPilot || ''))]
             setforPilot(unique_forPilot)
+
+            
 
           
             const parDataWithDates = indData.map(item => ({
@@ -518,7 +527,7 @@ const IndicatorsList = () => {
             </div>
         );
     };
-    const allColumns2 = ColumnsConfig(filteredIndicators, indicators, statusValue, cross_Cutting_Dimensions_A_I, Cross_Cutting_Dimensions_Inputs_Outputs, filledRows,category_of_Indicator); // Pass the data
+    const allColumns2 = ColumnsConfig(filteredIndicators, indicators, statusValue, dpolist, cross_Cutting_Dimensions_A_I, Cross_Cutting_Dimensions_Inputs_Outputs, filledRows,category_of_Indicator); // Pass the data
     const confirmMultipleDelete = () => {
         confirmDialog({
             message: 'Are you sure you want to delete the selected records?',

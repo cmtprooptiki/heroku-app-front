@@ -20,7 +20,7 @@ export const initFiltersConfig = () => ({
     indicator_cluster: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     catergory_of_Indicator: { value: null, matchMode: FilterMatchMode.IN },
     observations_from_meetings: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-    shortlist_indicators: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+    shortlist_indicators: { value: null, matchMode: FilterMatchMode.IN },
     decision_and_next_steps: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     forPilot: { value: null, matchMode: FilterMatchMode.IN },
     publicationsoptions: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
