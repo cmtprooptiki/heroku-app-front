@@ -7,7 +7,7 @@ const Welcome = () => {
   
   return (
     <div >
-           <h2  style={{
+           {/* <h2  style={{
             margin: 0,
             color: "rgba(0, 0, 0, 1)",
             fontFamily: "Poppins",
@@ -15,7 +15,7 @@ const Welcome = () => {
             fontSize: "24px",
             lineHeight: "36px",
           }}>Hello {user && user.name}👋🏼</h2>
-        <br></br>
+        <br></br> */}
     </div>
   )
 }
