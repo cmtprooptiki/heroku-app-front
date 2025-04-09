@@ -20,6 +20,12 @@ import {
     pilot_outcome_list,
     forPilotlist ,
     shortlist_indicators,
+    dpoList,
+    idikaList,
+    keteknyList,
+    eoppyList,
+    odipyList,
+    mohList
 } from './IndicatorUtils';  // Adjust the path as necessary
 
 import { Dropdown} from "primereact/dropdown";
@@ -306,6 +312,90 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                 }
 
                 break;
+
+            case 'dpolist': 
+                // Handle dropdown fields
+                if (newValue) {
+                    console.log("dpolist is newvalue:",newValue)
+                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    validEdit = true;
+                    
+                } 
+                else {
+                    event.preventDefault();
+                }
+
+                break;
+
+             case 'idika': 
+                // Handle dropdown fields
+                if (newValue) {
+                    console.log("idika is newvalue:",newValue)
+                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    validEdit = true;
+                    
+                } 
+                else {
+                    event.preventDefault();
+                }
+
+                break;
+            case 'ketekny': 
+                // Handle dropdown fields
+                if (newValue) {
+                    console.log("ketekny is newvalue:",newValue)
+                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    validEdit = true;
+                    
+                    
+                } 
+                else {
+                    event.preventDefault();
+                }
+
+                break;
+            case 'eoppy': 
+                // Handle dropdown fields
+                if (newValue) {
+                    console.log("eoppy is newvalue:",newValue)
+                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    validEdit = true;
+                    
+                    
+                } 
+                else {
+                    event.preventDefault();
+                }
+
+                break;
+            case 'odipy': 
+                // Handle dropdown fields
+                if (newValue) {
+                    console.log("odipy is newvalue:",newValue)
+                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    validEdit = true;
+                    
+                    
+                } 
+                else {
+                    event.preventDefault();
+                }
+
+                break;
+            case 'moh': 
+                // Handle dropdown fields
+                if (newValue) {
+                    console.log("moh is newvalue:",newValue)
+                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    validEdit = true;
+                    
+                    
+                } 
+                else {
+                    event.preventDefault();
+                }
+
+                break;
             default:
                 // Handle other fields
                 const trimmedValue = safeTrim(newValue);
@@ -362,12 +452,12 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
         else if (options.field ==='pilot_outcome') return dropdownEditor(options,pilot_outcome_list)
         else if (options.field ==='forPilot') return dropdownEditor(options,forPilotlist)
 
-        // else if (options.field === 'dpolist') return dropdownEditor(options, dpoList)
-        // else if (options.field === 'idika') return dropdownEditor(options, idikaList)
-        // else if (options.field === 'ketekny') return dropdownEditor(options, keteknyList)
-        // else if (options.field === 'eoppy') return dropdownEditor(options, eoppyList)
-        // else if (options.field === 'odipy') return dropdownEditor(options, odipyList)
-        // else if (options.field === 'moh') return dropdownEditor(options, mohList)
+        else if (options.field === 'dpolist') return dropdownEditor(options, dpoList)
+        else if (options.field === 'idika') return dropdownEditor(options, idikaList)
+        else if (options.field === 'ketekny') return dropdownEditor(options, keteknyList)
+        else if (options.field === 'eoppy') return dropdownEditor(options, eoppyList)
+        else if (options.field === 'odipy') return dropdownEditor(options, odipyList)
+        else if (options.field === 'moh') return dropdownEditor(options, mohList)
 
         else if (options.field === 'shortlist_indicators') return dropdownEditor(options, shortlist_indicators)
 

@@ -19,7 +19,13 @@ import {
     selected_indicator_list, 
     piloting_list, 
     pilot_outcome_list,
-    forPilotlist 
+    forPilotlist ,
+    dpoList,
+    idikaList,
+    keteknyList,
+    eoppyList,
+    odipyList,
+    mohList
 } from './IndicatorUtils';  // Adjust the path as necessary
 
 
@@ -127,6 +133,10 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.dpolist)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
             style: { minWidth: '11rem' },
+            body: generalBodyTemplate(indicators, dpoList, 'dpolist'),
+            editor: (options) => cellEditor(options),
+            onCellEditComplete: onCellEditComplete
+
         },
         dpo_org_source1:
         {
@@ -167,6 +177,9 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.idika)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
             style: { minWidth: '11rem' },
+            editor: (options) => cellEditor(options),
+            onCellEditComplete: onCellEditComplete,
+            body: generalBodyTemplate(indicators, idikaList, 'idika')
         },
         ketekny:
         {
@@ -177,6 +190,9 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.ketekny)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
             style: { minWidth: '11rem' },
+            editor: (options) => cellEditor(options),
+            onCellEditComplete: onCellEditComplete,
+            body: generalBodyTemplate(indicators, keteknyList, 'ketekny')
         },
         eoppy:
         {
@@ -187,6 +203,9 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.eoppy)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
             style: { minWidth: '11rem' },
+            editor: (options) => cellEditor(options),
+            onCellEditComplete: onCellEditComplete,
+            body: generalBodyTemplate(indicators, eoppyList, 'eoppy')
         },
         odipy:
         {
@@ -197,6 +216,9 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.odipy)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
             style: { minWidth: '11rem' },
+            editor: (options) => cellEditor(options),
+            onCellEditComplete: onCellEditComplete,
+            body: generalBodyTemplate(indicators, odipyList, 'odipy')
         },
         moh:
         {
@@ -207,6 +229,9 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, cross_Cuttin
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.moh)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
             style: { minWidth: '11rem' },
+            editor: (options) => cellEditor(options),
+            onCellEditComplete: onCellEditComplete,
+            body: generalBodyTemplate(indicators, mohList, 'moh')
         },
         catergory_of_Indicator: {
             field: "catergory_of_Indicator",
