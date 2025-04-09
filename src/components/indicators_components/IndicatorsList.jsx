@@ -199,25 +199,106 @@ const IndicatorsList = () => {
         });
       };
 
-     const getColumnNames = async()=>{
-        try {
-            const response = await axios.get(`${apiBaseUrl}/getcolumns`, {timeout: 5000});
+    //  const getColumnNames = async()=>{
+    //     try {
+    //         const response = await axios.get(`${apiBaseUrl}/getcolumns`, {timeout: 5000});
     
-            const columns = response.data
-            .map((item) => item.column_name)
-            .filter((name) => name !== "user_Id")
-            .filter((name) => name !== "createdAt")
-            .filter((name) => name !== "updatedAt")
-            .filter((name) => name !== "id")
+    //         const columns = response.data
+    //         console.log("here is columns names:",columns)
+    //         .map((item) => item.column_name)
+    //         .filter((name) => name !== "user_Id")
+    //         .filter((name) => name !== "createdAt")
+    //         .filter((name) => name !== "updatedAt")
+    //         .filter((name) => name !== "id")
 
-            setColumnNames(columns);
+    //         setColumnNames(columns);
             
+    //     } catch (error) {
+    //         console.error('Error fetching data:', error);
+
+    //     }
+
+    //  } 
+
+    const columnLabelMap = {
+        name_of_selected_indicator_en: "Indicator Name for DPO list (EN)",
+        name_of_selected_indicator_gr: "Indicator Name for DPO list (GR)",
+        indicator_name: "Indicator Descriptive Name (EN)",
+        q4all_Ind_number: "Q4All Ind number",
+        shortlist_indicators: "Type of Indicator (M, A, P)",
+        indicator_cluster: "Indicator Cluster",
+        status: "Status",
+        catergory_of_Indicator: "Source of proposal for the indicator",
+        forPilot: "ForPilot (1-Yes;0-No;T-WeWillTry)",
+        publicationsoptions: "SomePubHs/IdikaSWHs/ALLPubHs/ALLPrivHs/ALLPub_ProvHs/PHC",
+        internal_observations: "Internal Observations",
+        observations_from_meetings: "Observations from Meetings",
+        decision_and_next_steps: "Decisions and NextSteps",
+        dpolist: "DPOList (1/0)",
+        dpo_org_source1: "DPO Org Source1",
+        dpo_org_source2: "DPO Org Source2",
+        dpo_org_source3: "DPO Org Source3",
+        idika: "IDIKA",
+        ketekny: "KETEKNY",
+        eoppy: "EOPPY",
+        odipy: "ODIPY",
+        moh: "MoH",
+        dimension: "Dimension",
+        type_of_healthcare_providers_D1_D7: "Type of healthcare providers/domains (D1-D7)",
+        cross_Cutting_Dimensions_A_I: "Cross Cutting Dimensions (A-I)",
+        cross_Cutting_Dimensions_Inputs_Process_Outputs: "Cross Cutting Dimensions (Inputs-Process - Outputs)",
+        dimensions_of_Quality_QoCOfficeReport: "6 dimensions of Quality (QoCOfficeReport)",
+        priority: "Priority",
+        data_collection: "Data collection process types",
+        collecting_National_Organization: "Collecting National Organization",
+        proponent_Organization_WG: "Proponent Organization/WG",
+        rationale_Description: "Rationale (Description)",
+        objective: "Objective",
+        calculation_Formula: "Calculation Formula",
+        numerator: "Numerator",
+        numerator_Definitions: "Numerator Definitions",
+        data_fields_vk: "Data Fields (VK)",
+        denominator: "Denominator",
+        denominator_Definitions: "Denominator Definitions",
+        unit_of_Measurement: "Unit of Measurement",
+        target_Population: "Target Population",
+        periodicity: "Periodicity (frequency of measurement)",
+        data_Collection_Steps: "Data Collection Steps",
+        legal_Requirements: " Legal Requirements",
+        responsible_for_Monitoring: "Responsible for Monitoring",
+        deadline_Reporting: "Deadline Reporting",
+        supervisor_Body: " Supervisor Body",
+        management_Entity: "Management Entity",
+        applicable_period: "Applicable period",
+        it_System_Source: "IT system/data source ",
+        reference_Value_Target: "Reference Value (Target)",
+        base_Value: "Base Value",
+        notes: "Notes",
+        sources_and_Further_Reading: "Sources and Further Reading",
+        early_demo_dash_Id: "EarlyDemo Dashboard ID",
+        early_demo_dash_ind_Id: "EarlyDemo Dashbord Indicator ID",
+        early_demo_dash_source: "EarlyDemo Dashboard SOURCE",
+        observation_gr: "Observation for Visualization /Display",
+        opinion_from_ODIPY_Other_experts: "Piloting Phase: Opinion from ODIPY/Other experts ",
+        pilot_outcome: "PILOT OUTCOME",
+        pilot_success_criteria: "Pilot success criteria ?"
+      };
+
+     const getColumnNames = async () => {
+        try {
+          const response = await axios.get(`${apiBaseUrl}/getcolumns`, { timeout: 5000 });
+      
+          const columns = response.data
+            .map((item) => item.column_name)
+            .filter((name) => !["user_Id", "createdAt", "updatedAt", "id"].includes(name))
+            .map((name) => columnLabelMap[name] || name); // fallback to raw name if not mapped
+      
+          setColumnNames(columns);
+      
         } catch (error) {
-            console.error('Error fetching data:', error);
-
+          console.error('Error fetching data:', error);
         }
-
-     } 
+      };
 
     //get data for admin
     const getIndicators= async() =>{
