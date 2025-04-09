@@ -889,10 +889,10 @@ const percentageTemplate = (rowData) => {
             editMode="cell" ref = {dt} 
             onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}}
             paginator stripedRows
-            rows={50}
+            rows={25}
             columnResizeMode='fit'
             resizableColumns
-            scrollable scrollHeight="850px" loading={loading} 
+            scrollable scrollHeight="700px" loading={loading} 
             dataKey="id" 
             filters={filters} 
             globalFilterFields={columnNames}
