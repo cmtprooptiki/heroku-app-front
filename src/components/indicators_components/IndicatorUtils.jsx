@@ -155,4 +155,34 @@ export const forPilotlist = [
 //     { label: 'PHC', value:'PHC'}
 // ];
 
+export const dpoList = [
+    {label: "1" , value: 1 },
+    {label: "empty" , value: null },
+]
+
+export const idikaList = [
+    {label: "1" , value: 1 },
+    {label: "empty" , value: null },
+]
+
+export const keteknyList = [
+    {label: "1" , value: 1 },
+    {label: "empty" , value: null },
+]
+
+export const eoppyList = [
+    {label: "1" , value: 1 },
+    {label: "empty" , value: null },
+]
+
+export const odipyList = [
+    {label: "1" , value: 1 },
+    {label: "empty" , value: null },
+]
+
+export const mohList = [
+    {label: "1" , value: 1 },
+    {label: "empty" , value: null },
+]
+
 
