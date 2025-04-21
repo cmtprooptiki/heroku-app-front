@@ -4,7 +4,6 @@ import FilterMap from './FilterMap';
 import {Link} from "react-router-dom"
 import axios from 'axios'
 import { useSelector } from 'react-redux';
-import '../../buildinglist.css';
 import apiBaseUrl from '../../apiConfig';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -31,8 +30,9 @@ import { HcprovidersMap2 } from './HcprovidersMap2';
 import { HcprovidersMap3 } from './HcprovidersMap3';
 import { headers } from './headersHCProvidersConfig';  // Import the header configuration
 import FilterHCProviders from './FilterHCProviders';
-import { HcprovidersMap } from './HcprovidersMap';
-import "./datatable2-custom.css"; // Your custom styles
+// import { HcprovidersMap } from './HcprovidersMap';
+
+import "../../css/datatable.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons"; // FontAwesome Swap Icon
@@ -43,7 +43,7 @@ import HospitalTable from './HospitalTable';
 import { Slider } from "primereact/slider";
 
 import { TabView, TabPanel } from "primereact/tabview";
-import CircleLayerComponent from './testmap';
+// import CircleLayerComponent from './testmap';
 
 import { ConfirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog /> component
 import { confirmDialog } from 'primereact/confirmdialog'; // For confirmDialog method
@@ -905,6 +905,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                         <DataTable 
                             value={filteredHospitals.filter(hospital => hospital.Name_GR !== selectedHospital)} 
                             paginator rows={10} 
+                            showGridlines
                             globalFilter={globalFilter}
                             emptyMessage="No Health Units found within the selected distance."
                         >
@@ -1009,16 +1010,17 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
             style={{textAlign:'center'}}
             tableStyle={{ minWidth: '50rem' }}
             bodyStyle={{textAlign:"center"}}
+            showGridlines
             >
             <Column selectionMode="multiple" style={{textAlign:"center" }} frozen></Column>
 
             <Column className='font-bold' field="id" header="id" sortable  style={{ color: 'black' ,textAlign:'center', minWidth: "2rem"}} frozen ></Column>
-           
+            <Column field="Name_GR" style={{textAlign:"center", minWidth: "5rem" }} header={customHeader(headers.Name_GR.label, headers.Name_GR.description, "Name_GR")} filter filterField='Name_GR' filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.Name_GR)} itemTemplate={ItemTemplate} />)} showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} frozen></Column>
+
             <Column field="ype" style={{textAlign:"center", minWidth: "5rem" }} header={customHeader(headers.ype.label, headers.ype.description, "ype")}  filter = {true} filterField='ype' showFilterMatchModes = {false} filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.ype)} itemTemplate={ItemTemplate} />)} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} ></Column>
             <Column field="Q4ALL_code" style={{textAlign:"center", minWidth: "3rem" }} header={customHeader(headers.Q4ALL_code.label, headers.Q4ALL_code.description, "Q4ALL_code")}  filter filterField='Q4ALL_code' showFilterMatchModes = {false}   filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.Q4ALL_code)} itemTemplate={ItemTemplate} />)} body={q4all_Ind_number_BodyTemplate} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} ></Column>
             <Column field="type_Of_Hcp" style={{textAlign:"center", minWidth: "2rem" }} header={customHeader(headers.type_Of_Hcp.label, headers.type_Of_Hcp.description, "type_Of_Hcp")} filter filterField='type_Of_Hcp' 
                         filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.type_Of_Hcp)} itemTemplate={ItemTemplate}  />)} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}  showFilterMatchModes={false}></Column>
-            <Column field="Name_GR" style={{textAlign:"center", minWidth: "5rem" }} header={customHeader(headers.Name_GR.label, headers.Name_GR.description, "Name_GR")} filter filterField='Name_GR' filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.Name_GR)} itemTemplate={ItemTemplate} />)} showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} ></Column>
             <Column field="Name_EN" style={{textAlign:"center", minWidth: "5rem" }} header={customHeader(headers.Name_EN.label, headers.Name_EN.description, "Name_EN")}filter filterField='Name_EN' filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.Name_EN)} itemTemplate={ItemTemplate} />)} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} showFilterMatchModes={false}></Column>
             <Column field="category_As_Per_HealthAtlas"  style={{textAlign:"center", minWidth: "3rem" }} header={customHeader(headers.category_As_Per_HealthAtlas.label, headers.category_As_Per_HealthAtlas.description ,"category_As_Per_HealthAtlas")} filter filterField='category_As_Per_HealthAtlas' filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.category_As_Per_HealthAtlas)} itemTemplate={ItemTemplate}/>)} showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="category_As_Per_Sha_2011_Elstat" style={{textAlign:"center", minWidth: "5rem" }}  header={customHeader(headers.category_As_Per_Sha_2011_Elstat.label,headers.category_As_Per_Sha_2011_Elstat.description,"category_As_Per_Sha_2011_Elstat")} filter itemTemplate={ItemTemplate} showFilterMatchModes={false} filterField='category_As_Per_Sha_2011_Elstat' editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>

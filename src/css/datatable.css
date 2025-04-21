@@ -1,0 +1,550 @@
+/* Custom table container */
+.datatable-container {
+    margin-top: 20px;
+    
+      padding: 20px;
+      background-color:rgba(255, 255, 255, 1);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Header customization */
+    .p-datatable-header {
+      font-size: 1.5rem;
+      font-family: "Averta-Semibold", sans-serif;
+      color: #1400b9;
+      /* border-bottom: 2px solid #dddddd!important; */
+      padding: 10px;
+      border: unset;
+    }
+    
+    /* Row customization */
+    .p-datatable .p-datatable-tbody > tr {
+      background-color: #ffffff !important;
+      border-bottom: 1px solid #dddddd;
+    }
+    
+    .p-datatable .p-datatable-tbody > tr:hover {
+      background-color: #f1f7ff;
+    }
+    
+    /* Action buttons */
+    .p-button-rounded {
+      font-size: 0.9rem;
+    }
+    
+    .p-button-success {
+      background-color: #28a745;
+      border: none;
+    }
+    
+    .p-button-danger {
+      background-color: #dc3545;
+      border: none;
+    }
+    
+    .p-datatable .p-datatable-header {
+      background: #ffffff;
+      color: #495057;
+      /* border: 1px solid #ffffff;
+      border-width: 1px 0 1px 0; */
+      padding: 1rem 1rem;
+      font-weight: 600;
+  }
+  
+  /* table headers*/
+    .p-datatable .p-datatable-thead > tr > th {
+      font-family: Poppins;
+      /* padding: 1rem 1rem; */
+      /* border: 1px solid red; */
+      /* border-width: 3px 3px 3px 3px !important; */
+      font-weight: 500;
+      line-height: 21px;
+      text-align: center;
+      font-size:14px;
+      color: rgb(192, 181, 189);
+      background: #f7f7f7!important;
+      transition: box-shadow 0.2s;
+  }
+  
+  
+  /* .p-datatable-header {
+      font-size: 1.5rem;
+      font-family: "Averta-Semibold", sans-serif;
+      color: #1400b9;
+      padding: 10px;
+  } */
+ 
+  .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+      font-family: Poppins;
+      font-size:12px;
+      line-height: 12px;
+      font-weight: 500;
+      background: rgba(18, 0, 147, 1);
+      border-color: rgba(18, 0, 147, 1);
+      color: #ffffff;
+  }
+  
+  .p-paginator .p-paginator-pages .p-paginator-page {
+      font-family: Poppins;
+      font-size:12px;
+      line-height: 12px;
+      font-weight: 500;
+      background-color: #6662621a;
+      border: 0 none;
+      color: rgba(64, 75, 82, 1);
+      min-width: 2.357rem;
+      height: 2.357rem;
+      margin: 0.143rem;
+      transition: box-shadow 0.2s;
+      border-radius: 3px;
+  }
+  
+  .p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+      background-color: #6662621a;
+      border: 0 none;
+      color: rgba(64, 75, 82, 1);
+      min-width: 2.357rem;
+      height: 2.357rem;
+      margin: 0.143rem;
+      transition: box-shadow 0.2s;
+      border-radius: 3px;
+  }
+  .p-inputtext {
+      color: rgba(181, 183, 192, 1);
+      background: rgba(249, 251, 255, 1);
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+  }
+  
+  .p-button{
+      color: rgba(181, 183, 192, 1);
+      background: rgba(249, 251, 255, 1);
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+  }
+  
+  .p-button2 {
+      color: rgba(22, 192, 152, 1);
+      background: #fff;
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+  }
+  
+  .p-button3 {
+      color: rgb(255, 255, 255);
+      background: #a50000;
+      border: 1px solid #a50000;
+      border-radius: 10px;
+  }
+  
+  .p-inputtext {
+      font-family: Poppins;
+      font-size:14px;
+      line-height: 21px;
+      color: rgb(0 0 0);
+      font-size: 14px;
+      background: rgba(249, 251, 255, 1);
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+  }
+  
+  .p-dropdown-item{
+      font-family: Poppins;
+      font-size:14px;
+      line-height: 21px;
+      color: rgb(0 0 0);
+      font-size: 14px;
+  }
+  
+  .p-dropdown-label {
+    display: block;
+    white-space: initial;
+    overflow: hidden;
+    flex: 1 1 auto;
+    width: 100%!important;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+  
+  .kpi-section-card {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Main Flex Layout */
+  .kpi-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+  }
+  
+  /* KPI Items */
+  .kpi-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    flex: 1; /* Ensures equal space distribution */
+    min-width: 250px; /* Prevents elements from becoming too small */
+  }
+  
+  .kpi-icon {
+    background-color: #eafff0; /* Light green background */
+    color: #34a853; /* Green color for icons */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  
+  .kpi-details {
+    text-align: left;
+  }
+  
+  .kpi-label {
+    font-size: 16px;
+    color: #6c757d; /* Light gray text */
+  }
+  
+  .kpi-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 0;
+    color: #000;
+  }
+  
+  .kpi-trend {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+  }
+  
+  .kpi-trend.up {
+    color: #34a853;
+  }
+  
+  .kpi-trend.down {
+    color: #ea4335;
+  }
+  
+  /* Separator */
+  .kpi-separator {
+    width: 1px;
+    background-color: #e0e0e0; /* Light gray for separators */
+    height: 60px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .kpi-section {
+        flex-direction: column; /* Stacks items vertically */
+        gap: 30px; /* Add extra spacing between items */
+    }
+  
+    .kpi-separator {
+        display: none; /* Remove separators on smaller screens */
+    }
+  
+    .kpi-item {
+        justify-content: flex-start;
+        flex: none; /* Remove equal spacing for stacked layout */
+        width: 100%; /* Ensure full width */
+    }
+  }
+  
+  .p-datatable .p-datatable-tbody > tr > td {
+    font-family: Poppins;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    /* color: rgba(41, 45, 50, 1); */
+    /* border: 1px solid #5e5e5e; */
+    /* border-width: 0 0 1px 0; */
+    /* border-width:unset!important; */
+    /* padding: 1rem 1rem; */
+  
+    /* Add these for text truncation */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px; /* Adjust as needed */
+  }
+  
+  /*_________________________________________________________________________*/
+
+  /* Custom table container */
+/* .datatable-container {
+    margin-top: 20px;
+  
+
+    margin-top: 20px;
+    padding-top: 93px;
+    padding-left: 108px;
+    padding-right: 108px;
+    padding-bottom: 93px;
+      background-color:rgba(255, 255, 255, 1);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    } */
+    
+    /* Header customization */
+    /* .p-datatable-header {
+      font-size: 1.5rem;
+      font-family: "Averta-Semibold", sans-serif;
+      color: #1400b9;
+      border-bottom: 2px solid #dddddd!important;
+      padding: 10px;
+    } */
+    
+    /* Row customization */
+    /* .p-datatable .p-datatable-tbody > tr {
+      background-color: #ffffff !important;
+      border-bottom: 1px solid #dddddd;
+    } */
+    
+    /* .p-datatable .p-datatable-tbody > tr:hover {
+      background-color: #f1f7ff;
+    } */
+    
+    /* Action buttons */
+    /* .p-button-rounded {
+      font-size: 0.9rem;
+    }
+    
+    .p-button-success {
+      background-color: #28a745;
+      border: none;
+    }
+    
+    .p-button-danger {
+      background-color: #dc3545;
+      border: none;
+    } */
+    
+    /* .p-datatable .p-datatable-header {
+      background: #ffffff;
+      color: #495057;
+     
+      padding: 1rem 1rem;
+      font-weight: 600;
+  } */
+  
+  
+    /* .p-datatable .p-datatable-thead > tr > th {
+      font-family: Poppins;
+      text-align: left;
+      padding: 1rem 1rem;
+  
+      font-weight: 500;
+      line-height: 21px;
+      text-align: center;
+      font-size:14px;
+      color: rgba(181, 183, 192, 1);
+      background: #ffff;
+      transition: box-shadow 0.2s;
+  } */
+  
+  /* .p-datatable .p-datatable-tbody > tr > td {
+      font-family: Poppins;
+      text-align: left;
+      font-size:14px;
+      line-height: 21px;
+      font-weight: 500;
+  
+      color:rgba(41, 45, 50, 1);
+      border-width: 0 0 1px 0;
+      padding: 1rem 1rem;
+  }
+   */
+  .p-datatable-header {
+      font-size: 1.5rem;
+      font-family: "Averta-Semibold", sans-serif;
+      color: #1400b9;
+      border-bottom: unset!important;
+      padding: 10px;
+  }
+  
+  .p-datatable .p-paginator-bottom {
+      border-width: 0 0 0 0; 
+      border-radius: 0;
+      /* border: "unset" !important; */
+  }
+  
+  
+  /* .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+      font-family: Poppins;
+      font-size:12px;
+      line-height: 12px;
+      font-weight: 500;
+      background: rgba(18, 0, 147, 1);
+      border-color: rgba(18, 0, 147, 1);
+      color: #ffffff;
+  }
+  
+  .p-paginator .p-paginator-pages .p-paginator-page {
+      font-family: Poppins;
+      font-size:12px;
+      line-height: 12px;
+      font-weight: 500;
+      background-color: #6662621a;
+      border: 0 none;
+      color: rgba(64, 75, 82, 1);
+      min-width: 2.357rem;
+      height: 2.357rem;
+      margin: 0.143rem;
+      transition: box-shadow 0.2s;
+      border-radius: 3px;
+  }
+  
+  .p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+      background-color: #6662621a;
+      border: 0 none;
+      color: rgba(64, 75, 82, 1);
+      min-width: 2.357rem;
+      height: 2.357rem;
+      margin: 0.143rem;
+      transition: box-shadow 0.2s;
+      border-radius: 3px;
+  } */
+  /* .p-inputtext {
+      color: rgba(181, 183, 192, 1);
+      background: rgba(249, 251, 255, 1);
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+  }
+  
+  .p-button{
+      color: rgba(181, 183, 192, 1);
+      background: rgba(249, 251, 255, 1);
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+  }
+  
+  .p-button2 {
+      color: rgba(22, 192, 152, 1);
+      background: #fff;
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+  }
+  
+  .p-button3 {
+      color: rgb(255, 255, 255);
+      background: #a50000;
+      border: 1px solid #a50000;
+      border-radius: 10px;
+  }
+  
+  .p-inputtext {
+      font-family: Poppins;
+      font-size:14px;
+      line-height: 21px;
+      color: rgb(0 0 0);
+      font-size: 14px;
+      background: rgba(249, 251, 255, 1)!important;
+      border: 0px solid #ffffff !important;
+      border-radius: 10px;
+  }
+  
+  .p-dropdown-item{
+      font-family: Poppins;
+      font-size:14px;
+      line-height: 21px;
+      color: rgb(0 0 0);
+      font-size: 14px;
+  } */
+  
+ 
+ 
+  
+
+  .custom-filter-dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.custom-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    color: black; /* Adjust color as needed */
+    font-weight: 500;
+}
+
+.filter-icon {
+    font-size: 14px; /* Adjust icon size */
+    color: black; /* Adjust icon color */
+}
+
+.custom-multiselect .p-multiselect-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+}
+
+.title {
+  font-family: Poppins;
+  font-size:32;
+  color:black;
+  font-weight:600;
+}
+
+
+.p-multiselect.p-multiselect-chip .p-multiselect-token {
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  background: unset;
+  color: green;
+  border-radius: 16px;}
+
+
+  .card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: unset;
+    border-radius: .25rem;
+}
+/* th.p-frozen-column
+{
+  background:rgb(240, 13, 88);
+
+} */
+
+
+
+.p-frozen-column {
+
+  background:rgba(249, 251, 255, 1);
+}
+
+/* 
+.multiselect-textarea-style .p-multiselect-token {
+  white-space: normal;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  margin: 0.2rem;
+} */
+
+.multiselect-textarea-style .p-multiselect-label{
+  display: grid;
+}

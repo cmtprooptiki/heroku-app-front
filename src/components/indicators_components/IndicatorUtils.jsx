@@ -89,14 +89,14 @@ export const QoCOfficeReportlist = [
     { label: 'Equity', value: 'Equity' },
     { label: 'User experience', value: 'User experience' },
     { label: 'Effectiveness', value: 'Effectiveness' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
     { label: 'Safety', value: 'Safety' }
 ];
 
 export const prioritylist = [
     { label: '1st priority', value: '1' },
     { label: '2nd priority', value: '2' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
     { label: '3rd priority', value: '3' }
 ];
 
@@ -104,7 +104,7 @@ export const prioritylist = [
 export const data_collection_list = [
     { label: 'AUTOMATED', value: 'AUTOMATED' },
     { label: 'MANUAL', value: 'MANUAL' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
     { label: 'AUTOMATED NEW / INNOVATIVE', value: 'AUTOMATED NEW / INNOVATIVE' }
 ];
 
@@ -158,32 +158,32 @@ export const forPilotlist = [
 
 export const dpoList = [
     {label: "1" , value: "1" },
-    {label: "empty" , value: "" },
+    {label: "empty" , value: '' },
 ]
 
 export const idikaList = [
     {label: "1" , value: "1" },
-    {label: "empty" , value: "" },
+    {label: "empty" , value: '' },
 ]
 
 export const keteknyList = [
     {label: "1" , value: "1" },
-    {label: "empty" , value: "" },
+    {label: "empty" , value: '' },
 ]
 
 export const eoppyList = [
     {label: "1" , value: "1" },
-    {label: "empty" , value: "" },
+    {label: "empty" , value: '' },
 ]
 
 export const odipyList = [
     {label: "1" , value: "1" },
-    {label: "empty" , value: "" },
+    {label: "empty" , value: '' },
 ]
 
 export const mohList = [
     {label: "1" , value: "1" },
-    {label: "empty" , value: "" },
+    {label: "empty" , value: '' },
 ]
 
 

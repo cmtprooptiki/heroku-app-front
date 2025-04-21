@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { getMe } from '../features/authSlice';
 
 
-import '../dashboard.css';
+// import '../dashboard.css';
 
 
 import IndicatorsList from '../components/indicators_components/IndicatorsList';

@@ -30,7 +30,8 @@ import {
 
 import { Dropdown} from "primereact/dropdown";
 import { InputNumber } from "primereact/inputnumber";
-
+import { InputTextarea } from 'primereact/inputtextarea';
+// import { memo } from "react";
 
 const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
 {
@@ -317,7 +318,7 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                 // Handle dropdown fields
                 if (newValue) {
                     console.log("dpolist is newvalue:",newValue)
-                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; 
                     validEdit = true;
                     
                 } 
@@ -331,7 +332,7 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                 // Handle dropdown fields
                 if (newValue) {
                     console.log("idika is newvalue:",newValue)
-                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; 
                     validEdit = true;
                     
                 } 
@@ -344,7 +345,7 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                 // Handle dropdown fields
                 if (newValue) {
                     console.log("ketekny is newvalue:",newValue)
-                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; 
                     validEdit = true;
                     
                     
@@ -358,7 +359,7 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                 // Handle dropdown fields
                 if (newValue) {
                     console.log("eoppy is newvalue:",newValue)
-                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; 
                     validEdit = true;
                     
                     
@@ -372,7 +373,7 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                 // Handle dropdown fields
                 if (newValue) {
                     console.log("odipy is newvalue:",newValue)
-                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; 
                     validEdit = true;
                     
                     
@@ -386,7 +387,7 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                 // Handle dropdown fields
                 if (newValue) {
                     console.log("moh is newvalue:",newValue)
-                    rowData[field] = newValue.value === null ? ( newValue = null) : newValue; 
+                    rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; 
                     validEdit = true;
                     
                     
@@ -541,39 +542,92 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                 return true; // Allow 'user_Id' to be null or not
                 });
             };
-        
+            // const TextEditor = React.memo(({ value, onChange }) => {
+            //     return <InputText value={value} onChange={onChange} />;
+            //   });
+            const textEditor = (options) => {
+                const handleInput = (e) => {
+                    const textarea = e.target;
+                    textarea.style.width = "320px"; // Reset height to recalculate
+                    // textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height dynamically
+                    options.editorCallback(textarea.value);
+                };
+         
+                return (
+         
+                    <InputTextarea
+                    autoResize
+                    value={options.value || ""}
+                    onChange={handleInput}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            e.target.blur(); // To trigger onCellEditComplete
+                        }
+                    }}
+                    autoFocus
+                    rows={5} // Use 1 for better auto-resize behavior
+                    cols={30}
+                    style={{ resize: 'both', overflow: 'auto', minWidth: "100px", maxWidth: "100%" }} // Add this line
+                />
+                );
+            };
 
-    const textEditor = (options) => {
-        const handleInput = (e) => {
-            const textarea = e.target;
-            textarea.style.height = "auto"; // Reset height to recalculate
-            textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height dynamically
-            options.editorCallback(textarea.value);
-        };
+            // const textEditor = memo(({ options }) => {
+            //     const handleInput = (e) => {
+            //         options.editorCallback(e.target.value);
+            //     };
+            
+            //     return (
+            //         <InputTextarea
+            //             autoResize
+            //             value={options.value || ""}
+            //             onChange={handleInput}
+            //             onKeyDown={(e) => {
+            //                 if (e.key === 'Enter') e.target.blur(); // Exit edit mode
+            //             }}
+            //             autoFocus
+            //             rows={3}
+            //             cols={30}
+            //             style={{
+            //                 resize: 'vertical',
+            //                 overflow: 'auto',
+            //                 minWidth: "150px",
+            //                 maxWidth: "100%"
+            //             }}
+            //         />
+            //     );
+            // });
+    // const textEditor = (options) => {
+    //     const handleInput = (e) => {
+    //         const textarea = e.target;
+    //         textarea.style.height = "auto"; // Reset height to recalculate
+    //         textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height dynamically
+    //         options.editorCallback(textarea.value);
+    //     };
 
-        return (
-            <textarea
-                value={options.value || ""}
-                onChange={handleInput}
-                 onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                    e.target.blur(); // This will trigger onCellEditComplete
-                }
-            }}
-            autoFocus
-                style={{
-                    width: "100%",
-                    minHeight: "50px",
-                    maxHeight: "200px", // Optional, to limit extreme expansion
-                    resize: "both", // Allow the user to resize the editor
-                    overflow: "hidden", // Hide overflow while expanding
-                    padding: "10px", // Adjust padding
-                    boxSizing: "border-box", // Include padding in width/height calculations
-                    fontSize: "inherit", // Match table font size
-                }}
-            />
-        );
-    };
+    //     return (
+    //         <textarea
+    //             value={options.value || ""}
+    //             onChange={handleInput}
+    //              onKeyDown={(e) => {
+    //             if (e.key === 'Enter') {
+    //                 e.target.blur(); // This will trigger onCellEditComplete
+    //             }
+    //         }}
+    //         autoFocus
+    //             style={{
+    //                 width: "100%",
+    //                 minHeight: "50px",
+    //                 maxHeight: "200px", // Optional, to limit extreme expansion
+    //                 resize: "both", // Allow the user to resize the editor
+    //                 overflow: "hidden", // Hide overflow while expanding
+    //                 padding: "10px", // Adjust padding
+    //                 boxSizing: "border-box", // Include padding in width/height calculations
+    //                 fontSize: "inherit", // Match table font size
+    //             }}
+    //         />
+    //     );
+    // };
 
     const generalBodyTemplate = (rowData,list,field) => {
         const field1 = list.find((cat) => cat.value === rowData.field);
@@ -599,6 +653,8 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                 </div>
             );
         };
+
+    
 
         return {customHeader, renderColumnHeader, onCellEditComplete, cellEditor, generalBodyTemplate, ItemTemplate, q4all_Ind_number_BodyTemplate}
     }

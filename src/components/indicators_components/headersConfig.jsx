@@ -185,7 +185,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
     //     description: "Search by Extra Column 2"
     // },
     periodicity: {
-        label: "Periodicity (frequency of measurement) ",
+        label: "Periodicity (frequency of measurement)",
         description: "How often the data for this indicator is collected, e.g., weekly, monthly, quarterly, annually, etc."
     },
     data_Collection_Steps: {
@@ -227,7 +227,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
     //     description: "The origin of the data used to calculate the indicator, such as patient records, surveys, or administrative data."
     // },
     it_System_Source: {
-        label: "IT system/data source ",
+        label: "IT system/data source",
         description: "The origin of the data used to calculate the indicator, such as patient records, surveys, or administrative data. Exact IT system "
     },
     reference_Value_Target: {
@@ -358,7 +358,7 @@ AUTOMATED NEW / INNOVATIVE: Data needs to be collected in an innovative manner (
 // N/A - this "SELECTED INDICATOR" is to be used but does not need to be included in the pilot.`
 //     },
     opinion_from_ODIPY_Other_experts: {
-        label: "Piloting Phase: Opinion from ODIPY/Other experts ",
+        label: "Piloting Phase: Opinion from ODIPY/Other experts",
         description: "Opinion from ODIPY, and any other experts, including the endorsement/refusal from HealthIQ mission experts."
     },
     pilot_outcome: {

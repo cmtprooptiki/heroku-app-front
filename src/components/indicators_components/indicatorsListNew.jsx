@@ -32,12 +32,19 @@ import ColumnsConfig from './ColumnsConfig';
 import { ConfirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog /> component
 import { confirmDialog } from 'primereact/confirmdialog'; // For confirmDialog method
 import { Toast } from 'primereact/toast';
+import FormEditIndicator from './FormEditIndicator';
+import { Dialog } from 'primereact/dialog'; // Import Dialog
+
+import { createContext } from 'react';
+
+export const dialogContest =createContext();
 
 
-const IndicatorsList = () => {
+
+const IndicatorsListNew = () => {
     const [indicators, setIndicators] = useState([]);
 
-    // const [columnNames, setColumnNames] = useState(['id', 'percentage']);
+    const [columnNames, setColumnNames] = useState(['id', 'percentage', "q4all_Ind_number","indicator_name"]);
 
     const [filters, setFilters] = useState(initFiltersConfig);
 
@@ -46,6 +53,7 @@ const IndicatorsList = () => {
   
     const [filteredIndicators, setFilteredIndicators] = useState([]);
     const [RowsAffected, setRowsAffected] = useState(indicators.length)
+    const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
 
     const [indicator_name, setIndicators_Name] = useState([])
     const [dpolist, setDpolist] = useState([])
@@ -81,12 +89,15 @@ const IndicatorsList = () => {
 
     const [selectedIndicator, setSelectedIndicator] = useState([]);
 
+    const[saved,setSaved]=useState(true)
+
+
     
 
 
     const columnOrder = [
-        "q4all_Ind_number",
-        "indicator_name",
+        // "q4all_Ind_number",
+        // "indicator_name",
         "name_of_selected_indicator_en",
         "name_of_selected_indicator_gr",
         "shortlist_indicators",
@@ -148,7 +159,77 @@ const IndicatorsList = () => {
         "pilot_success_criteria"
       ];
 
-    const [visibleColumns, setVisibleColumns] = useState(columnOrder.slice(0, 15)); // Show 15 columns initially
+
+      const columnLabelMap = {
+        name_of_selected_indicator_en: "Indicator Name for DPO list (EN)",
+        name_of_selected_indicator_gr: "Indicator Name for DPO list (GR)",
+        // indicator_name: "Indicator Descriptive Name (EN)",
+        // q4all_Ind_number: "Q4All Ind number",
+        shortlist_indicators: "Type of Indicator (M, A, P)",
+        indicator_cluster: "Indicator Cluster",
+        status: "Status",
+        catergory_of_Indicator: "Source of proposal for the indicator",
+        forPilot: "ForPilot",
+        publicationsoptions: "Publications Options",
+        internal_observations: "Internal Observations",
+        observations_from_meetings: "Observations from Meetings",
+        decision_and_next_steps: "Decisions and NextSteps",
+        dpolist: "DPOList",
+        dpo_org_source1: "DPO Org Source1",
+        dpo_org_source2: "DPO Org Source2",
+        dpo_org_source3: "DPO Org Source3",
+        idika: "IDIKA",
+        ketekny: "KETEKNY",
+        eoppy: "EOPPY",
+        odipy: "ODIPY",
+        moh: "MoH",
+        dimension: "Dimension",
+        type_of_healthcare_providers_D1_D7: "Type of healthcare providers/domains (D1-D7)",
+        cross_Cutting_Dimensions_A_I: "Cross Cutting Dimensions (A-I)",
+        cross_Cutting_Dimensions_Inputs_Process_Outputs: "Cross Cutting Dimensions (Inputs-Process - Outputs)",
+        dimensions_of_Quality_QoCOfficeReport: "6 dimensions of Quality (QoCOfficeReport)",
+        priority: "Priority",
+        data_collection: "Data collection process types",
+        collecting_National_Organization: "Collecting National Organization",
+        proponent_Organization_WG: "Proponent Organization/WG",
+        rationale_Description: "Rationale (Description)",
+        objective: "Objective",
+        calculation_Formula: "Calculation Formula",
+        numerator: "Numerator",
+        numerator_Definitions: "Numerator Definitions",
+        data_fields_vk: "Data Fields (VK)",
+        denominator: "Denominator",
+        denominator_Definitions: "Denominator Definitions",
+        unit_of_Measurement: "Unit of Measurement",
+        target_Population: "Target Population",
+        periodicity: "Periodicity (frequency of measurement)",
+        data_Collection_Steps: "Data Collection Steps",
+        legal_Requirements: " Legal Requirements",
+        responsible_for_Monitoring: "Responsible for Monitoring",
+        deadline_Reporting: "Deadline Reporting",
+        supervisor_Body: " Supervisor Body",
+        management_Entity: "Management Entity",
+        applicable_period: "Applicable period",
+        it_System_Source: "IT system/data source ",
+        reference_Value_Target: "Reference Value (Target)",
+        base_Value: "Base Value",
+        notes: "Notes",
+        sources_and_Further_Reading: "Sources and Further Reading",
+        early_demo_dash_Id: "EarlyDemo Dashboard ID",
+        early_demo_dash_ind_Id: "EarlyDemo Dashbord Indicator ID",
+        early_demo_dash_source: "EarlyDemo Dashboard SOURCE",
+        observation_gr: "Observation for Visualization /Display",
+        opinion_from_ODIPY_Other_experts: "Piloting Phase: Opinion from ODIPY/Other experts ",
+        pilot_outcome: "PILOT OUTCOME",
+        pilot_success_criteria: "Pilot success criteria ?"
+      };  
+
+
+      const orderedColumnNames = [...columnNames].sort(
+        (a, b) => columnOrder.indexOf(a) - columnOrder.indexOf(b)
+      );
+
+    const [visibleColumns, setVisibleColumns] = useState(columnOrder.slice(35, 60)); // Show 15 columns initially
 
     console.log("first indicator,",selectedIndicator)
 
@@ -163,14 +244,55 @@ const IndicatorsList = () => {
             // getColumnNames()
             getIndicatorsByUser()
         }else if(user!=null && (user.role=="admin" ||user.role=="indicator")){
-            // getColumnNames()
+            getColumnNames()
+            
             getIndicators()
         }
+        
        
         setLoading(false);
         setRowsAffected(indicators.length)
-        initFilters();
-    },[user]);
+
+        // initFilters();
+    },[user,saved]);
+    useEffect(() => {
+        initFilters(); // run only once on mount
+      }, []);
+
+    const [defaultCall,setDefaultCall] =useState(["q4all_Ind_number","indicator_name"])
+
+    useEffect(()=>{
+
+        const combined = Array.from(new Set(["q4all_Ind_number", "indicator_name", ...selectedColumns]));
+        setDefaultCall(combined);
+
+    },[selectedColumns])
+
+
+    const getColumnNames = async()=>{
+        try {
+            const response = await axios.get(`${apiBaseUrl}/getcolumns`, {timeout: 5000});
+
+
+
+            const columns = response.data
+            .map((item) => item.column_name)
+            .filter((name) => name !== "user_Id")
+            .filter((name) => name !== "createdAt")
+            .filter((name) => name !== "updatedAt")
+            .filter((name) => name !== "id")
+            .filter((name) => name !== "q4all_Ind_number")
+            .filter((name) => name !== "indicator_name")
+            console.log("here is the database column nameS:",columns)
+
+            setColumnNames(columns);
+            
+        } catch (error) {
+            console.error('Error fetching data:', error);
+
+        }
+
+     } 
 
     useEffect(()=>{
         setfilledRows(indicators.filter(checkRow))
@@ -383,6 +505,8 @@ const IndicatorsList = () => {
                 percentage: calculateFilledPercentage(item), // Add percentage field
             }));
 
+            // setSelectedColumns(['q4all_Ind_number','indicator_name'])
+
 
             setfilledRows(parDataWithDates.filter(checkRow))
 
@@ -509,6 +633,18 @@ const IndicatorsList = () => {
                         
                         {user && user.role === "admin" && (
                             <>
+                                 <Button
+                                className='action-button'
+                                    icon="pi pi-pencil"
+                                    severity="info"
+                                    aria-label="edit"
+                                    onClick={() => {
+                                        setSelectedIndicatorId(id);
+                                        setSelectedType('Edit');
+                                        setDialogVisible(true);
+                                    }}
+                                    // onClick={() => edit(id)}
+                                />
                                 <Button
                                 className='action-button'
                                     icon="pi pi-trash"
@@ -726,7 +862,7 @@ const percentageTemplate = (rowData) => {
 
     return(
         <div>
-
+            <dialogContest.Provider value = {{saved, setSaved}}>
 <div className="p-4">
       
 
@@ -783,8 +919,21 @@ const percentageTemplate = (rowData) => {
         <div className="datatable-container">
 
         <div >
-        <h1 className='title' style={{font:'Poppins',fontSize:'22px',fontWeight:'600',lineHeight:'33px',color:'rgba(0, 0, 0, 1)'}}>Indicators Table</h1>
+        <h1 className='title' style={{font:'Poppins',fontSize:'22px',fontWeight:'600',lineHeight:'33px',color:'rgba(0, 0, 0, 1)'}}>Indicators Table 2.0</h1>
         <div className='d-flex align-items-center gap-4'>
+
+
+        <MultiSelect
+        value={selectedColumns}
+        options={orderedColumnNames.map((col) => ({
+            label: columnLabelMap[col] || col,
+            value: col
+        }))}
+        onChange={(e) => setSelectedColumns(e.value)}
+        placeholder="Select Columns"
+        display="chip"
+        className="w-full md:w-20rem"
+        />
 
 
 
@@ -820,14 +969,14 @@ const percentageTemplate = (rowData) => {
 
         <DataTable  
             value={indicators}    
-            editMode="cell" ref = {dt} 
+             ref = {dt} 
             onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  
                 console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}}
             paginator 
             stripedRows
             rows={25}
             showGridlines
-            
+             editMode="cell"
             // columnResizeMode='fit'
             // resizableColumns
             scrollable
@@ -842,6 +991,11 @@ const percentageTemplate = (rowData) => {
             selection={selectedIndicator} 
             onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
             selectionMode="checkbox"
+
+//             virtualScroll
+//   scrollDirection="both"
+
+//   virtualScrollerOptions={{ itemSize: 60 }}
             // virtualScrollerOptions={{ itemSize: 25 }} 
             >
 
@@ -849,10 +1003,13 @@ const percentageTemplate = (rowData) => {
 
             {/* <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }}  frozen></Column> */}
         
-            
-            {columnOrder.map((col) => (
+              {defaultCall.map((col) => (
+                              <Column key={col} {...allColumns2[col]}  />
+                            ))}
+
+            {/* {columnOrder.map((col) => (
                     <Column key={col} {...allColumns2[col]}   />
-                ))}
+                ))} */}
 
             {/* {visibleColumns.map(col => (
             <Column key={col} {...allColumns2[col]} />
@@ -871,7 +1028,16 @@ const percentageTemplate = (rowData) => {
             <Column header="Actions" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen />
 
  </DataTable>
+ 
+    <Dialog visible={dialogVisible} onHide={() => setDialogVisible(false)} modal style={{ width: '50vw' }} maximizable breakpoints={{ '960px': '80vw', '480px': '100vw' }}>
 
+        {selectedIndicatorId && (selectedType=='Edit') && (
+        <FormEditIndicator id={selectedIndicatorId} onHide={() => setDialogVisible(false)} />
+        )}
+        {/* {selectedParadoteaId && (selectedType=='Profile') && (
+        <FormProfileParadotea id={selectedParadoteaId} onHide={() => setDialogVisible(false)} />
+        )} */}
+    </Dialog>
 
 
     {/* Dialog for editing Paradotea */}
@@ -881,10 +1047,12 @@ const percentageTemplate = (rowData) => {
             </div>
         
      </div>
+     {saved}
 
     </div>
+    </dialogContest.Provider>
     </div>
     )
 }
 
-export default IndicatorsList;
+export default IndicatorsListNew;

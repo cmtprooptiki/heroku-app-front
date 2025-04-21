@@ -1,7 +1,7 @@
 /* Custom table container */
 .datatable-container {
   margin-top: 20px;
-
+  
     padding: 20px;
     background-color:rgba(255, 255, 255, 1);
     border-radius: 12px;
@@ -13,14 +13,14 @@
     font-size: 1.5rem;
     font-family: "Averta-Semibold", sans-serif;
     color: #1400b9;
-    border-bottom: 2px solid #dddddd!important;
+    /* border-bottom: 2px solid #dddddd!important; */
     padding: 10px;
   }
   
   /* Row customization */
   .p-datatable .p-datatable-tbody > tr {
     background-color: #ffffff !important;
-    border-bottom: 1px solid #dddddd;
+    /* border-bottom: 1px solid #dddddd; */
   }
   
   .p-datatable .p-datatable-tbody > tr:hover {
@@ -42,43 +42,44 @@
     border: none;
   }
   
-  .p-datatable .p-datatable-header {
+  /* .p-datatable .p-datatable-header {
     background: #ffffff;
     color: #495057;
     border: 1px solid #ffffff;
     border-width: 1px 0 1px 0;
     padding: 1rem 1rem;
     font-weight: 600;
-}
+} */
 
 
   .p-datatable .p-datatable-thead > tr > th {
     font-family: Poppins;
     text-align: left;
-    padding: 1rem 1rem;
-    border: 1px solid #e9ecef;
-    border-width: 0 0 1px 0;
+    /* padding: 1rem 1rem; */
+    /* border: 1px solid red; */
+    /* border-width: 3px 3px 3px 3px !important; */
     font-weight: 500;
     line-height: 21px;
     text-align: center;
     font-size:14px;
     color: rgba(181, 183, 192, 1);
-    background: #ffff;
+    background: #f7f7f7!important;
     transition: box-shadow 0.2s;
 }
-
+ /* 
 .p-datatable .p-datatable-tbody > tr > td {
     font-family: Poppins;
-    text-align: left;
-    border: 1px solid #e9ecef;
+    text-align: center;
+    border: 1px solid #ff0b0b;
     font-size:14px;
     line-height: 21px;
     font-weight: 500;
 
     color:rgba(41, 45, 50, 1);
     border-width: 0 0 1px 0;
+    border-width: unset!important;
     padding: 1rem 1rem;
-}
+}*/
 
 .p-datatable-header {
     font-size: 1.5rem;
@@ -87,12 +88,12 @@
     border-bottom: unset!important;
     padding: 10px;
 }
-
+/*
 .p-datatable .p-paginator-bottom {
-    border-width: 0 0 0 0; 
-    border-radius: 0;
+     border-width: 0 0 0 0; 
+    border-radius: 0; 
 }
-
+*/
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
     font-family: Poppins;
     font-size:12px;
@@ -173,6 +174,16 @@
     line-height: 21px;
     color: rgb(0 0 0);
     font-size: 14px;
+}
+
+.p-dropdown-label {
+  display: block;
+  white-space: initial;
+  overflow: hidden;
+  flex: 1 1 auto;
+  width: 100%!important;
+  text-overflow: ellipsis;
+  cursor: pointer;
 }
 
 .kpi-section-card {
@@ -268,3 +279,22 @@
       width: 100%; /* Ensure full width */
   }
 }
+
+.p-datatable .p-datatable-tbody > tr > td {
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  /* color: rgba(41, 45, 50, 1); */
+  /* border: 1px solid #5e5e5e; */
+  /* border-width: 0 0 1px 0; */
+  /* border-width:unset!important; */
+  padding: 1rem 1rem;
+
+  /* Add these for text truncation */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px; /* Adjust as needed */
+}
+

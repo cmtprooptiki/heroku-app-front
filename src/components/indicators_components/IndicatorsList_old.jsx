@@ -20,8 +20,7 @@ import { MultiSelect } from 'primereact/multiselect';
 
 import { initFiltersConfig } from './filtersConfig';
 // import FilterIndicators from './FilterIndicators';
-// import "./datatable-custom.css"; // Your custom styles
-import "../../css/datatable.css"
+//import "./datatable-custom.css"; // Your custom styles
 import TotalIndicators from '../../icons/Total indicators.svg'
 import indicatortwo from '../../icons/Group 301.svg'
 import indicatorthree from '../../icons/Group 302.svg'
@@ -37,8 +36,13 @@ import { Toast } from 'primereact/toast';
 const IndicatorsList = () => {
     const [indicators, setIndicators] = useState([]);
 
-    // const [columnNames, setColumnNames] = useState(['id', 'percentage']);
+    const [columnNames, setColumnNames] = useState(['id', 'percentage']);
+    // const [balanceFrozen, setBalanceFrozen] = useState(false);
+    // const [selectedFrozenColumnNames, setSelectedFrozenColumnNames] = useState(['selection','id', 'percentage']);
 
+    const [selectedColumns, setSelectedColumns] = useState([]); // User selected columns
+
+    // const [filters, setFilters] = useState(null);
     const [filters, setFilters] = useState(initFiltersConfig);
 
     const [loading, setLoading] = useState(true);
@@ -81,10 +85,72 @@ const IndicatorsList = () => {
 
     const [selectedIndicator, setSelectedIndicator] = useState([]);
 
-    
 
+    const columnLabelMap = {
+        name_of_selected_indicator_en: "Indicator Name for DPO list (EN)",
+        name_of_selected_indicator_gr: "Indicator Name for DPO list (GR)",
+        indicator_name: "Indicator Descriptive Name (EN)",
+        q4all_Ind_number: "Q4All Ind number",
+        shortlist_indicators: "Type of Indicator (M, A, P)",
+        indicator_cluster: "Indicator Cluster",
+        status: "Status",
+        catergory_of_Indicator: "Source of proposal for the indicator",
+        forPilot: "ForPilot",
+        publicationsoptions: "Publications Options",
+        internal_observations: "Internal Observations",
+        observations_from_meetings: "Observations from Meetings",
+        decision_and_next_steps: "Decisions and NextSteps",
+        dpolist: "DPOList",
+        dpo_org_source1: "DPO Org Source1",
+        dpo_org_source2: "DPO Org Source2",
+        dpo_org_source3: "DPO Org Source3",
+        idika: "IDIKA",
+        ketekny: "KETEKNY",
+        eoppy: "EOPPY",
+        odipy: "ODIPY",
+        moh: "MoH",
+        dimension: "Dimension",
+        type_of_healthcare_providers_D1_D7: "Type of healthcare providers/domains (D1-D7)",
+        cross_Cutting_Dimensions_A_I: "Cross Cutting Dimensions (A-I)",
+        cross_Cutting_Dimensions_Inputs_Process_Outputs: "Cross Cutting Dimensions (Inputs-Process - Outputs)",
+        dimensions_of_Quality_QoCOfficeReport: "6 dimensions of Quality (QoCOfficeReport)",
+        priority: "Priority",
+        data_collection: "Data collection process types",
+        collecting_National_Organization: "Collecting National Organization",
+        proponent_Organization_WG: "Proponent Organization/WG",
+        rationale_Description: "Rationale (Description)",
+        objective: "Objective",
+        calculation_Formula: "Calculation Formula",
+        numerator: "Numerator",
+        numerator_Definitions: "Numerator Definitions",
+        data_fields_vk: "Data Fields (VK)",
+        denominator: "Denominator",
+        denominator_Definitions: "Denominator Definitions",
+        unit_of_Measurement: "Unit of Measurement",
+        target_Population: "Target Population",
+        periodicity: "Periodicity (frequency of measurement)",
+        data_Collection_Steps: "Data Collection Steps",
+        legal_Requirements: " Legal Requirements",
+        responsible_for_Monitoring: "Responsible for Monitoring",
+        deadline_Reporting: "Deadline Reporting",
+        supervisor_Body: " Supervisor Body",
+        management_Entity: "Management Entity",
+        applicable_period: "Applicable period",
+        it_System_Source: "IT system/data source ",
+        reference_Value_Target: "Reference Value (Target)",
+        base_Value: "Base Value",
+        notes: "Notes",
+        sources_and_Further_Reading: "Sources and Further Reading",
+        early_demo_dash_Id: "EarlyDemo Dashboard ID",
+        early_demo_dash_ind_Id: "EarlyDemo Dashbord Indicator ID",
+        early_demo_dash_source: "EarlyDemo Dashboard SOURCE",
+        observation_gr: "Observation for Visualization /Display",
+        opinion_from_ODIPY_Other_experts: "Piloting Phase: Opinion from ODIPY/Other experts ",
+        pilot_outcome: "PILOT OUTCOME",
+        pilot_success_criteria: "Pilot success criteria ?"
+      };
 
-    const columnOrder = [
+      const columnOrder = [
         "q4all_Ind_number",
         "indicator_name",
         "name_of_selected_indicator_en",
@@ -147,8 +213,10 @@ const IndicatorsList = () => {
         "pilot_outcome",
         "pilot_success_criteria"
       ];
-
-    const [visibleColumns, setVisibleColumns] = useState(columnOrder.slice(0, 15)); // Show 15 columns initially
+      
+    const orderedColumnNames = [...columnNames].sort(
+        (a, b) => columnOrder.indexOf(a) - columnOrder.indexOf(b)
+      );
 
     console.log("first indicator,",selectedIndicator)
 
@@ -160,10 +228,10 @@ const IndicatorsList = () => {
     useEffect(()=>{
 
         if (user!=null && user.role=="user"){
-            // getColumnNames()
+            getColumnNames()
             getIndicatorsByUser()
         }else if(user!=null && (user.role=="admin" ||user.role=="indicator")){
-            // getColumnNames()
+            getColumnNames()
             getIndicators()
         }
        
@@ -268,28 +336,28 @@ const IndicatorsList = () => {
         });
       };
 
-    //  const getColumnNames = async()=>{
-    //     try {
-    //         const response = await axios.get(`${apiBaseUrl}/getcolumns`, {timeout: 5000});
+     const getColumnNames = async()=>{
+        try {
+            const response = await axios.get(`${apiBaseUrl}/getcolumns`, {timeout: 5000});
 
 
 
-    //         const columns = response.data
-    //         .map((item) => item.column_name)
-    //         .filter((name) => name !== "user_Id")
-    //         .filter((name) => name !== "createdAt")
-    //         .filter((name) => name !== "updatedAt")
-    //         .filter((name) => name !== "id")
-    //         console.log("here is the database column nameS:",columns)
+            const columns = response.data
+            .map((item) => item.column_name)
+            .filter((name) => name !== "user_Id")
+            .filter((name) => name !== "createdAt")
+            .filter((name) => name !== "updatedAt")
+            .filter((name) => name !== "id")
+            console.log("here is the database column nameS:",columns)
 
-    //         setColumnNames(columns);
+            setColumnNames(columns);
             
-    //     } catch (error) {
-    //         console.error('Error fetching data:', error);
+        } catch (error) {
+            console.error('Error fetching data:', error);
 
-    //     }
+        }
 
-    //  } 
+     } 
 
     //get data for admin
     const getIndicators= async() =>{
@@ -323,6 +391,9 @@ const IndicatorsList = () => {
             const unique_d1_d7 = [...new Set(indData.map(item => item.type_of_healthcare_providers_D1_D7 || ''))]
             setType_Of_Healthcare_D1_D7(unique_d1_d7)
 
+            // const unique_cross_Cutting_Dimensions_A_I = [...new Set(indData.map(item => item.cross_Cutting_Dimensions_A_I || ''))]
+            // console.log("cross list ai",unique_cross_Cutting_Dimensions_A_I)
+            // setCross_Cutting_Dimensions_A_I(unique_cross_Cutting_Dimensions_A_I)
 
             const unique_cross_Cutting_Dimensions_A_I = [
                 ...new Set(
@@ -336,6 +407,7 @@ const IndicatorsList = () => {
             // Optionally, set the state with the unique values
             setCross_Cutting_Dimensions_A_I(unique_cross_Cutting_Dimensions_A_I);
 
+            // const unique_Cross_Cutting_Dimensions_Inputs_Outputs = [...new Set(indData.map(item => item.cross_Cutting_Dimensions_Inputs_Process_Outputs	|| ''))]
 
             const unique_Cross_Cutting_Dimensions_Inputs_Outputs = [
                 ...new Set(
@@ -383,6 +455,7 @@ const IndicatorsList = () => {
                 percentage: calculateFilledPercentage(item), // Add percentage field
             }));
 
+            setSelectedColumns(['q4all_Ind_number','indicator_name'])
 
             setfilledRows(parDataWithDates.filter(checkRow))
 
@@ -397,37 +470,37 @@ const IndicatorsList = () => {
 
     const toast = useRef(null)
     
-    const accept = (id) => {
-        try {
-            deleteIndicator(id);
-            toast.current.show({ severity: 'success', summary: 'Deleted Successfully', detail: `Item ${id} has been deleted.` });
-        } catch (error) {
-            console.error('Failed to delete:', error);
-            toast.current.show({
-                severity: 'error',
-                summary: 'Error',
-                detail: 'Failed to delete the item. Please try again.',
-                life: 3000,
+        const accept = (id) => {
+            try {
+                deleteIndicator(id);
+                toast.current.show({ severity: 'success', summary: 'Deleted Successfully', detail: `Item ${id} has been deleted.` });
+            } catch (error) {
+                console.error('Failed to delete:', error);
+                toast.current.show({
+                    severity: 'error',
+                    summary: 'Error',
+                    detail: 'Failed to delete the item. Please try again.',
+                    life: 3000,
+                });
+            } 
+        };
+    
+        const reject = () => {
+            toast.current.show({ severity: 'warn', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+            getIndicators()
+        }
+    
+        const confirm = (id) => {
+            confirmDialog({
+                message: 'Do you want to delete this record?',
+                header: 'Delete Confirmation',
+                icon: 'pi pi-info-circle',
+                defaultFocus: 'reject',
+                acceptClassName: 'p-button-danger',
+                accept: () => accept(id),
+                reject: () => reject() // Optional
             });
-        } 
-    };
-
-    const reject = () => {
-        toast.current.show({ severity: 'warn', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
-        getIndicators()
-    }
-
-    const confirm = (id) => {
-        confirmDialog({
-            message: 'Do you want to delete this record?',
-            header: 'Delete Confirmation',
-            icon: 'pi pi-info-circle',
-            defaultFocus: 'reject',
-            acceptClassName: 'p-button-danger',
-            accept: () => accept(id),
-            reject: () => reject() // Optional
-        });
-    };
+        };
 
 
 
@@ -502,13 +575,80 @@ const IndicatorsList = () => {
 
     const ActionsBodyTemplate = (rowData) => {
         const id = rowData.id;
-   
+        const op = useRef(null);
+        const [hideTimeout, setHideTimeout] = useState(null);
+    
+        // Show overlay on mouse over
+        const handleMouseEnter = (e) => {
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                setHideTimeout(null);
+            }
+            op.current.show(e);
+        };
+    
+        // Hide overlay with delay on mouse leave
+        const handleMouseLeave = () => {
+            const timeout = setTimeout(() => {
+                op.current.hide();
+            }, 100); // Adjust delay as needed
+            setHideTimeout(timeout);
+        };
+    
         return (
             <div className="actions-container">
+                {/* Three dots button */}
+                {/* <Button 
+                    icon="pi pi-ellipsis-v" 
+                    className="p-button-text"
+                    aria-label="Actions"
+                    onMouseEnter={handleMouseEnter} 
+                    onMouseLeave={handleMouseLeave} 
+                /> */}
+    
+                {/* OverlayPanel containing action buttons in a row */}
+                {/* <OverlayPanel 
+                    ref={op} 
+                    onClick={() => op.current.hide()} 
+                    dismissable 
+                    onMouseLeave={handleMouseLeave} 
+                    onMouseEnter={() => {
+                        if (hideTimeout) clearTimeout(hideTimeout);
+                    }} 
+                > */}
                     <div className="flex flex-row gap-2">
+                        {/* Only show the Profile button for non-admin users */}
+                        {/* {user && user.role !== "admin" && (
+                            <Link to={`/paradotea/profile/${id}`}>
+                                <Button icon="pi pi-eye" severity="info" aria-label="User" />
+                            </Link>
+                        )} */}
                         
+                        {/* Show all action buttons for admin users */}
                         {user && user.role === "admin" && (
                             <>
+                                {/* <Button 
+                                className='action-button'
+                                    icon="pi pi-eye"
+                                    severity="info"
+                                    aria-label="User"
+                                    onClick={() => {
+                                        setSelectedIndicator(id);
+                                        setSelectedType('Profile');
+                                        setDialogVisible(true);
+                                    }}
+                                /> */}
+                                {/* <Button
+                                className='action-button'
+                                    icon="pi pi-pen-to-square"
+                                    severity="info"
+                                    aria-label="Edit"
+                                    onClick={() => {
+                                        setSelectedIndicator(id);
+                                        setSelectedType('Edit');
+                                        setDialogVisible(true);
+                                    }}
+                                /> */}
                                 <Button
                                 className='action-button'
                                     icon="pi pi-trash"
@@ -519,20 +659,13 @@ const IndicatorsList = () => {
                             </>
                         )}
                     </div>
+                {/* </OverlayPanel> */}
             </div>
         );
     };
-
-
-    const allColumns2 = ColumnsConfig(filteredIndicators, 
-        indicators, statusValue, dpolist, 
-        cross_Cutting_Dimensions_A_I, 
+    const allColumns2 = ColumnsConfig(filteredIndicators, indicators, statusValue, dpolist, cross_Cutting_Dimensions_A_I, 
         Cross_Cutting_Dimensions_Inputs_Outputs, 
-        filledRows,
-        category_of_Indicator); 
-
-
-
+        filledRows,category_of_Indicator); 
         // Pass the data
     const confirmMultipleDelete = () => {
         confirmDialog({
@@ -661,6 +794,13 @@ const IndicatorsList = () => {
 
 
 
+    // const calculateFilledPercentage = (rowData) => {
+    //     const totalFields = Object.keys(rowData).length; // Total number of fields in the row
+    //     const filledFields = Object.values(rowData).filter(value => value !== null && value !== '').length; // Count of filled fields
+    //     return ((filledFields / totalFields) * 100).toFixed(2); // Calculate percentage
+    // };
+
+// Template for the percentage column
 const percentageTemplate = (rowData) => {
     const percentage = calculateFilledPercentage(rowData);
     
@@ -686,8 +826,6 @@ const percentageTemplate = (rowData) => {
         </span>
     ); // Display percentage with color
 };
-
-
     FilterService.register('custom_cross_Cutting_Dimensions_A_I', (value, filter) => {
         // If no filter is applied (filter is null, undefined, or an empty array), show all rows
         if (!filter || filter.length === 0) {
@@ -721,15 +859,70 @@ const percentageTemplate = (rowData) => {
     });
 
 
+    const allColumnFields = ['indicator_name', 'q4all_Ind_number'];
+        const [frozenColumns, setFrozenColumns] = useState(['indicator_name', 'q4all_Ind_number']); // Initially frozen column(s)
+        const allColumnsFrozen = frozenColumns.length === allColumnFields.length;
         
+        // Function to toggle a column's frozen state
+        const toggleFreezeColumn = (fieldName) => {
+            setFrozenColumns((prev) =>
+                prev.includes(fieldName)
+                    ? prev.filter(col => col !== fieldName) // Unfreeze column if already frozen
+                    : [...prev, fieldName]                  // Freeze column if not frozen
+            );
+        };
+     // Handle apply button click
+//   const fetchIndicators = () => {
+//     if (selectedColumns.length === 0) {
+//       alert("Please select at least one column.");
+//       return;
+//     }
+
+//     axios
+//       .post(`${apiBaseUrl}/getIndByColumns`, { columnNames: selectedColumns })
+//       .then((response) => {
+//         setIndicators(response.data);
+//       })
+//       .catch((error) => console.error("Error fetching indicators:", error));
+//   };
 
 
+
+
+//   const allColumns = {
+
+// };
     return(
         <div>
 
 <div className="p-4">
       
+       {/* <MultiSelect
+            value={selectedFrozenColumnNames}
+            options={selectedColumns.map((col) => ({ label: col, value: col }))}
+            onChange={(e) => setSelectedFrozenColumnNames(e.value)}
+            placeholder="Freeze Columns"
+            display="chip"
+            className="w-full md:w-20rem mb-3"
+        /> */}
+      
+      {/* Apply Button */}
+      {/* <Button
+        label="Apply"
+        icon="pi pi-check"
+        onClick={fetchIndicators}
+        className="p-button-success mt-3"
+      /> */}
 
+      {/* Data Table */}
+      {/* {indicators.length > 0 && (
+        <div className="mt-4">
+          <h3>Results</h3>
+          <DataTable value={indicators} responsiveLayout="scroll">
+            {selectedColumns.map((col) => allColumns[col])}
+          </DataTable>
+        </div>
+      )} */}
     </div>
 
 
@@ -786,7 +979,46 @@ const percentageTemplate = (rowData) => {
         <h1 className='title' style={{font:'Poppins',fontSize:'22px',fontWeight:'600',lineHeight:'33px',color:'rgba(0, 0, 0, 1)'}}>Indicators Table</h1>
         <div className='d-flex align-items-center gap-4'>
 
+        <h3>Select Columns</h3>
 
+      
+{/* MultiSelect Dropdown */}
+{/* <MultiSelect
+  value={selectedColumns}
+  options={columnNames.map((col) => ({ label: col, value: col }))}
+  onChange={(e) => setSelectedColumns(e.value)}
+  placeholder="Select Columns"
+  display="chip"
+  className="w-full md:w-20rem"
+/> */}
+
+{/* <MultiSelect
+  value={selectedColumns}
+  options={columnNames.map((col) => ({
+    label: columnLabelMap[col] || col, // Display label
+    value: col // Actual value remains the original column name
+  }))}
+  onChange={(e) => setSelectedColumns(e.value)}
+  placeholder="Select Columns"
+  display="chip"
+  className="w-full md:w-20rem"
+/> */}
+
+<MultiSelect
+  value={selectedColumns}
+  options={orderedColumnNames.map((col) => ({
+    label: columnLabelMap[col] || col,
+    value: col
+  }))}
+  onChange={(e) => setSelectedColumns(e.value)}
+  placeholder="Select Columns"
+  display="chip"
+  className="w-full md:w-20rem"
+/>
+        
+        {/* {user && user.role ==="admin" && (
+        <Link to={"/indicators/add"} ><Button label="New Indicator row" className='p-button2 is-primary mb-2 rounded' icon="pi pi-plus-circle"/></Link>
+    )} */}
 
         {user && user.role === "admin" && (
                 <Button
@@ -821,58 +1053,46 @@ const percentageTemplate = (rowData) => {
         <DataTable  
             value={indicators}    
             editMode="cell" ref = {dt} 
-            onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  
-                console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}}
-            paginator 
-            stripedRows
+            onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}}
+            paginator stripedRows
             rows={25}
             showGridlines
             
             // columnResizeMode='fit'
             // resizableColumns
-            scrollable
-            scrollHeight="700px"
-
-            loading={loading} 
+            scrollable scrollHeight="700px" loading={loading} 
             dataKey="id" 
             filters={filters} 
-            globalFilterFields={columnOrder}
+            globalFilterFields={columnNames}
             header={header} 
             emptyMessage="No Indicators found."
             selection={selectedIndicator} 
             onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
             selectionMode="checkbox"
-            // virtualScrollerOptions={{ itemSize: 25 }} 
             >
 
-            <Column selectionMode="multiple"  frozen></Column>
+            <Column selectionMode="multiple" style={{ minWidth: '2rem', color: 'black' }} frozen></Column>
 
-            {/* <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }}  frozen></Column> */}
+            <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }}  frozen></Column>
         
             
-            {columnOrder.map((col) => (
-                    <Column key={col} {...allColumns2[col]}   />
+            {selectedColumns.map((col) => (
+                  <Column key={col} {...allColumns2[col]}  />
                 ))}
-
-            {/* {visibleColumns.map(col => (
-            <Column key={col} {...allColumns2[col]} />
-            ))} */}
             {/* {selectedColumns.map((col) => allColumns[col])} 2*/}
             <Column
              className='font-bold'
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
-                // style={{ minWidth: '6rem',color:'rgba(181, 183, 192, 1)', textAlign: 'center' }} 
+                style={{ minWidth: '6rem',color:'rgba(181, 183, 192, 1)', textAlign: 'center' }} 
                 field='percentage' 
                 alignFrozen="right" 
                 frozen
             ></Column>
-            <Column header="Actions" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen />
+            <Column header="Actions" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen headerStyle={{  color: 'rgba(18, 0, 147, 1)' }}/>
 
  </DataTable>
-
-
 
     {/* Dialog for editing Paradotea */}
     

@@ -34,7 +34,7 @@ import { HcprovidersMap3 } from './HcprovidersMap3';
 import { headers } from './headersHCProvidersConfig';  // Import the header configuration
 import FilterHCProviders from './FilterHCProviders';
 import { HcprovidersMap } from './HcprovidersMap';
-import "./datatable2-custom.css"; // Your custom styles
+//import "./datatable2-custom.css"; // Your custom styles
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons"; // FontAwesome Swap Icon

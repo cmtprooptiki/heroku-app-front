@@ -3,7 +3,7 @@ import FilterIndicators from "./FilterIndicators";
 import HelperIndicators from "./HelperIndicators";
 import { headers } from './headersConfig';  // Import the header configuration
 import { initFiltersConfig } from './filtersConfig';
-import "./datatable-custom.css"; // Your custom styles
+// import "./datatable-custom.css"; // Your custom styles
 import { 
     statuses,
     domains, 
@@ -32,21 +32,15 @@ import {
 
 //hint custom
 
-const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cross_Cutting_Dimensions_A_I, Cross_Cutting_Dimensions_Inputs_Outputs, filledRows, category_of_Indicator) =>
+const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cross_Cutting_Dimensions_A_I, 
+    Cross_Cutting_Dimensions_Inputs_Outputs, filledRows, category_of_Indicator) =>
 {
 
-    const {customHeader, renderColumnHeader, onCellEditComplete, cellEditor, generalBodyTemplate, ItemTemplate, q4all_Ind_number_BodyTemplate} = HelperIndicators(indicators, filledRows, category_of_Indicator);
+    const {customHeader, renderColumnHeader, onCellEditComplete, 
+        cellEditor, generalBodyTemplate, 
+        ItemTemplate, q4all_Ind_number_BodyTemplate} = HelperIndicators(indicators, filledRows, category_of_Indicator);
     return {
-        indicator_name: {
-            field: "indicator_name",
-            header: customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name"),
-            filter: true,
-            filterPlaceholder: "Search by Indicator Name",
-            style: { minWidth: '10rem' },
-            editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete,
-            // frozen: selectedFrozenColumnNames.includes("indicator_name") // Always define frozen
-        },
+     
         q4all_Ind_number: {
             field: "q4all_Ind_number",
             header: customHeader(headers.q4all_Ind_number.label, headers.q4all_Ind_number.description, "q4all_Ind_number"),
@@ -55,8 +49,19 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.q4all_Ind_number)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
             body: q4all_Ind_number_BodyTemplate,
-            style: { minWidth: '11rem' },
-            // frozen: selectedFrozenColumnNames.includes("q4all_Ind_number") // Always define frozen
+            style: { minWidth: '14rem' },
+            frozen:true        
+        },
+        indicator_name: {
+            field: "indicator_name",
+            header: customHeader(headers.indicator_name.label, headers.indicator_name.description, "indicator_name"),
+            filter: true,
+            filterPlaceholder: "Search by Indicator Name",
+            style: { minWidth: '16rem' },
+            editor: (options) => cellEditor(options),
+            onCellEditComplete: onCellEditComplete,
+            // frozen: selectedFrozenColumnNames.includes("indicator_name") // Always define frozen
+            frozen:true
         },
         status: {
             field: "status",
@@ -64,7 +69,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filter: true,
             filterField: "status",
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.status)} itemTemplate={ItemTemplate} />),
-            style: { minWidth: '6rem' },
+            style: { minWidth: '6rem',textAlign:"center" },
             showFilterMatchModes: false,
             body: generalBodyTemplate(indicators, statusValue, 'status'),
             editor: (options) => cellEditor(options),
@@ -273,7 +278,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             header: customHeader(headers.decision_and_next_steps.label, headers.decision_and_next_steps.description, "decision_and_next_steps"),
             filter: true,
             filterPlaceholder: "Search by decision_and_next_steps",
-            style: { minWidth: '5rem' },
+            style: { minWidth: '12rem' },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
