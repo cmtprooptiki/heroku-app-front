@@ -12,14 +12,12 @@ import { InputText } from 'primereact/inputtext';
 import { IconField } from 'primereact/iconfield';
 import { InputIcon } from 'primereact/inputicon';
 import { InputNumber } from 'primereact/inputnumber';
-// import { ToggleButton } from 'primereact/togglebutton';
 
 import { Dropdown } from 'primereact/dropdown';
 import { MultiSelect } from 'primereact/multiselect';
-// import { Dialog } from 'primereact/dialog'; // Import Dialog
 
 import { initFiltersConfig } from './filtersConfig';
-// import FilterIndicators from './FilterIndicators';
+
 // import "./datatable-custom.css"; // Your custom styles
 import "../../css/datatable.css"
 import TotalIndicators from '../../icons/Total indicators.svg'
@@ -90,6 +88,50 @@ const IndicatorsListNew = () => {
     const [selectedIndicator, setSelectedIndicator] = useState([]);
 
     const[saved,setSaved]=useState(true)
+
+    const useDynamicApplyButtonStyling = () => {
+        useEffect(() => {
+          const observer = new MutationObserver(() => {
+            const filterPanels = document.querySelectorAll('.p-column-filter-overlay');
+      
+            filterPanels.forEach(panel => {
+              const applyBtn = panel.querySelector('.p-column-filter-buttonbar .p-button:last-child');
+              const inputs = panel.querySelectorAll('input');
+      
+              let hasRealInput = false;
+      
+              inputs.forEach(input => {
+                const isTextInput = input.type === 'text' || input.classList.contains('p-inputtext');
+      
+                // Check if input actually has a meaningful value
+                if (isTextInput && input.value && input.value.trim().length > 0) {
+                  hasRealInput = true;
+                }
+              });
+      
+              const multiselectTokens = panel.querySelectorAll('.p-multiselect-token');
+              if (multiselectTokens.length > 0) {
+                hasRealInput = true;
+              }
+      
+              if (applyBtn) {
+                if (hasRealInput) {
+                  applyBtn.classList.add('apply-green');
+                } else {
+                  applyBtn.classList.remove('apply-green');
+                }
+              }
+            });
+          });
+      
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+          });
+      
+          return () => observer.disconnect();
+        }, []);
+      };
 
 
     
@@ -769,7 +811,6 @@ const IndicatorsListNew = () => {
                 pilot_outcome: '',
                 pilot_success_criteria: ''
             });
-            console.log("eeee")
             // Assuming the response contains the new row data, add it to the table
             const newRow = response.data; // Assuming the newly created row is returned from the backend
             console.log(newRow)
@@ -858,7 +899,7 @@ const percentageTemplate = (rowData) => {
 
 
         
-
+    useDynamicApplyButtonStyling();
 
     return(
         <div>
@@ -991,17 +1032,10 @@ const percentageTemplate = (rowData) => {
             selection={selectedIndicator} 
             onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
             selectionMode="checkbox"
-
-//             virtualScroll
-//   scrollDirection="both"
-
-//   virtualScrollerOptions={{ itemSize: 60 }}
-            // virtualScrollerOptions={{ itemSize: 25 }} 
             >
 
             <Column selectionMode="multiple"  frozen></Column>
 
-            {/* <Column className='font-bold' field="id" header="id" sortable style={{ minWidth: '2rem', color: 'black' }}  frozen></Column> */}
         
               {defaultCall.map((col) => (
                               <Column key={col} {...allColumns2[col]}  />
@@ -1032,11 +1066,16 @@ const percentageTemplate = (rowData) => {
     <Dialog visible={dialogVisible} onHide={() => setDialogVisible(false)} modal style={{ width: '50vw' }} maximizable breakpoints={{ '960px': '80vw', '480px': '100vw' }}>
 
         {selectedIndicatorId && (selectedType=='Edit') && (
-        <FormEditIndicator id={selectedIndicatorId} onHide={() => setDialogVisible(false)} />
+        <FormEditIndicator id={selectedIndicatorId} onHide={() => setDialogVisible(false)} onSuccessEdit={() => {
+            toast.current.show({ 
+                severity: 'success', 
+                summary: 'Success', 
+                detail: 'You edited the table successfully', 
+                life: 3000 
+            });
+            setDialogVisible(false);
+        }} />
         )}
-        {/* {selectedParadoteaId && (selectedType=='Profile') && (
-        <FormProfileParadotea id={selectedParadoteaId} onHide={() => setDialogVisible(false)} />
-        )} */}
     </Dialog>
 
 

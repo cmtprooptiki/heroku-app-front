@@ -629,11 +629,19 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
     //     );
     // };
 
-    const generalBodyTemplate = (rowData,list,field) => {
-        const field1 = list.find((cat) => cat.value === rowData.field);
-        return field1 ? field1.label : rowData.field; // Display label instead of value
-    };
+    // const generalBodyTemplate = (rowData,list,field) => {
+    //     const field1 = list.find((cat) => cat.value === rowData.field);
+    //     console.log("And One: ",field1)
+    //     return field1 ? field1.label : rowData.field; // Display label instead of value
 
+    // };
+
+    const generalBodyTemplate = (rowData, list, field) => {
+        const value = rowData?.[field];
+        const match = list.find((cat) => cat?.value === value);
+        return match ? match.label : value;
+    };
+    
     const ItemTemplate = (option) => {
         
             return (
