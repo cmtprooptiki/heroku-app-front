@@ -25,7 +25,7 @@ export const domains = [
     { label: 'Public health indicators', value:'Public health indicators' },
     { label: 'NCDs and Mental Health',value:'NCDs and Mental Health' },
     { label: 'Palliative and Long term care', value: 'Palliative and Long term care' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
 
     { label: 'All domains', value: 'All domains' },
 ];
@@ -38,7 +38,7 @@ export const type_of_healthcare_providers_D1_D7list = [
     { label: 'D4', value:'D4' },
     { label: 'D5',value:'D5' },
     { label: 'D6', value: 'D6' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
     { label: 'D7', value: 'D7' }
   
 
@@ -46,7 +46,7 @@ export const type_of_healthcare_providers_D1_D7list = [
 
 export const dimensions = [
     { label: 'safety', value: 'safety' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
 
     { label: 'effectiveness', value: 'effectiveness' }
 
@@ -76,7 +76,7 @@ export const cross_Cutting_Dimensions_Inputs_Process_Outputlist = [
 
 export const category_of_indicators = [
     { label: '', value: 'safety' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
 
     { label: 'effectiveness', value: 'effectiveness' }
 
@@ -112,14 +112,14 @@ export const legal_Organizational_Requirements_list = [
     { label: 'No need', value: '1' },
     { label: 'Legal base exist but needs to be "operationalized" via a guideline/regulation by ODYPI/Other org', value: '2' },
     { label: 'New Legal base is needed (MoH order)', value: '3' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
     { label: 'New Legal base is needed (Law)', value: '4' }
 ];
 
 export const selected_indicator_list = [
     { label: 'YES', value: 'YES' },
     { label: 'NO', value: 'NO' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
 
     { label: 'MAYBE', value: 'MAYBE' }
 ];
@@ -128,21 +128,21 @@ export const selected_indicator_list = [
 export const piloting_list = [
     { label: 'YES', value: 'YES' },
     { label: 'NO', value: 'NO' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
     { label: 'N/A', value: 'N/A' }
 ];
 
 export const pilot_outcome_list = [
     { label: 'MAINTAIN AS IS', value: '1' },
     { label: 'MAINTAIN but adjust', value: '2' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
     { label: 'SUSPEND', value: '3' }
 ];
 
 export const forPilotlist = [
     { label: 'No', value: '0' },
     { label: 'Yes', value: '1' },
-    { label: 'keno', value: '' },
+    { label: 'empty', value: '' },
     { label: 'WeWillTry', value: 'T' }
    
 ];

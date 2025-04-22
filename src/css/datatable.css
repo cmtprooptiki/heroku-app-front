@@ -548,3 +548,13 @@
 .multiselect-textarea-style .p-multiselect-label{
   display: grid;
 }
+
+.apply-green {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  color: white !important;
+}
+
+.apply-green:hover {
+  background-color: #218838 !important;
+}

@@ -42,7 +42,7 @@ import { Dropdown} from "primereact/dropdown";
 import { MultiSelect } from 'primereact/multiselect';
 
 
-const FormEditIndicator = ({ id: propId, onHide,  }) => {
+const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
     const [indicator_name, setIndicator_Name] = useState("");
     const [q4all_Ind_number, setQ4all_Ind_Number] = useState("");
     const [status, setStatus] = useState("");
@@ -216,32 +216,9 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
         }
     };
 
-    // useEffect(() => {
-    //     // Recalculate VAT whenever the percentage or ammount changes
-    //     const vat = parseFloat(ammount) * parseFloat(percentage_vat);
-    //     setAmmount_Vat(vat.toFixed(2));
-    // }, [ammount, percentage, percentage_vat]);
-
-    // const handlePercentageChange = (e) => {
-    //     const newPercentage = e.value;
-    //     setPercentage_Vat(newPercentage);
-    //     const vat = parseFloat(ammount) * parseFloat(newPercentage);
-    //     setAmmount_Vat(vat.toFixed(2));
-    //     setAmmount_Total((parseFloat(ammount) + vat).toFixed(2));
-    // };
-
-    // const handleAmmountChange = (e) => {
-    //     const newAmmount = e.value;
-    //     setAmmount(newAmmount);
-    //     const vat = parseFloat(newAmmount) * parseFloat(percentage_vat);
-    //     setAmmount_Vat(vat.toFixed(2));
-    //     setAmmount_Total((parseFloat(newAmmount) + vat).toFixed(2));
-    // };
-
     const updateIndicator = async (e) => {
         e.preventDefault();
         try {
-            // console.log("status,",status)
             await axios.patch(`${apiBaseUrl}/indicators/${id}`, {
                 indicator_name: indicator_name,
                 q4all_Ind_number: q4all_Ind_number,
@@ -305,22 +282,12 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
                 pilot_outcome: pilot_outcome,
                 pilot_success_criteria: pilot_success_criteria
             });
-
-            
-            
-                
                     onHide();
                     setSaved(prev => !prev);
-                
-                // else
-                // {
-                //     setSaved("not hello")
 
-                //     navigate(-1);
-                // }
-            
-            // Optional post-update behavior
-            // navigate("/indicators");
+                    if (onSuccessEdit) {
+                      onSuccessEdit();  
+                    }
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data.msg);
@@ -334,7 +301,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
         <div >
             {saved}
                <h1 className='title'>Edit Indicator</h1>
-               {/* <h2 className='subtitle'>Επεξεργασία Παραδοτέου</h2>  */}
                <form onSubmit={updateIndicator}>
   <div className="grid">
     <div className="col-12 md:col-6">
@@ -353,7 +319,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="status">Status</label>
-          {/* <InputText id="status" value={status} onChange={(e) => setStatus(e.target.value)} /> */}
           <Dropdown 
             id="status"
             value={status?status:""}
@@ -385,7 +350,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="dpolist">DPO list</label>
-          {/* <InputText id="dpolist" value={dpolist} onChange={(e) => setDpolist(e.target.value)} /> */}
           <Dropdown 
             id="dpolist"
             value={dpolist}
@@ -393,7 +357,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
             onChange={(e) => {
                 const selected = e.value;
                 const normalizedValue = selected?.value !== undefined ? selected.value : selected;
-
                 setDpolist(normalizedValue === '' ? '' : normalizedValue);
             }}
             optionLabel="label"
@@ -421,7 +384,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="idika">IDIKA</label>
-          {/* <InputText id="idika" value={idika} onChange={(e) => setIdika(e.target.value)} /> */}
           <Dropdown 
             id="idika"
             value={idika}
@@ -442,7 +404,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="ketekny">KETEKNY</label>
-          {/* <InputText id="ketekny" value={ketekny} onChange={(e) => setKetekny(e.target.value)} /> */}
           <Dropdown 
             id="ketekny"
             value={ketekny}
@@ -463,7 +424,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="eoppy">EOPPY</label>
-          {/* <InputText id="eoppy" value={eoppy} onChange={(e) => setEoppy(e.target.value)} /> */}
           <Dropdown 
             id="eoppy"
             value={eoppy}
@@ -484,7 +444,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="odipy">ODIPY</label>
-          {/* <InputText id="odipy" value={odipy} onChange={(e) => setOdipy(e.target.value)} /> */}
           <Dropdown 
             id="odipy"
             value={odipy}
@@ -505,7 +464,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="moh">MOH</label>
-          {/* <InputText id="moh" value={moh} onChange={(e) => setMoh(e.target.value)} /> */}
           <Dropdown 
             id="odipy"
             value={moh}
@@ -536,7 +494,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="shortlist_indicators">Type of Indicator M, A, P</label>
-          {/* <InputText id="shortlist_indicators" value={shortlist_indicators} onChange={(e) => setShortlist_Indicators(e.target.value)} /> */}
           <Dropdown 
             id="shortlist_indicators"
             value={shortlist_indicators}
@@ -562,7 +519,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="forPilot">For Pilot</label>
-          {/* <InputText id="forPilot" value={forPilot} onChange={(e) => setForPilot(e.target.value)} /> */}
           <Dropdown 
             id="forPilot"
             value={forPilot}
@@ -598,7 +554,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="type_of_healthcare_providers_D1_D7">Type of healthcare providers D1-D7</label>
-          {/* <InputText id="type_of_healthcare_providers_D1_D7" value={type_of_healthcare_providers_D1_D7} onChange={(e) => setType_Of_Healthcare_Providers_D1_D7(e.target.value)} /> */}
           <Dropdown 
             id="shortlist_indicators"
             value={type_of_healthcare_providers_D1_D7}
@@ -619,23 +574,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="cross_Cutting_Dimensions_A_I">Cross Cutting Dimensions A-I </label>
-          {/* <InputText id="cross_Cutting_Dimensions_A_I" value={cross_Cutting_Dimensions_A_I} onChange={(e) => setCross_Cutting_Dimensions_A_I(e.target.value)} /> */}
-          {/* <Dropdown 
-            id="shortlist_indicators"
-            value={cross_Cutting_Dimensions_A_I}
-            options={classification_dimension}
-            onChange={(e) => {
-                const selected = e.value;
-                const normalizedValue = selected?.value !== undefined ? selected.value : selected;
-
-                setCross_Cutting_Dimensions_A_I(normalizedValue === '' ? '' : normalizedValue);
-            }}
-            optionLabel="label"
-            placeholder="Επιλέξτε κατάσταση"
-            showClear
-            optionValue='value'
-            filter
-            /> */}
            <MultiSelect
             id="cross_Cutting_Dimensions_A_I"
             value={cross_Cutting_Dimensions_A_I}
@@ -654,7 +592,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="cross_Cutting_Dimensions_Inputs_Process_Outputs">Cross Cutting Dimensions (Inputs-Process - Outputs)</label>
-          {/* <InputText id="cross_Cutting_Dimensions_Inputs_Process_Outputs" value={cross_Cutting_Dimensions_Inputs_Process_Outputs} onChange={(e) => setCross_Cutting_Dimensions_Inputs_Process_Outputs(e.target.value)} /> */}
           <MultiSelect
             id="cross_Cutting_Dimensions_Inputs_Process_Outputs"
             value={cross_Cutting_Dimensions_Inputs_Process_Outputs}
@@ -673,7 +610,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="dimensions_of_Quality_QoCOfficeReport">6 dimensions of Quality (QoCOfficeReport)</label>
-          {/* <InputText id="dimensions_of_Quality_QoCOfficeReport" value={dimensions_of_Quality_QoCOfficeReport} onChange={(e) => setDimensions_Of_Quality_QoCOfficeReport(e.target.value)} /> */}
           <Dropdown 
             id="dimensions_of_Quality_QoCOfficeReport"
             value={dimensions_of_Quality_QoCOfficeReport}
@@ -695,7 +631,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="priority">Priority</label>
-          {/* <InputText id="priority" value={priority} onChange={(e) => setPriority(e.target.value)} /> */}
           <Dropdown 
             id="priority"
             value={priority}
@@ -716,7 +651,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="data_collection">Data collection process types</label>
-          {/* <InputText id="data_collection" value={data_collection} onChange={(e) => setData_Collection(e.target.value)} /> */}
           <Dropdown 
             id="data_collection"
             value={data_collection}
@@ -892,7 +826,6 @@ const FormEditIndicator = ({ id: propId, onHide,  }) => {
 
         <div className="field">
           <label htmlFor="pilot_outcome">Pilot Outcome</label>
-          {/* <InputText id="pilot_outcome" value={pilot_outcome} onChange={(e) => setPilot_Outcome(e.target.value)} /> */}
           <Dropdown 
             id="pilot_outcome"
             value={pilot_outcome}

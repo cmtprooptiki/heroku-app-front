@@ -68,7 +68,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             header: customHeader(headers.status.label, headers.status.description, "status"),
             filter: true,
             filterField: "status",
-            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.status)} itemTemplate={ItemTemplate} />),
+            filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.status)} itemTemplate={ItemTemplate}/>),
             style: { minWidth: '6rem',textAlign:"center" },
             showFilterMatchModes: false,
             body: generalBodyTemplate(indicators, statusValue, 'status'),
