@@ -40,6 +40,7 @@ import {
 } from './IndicatorUtils';  // Adjust the path as necessary
 import { Dropdown} from "primereact/dropdown";
 import { MultiSelect } from 'primereact/multiselect';
+import SmartInput from './SmartInput';
 
 
 const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
@@ -309,7 +310,7 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="indicator_name">Indicator Descriptive Name (EN)</label>
-          <InputText id="indicator_name" value={indicator_name} onChange={(e) => setIndicator_Name(e.target.value)} />
+          <SmartInput id="indicator_name" value={indicator_name} onChange={(e) => setIndicator_Name(e.target.value)} />
         </div>
 
         <div className="field">
@@ -345,7 +346,7 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="internal_observations">Internal Observations</label>
-          <InputTextarea id="internal_observations" value={internal_observations} onChange={(e) => setInternal_Observations(e.target.value)} rows={3} />
+          <SmartInput id="internal_observations" value={internal_observations} onChange={(e) => setInternal_Observations(e.target.value)} rows={3} />
         </div>
 
         <div className="field">
@@ -489,7 +490,7 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="observations_from_meetings">Observations from Meetings</label>
-          <InputText id="observations_from_meetings" value={observations_from_meetings} onChange={(e) => setObservations_From_Meetings(e.target.value)} />
+          <SmartInput id="observations_from_meetings" value={observations_from_meetings} onChange={(e) => setObservations_From_Meetings(e.target.value)} />
         </div>
 
         <div className="field">
@@ -514,7 +515,7 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="decision_and_next_steps">Decision and Next Steps</label>
-          <InputText id="decision_and_next_steps" value={decision_and_next_steps} onChange={(e) => setDecision_And_Next_Steps(e.target.value)} />
+          <SmartInput id="decision_and_next_steps" value={decision_and_next_steps} onChange={(e) => setDecision_And_Next_Steps(e.target.value)} />
         </div>
 
         <div className="field">
@@ -544,7 +545,7 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="data_fields_vk">Data Fields VK</label>
-          <InputText id="data_fields_vk" value={data_fields_vk} onChange={(e) => setData_Fields_Vk(e.target.value)} />
+          <SmartInput id="data_fields_vk" value={data_fields_vk} onChange={(e) => setData_Fields_Vk(e.target.value)} />
         </div>
 
         <div className="field">
@@ -691,32 +692,32 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="calculation_Formula">Calculation Formula</label>
-          <InputText id="calculation_Formula" value={calculation_Formula} onChange={(e) => setCalculation_Formula(e.target.value)} />
+          <SmartInput id="calculation_Formula" value={calculation_Formula} onChange={(e) => setCalculation_Formula(e.target.value)} />
         </div>
 
         <div className="field">
           <label htmlFor="numerator">Numerator</label>
-          <InputText id="numerator" value={numerator} onChange={(e) => setNumerator(e.target.value)} />
+          <SmartInput id="numerator" value={numerator} onChange={(e) => setNumerator(e.target.value)} />
         </div>
 
         <div className="field">
           <label htmlFor="numerator_Definitions">Numerator Definitions</label>
-          <InputText id="numerator_Definitions" value={numerator_Definitions} onChange={(e) => setNumerator_Definitions(e.target.value)} />
+          <SmartInput id="numerator_Definitions" value={numerator_Definitions} onChange={(e) => setNumerator_Definitions(e.target.value)} />
         </div>
 
         <div className="field">
           <label htmlFor="denominator">Denominator</label>
-          <InputText id="denominator" value={denominator} onChange={(e) => setDenominator(e.target.value)} />
+          <SmartInput id="denominator" value={denominator} onChange={(e) => setDenominator(e.target.value)} />
         </div>
 
         <div className="field">
           <label htmlFor="denominator_Definitions">Denominator Definitions</label>
-          <InputText id="denominator_Definitions" value={denominator_Definitions} onChange={(e) => setDenominator_Definitions(e.target.value)} />
+          <SmartInput id="denominator_Definitions" value={denominator_Definitions} onChange={(e) => setDenominator_Definitions(e.target.value)} />
         </div>
 
         <div className="field">
           <label htmlFor="target_Population">Target Population</label>
-          <InputText id="target_Population" value={target_Population} onChange={(e) => setTarget_Population(e.target.value)} />
+          <SmartInput id="target_Population" value={target_Population} onChange={(e) => setTarget_Population(e.target.value)} />
         </div>
 
         <div className="field">
@@ -726,12 +727,12 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="data_Collection_Steps">Data Collection Steps</label>
-          <InputText id="data_Collection_Steps" value={data_Collection_Steps} onChange={(e) => setData_Collection_Steps(e.target.value)} />
+          <SmartInput id="data_Collection_Steps" value={data_Collection_Steps} onChange={(e) => setData_Collection_Steps(e.target.value)} />
         </div>
 
         <div className="field">
           <label htmlFor="legal_Requirements">Legal Requirements</label>
-          <InputText id="legal_Requirements" value={legal_Requirements} onChange={(e) => setLegal_Requirements(e.target.value)} />
+          <SmartInput id="legal_Requirements" value={legal_Requirements} onChange={(e) => setLegal_Requirements(e.target.value)} />
         </div>
 
         <div className="field">
@@ -781,7 +782,7 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="notes">Notes</label>
-          <InputText id="notes" value={notes} onChange={(e) => setNotes(e.target.value)} />
+          <SmartInput id="notes" value={notes} onChange={(e) => setNotes(e.target.value)} />
         </div>
 
         <div className="field">
@@ -791,17 +792,17 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="name_of_selected_indicator_en">Indicator Name for DPO list (EN)</label>
-          <InputText id="name_of_selected_indicator_en" value={name_of_selected_indicator_en} onChange={(e) => setName_Of_Selected_Indicator_En(e.target.value)} />
+          <SmartInput id="name_of_selected_indicator_en" value={name_of_selected_indicator_en} onChange={(e) => setName_Of_Selected_Indicator_En(e.target.value)} />
         </div>
 
         <div className="field">
           <label htmlFor="name_of_selected_indicator_gr">Indicator Name for DPO list (GR)</label>
-          <InputText id="name_of_selected_indicator_gr" value={name_of_selected_indicator_gr} onChange={(e) => setName_Of_Selected_Indicator_Gr(e.target.value)} />
+          <SmartInput id="name_of_selected_indicator_gr" value={name_of_selected_indicator_gr} onChange={(e) => setName_Of_Selected_Indicator_Gr(e.target.value)} />
         </div>
 
         <div className="field">
           <label htmlFor="observation_gr">Observation for Visualization /Display</label>
-          <InputText id="observation_gr" value={observation_gr} onChange={(e) => setObservation_Gr(e.target.value)} />
+          <SmartInput id="observation_gr" value={observation_gr} onChange={(e) => setObservation_Gr(e.target.value)} />
         </div>
 
         <div className="field">
@@ -821,7 +822,7 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="opinion_from_ODIPY_Other_experts">Piloting Phase: Opinion from ODIPY/Other experts</label>
-          <InputText id="opinion_from_ODIPY_Other_experts" value={opinion_from_ODIPY_Other_experts} onChange={(e) => setOpinion_From_ODIPY_Other_Experts(e.target.value)} />
+          <SmartInput id="opinion_from_ODIPY_Other_experts" value={opinion_from_ODIPY_Other_experts} onChange={(e) => setOpinion_From_ODIPY_Other_Experts(e.target.value)} />
         </div>
 
         <div className="field">
