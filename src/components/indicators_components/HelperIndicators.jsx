@@ -572,76 +572,13 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                 );
             };
 
-            // const textEditor = memo(({ options }) => {
-            //     const handleInput = (e) => {
-            //         options.editorCallback(e.target.value);
-            //     };
-            
-            //     return (
-            //         <InputTextarea
-            //             autoResize
-            //             value={options.value || ""}
-            //             onChange={handleInput}
-            //             onKeyDown={(e) => {
-            //                 if (e.key === 'Enter') e.target.blur(); // Exit edit mode
-            //             }}
-            //             autoFocus
-            //             rows={3}
-            //             cols={30}
-            //             style={{
-            //                 resize: 'vertical',
-            //                 overflow: 'auto',
-            //                 minWidth: "150px",
-            //                 maxWidth: "100%"
-            //             }}
-            //         />
-            //     );
-            // });
-    // const textEditor = (options) => {
-    //     const handleInput = (e) => {
-    //         const textarea = e.target;
-    //         textarea.style.height = "auto"; // Reset height to recalculate
-    //         textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height dynamically
-    //         options.editorCallback(textarea.value);
-    //     };
-
-    //     return (
-    //         <textarea
-    //             value={options.value || ""}
-    //             onChange={handleInput}
-    //              onKeyDown={(e) => {
-    //             if (e.key === 'Enter') {
-    //                 e.target.blur(); // This will trigger onCellEditComplete
-    //             }
-    //         }}
-    //         autoFocus
-    //             style={{
-    //                 width: "100%",
-    //                 minHeight: "50px",
-    //                 maxHeight: "200px", // Optional, to limit extreme expansion
-    //                 resize: "both", // Allow the user to resize the editor
-    //                 overflow: "hidden", // Hide overflow while expanding
-    //                 padding: "10px", // Adjust padding
-    //                 boxSizing: "border-box", // Include padding in width/height calculations
-    //                 fontSize: "inherit", // Match table font size
-    //             }}
-    //         />
-    //     );
-    // };
-
-    // const generalBodyTemplate = (rowData,list,field) => {
-    //     const field1 = list.find((cat) => cat.value === rowData.field);
-    //     console.log("And One: ",field1)
-    //     return field1 ? field1.label : rowData.field; // Display label instead of value
-
-    // };
 
     const generalBodyTemplate = (rowData, list, field) => {
         const value = rowData?.[field];
         const match = list.find((cat) => cat?.value === value);
         return match ? match.label : value;
     };
-    
+
     const ItemTemplate = (option) => {
         
             return (
