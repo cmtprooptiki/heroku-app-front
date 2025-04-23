@@ -12,7 +12,7 @@ import { Divider } from 'primereact/divider';
 import "../../css/datatable.css"
 
 import { format } from 'date-fns';
-import { dialogContest } from './indicatorsListNew';
+import { dialogContest } from './IndicatorsList';
 import { useContext } from 'react';
 import { 
     statuses,

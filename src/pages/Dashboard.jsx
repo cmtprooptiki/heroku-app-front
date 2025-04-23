@@ -4,14 +4,7 @@ import Welcome from '../components/Welcome';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getMe } from '../features/authSlice';
-import IndicatorsListNew from '../components/indicators_components/indicatorsListNew';
-
-
-// import '../dashboard.css';
-
-
-import IndicatorsList from '../components/indicators_components/IndicatorsList';
-
+import IndicatorsList from "../components/indicators_components/IndicatorsList"
 
 
 const Dashboard = () => {
@@ -36,7 +29,7 @@ const Dashboard = () => {
   return (
     <Layout>
         <Welcome />
-        <IndicatorsListNew/>
+        <IndicatorsList/>
     
     </Layout>
   );
