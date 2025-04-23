@@ -31,6 +31,11 @@ const Navbar = () => {
         dispatch(getMe());
     },[dispatch]);
 
+  const EditProfile = () =>
+  {
+    navigate(`/simpleUser/edit/${user?.uuid}`)
+  }
+
   const logout = () => {
     dispatch(LogOut());
     dispatch(reset());
@@ -129,13 +134,13 @@ const Navbar = () => {
             </Link>
           )}
 
-          {(user?.role !== "admin") && (
+          {/* {(user?.role !== "admin") && (
         <Link to= {`/simpleUser/edit/${user?.uuid}`} style={{ color: 'inherit', textDecoration: 'none' }} className="p-ripple p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
                 <img src={usersIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
 
                 <Ripple />
             </Link>
-          )}
+          )} */}
         {/* Search Icon */}
         {/* <img src={searchIconSvg} alt="Search" style={{ width: "32px", cursor: "pointer" }} /> */}
 
@@ -176,6 +181,7 @@ const Navbar = () => {
             <MenuItem>
               {user && user.name} ({user && user.role})
             </MenuItem>
+            <MenuItem onClick={EditProfile}>Edit Profile</MenuItem>
             <MenuItem onClick={logout}>Logout</MenuItem>
           </Menu>
         </div>

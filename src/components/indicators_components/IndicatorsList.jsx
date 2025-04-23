@@ -673,7 +673,7 @@ const IndicatorsListNew = () => {
             <div className="actions-container">
                     <div className="flex flex-row gap-2">
                         
-                        {user && user.role === "admin" && (
+                        {(user && user.role === "admin" || user.role === "indicator") && (
                             <>
                                  <Button
                                 className='action-button'
@@ -978,7 +978,7 @@ const percentageTemplate = (rowData) => {
 
 
 
-        {user && user.role === "admin" && (
+        {(user && user.role === "admin" || user.role === "indicator") && (
                 <Button
                     label="New Empty Row"
                     className="p-button2 is-primary mb-2 rounded"
