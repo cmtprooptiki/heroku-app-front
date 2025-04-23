@@ -83,8 +83,9 @@ const FormEditSimpleUser = () => {
       
       return (
     <div>
-        <h1 className='title'>Users Settings</h1>
-        <h2 className='subtitle'>Update User</h2>
+        
+        <h1 className='title'>Edit Profile</h1>
+        {/* <h2 className='subtitle'></h2> */}
         <div className="card p-fluid">
             <div className="card-content">
                 <div className="content">
