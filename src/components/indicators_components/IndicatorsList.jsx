@@ -1122,16 +1122,17 @@ const percentageTemplate = (rowData) => {
             <Column key={col} {...allColumns2[col]} />
             ))} */}
             {/* {selectedColumns.map((col) => allColumns[col])} 2*/}
-            <Column
+
+            {/*HERE IS THE CODE FOR PERCENTAGE COLLUM*/}
+            {/* <Column
              className='font-bold'
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
-                // style={{ minWidth: '6rem',color:'rgba(181, 183, 192, 1)', textAlign: 'center' }} 
                 field='percentage' 
                 alignFrozen="right" 
                 frozen
-            ></Column>
+            ></Column> */}
             <Column header="Actions" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen />
 
  </DataTable>
