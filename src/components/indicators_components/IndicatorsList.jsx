@@ -1154,7 +1154,23 @@ const percentageTemplate = (rowData) => {
     <Dialog visible={dialogAddVisible} onHide={() => setDialogAddVisible(false)} modal style={{ width: '50vw' }} maximizable breakpoints={{ '960px': '80vw', '480px': '100vw' }}>
 
         
-        <FormAddIndicator onHide={() => setDialogAddVisible(false)} />
+        <FormAddIndicator onHide={() => setDialogAddVisible(false)} onSuccessEdit={() => {
+            toast.current.show({ 
+                severity: 'success', 
+                summary: 'Success', 
+                detail: 'You inserted the data successfully', 
+                life: 3000 
+            });
+            setDialogAddVisible(false);
+        }}
+        onError={() => {
+            toast.current.show({
+                severity: 'error',
+                summary: 'Error',
+                detail: 'This Q4AllInd code already exists. Please try again.',
+                life: 3000
+            });
+        }}/>
     </Dialog>
 
 

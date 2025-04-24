@@ -16,11 +16,12 @@ import { GiConsoleController } from 'react-icons/gi';
 
 
 
-const FormAddIndicator = ({onHide}) => {
+const FormAddIndicator = ({onHide, onSuccessEdit, onError}) => {
     const {saved, setSaved} = useContext(dialogContest)
     const [id, setId] = useState(null);
     const [indicator_name, setIndicator_Name] = useState(null);
     const [q4all_Ind_number, setQ4All_Ind_Number] = useState("");
+    const [q4all_Ind_suffix, setQ4All_Ind_Suffix] = useState("");
     const [status, setStatus] = useState(null);
     const [indicator_cluster, setIndicator_Cluster] = useState(null);
     const [ind_Merge, setInd_Merge] = useState(null);
@@ -89,15 +90,16 @@ const FormAddIndicator = ({onHide}) => {
     const saveIndicator = async (e) => {
         
         e.preventDefault();
+        const fullQ4AllIndNumber = `Q4Alln.${q4all_Ind_suffix}`;
         try {
           console.log(q4all_Ind_number, "HAKKJDAKJDK")
-          const response = await axios.get(`${apiBaseUrl}/indicators/check/${q4all_Ind_number}`)
+          const response = await axios.get(`${apiBaseUrl}/indicators/check/${fullQ4AllIndNumber}`)
           console.log(response.data.exists)
           if(response.data.exists === false)
           {
             await axios.post(`${apiBaseUrl}/indicators`, {
               indicator_name: '',
-              q4all_Ind_number: q4all_Ind_number,
+              q4all_Ind_number: fullQ4AllIndNumber,
               status: '',
               indicator_cluster: '',
               internal_observations: '',
@@ -163,12 +165,19 @@ const FormAddIndicator = ({onHide}) => {
             onHide();
             setSaved(prev => !prev);
             console.log("Done: ", q4all_Ind_number)
+            if (onSuccessEdit) {
+              onSuccessEdit();  
+            }
     
             // navigate(-1); // Redirect to a different page after saving
           }
           else
           {
-            console.log("There is a ", q4all_Ind_number, "already")
+            // console.log("There is a ", q4all_Ind_number, "already")
+            if(onError)
+            {
+              onError();
+            }
           }
             
         } catch (error) {
@@ -198,11 +207,21 @@ const FormAddIndicator = ({onHide}) => {
                     <div className="card p-fluid">
                       <div className=""><Divider><span className="p-tag text-lg">Indicator</span></Divider></div>
                       <div className="field">
-                        <label htmlFor="q4all_Ind_number">Q4ALL Indicator Number</label>
-                        <div className="control">
-                          <InputText id="q4all_Ind_number" type="text" value={q4all_Ind_number} onChange={(e) => setQ4All_Ind_Number(e.target.value)} />
-                        </div>
-                      </div>
+  <label htmlFor="q4all_Ind_number">Q4ALL Indicator Number</label>
+  <div className="p-inputgroup">
+    <span className="p-inputgroup-addon">Q4Alln.</span>
+    <InputText
+      id="q4all_Ind_number"
+      type="text"
+      value={q4all_Ind_suffix}
+      onChange={(e) => {
+        // Optional: only allow numbers
+        const val = e.target.value;
+          setQ4All_Ind_Suffix(val);
+      }}
+    />
+  </div>
+</div>
                     </div>
                     <div className="field">
                       <div className="control">
