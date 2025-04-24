@@ -140,6 +140,75 @@ const IndicatorsListNew = () => {
 
     
 
+      const globalFilters = [
+        "q4all_Ind_number",
+        "indicator_name",
+        "name_of_selected_indicator_en",
+        "name_of_selected_indicator_gr",
+        "shortlist_indicators",
+        "indicator_cluster",
+        "status",
+        "catergory_of_Indicator",
+        "forPilot",
+        "publicationsoptions",
+        "internal_observations",
+        "observations_from_meetings",
+        "decision_and_next_steps",
+        "dpolist",
+        "dpo_org_source1",
+        "dpo_org_source2",
+        "dpo_org_source3",
+        "idika",
+        "ketekny",
+        "eoppy",
+        "odipy",
+        "moh",
+        "dimension",
+        "type_of_healthcare_providers_D1_D7",
+        "cross_Cutting_Dimensions_A_I",
+        "cross_Cutting_Dimensions_Inputs_Process_Outputs",
+        "dimensions_of_Quality_QoCOfficeReport",
+        "priority",
+        "data_collection",
+        "collecting_National_Organization",
+        "proponent_Organization_WG",
+        "rationale_Description",
+        "objective",
+        "calculation_Formula",
+        "numerator",
+        "numerator_Definitions",
+        "data_fields_vk",
+        "denominator",
+        "denominator_Definitions",
+        "unit_of_Measurement",
+        "target_Population",
+        "periodicity",
+        "data_Collection_Steps",
+        "legal_Requirements",
+        "responsible_for_Monitoring",
+        "deadline_Reporting",
+        "supervisor_Body",
+        "management_Entity",
+        "applicable_period",
+        "it_System_Source",
+        "reference_Value_Target",
+        "base_Value",
+        "notes",
+        "sources_and_Further_Reading",
+        "early_demo_dash_Id",
+        "early_demo_dash_ind_Id",
+        "early_demo_dash_source",
+        "observation_gr",
+        "opinion_from_ODIPY_Other_experts",
+        "pilot_outcome",
+        "pilot_success_criteria"
+      ];
+
+
+
+
+
+
 
     const columnOrder = [
         // "q4all_Ind_number",
@@ -275,7 +344,7 @@ const IndicatorsListNew = () => {
         (a, b) => columnOrder.indexOf(a) - columnOrder.indexOf(b)
       );
 
-    const [visibleColumns, setVisibleColumns] = useState(columnOrder.slice(35, 60)); // Show 15 columns initially
+    // const [visibleColumns, setVisibleColumns] = useState(columnOrder.slice(35, 60)); // Show 15 columns initially
 
     console.log("first indicator,",selectedIndicator)
 
@@ -1030,7 +1099,7 @@ const percentageTemplate = (rowData) => {
             loading={loading} 
             dataKey="id" 
             filters={filters} 
-            globalFilterFields={columnOrder}
+            globalFilterFields={globalFilters}
             header={header} 
             emptyMessage="No Indicators found."
             selection={selectedIndicator} 
