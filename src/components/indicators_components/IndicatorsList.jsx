@@ -33,6 +33,8 @@ import { Toast } from 'primereact/toast';
 import FormEditIndicator from './FormEditIndicator';
 import { Dialog } from 'primereact/dialog'; // Import Dialog
 
+import FormAddIndicator from './FormAddIndicator';
+
 import { createContext } from 'react';
 
 export const dialogContest =createContext();
@@ -82,6 +84,8 @@ const IndicatorsListNew = () => {
 
     
     const [dialogVisible, setDialogVisible] = useState(false);
+    const [dialogAddVisible, setDialogAddVisible] = useState(false);
+    
     const [selectedIndicatorId, setSelectedIndicatorId] = useState(null);
     const [selectedType, setSelectedType] = useState(null);
 
@@ -984,7 +988,7 @@ const percentageTemplate = (rowData) => {
                     className="p-button2 is-primary mb-2 rounded"
                     icon="pi pi-plus-circle"
                     style = {{marginLeft: "50px"}}
-                    onClick={addEmptyRow} // Trigger the addEmptyRow function
+                    onClick={() => setDialogAddVisible(true)} // Trigger the addEmptyRow function
                 />
             )}
 
@@ -1076,6 +1080,12 @@ const percentageTemplate = (rowData) => {
             setDialogVisible(false);
         }} />
         )}
+    </Dialog>
+
+    <Dialog visible={dialogAddVisible} onHide={() => setDialogAddVisible(false)} modal style={{ width: '50vw' }} maximizable breakpoints={{ '960px': '80vw', '480px': '100vw' }}>
+
+        
+        <FormAddIndicator onHide={() => setDialogAddVisible(false)} />
     </Dialog>
 
 
