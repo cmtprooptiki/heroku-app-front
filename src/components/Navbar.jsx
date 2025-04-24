@@ -181,7 +181,9 @@ const Navbar = () => {
             <MenuItem>
               {user && user.name} ({user && user.role})
             </MenuItem>
-            <MenuItem onClick={EditProfile}>Edit Profile</MenuItem>
+            {(user?.role !== "admin") && (
+              <MenuItem onClick={EditProfile}>Edit Profile</MenuItem>
+            )}
             <MenuItem onClick={logout}>Logout</MenuItem>
           </Menu>
         </div>
