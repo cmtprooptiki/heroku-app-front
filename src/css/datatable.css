@@ -20,6 +20,7 @@
     
     /* Row customization */
     .p-datatable .p-datatable-tbody > tr {
+      
       background-color: #ffffff !important;
       border-bottom: 1px solid #dddddd;
     }
@@ -54,7 +55,8 @@
   
   /* table headers*/
     .p-datatable .p-datatable-thead > tr > th {
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       /* padding: 1rem 1rem; */
       /* border: 1px solid red; */
       /* border-width: 3px 3px 3px 3px !important; */
@@ -76,7 +78,8 @@
   } */
  
   .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       font-size:12px;
       line-height: 12px;
       font-weight: 500;
@@ -86,7 +89,8 @@
   }
   
   .p-paginator .p-paginator-pages .p-paginator-page {
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       font-size:12px;
       line-height: 12px;
       font-weight: 500;
@@ -139,7 +143,8 @@
   }
   
   .p-inputtext {
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       font-size:14px;
       line-height: 21px;
       color: rgb(0 0 0);
@@ -150,7 +155,8 @@
   }
   
   .p-dropdown-item{
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       font-size:14px;
       line-height: 21px;
       color: rgb(0 0 0);
@@ -262,7 +268,8 @@
   }
   
   .p-datatable .p-datatable-tbody > tr > td {
-    font-family: Poppins;
+    font-family: 'Poppins', 'Noto Sans', sans-serif;
+
     font-size: 14px;
     line-height: 18px;
     font-weight: 500;
@@ -340,7 +347,8 @@
   
   
     /* .p-datatable .p-datatable-thead > tr > th {
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       text-align: left;
       padding: 1rem 1rem;
   
@@ -354,7 +362,8 @@
   } */
   
   /* .p-datatable .p-datatable-tbody > tr > td {
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       text-align: left;
       font-size:14px;
       line-height: 21px;
@@ -381,7 +390,8 @@
   
   
   /* .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       font-size:12px;
       line-height: 12px;
       font-weight: 500;
@@ -391,7 +401,8 @@
   }
   
   .p-paginator .p-paginator-pages .p-paginator-page {
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       font-size:12px;
       line-height: 12px;
       font-weight: 500;
@@ -444,7 +455,8 @@
   }
   
   .p-inputtext {
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       font-size:14px;
       line-height: 21px;
       color: rgb(0 0 0);
@@ -455,7 +467,8 @@
   }
   
   .p-dropdown-item{
-      font-family: Poppins;
+      font-family: 'Poppins', 'Noto Sans', sans-serif;
+
       font-size:14px;
       line-height: 21px;
       color: rgb(0 0 0);
@@ -492,7 +505,8 @@
 }
 
 .title {
-  font-family: Poppins;
+  font-family: 'Poppins', 'Noto Sans', sans-serif;
+
   font-size:32;
   color:black;
   font-weight:600;
@@ -557,4 +571,81 @@
 
 .apply-green:hover {
   background-color: #218838 !important;
+}
+
+
+/*Classes for HCP PROIVERS PROFILE */
+ .border-temp{
+    border: 1px solid #DBDBDB;
+    border-radius: 12px;
+    background-color: #ffffff !important;
+    gap:20px;
+ }
+
+.class-custom{
+ display: flex !important;
+     justify-content: flex-start;
+     flex-direction: row;
+     align-content: center;
+     align-items: center;
+     padding:20px;
+    }
+
+    .title-temp{
+        font-family: 'Poppins', 'Noto Sans', sans-serif;
+
+        font-size:1.5rem;
+        color:rgb(15, 0, 171);
+    }
+
+.p-temp{
+    margin-top: 10px;
+    font-family: 'Poppins', 'Noto Sans', sans-serif;
+
+    font-size:14px;
+    color:#767676;
+}
+.section-title{
+    color: black;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 600;
+}
+
+label{
+    color: #707070;
+    font-size: 14px;
+    font-family: 'Poppins';
+}
+
+.p-inputtext{
+font-family: Poppins!important;
+font-size: 14px!important;
+line-height: 33px!important;
+color: #0F00AB!important;
+font-size: 14px!important;
+background: rgb(255 255 255)!important;
+border: 1px solid #D1D5DB!important;
+border-radius: 8px!important;
+}
+
+
+.title2-temp{
+    font-family: 'Poppins', 'Noto Sans', sans-serif;
+
+    font-weight: 600;
+    margin-bottom: 60px;
+    font-size:1.3rem;
+    color:rgb(15, 0, 171);
+}
+
+.text-decor{
+    text-decoration: underline;
+    text-decoration-color: #D0D0D0;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 16px;
+}
+
+.custom_dropdown .p-inputtext{
+  border: unset !important;
 }

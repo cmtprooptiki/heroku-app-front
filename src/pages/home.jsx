@@ -54,11 +54,11 @@ const Home = () => {
   // },[isError,navigate]);
 
   const [selectedTable, setSelectedTable] = useState('table1');
-  return (
-    <Layout>
-        <Welcome />
-    </Layout>
-  );
+  // return (
+  //   <Layout>
+  //       <Welcome />
+  //   </Layout>
+  // );
   
 };
 

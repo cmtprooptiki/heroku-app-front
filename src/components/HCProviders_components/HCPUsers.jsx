@@ -4,7 +4,7 @@ import FilterMap from './FilterMap';
 import {Link} from "react-router-dom"
 import axios from 'axios'
 import { useSelector } from 'react-redux';
-import '../../buildinglist.css';
+// import '../../buildinglist.css';
 import apiBaseUrl from '../../apiConfig';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -36,6 +36,7 @@ import FilterHCProviders from './FilterHCProviders';
 import { HcprovidersMap } from './HcprovidersMap';
 //import "./datatable2-custom.css"; // Your custom styles
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../../css/datatable.css"
 
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons"; // FontAwesome Swap Icon
 

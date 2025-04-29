@@ -335,6 +335,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
 
         </div>
@@ -365,6 +367,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -400,6 +404,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -420,6 +426,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -440,6 +448,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -460,6 +470,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -480,6 +492,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -510,6 +524,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -535,6 +551,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -570,6 +588,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -626,6 +646,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         
         </div>
@@ -647,6 +669,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -667,6 +691,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -842,6 +868,8 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             showClear
             optionValue='value'
             filter
+            appendTo="self"
+            className='custom_dropdown'
             />
         </div>
 
@@ -852,7 +880,19 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
 
         <div className="field">
-          <Button type="submit" className="button is-success is-fullwidth">Update</Button>
+          <Button type="submit" style={{
+                    display: "flex",
+                    justifyContent: "center",
+                        color: "white",
+                        fontFamily: 'Poppins',
+                        fontSize: "13px",
+                        paddingLeft: "23px",
+                        paddingRight: "23px",
+                        lineHeight: "2rem",
+                        background: "#0F00AB",
+                        border: "1px solid #ffffff",
+                        borderRadius: "6px",
+                }}>Update</Button>
         </div>
 
       </div>

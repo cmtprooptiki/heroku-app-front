@@ -33,9 +33,11 @@ import { InputNumber } from "primereact/inputnumber";
 import { InputTextarea } from 'primereact/inputtextarea';
 // import { memo } from "react";
 
-const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
+const HelperIndicators = (indicators, 
+    // filledRows, 
+    category_of_Indicator) =>
 {
-    const [filledRows2, setfilledRows] = useState(filledRows)
+    // const [filledRows2, setfilledRows] = useState(filledRows)
 
     const customHeader = (title, hint, field) => (
     <div>
@@ -419,7 +421,7 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                     [field]: newValue,
                 });
     
-                setfilledRows(indicators.filter(checkRow))
+                // setfilledRows(indicators.filter(checkRow))
 
                 if (response.status === 200) {
                     console.log('Update successful');
@@ -498,11 +500,12 @@ const HelperIndicators = (indicators, filledRows, category_of_Indicator) =>
                         onChange={(e) => options.editorCallback(e.value)}
                         placeholder="Select option"
                         onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                    e.target.blur(); // Triggers edit completion
-                }
-            }}
-            autoFocus
+                        if (e.key === 'Enter') {
+                            e.target.blur(); // Triggers edit completion
+                        }
+                        }}
+                        autoFocus
+                        className="custom_dropdown"
                     />
                 );
             };

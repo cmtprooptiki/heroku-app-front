@@ -779,7 +779,7 @@ const IndicatorsListNew = () => {
         indicators, statusValue, dpolist, 
         cross_Cutting_Dimensions_A_I, 
         Cross_Cutting_Dimensions_Inputs_Outputs, 
-        filledRows,
+        // filledRows,
         category_of_Indicator); 
 
 
@@ -998,12 +998,9 @@ const percentageTemplate = (rowData) => {
                        
                     </div>
                 </div>
-                {/* Separator Line */}
-                <div className="kpi-separator"></div>
-                {/* Members */}
+                {/* <div className="kpi-separator"></div>
                 <div className="kpi-item">
                     <div className="kpi-icon">
-                        {/* <i className="pi pi-user"></i> */}
                         <img src={indicatortwo} alt="Search" style={{ width: "32px", cursor: "pointer" }} />                   
 
                     </div>
@@ -1013,12 +1010,9 @@ const percentageTemplate = (rowData) => {
                      
                     </div>
                 </div>
-                {/* Separator Line */}
                 <div className="kpi-separator"></div>
-                {/* Active Now */}
                 <div className="kpi-item">
                     <div className="kpi-icon" style={{backgroundColor:"pink"}}>
-                        {/* <i className="pi pi-desktop"></i> */}
                         <img src={indicatorthree} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
                     </div>
                     <div className="kpi-details">
@@ -1026,7 +1020,7 @@ const percentageTemplate = (rowData) => {
                         <h2 className="kpi-value">{indicators.length - filledRows.length }</h2>
 
                     </div>
-                </div>
+                </div> */}
             </div>
         </Card>
 
@@ -1088,13 +1082,13 @@ const percentageTemplate = (rowData) => {
                 console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}}
             paginator 
             stripedRows
-            rows={25}
+            rows={10}
             showGridlines
              editMode="cell"
             // columnResizeMode='fit'
             // resizableColumns
             scrollable
-            scrollHeight="700px"
+            // scrollHeight="700px"
 
             loading={loading} 
             dataKey="id" 
@@ -1133,7 +1127,7 @@ const percentageTemplate = (rowData) => {
                 alignFrozen="right" 
                 frozen
             ></Column> */}
-            <Column header="Actions" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen />
+            <Column header="Actions" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen  />
 
  </DataTable>
  

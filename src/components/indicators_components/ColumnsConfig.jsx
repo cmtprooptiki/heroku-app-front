@@ -33,12 +33,16 @@ import {
 //hint custom
 
 const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cross_Cutting_Dimensions_A_I, 
-    Cross_Cutting_Dimensions_Inputs_Outputs, filledRows, category_of_Indicator) =>
+    Cross_Cutting_Dimensions_Inputs_Outputs, 
+    // filledRows, 
+    category_of_Indicator) =>
 {
 
     const {customHeader, renderColumnHeader, onCellEditComplete, 
         cellEditor, generalBodyTemplate, 
-        ItemTemplate, q4all_Ind_number_BodyTemplate} = HelperIndicators(indicators, filledRows, category_of_Indicator);
+        ItemTemplate, q4all_Ind_number_BodyTemplate} = HelperIndicators(indicators, 
+            // filledRows, 
+            category_of_Indicator);
     return {
      
         q4all_Ind_number: {
@@ -138,7 +142,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filterField: "dpolist",
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.dpolist)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
-            style: { minWidth: '11rem' },
+            style: { minWidth: '11rem',textAlign:"center"  },
             body: generalBodyTemplate(indicators, dpolist, 'dpolist'),
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
@@ -182,7 +186,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filterField: "idika",
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.idika)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
-            style: { minWidth: '11rem' },
+            style: { minWidth: '11rem' ,textAlign:"center" },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete,
             body: generalBodyTemplate(indicators, idikaList, 'idika')
@@ -195,7 +199,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filterField: "ketekny",
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.ketekny)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
-            style: { minWidth: '11rem' },
+            style: { minWidth: '11rem',textAlign:"center"  },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete,
             body: generalBodyTemplate(indicators, keteknyList, 'ketekny')
@@ -208,7 +212,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filterField: "eoppy",
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.eoppy)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
-            style: { minWidth: '11rem' },
+            style: { minWidth: '11rem',textAlign:"center"  },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete,
             body: generalBodyTemplate(indicators, eoppyList, 'eoppy')
@@ -221,7 +225,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filterField: "odipy",
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.odipy)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
-            style: { minWidth: '11rem' },
+            style: { minWidth: '11rem',textAlign:"center"  },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete,
             body: generalBodyTemplate(indicators, odipyList, 'odipy')
@@ -234,7 +238,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filterField: "moh",
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.moh)} itemTemplate={ItemTemplate} />),
             showFilterMatchModes: false,
-            style: { minWidth: '11rem' },
+            style: { minWidth: '11rem',textAlign:"center"  },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete,
             body: generalBodyTemplate(indicators, mohList, 'moh')
@@ -269,7 +273,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             showFilterMatchModes: false,
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.shortlist_indicators)} itemTemplate={ItemTemplate} />),
             body: generalBodyTemplate(indicators, shortlist_indicators, 'shortlist_indicators'),
-            style: { minWidth: '12rem' },
+            style: { minWidth: '12rem',textAlign:"center"  },
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
         },
@@ -288,7 +292,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filter: true,
             filterField: "forPilot",
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.forPilot)} itemTemplate={ItemTemplate}/>),
-            style: { minWidth: '12rem' },
+            style: { minWidth: '12rem',textAlign:"center"  },
             body: generalBodyTemplate(indicators, forPilotlist, 'forPilot'),
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
@@ -333,7 +337,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filter: true,
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.type_of_healthcare_providers_D1_D7)} itemTemplate={ItemTemplate}/>),
             showFilterMatchModes: false,
-            style: { minWidth: '12rem' },
+            style: { minWidth: '12rem',textAlign:"center"  },
             body: generalBodyTemplate(indicators, type_of_healthcare_providers_D1_D7list, 'type_of_healthcare_providers_D1_D7'),
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
@@ -348,7 +352,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filterElement: (option) => (<FilterIndicators options={option} data={cross_Cutting_Dimensions_A_I} itemTemplate={ItemTemplate}/>),
             filterField: "cross_Cutting_Dimensions_A_I",
             showFilterMatchModes: false,
-            style: { minWidth: '12rem' },
+            style: { minWidth: '12rem',textAlign:"center"  },
             body: generalBodyTemplate(indicators, classification_dimension, 'cross_Cutting_Dimensions_A_I'),
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
@@ -373,7 +377,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.dimensions_of_Quality_QoCOfficeReport)}  itemTemplate={ItemTemplate}/>),
             showFilterMatchModes: false,
             filterPlaceholder: "Search by Dimensions of Quality",
-            style: { minWidth: '12rem' },
+            style: { minWidth: '12rem',textAlign:"center"  },
             body: generalBodyTemplate(indicators, QoCOfficeReportlist, 'dimensions_of_Quality_QoCOfficeReport'),
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete
@@ -384,7 +388,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filter: true,
             filterElement: (option) => (<FilterIndicators options={option} data={filteredIndicators.map(item => item.priority)}  itemTemplate={ItemTemplate}/>),
             showFilterMatchModes: false,
-            style: { minWidth: '12rem' },
+            style: { minWidth: '12rem',textAlign:"center"  },
             body: generalBodyTemplate(indicators, prioritylist, 'priority'),
             editor: (options) => cellEditor(options),
             onCellEditComplete: onCellEditComplete

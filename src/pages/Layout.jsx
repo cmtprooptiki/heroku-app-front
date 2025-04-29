@@ -1,13 +1,14 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import NavbarNew from '../components/NavbarNew';
 import { SidebarNew } from '../components/SidebarNew';
 import HeadlessDemo from '../components/HeadlessDemo';
 const Layout = ({children}) => {
   return (
     <React.Fragment>
-        <div style={{paddingLeft:'39px',paddingRight:'39px',paddingTop:'30px'}}> 
+        <div style={{paddingLeft:'20px',paddingRight:'20px',paddingTop:'30px'}}> 
 
-        <Navbar/>
+        <NavbarNew/>
         </div>
         <div className="columns mt-6 " style={{minHeight:"100vh",backgroundColor:"rgba(248, 249, 252, 1)" ,paddingLeft:'39px',paddingRight:'39px',paddingTop:'30px'}}>
             {/* <div className="column is-one-fifth"> */}

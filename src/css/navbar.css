@@ -1,0 +1,164 @@
+/* Navbar Container */
+.navbar-container {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 16px;
+    margin: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* PrimeReact Menubar Customization */
+.custom-menubar {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo and Dashboard Title */
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dashboard-title {
+    margin: 0;
+    color: #1400B9;
+    font-family: 'Averta-Semibold', sans-serif;
+    font-size: 28px;
+}
+
+/* Logo Image */
+.logo-image {
+    width: 180px;
+    height: 74px;
+}
+
+/* Menu Icons */
+.menu-icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.profile-name {
+    font-family: 'Averta-Semibold', sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+
+/* Responsive Fix */
+@media screen and (max-width: 768px) {
+    .dashboard-title {
+        font-size: 20px;
+    }
+
+    .logo-image {
+        width: 140px;
+        height: 60px;
+    }
+
+    .menu-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .profile-name {
+        font-size: 14px;
+    }
+}
+
+
+.menu-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* remove padding */
+    margin: 0;
+}
+
+.menu-icon-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; /* make sure it fills fully */
+    max-width: none;
+}
+
+/* PrimeReact Menubar item adjustment */
+/* .p-menubar .p-menuitem-link {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 64px; 
+    width: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+
+/* .p-submenu-list .p-menuitem-content .p-menubar .p-menuitem-link {
+  
+    align-items: unset !important;
+    justify-content: unset !important;
+} */
+
+
+.top-level-icon  .p-menuitem-link{
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 64px; 
+    width: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Prevent avatar submenu from overflowing right */
+.p-menubar .p-menuitem.p-menuitem-active > .p-submenu-list {
+    right: 0 !important;
+    left: auto !important;
+    transform-origin: top right !important;
+    min-width: 220px; /* allow space for email text */
+}
+
+/* Optional: prevent text wrapping */
+.p-submenu-list {
+    white-space: nowrap;
+}
+
+.dropdown-avatar{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 10px;
+    align-items: center;
+    line-height: 1.2;
+    gap: 7px;
+}
+
+/* a:hover{
+    text-decoration: none !important;
+} */
+
+.logout-item a{
+    padding-left: 25px;
+    font-family:"Poppins";
+}
+.logout-item a span{
+    color: #92969a;
+}
+
+.logout-item a:hover{
+    text-decoration: none !important;
+}

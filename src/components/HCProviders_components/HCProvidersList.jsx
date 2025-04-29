@@ -702,6 +702,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                 onChange={(e) => options.editorCallback(e.value)}
                 placeholder="Select option"
                 onKeyDown={(e) => e.stopPropagation()}
+                className='custom_dropdown'
             />
         );
     };
@@ -878,7 +879,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
                                 options={hcproviders.map(h => h.Name_GR)}
                                 onChange={(e) => setSelectedHospital(e.value)}
                                 placeholder="Choose a Health Unit..."
-                                className="p-mb-3"
+                                className="p-mb-3 custom_dropdown"
                             />
             
                             <h4 style={{fontFamily: "Poppins"}}>Find Health Unit in Distance (km): {distance} km</h4>
@@ -949,9 +950,9 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
 
         <div className='d-flex align-items-center gap-4'>
         
-        {user && user.role ==="admin" && (
+        {/* {user && user.role ==="admin" && (
         <Link to={"/hcproviders/add"} ><Button label="New HCProvider row" className='button is-primary mb-2 rounded' icon="pi pi-plus-circle"/></Link>
-        )}
+        )} */}
 
         {user && (
                 <Button
@@ -1036,7 +1037,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
             <Column field="Drg_Mature_Usage" style={{textAlign:"center" }} header={customHeader(headers.Drg_Mature_Usage.label,headers.Drg_Mature_Usage.description,"Drg_Mature_Usage")} filter itemTemplate={ItemTemplate} filterField='Drg_Mature_Usage' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
             <Column field="HEALTH_Center_In_The_Network" style={{textAlign:"center" }}  header={customHeader(headers.HEALTH_Center_In_The_Network.label,headers.HEALTH_Center_In_The_Network.description,"HEALTH_Center_In_The_Network")} filter itemTemplate={ItemTemplate} filterField='HEALTH_Center_In_The_Network' showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete}></Column>
 
-            <Column header="Actions" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen headerStyle={{  color: 'rgba(18, 0, 147, 1)' }}/>
+            <Column header="Actions" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen headerStyle={{ color: 'rgba(18, 0, 147, 1)' }}/>
 
  </DataTable>
 
