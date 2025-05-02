@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import apiBaseUrl from '../apiConfig';
 
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 const OnlineUsers = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const socket = io('http://localhost:5000', {
+    const socket = io(`${apiBaseUrl}`, {
       transports: ['websocket'],
       reconnection: true,
       reconnectionAttempts: 5,
