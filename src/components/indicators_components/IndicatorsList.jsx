@@ -40,7 +40,6 @@ import { createContext } from 'react';
 export const dialogContest =createContext();
 
 
-
 const IndicatorsListNew = () => {
     const [indicators, setIndicators] = useState([]);
 
@@ -981,8 +980,6 @@ const percentageTemplate = (rowData) => {
       
 
     </div>
-
-
         <Card className="kpi-section-card">
             <div className="kpi-section">
                 {/* Total Customers */}

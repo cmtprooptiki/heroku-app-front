@@ -200,7 +200,7 @@ const FormAddIndicator = ({onHide, onSuccessEdit, onError}) => {
 
     return (
             <div>
-              <h1 className='title'>Add Indicator Form</h1>
+              <h1 className='title'>New Indicator</h1>
               <form onSubmit={saveIndicator}>
                 {/* <div className="grid"> */}
                   <div className="">

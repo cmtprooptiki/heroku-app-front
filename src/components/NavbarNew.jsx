@@ -5,10 +5,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { LogOut, reset, getMe } from "../features/authSlice";
 import { useNavigate } from "react-router-dom";
 import cashflow_logo from "../Images/whologo.png";
+import project_logo from "../Images/health_IQ_low.png"
 import hcprovidersIconSvg from "../icons/hcproviders.svg";
 import usersIconSvg from "../icons/users.svg";
 import homeSvg from "../icons/home.svg";
 import apiBaseUrl from "../apiConfig";
+import { useLocation } from "react-router-dom"; // Already mentioned
+import OnlineUsers from '../components/indicators_components/OnlineUsers';
 
 import "../css/navbar.css";
 import { icon } from "@fortawesome/fontawesome-svg-core";
@@ -32,6 +35,17 @@ const NavbarNew = () => {
         navigate("/");
     };
 
+
+    const location = useLocation();
+
+const getPageTitle = () => {
+    if (location.pathname === "/hcproviders") {
+        return "Health Providers Registry";
+    } else if (location.pathname === "/dashboard") {
+        return "Q4ALL Indicators Registry";
+    }
+    return "Q4ALL Indicators Registry";
+};
     const items = [
         {
             icon: () => (
@@ -138,8 +152,15 @@ const NavbarNew = () => {
 
     const startTemplate = (
         <div className="logo-section">
-            <h2 className="dashboard-title">Dashboard</h2>
-            <img src={cashflow_logo} alt="Logo" className="logo-image" />
+             <img src={project_logo} alt="projectlogo"  className="logo-project" />
+             <img src={cashflow_logo} alt="Logo" className="logo-image" />
+             <h2 className="dashboard-title">{getPageTitle()}</h2>
+             <div className="online items-center align space-x-6">
+
+            <OnlineUsers />
+            </div>
+             
+           
         </div>
     );
 
