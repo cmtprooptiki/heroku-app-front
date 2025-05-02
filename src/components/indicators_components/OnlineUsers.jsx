@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import apiBaseUrl from '../apiConfig';
+import apiBaseUrl from '../../apiConfig';
 
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 const OnlineUsers = () => {
