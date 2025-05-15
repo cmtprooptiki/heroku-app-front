@@ -37,6 +37,8 @@ import FormAddIndicator from './FormAddIndicator';
 
 import { createContext } from 'react';
 
+import UserActivity from './UserActivity';
+
 export const dialogContest =createContext();
 
 
@@ -977,7 +979,7 @@ const percentageTemplate = (rowData) => {
         <div>
             <dialogContest.Provider value = {{saved, setSaved}}>
 <div className="p-4">
-      
+      <UserActivity/>
 
     </div>
         <Card className="kpi-section-card">

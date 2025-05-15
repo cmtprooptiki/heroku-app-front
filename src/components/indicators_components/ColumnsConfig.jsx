@@ -39,7 +39,7 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
 {
 
     const {customHeader, renderColumnHeader, onCellEditComplete, 
-        cellEditor, generalBodyTemplate, 
+        cellEditor, onCellEditInit, generalBodyTemplate, 
         ItemTemplate, q4all_Ind_number_BodyTemplate} = HelperIndicators(indicators, 
             // filledRows, 
             category_of_Indicator);
@@ -86,7 +86,8 @@ const ColumnsConfig = (filteredIndicators, indicators, statusValue, dpolist, cro
             filterPlaceholder: "Search by Indicator Cluster",
             style: { minWidth: '8rem' },
             editor: (options) => cellEditor(options),
-            onCellEditComplete: onCellEditComplete
+            onCellEditComplete: onCellEditComplete,
+            onCellEditInit: onCellEditInit
         },
         internal_observations:
         {

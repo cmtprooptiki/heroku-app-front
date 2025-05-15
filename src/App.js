@@ -28,6 +28,7 @@ import ProtectedRoute from "./components/protectedRoute";
 import Home from "./pages/home";
 import EditSimpleUser from "./pages/user_pages/EditSimpleUser";
 import HcpUser from "./pages/HcpUser";
+import { SocketProvider } from "./components/SocketContext";
 
 function App() {
   const value = {
@@ -37,8 +38,9 @@ function App() {
   return (
     <div>
       <PrimeReactProvider value={value}>
-      
+      <SocketProvider>
       <BrowserRouter>
+      
         <Routes>
           <Route path="/" element={<Login/>}></Route>
           <Route path="/home" element={<Home/>}></Route>
@@ -64,6 +66,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+      </SocketProvider>
       </PrimeReactProvider>
     </div>
   );
