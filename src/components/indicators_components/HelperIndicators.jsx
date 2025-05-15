@@ -32,6 +32,8 @@ import { Dropdown} from "primereact/dropdown";
 import { InputNumber } from "primereact/inputnumber";
 import { InputTextarea } from 'primereact/inputtextarea';
 // import { memo } from "react";
+import socket from "../../socket"
+import { useSelector } from "react-redux";
 
 const HelperIndicators = (indicators, 
     // filledRows, 
@@ -77,11 +79,59 @@ const HelperIndicators = (indicators,
     </div>
     );
 
+    const {user} = useSelector((state)=>state.auth)
+
+    const onCellEditInit = (e) => {
+        const { rowData, field } = e;
+        const key = `${field}|${rowData.q4all_Ind_number}`;
+      
+        // Check if someone else has locked the cell
+        // const lock = lockedCells[key];
+        // const isLockedByAnother = lock && lock.sessUserId !== user.id;
+        // console.log("LOCK BY ANOTHEr")
+        // if (isLockedByAnother) {
+        //   toastRef.current?.show({
+        //     severity: 'warn',
+        //     summary: 'Cell Locked',
+        //     detail: `Another user is editing this cell.`,
+        //     life: 3000,
+        //   });
+        //   e.originalEvent.preventDefault(); // Prevent editing
+        //   return;
+        // }
+      
+        // socket.emit("notify-cell-in-use", {
+        //   indicatorId: rowData.q4all_Ind_number,
+        //   field: field
+        // });
+
+        socket.emit("active-cells", {
+            indicatorId: rowData.q4all_Ind_number,
+            field: field
+        });
+
+
+
+      };
+
     const onCellEditComplete = async (e) => {
         let { rowData, newValue, field, originalEvent: event } = e;
     
         let validEdit = false;
-    
+
+        const indicatorId = rowData.q4all_Ind_number;
+
+        // 👤 Replace this with your actual user object if needed
+        // const userName = user.name || "Unknown User";
+      
+        // Emit user activity log
+        socket.emit("user-activity", {
+  user: user.name, // or user.email/ID, depending on your structure
+  action: `edited field:"${field}" for Indicator: indicator ${indicatorId}`,
+  field,
+  indicatorId,
+  value: newValue, // <== this is the key part
+});
         // Utility function to safely handle string trimming
         const safeTrim = (value) => (typeof value === 'string' ? value.trim() : '');
     
@@ -604,7 +654,7 @@ const HelperIndicators = (indicators,
 
     
 
-        return {customHeader, renderColumnHeader, onCellEditComplete, cellEditor, generalBodyTemplate, ItemTemplate, q4all_Ind_number_BodyTemplate}
+        return {customHeader, renderColumnHeader, onCellEditComplete,onCellEditInit, cellEditor, generalBodyTemplate, ItemTemplate, q4all_Ind_number_BodyTemplate}
     }
 
     // Export the functions
