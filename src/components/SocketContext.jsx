@@ -71,17 +71,19 @@ export function SocketProvider({ children }) {
     socket.emit("request-notification");
 
     socket.on("activity-log", (logLines) => {
-      const parsed = logLines
-        .map((line) => {
-          const match = line.match(
-            /^\[(.*?)\]\s+(\w+)\s+edited\s+field:"(.*?)"\s+for\s+Indicator:\s+indicator\s+(.*?)\s+value:"(.*?)"$/
-          );
-          if (!match) return null;
-          const [, timestamp, user, field, indicatorId, value] = match;
-          return { timestamp, user, field, indicatorId, value };
-        })
-        .filter(Boolean);
-      setActivityLog(parsed.slice(0, 20));
+      // const parsed = logLines
+      //   .map((line) => {
+      //     const match = line.match(
+      //       /^\[(.*?)\]\s+(\w+)\s+edited\s+field:"(.*?)"\s+for\s+Indicator:\s+indicator\s+(.*?)\s+value:"(.*?)"$/
+      //     );
+      //     if (!match) return null;
+      //     const [, timestamp, user, field, indicatorId, value] = match;
+      //     return { timestamp, user, field, indicatorId, value };
+      //   })
+      //   .filter(Boolean);
+      // setActivityLog(parsed.slice(0, 20));
+      setActivityLog(logLines.slice(0, 20));
+
     });
 ////////////////
     socket.on("notify-all-cell-in-use", (cellInfo) => {

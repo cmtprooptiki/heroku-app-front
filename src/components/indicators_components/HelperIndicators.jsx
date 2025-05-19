@@ -127,6 +127,7 @@ const HelperIndicators = (indicators,
         // Emit user activity log
         socket.emit("user-activity", {
   user: user.name, // or user.email/ID, depending on your structure
+  profileImage:user.profileImage,
   action: `edited field:"${field}" for Indicator: indicator ${indicatorId}`,
   field,
   indicatorId,

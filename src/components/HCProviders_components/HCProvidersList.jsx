@@ -993,8 +993,19 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
  
 
 
-<DataTable value={hcproviders}  editMode="cell" ref = {dt} onValueChange={(Updatedhcproviders) => {setFilteredHcproviders(Updatedhcproviders);  console.log(filteredHcproviders.length, "Toso mikos"); setRowsAffected(Updatedhcproviders.length)}} paginator stripedRows
- rows={25} scrollable scrollHeight="600px" loading={loading} dataKey="id" 
+<DataTable 
+            value={hcproviders}  
+            editMode="cell" 
+            ref = {dt} 
+            onValueChange={(Updatedhcproviders) => {setFilteredHcproviders(Updatedhcproviders);  
+            console.log(filteredHcproviders.length, "Toso mikos"); setRowsAffected(Updatedhcproviders.length)}} 
+            paginator 
+            stripedRows
+            rows={10} 
+            // scrollable 
+            // scrollHeight="600px" 
+            loading={loading} 
+            dataKey="id" 
             filters={filters} 
             globalFilterFields={['id', 'ype',  'Q4ALL_code',
                  'type_Of_Hcp', 'Name_GR',      'Name_EN',   'category_As_Per_HealthAtlas',   'category_As_Per_Sha_2011_Elstat',     
@@ -1015,7 +1026,7 @@ const q4all_Ind_number_BodyTemplate = (rowData) => {
             >
             <Column selectionMode="multiple" style={{textAlign:"center" }} frozen></Column>
 
-            <Column className='font-bold' field="id" header="id" sortable  style={{ color: 'black' ,textAlign:'center', minWidth: "2rem"}} frozen ></Column>
+            <Column className='font-bold' field="id" header="id" sortable  style={{ color: 'black' ,textAlign:'center', minWidth: "2rem"}} frozen hidden></Column>
             <Column field="Name_GR" style={{textAlign:"center", minWidth: "5rem" }} header={customHeader(headers.Name_GR.label, headers.Name_GR.description, "Name_GR")} filter filterField='Name_GR' filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.Name_GR)} itemTemplate={ItemTemplate} />)} showFilterMatchModes={false} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} frozen></Column>
 
             <Column field="ype" style={{textAlign:"center", minWidth: "5rem" }} header={customHeader(headers.ype.label, headers.ype.description, "ype")}  filter = {true} filterField='ype' showFilterMatchModes = {false} filterElement = {(option) => (<FilterHCProviders options={option} data={filteredHcproviders.map(item => item.ype)} itemTemplate={ItemTemplate} />)} editor={(options) => cellEditor(options)} onCellEditComplete={onCellEditComplete} ></Column>

@@ -975,150 +975,133 @@ const percentageTemplate = (rowData) => {
         
     useDynamicApplyButtonStyling();
 
-    return(
-        <div>
-            <dialogContest.Provider value = {{saved, setSaved}}>
-<div className="p-4">
-      <UserActivity/>
-
+    return (
+      <div>
+        <dialogContest.Provider value={{ saved, setSaved }}>
+ <div className="d-flex flex-wrap align-items-start gap-3 p-4" style={{ flexWrap: 'wrap' }}>
+    {/* UserActivity on the left */}
+    <div className="flex-grow-1 flex-shrink-0 kpi-section-card" style={{ minWidth: '250px', maxWidth: '-webkit-fill-available' }}>
+        <UserActivity />
     </div>
-        <Card className="kpi-section-card">
-            <div className="kpi-section">
-                {/* Total Customers */}
-                <div className="kpi-item">
-                    <div className="kpi-icon">
-                        {/* <i className="pi pi-users"></i> */}
-                        <img src={TotalIndicators} alt="Search" style={{ width: "64px", cursor: "pointer" }} />                   
 
-                    </div>
-                    <div className="kpi-details">
-                        <span className="kpi-label">Total Indicators</span>
-                        <h2 className="kpi-value">{indicators.length} </h2>
-                       
-                    </div>
+    {/* KPI Card on the right */}
+    <Card className="kpi-section-card flex-grow-1" style={{ minWidth: '250px', flex: '1 1 300px' }}>
+        <div className="kpi-section d-flex align-items-center justify-content-between flex-wrap">
+            {/* Total Indicators */}
+            <div className="kpi-item d-flex align-items-center">
+                <div className="kpi-icon me-2">
+                    <img src={TotalIndicators} alt="Indicators Icon" style={{ width: "64px", cursor: "pointer" }} />
                 </div>
-                {/* <div className="kpi-separator"></div>
-                <div className="kpi-item">
-                    <div className="kpi-icon">
-                        <img src={indicatortwo} alt="Search" style={{ width: "32px", cursor: "pointer" }} />                   
-
-                    </div>
-                    <div className="kpi-details">
-                        <span className="kpi-label">Completed Indicators</span>
-                        <h2 className="kpi-value">{filledRows.length}</h2>
-                     
-                    </div>
+                <div className="kpi-details">
+                    <span className="kpi-label">Total Indicators</span>
+                    <h2 className="kpi-value">{indicators.length}</h2>
                 </div>
-                <div className="kpi-separator"></div>
-                <div className="kpi-item">
-                    <div className="kpi-icon" style={{backgroundColor:"pink"}}>
-                        <img src={indicatorthree} alt="Search" style={{ width: "32px", cursor: "pointer" }} />
-                    </div>
-                    <div className="kpi-details">
-                        <span className="kpi-label">Not Completed</span>
-                        <h2 className="kpi-value">{indicators.length - filledRows.length }</h2>
-
-                    </div>
-                </div> */}
             </div>
-        </Card>
-
-        <div className="datatable-container">
-
-        <div >
-        <h1 className='title' style={{font:'Poppins',fontSize:'22px',fontWeight:'600',lineHeight:'33px',color:'rgba(0, 0, 0, 1)'}}>Indicators Table</h1>
-        <div className='d-flex align-items-center gap-4'>
+        </div>
+    </Card>
+</div>
 
 
-        <MultiSelect
-        value={selectedColumns}
-        options={orderedColumnNames.map((col) => ({
-            label: columnLabelMap[col] || col,
-            value: col
-        }))}
-        onChange={(e) => setSelectedColumns(e.value)}
-        placeholder="Select Columns"
-        display="chip"
-        className="w-full md:w-20rem"
-        />
+          <div className="datatable-container">
+            <div>
+              <h1
+                className="title"
+                style={{
+                  font: "Poppins",
+                  fontSize: "22px",
+                  fontWeight: "600",
+                  lineHeight: "33px",
+                  color: "rgba(0, 0, 0, 1)",
+                }}
+              >
+                Indicators Table
+              </h1>
+              <div className="d-flex align-items-center gap-4">
+                <MultiSelect
+                  value={selectedColumns}
+                  options={orderedColumnNames.map((col) => ({
+                    label: columnLabelMap[col] || col,
+                    value: col,
+                  }))}
+                  onChange={(e) => setSelectedColumns(e.value)}
+                  placeholder="Select Columns"
+                  display="chip"
+                  className="w-full md:w-20rem"
+                />
 
-
-
-        {(user && user.role === "admin" || user.role === "indicator") && (
-                <Button
+                {((user && user.role === "admin") ||
+                  user.role === "indicator") && (
+                  <Button
                     label="New Empty Row"
                     className="p-button2 is-primary mb-2 rounded"
                     icon="pi pi-plus-circle"
-                    style = {{marginLeft: "50px"}}
+                    style={{ marginLeft: "50px" }}
                     onClick={() => setDialogAddVisible(true)} // Trigger the addEmptyRow function
-                />
-            )}
+                  />
+                )}
 
-     {selectedIndicator.length > 0 && (
-      
-            
-            <Button
-            className='p-button3 is-primary mb-2 rounded' 
-            label="Delete Selected" 
-                icon="pi pi-trash" 
-                severity="danger"
-                style = {{marginLeft: "50px"}} 
-                onClick={confirmMultipleDelete} // Pass an array of selected IDs
-            />
-      
-            
-        )} 
-        </div>
+                {selectedIndicator.length > 0 && (
+                  <Button
+                    className="p-button3 is-primary mb-2 rounded"
+                    label="Delete Selected"
+                    icon="pi pi-trash"
+                    severity="danger"
+                    style={{ marginLeft: "50px" }}
+                    onClick={confirmMultipleDelete} // Pass an array of selected IDs
+                  />
+                )}
+              </div>
 
-        {/* <ToggleButton checked={balanceFrozen} onChange={(e) => setBalanceFrozen(e.value)} onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" /> */}
-        <Toast ref={toast} />
-        <ConfirmDialog />
+              {/* <ToggleButton checked={balanceFrozen} onChange={(e) => setBalanceFrozen(e.value)} onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" /> */}
+              <Toast ref={toast} />
+              <ConfirmDialog />
 
-        <DataTable  
-            value={indicators}    
-             ref = {dt} 
-            onValueChange={(Updatedindicators) => {setFilteredIndicators(Updatedindicators);  
-                console.log(filteredIndicators.length, "Toso mikos"); setRowsAffected(Updatedindicators.length)}}
-            paginator 
-            stripedRows
-            rows={10}
-            showGridlines
-             editMode="cell"
-            // columnResizeMode='fit'
-            // resizableColumns
-            scrollable
-            // scrollHeight="700px"
+              <DataTable
+                value={indicators}
+                ref={dt}
+                onValueChange={(Updatedindicators) => {
+                  setFilteredIndicators(Updatedindicators);
+                  console.log(filteredIndicators.length, "Toso mikos");
+                  setRowsAffected(Updatedindicators.length);
+                }}
+                paginator
+                stripedRows
+                rows={10}
+                showGridlines
+                editMode="cell"
+                // columnResizeMode='fit'
+                // resizableColumns
+                scrollable
+                // scrollHeight="700px"
 
-            loading={loading} 
-            dataKey="id" 
-            filters={filters} 
-            globalFilterFields={globalFilters}
-            header={header} 
-            emptyMessage="No Indicators found."
-            selection={selectedIndicator} 
-            onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
-            selectionMode="checkbox"
-            >
+                loading={loading}
+                dataKey="id"
+                filters={filters}
+                globalFilterFields={globalFilters}
+                header={header}
+                emptyMessage="No Indicators found."
+                selection={selectedIndicator}
+                onSelectionChange={(e) => setSelectedIndicator(e.value)} // Updates state when selection changes
+                selectionMode="checkbox"
+              >
+                <Column selectionMode="multiple" frozen></Column>
 
-            <Column selectionMode="multiple"  frozen></Column>
+                {defaultCall.map((col) => (
+                  <Column key={col} {...allColumns2[col]} />
+                ))}
 
-        
-              {defaultCall.map((col) => (
-                              <Column key={col} {...allColumns2[col]}  />
-                            ))}
-
-            {/* {columnOrder.map((col) => (
+                {/* {columnOrder.map((col) => (
                     <Column key={col} {...allColumns2[col]}   />
                 ))} */}
 
-            {/* {visibleColumns.map(col => (
+                {/* {visibleColumns.map(col => (
             <Column key={col} {...allColumns2[col]} />
             ))} */}
-            {/* {selectedColumns.map((col) => allColumns[col])} 2*/}
+                {/* {selectedColumns.map((col) => allColumns[col])} 2*/}
 
-            {/*HERE IS THE CODE FOR PERCENTAGE COLLUM*/}
-            {/* <Column
-             className='font-bold'
+                {/*HERE IS THE CODE FOR PERCENTAGE COLLUM*/}
+                {/* <Column
+            className='font-bold'
                 header="Filled Percentage"
                 sortable
                 body={percentageTemplate}
@@ -1126,61 +1109,93 @@ const percentageTemplate = (rowData) => {
                 alignFrozen="right" 
                 frozen
             ></Column> */}
-            <Column header="Actions" field="id" body={ActionsBodyTemplate} alignFrozen="right" frozen  />
+                <Column
+                  header="Actions"
+                  field="id"
+                  body={ActionsBodyTemplate}
+                  alignFrozen="right"
+                  frozen
+                />
+              </DataTable>
 
- </DataTable>
- 
-    <Dialog visible={dialogVisible} onHide={() => setDialogVisible(false)} modal style={{ width: '50vw' }} maximizable breakpoints={{ '960px': '80vw', '480px': '100vw' }}>
+              <Dialog
+                visible={dialogVisible}
+                onHide={() => setDialogVisible(false)}
+                modal
+                style={{ width: "50vw" }}
+                maximizable
+                breakpoints={{ "960px": "80vw", "480px": "100vw" }}
+              >
+                {selectedIndicatorId && selectedType == "Edit" && (
+                  <FormEditIndicator
+                    id={selectedIndicatorId}
+                    onHide={() => setDialogVisible(false)}
+                    onSuccessEdit={() => {
+                      toast.current.show({
+                        severity: "success",
+                        summary: "Success",
+                        detail: "You edited the table successfully",
+                        life: 3000,
+                      });
+                      setDialogVisible(false);
+                    }}
+                  />
+                )}
+              </Dialog>
 
-        {selectedIndicatorId && (selectedType=='Edit') && (
-        <FormEditIndicator id={selectedIndicatorId} onHide={() => setDialogVisible(false)} onSuccessEdit={() => {
-            toast.current.show({ 
-                severity: 'success', 
-                summary: 'Success', 
-                detail: 'You edited the table successfully', 
-                life: 3000 
-            });
-            setDialogVisible(false);
-        }} />
-        )}
-    </Dialog>
+              <Dialog
+                visible={dialogAddVisible}
+                onHide={() => setDialogAddVisible(false)}
+                modal
+                style={{ width: "50vw" }}
+                maximizable
+                breakpoints={{ "960px": "80vw", "480px": "100vw" }}
+              >
+                <FormAddIndicator
+                  onHide={() => setDialogAddVisible(false)}
+                  onSuccessEdit={() => {
+                    toast.current.show({
+                      severity: "success",
+                      summary: "Success",
+                      detail: "You inserted the data successfully",
+                      life: 3000,
+                    });
+                    setDialogAddVisible(false);
+                  }}
+                  onError={() => {
+                    toast.current.show({
+                      severity: "error",
+                      summary: "Error",
+                      detail:
+                        "This Q4AllInd code already exists. Please try again.",
+                      life: 3000,
+                    });
+                  }}
+                />
+              </Dialog>
 
-    <Dialog visible={dialogAddVisible} onHide={() => setDialogAddVisible(false)} modal style={{ width: '50vw' }} maximizable breakpoints={{ '960px': '80vw', '480px': '100vw' }}>
+              {/* Dialog for editing Paradotea */}
 
-        
-        <FormAddIndicator onHide={() => setDialogAddVisible(false)} onSuccessEdit={() => {
-            toast.current.show({ 
-                severity: 'success', 
-                summary: 'Success', 
-                detail: 'You inserted the data successfully', 
-                life: 3000 
-            });
-            setDialogAddVisible(false);
-        }}
-        onError={() => {
-            toast.current.show({
-                severity: 'error',
-                summary: 'Error',
-                detail: 'This Q4AllInd code already exists. Please try again.',
-                life: 3000
-            });
-        }}/>
-    </Dialog>
-
-
-    {/* Dialog for editing Paradotea */}
-    
-            <div>
-            <h3 style={{fontFamily:'Poppins',fontSize:'14px',lineHeight:'21px',fontWeight:'500',color:'rgba(181, 183, 192, 1)'}}>Showing {RowsAffected} rows were found based on search criteria</h3>
+              <div>
+                <h3
+                  style={{
+                    fontFamily: "Poppins",
+                    fontSize: "14px",
+                    lineHeight: "21px",
+                    fontWeight: "500",
+                    color: "rgba(181, 183, 192, 1)",
+                  }}
+                >
+                  Showing {RowsAffected} rows were found based on search
+                  criteria
+                </h3>
+              </div>
             </div>
-        
-     </div>
-     {saved}
-
-    </div>
-    </dialogContest.Provider>
-    </div>
-    )
+            {saved}
+          </div>
+        </dialogContest.Provider>
+      </div>
+    );
 }
 
 export default IndicatorsListNew;

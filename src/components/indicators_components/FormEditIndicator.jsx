@@ -41,6 +41,8 @@ import {
 import { Dropdown} from "primereact/dropdown";
 import { MultiSelect } from 'primereact/multiselect';
 import SmartInput from './SmartInput';
+import socket from '../../socket';
+import { useSelector } from 'react-redux';
 
 
 const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
@@ -107,9 +109,12 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
     const [pilot_success_criteria, setPilot_Success_Criteria] = useState("");
     const {saved, setSaved} = useContext(dialogContest)
 
+    const [lastUpdatedData,setLastUpdatedData]=useState([])
+
     
 
-
+    const {user} = useSelector((state)=>state.auth)
+    
     const[msg,setMsg]=useState("");
 
 
@@ -206,6 +211,7 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
             setPilot_Outcome(response.data.pilot_outcome);
             setPilot_Success_Criteria(response.data.pilot_success_criteria);
 
+            setLastUpdatedData(response);
 
         }
         catch (error)
@@ -286,7 +292,253 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
                     onHide();
                     setSaved(prev => !prev);
 
+                    const oldData =lastUpdatedData?.data || {};
+
+                    const changes = {
+                      indicator_name: [
+                        lastUpdatedData.data.indicator_name,
+                        indicator_name,
+                      ],
+                      q4all_Ind_number: [
+                        lastUpdatedData.data.q4all_Ind_number,
+                        q4all_Ind_number,
+                      ],
+                      status: [lastUpdatedData.data.status, status],
+                      indicator_cluster: [
+                        lastUpdatedData.data.indicator_cluster,
+                        indicator_cluster,
+                      ],
+                      internal_observations: [
+                        lastUpdatedData.data.internal_observations,
+                        internal_observations,
+                      ],
+                      dpolist: [lastUpdatedData.data.dpolist, dpolist],
+                      dpo_org_source1: [
+                        lastUpdatedData.data.dpo_org_source1,
+                        dpo_org_source1,
+                      ],
+                      dpo_org_source2: [
+                        lastUpdatedData.data.dpo_org_source2,
+                        dpo_org_source2,
+                      ],
+                      dpo_org_source3: [
+                        lastUpdatedData.data.dpo_org_source3,
+                        dpo_org_source3,
+                      ],
+                      idika: [lastUpdatedData.data.idika, idika],
+                      ketekny: [lastUpdatedData.data.ketekny, ketekny],
+                      eoppy: [lastUpdatedData.data.eoppy, eoppy],
+                      odipy: [lastUpdatedData.data.odipy, odipy],
+                      moh: [lastUpdatedData.data.moh, moh],
+                      catergory_of_Indicator: [
+                        lastUpdatedData.data.catergory_of_Indicator,
+                        catergory_of_Indicator,
+                      ],
+                      observations_from_meetings: [
+                        lastUpdatedData.data.observations_from_meetings,
+                        observations_from_meetings,
+                      ],
+                      shortlist_indicators: [
+                        lastUpdatedData.data.shortlist_indicators,
+                        shortlist_indicators,
+                      ],
+                      decision_and_next_steps: [
+                        lastUpdatedData.data.decision_and_next_steps,
+                        decision_and_next_steps,
+                      ],
+                      forPilot: [lastUpdatedData.data.forPilot, forPilot],
+                      publicationsoptions: [
+                        lastUpdatedData.data.publicationsoptions,
+                        publicationsoptions,
+                      ],
+                      data_fields_vk: [
+                        lastUpdatedData.data.data_fields_vk,
+                        data_fields_vk,
+                      ],
+                      dimension: [lastUpdatedData.data.dimension, dimension],
+                      type_of_healthcare_providers_D1_D7: [
+                        lastUpdatedData.data.type_of_healthcare_providers_D1_D7,
+                        type_of_healthcare_providers_D1_D7,
+                      ],
+                      cross_Cutting_Dimensions_A_I: [
+                        (
+                          lastUpdatedData.data.cross_Cutting_Dimensions_A_I ||
+                          ""
+                        )
+                          .split(",")
+                          .map((v) => v.trim())
+                          .join(", "),
+                        cross_Cutting_Dimensions_A_I.join(", "),
+                      ],
+                      cross_Cutting_Dimensions_Inputs_Process_Outputs: [
+                        (
+                          lastUpdatedData.data
+                            .cross_Cutting_Dimensions_Inputs_Process_Outputs ||
+                          ""
+                        )
+                          .split(",")
+                          .map((v) => v.trim())
+                          .join(", "),
+                        cross_Cutting_Dimensions_Inputs_Process_Outputs.join(
+                          ", "
+                        ),
+                      ],
+                      dimensions_of_Quality_QoCOfficeReport: [
+                        lastUpdatedData.data
+                          .dimensions_of_Quality_QoCOfficeReport,
+                        dimensions_of_Quality_QoCOfficeReport,
+                      ],
+                      priority: [lastUpdatedData.data.priority, priority],
+                      data_collection: [
+                        lastUpdatedData.data.data_collection,
+                        data_collection,
+                      ],
+                      collecting_National_Organization: [
+                        lastUpdatedData.data.collecting_National_Organization,
+                        collecting_National_Organization,
+                      ],
+                      proponent_Organization_WG: [
+                        lastUpdatedData.data.proponent_Organization_WG,
+                        proponent_Organization_WG,
+                      ],
+                      rationale_Description: [
+                        lastUpdatedData.data.rationale_Description,
+                        rationale_Description,
+                      ],
+                      objective: [lastUpdatedData.data.objective, objective],
+                      calculation_Formula: [
+                        lastUpdatedData.data.calculation_Formula,
+                        calculation_Formula,
+                      ],
+                      numerator: [lastUpdatedData.data.numerator, numerator],
+                      numerator_Definitions: [
+                        lastUpdatedData.data.numerator_Definitions,
+                        numerator_Definitions,
+                      ],
+                      denominator: [
+                        lastUpdatedData.data.denominator,
+                        denominator,
+                      ],
+                      denominator_Definitions: [
+                        lastUpdatedData.data.denominator_Definitions,
+                        denominator_Definitions,
+                      ],
+                      target_Population: [
+                        lastUpdatedData.data.target_Population,
+                        target_Population,
+                      ],
+                      periodicity: [
+                        lastUpdatedData.data.periodicity,
+                        periodicity,
+                      ],
+                      data_Collection_Steps: [
+                        lastUpdatedData.data.data_Collection_Steps,
+                        data_Collection_Steps,
+                      ],
+                      legal_Requirements: [
+                        lastUpdatedData.data.legal_Requirements,
+                        legal_Requirements,
+                      ],
+                      responsible_for_Monitoring: [
+                        lastUpdatedData.data.responsible_for_Monitoring,
+                        responsible_for_Monitoring,
+                      ],
+                      deadline_Reporting: [
+                        lastUpdatedData.data.deadline_Reporting,
+                        deadline_Reporting,
+                      ],
+                      supervisor_Body: [
+                        lastUpdatedData.data.supervisor_Body,
+                        supervisor_Body,
+                      ],
+                      management_Entity: [
+                        lastUpdatedData.data.management_Entity,
+                        management_Entity,
+                      ],
+                      applicable_period: [
+                        lastUpdatedData.data.applicable_period,
+                        applicable_period,
+                      ],
+                      unit_of_Measurement: [
+                        lastUpdatedData.data.unit_of_Measurement,
+                        unit_of_Measurement,
+                      ],
+                      it_System_Source: [
+                        lastUpdatedData.data.it_System_Source,
+                        it_System_Source,
+                      ],
+                      reference_Value_Target: [
+                        lastUpdatedData.data.reference_Value_Target,
+                        reference_Value_Target,
+                      ],
+                      base_Value: [lastUpdatedData.data.base_Value, base_Value],
+                      notes: [lastUpdatedData.data.notes, notes],
+                      sources_and_Further_Reading: [
+                        lastUpdatedData.data.sources_and_Further_Reading,
+                        sources_and_Further_Reading,
+                      ],
+                      name_of_selected_indicator_en: [
+                        lastUpdatedData.data.name_of_selected_indicator_en,
+                        name_of_selected_indicator_en,
+                      ],
+                      name_of_selected_indicator_gr: [
+                        lastUpdatedData.data.name_of_selected_indicator_gr,
+                        name_of_selected_indicator_gr,
+                      ],
+                      observation_gr: [
+                        lastUpdatedData.data.observation_gr,
+                        observation_gr,
+                      ],
+                      early_demo_dash_Id: [
+                        lastUpdatedData.data.early_demo_dash_Id,
+                        early_demo_dash_Id,
+                      ],
+                      early_demo_dash_ind_Id: [
+                        lastUpdatedData.data.early_demo_dash_ind_Id,
+                        early_demo_dash_ind_Id,
+                      ],
+                      early_demo_dash_source: [
+                        lastUpdatedData.data.early_demo_dash_source,
+                        early_demo_dash_source,
+                      ],
+                      opinion_from_ODIPY_Other_experts: [
+                        lastUpdatedData.data.opinion_from_ODIPY_Other_experts,
+                        opinion_from_ODIPY_Other_experts,
+                      ],
+                      pilot_outcome: [
+                        lastUpdatedData.data.pilot_outcome,
+                        pilot_outcome,
+                      ],
+                      pilot_success_criteria: [
+                        lastUpdatedData.data.pilot_success_criteria,
+                        pilot_success_criteria,
+                      ],
+                    };
+
+
+                     // Emit socket event for each changed field
+                    Object.entries(changes).forEach(([field, [oldVal, newVal]]) => {
+                        if ((oldVal ?? '') !== (newVal ?? '')) {
+                            socket.emit('user-activity', {
+                                user: user.name || "Unknown User", // or from redux
+                                profileImage: user.profileImage || "",
+                                field,
+                                indicatorId: q4all_Ind_number,
+                                value: newVal
+                            });
+                        }
+                    });
+
                     if (onSuccessEdit) {
+                    //     socket.emit("user-activity", {
+                    //       user: user.name, // or user.email/ID, depending on your structure
+                    //       profileImage: user.profileImage,
+                    //       action: `edited field:"${field}" for Indicator: indicator ${indicatorId}`,
+                    //       field,
+                    //       indicatorId,
+                    //       value: newValue, // <== this is the key part
+                    //     });
+
                       onSuccessEdit();  
                     }
         } catch (error) {
@@ -315,7 +567,7 @@ const FormEditIndicator = ({ id: propId, onHide, onSuccessEdit }) => {
 
         <div className="field">
           <label htmlFor="q4all_Ind_number">Q4All Indicator Number</label>
-          <InputText id="q4all_Ind_number" value={q4all_Ind_number} onChange={(e) => setQ4all_Ind_Number(e.target.value)} />
+          <InputText id="q4all_Ind_number" value={q4all_Ind_number} onChange={(e) => setQ4all_Ind_Number(e.target.value)}  readOnly disabled/>
         </div>
 
         <div className="field">
