@@ -3,6 +3,7 @@
 
 //For live
 //For heroku live
-const apiBaseUrl = 'https://salty-headland-03110-6f6b16cfd8df.herokuapp.com';
+// const apiBaseUrl = 'https://salty-headland-03110-6f6b16cfd8df.herokuapp.com';
+const apiBaseUrl = 'http://api.healthiq-registry.online';
 
 export default apiBaseUrl;
