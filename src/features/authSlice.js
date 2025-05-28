@@ -83,8 +83,9 @@ export const getMe=createAsyncThunk("user/getMe",async(_,thunkAPI)=>{
 
 export const LogOut=createAsyncThunk("user/LogOut",async()=>{
     
-        await axios.delete(`${apiBaseUrl}/logout`);
-       
+ await axios.delete(`${apiBaseUrl}/logout`, {
+    withCredentials: true, // ✅ This is essential for session cookies
+  });       
     
 })
 
