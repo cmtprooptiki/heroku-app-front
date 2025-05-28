@@ -2,7 +2,7 @@ import { io } from "socket.io-client";
 import apiBaseUrl from "./apiConfig"; // same as used in OnlineUsers
 
 const socket = io(apiBaseUrl, {
-  autoConnect: false,  
+  autoConnect: true,  
   transports: ["websocket"],
   reconnection: true,
   reconnectionAttempts: 5,
