@@ -131,7 +131,7 @@ export function SocketProvider({ children }) {
       socket.off("disconnect", onDisconnect);
       socket.off("foo", onFoo);
       socket.off("response-online-users", onOnlineCount);
-      // socket.off("activity-log");
+      socket.off("activity-log");
 
       socket.off("notify-all-cell-in-use");
       socket.off("cell-complete-broadcast");
