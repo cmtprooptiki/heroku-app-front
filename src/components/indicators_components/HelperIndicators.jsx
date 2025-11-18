@@ -8,9 +8,7 @@ import {
     domains, 
     QoCOfficeReportlist, 
     prioritylist, 
-    data_collection_list, 
     type_of_healthcare_providers_D1_D7list,
-    category_of_indicators,
     dimensions,
     classification_dimension,
     cross_Cutting_Dimensions_Inputs_Process_Outputlist,
@@ -20,6 +18,7 @@ import {
     pilot_outcome_list,
     forPilotlist ,
     shortlist_indicators,
+    health_system_functions,
     dpoList,
     idikaList,
     keteknyList,
@@ -170,6 +169,19 @@ const HelperIndicators = (indicators,
                 }
 
                 break;
+
+
+            case 'health_system_functions': // For dropdown, directly assign the selected value
+                if (newValue) {
+                    console.log("health_system_functions is newvalue:",newValue)
+                    rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; validEdit = true;
+                    
+                } 
+                else {
+                    event.preventDefault();
+                }
+
+                break;
     
             case 'catergory_of_Indicator': // For dropdown, directly assign the selected value
                 if (newValue) {
@@ -292,18 +304,18 @@ const HelperIndicators = (indicators,
 
                 break;
                 
-            case 'data_collection': 
-                // Handle dropdown fields
-                if (newValue) {
-                    console.log("priority is newvalue:",newValue)
-                    rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; validEdit = true;
+            // case 'data_collection': 
+            //     // Handle dropdown fields
+            //     if (newValue) {
+            //         console.log("priority is newvalue:",newValue)
+            //         rowData[field] = newValue.value === '' ? ( newValue = '') : newValue; validEdit = true;
                     
-                } 
-                else {
-                    event.preventDefault();
-                }
+            //     } 
+            //     else {
+            //         event.preventDefault();
+            //     }
 
-                break;
+            //     break;
 
             case 'legal_Organizational_Requirements': 
                 // Handle dropdown fields
@@ -499,7 +511,7 @@ const HelperIndicators = (indicators,
         else if (options.field === 'type_of_healthcare_providers_D1_D7') return dropdownEditor(options,type_of_healthcare_providers_D1_D7list);
         else if (options.field === 'dimensions_of_Quality_QoCOfficeReport') return dropdownEditor(options,QoCOfficeReportlist);
         else if (options.field ==='priority') return dropdownEditor(options,prioritylist);
-        else if (options.field ==='data_collection') return dropdownEditor(options,data_collection_list);
+        // else if (options.field ==='data_collection') return dropdownEditor(options,data_collection_list);
         else if (options.field ==='legal_Organizational_Requirements') return dropdownEditor(options,legal_Organizational_Requirements_list)
         else if (options.field ==='selected_indicator') return dropdownEditor(options,selected_indicator_list)
         else if (options.field ==='piloting') return dropdownEditor(options,piloting_list)
@@ -512,6 +524,7 @@ const HelperIndicators = (indicators,
         else if (options.field === 'eoppy') return dropdownEditor(options, eoppyList)
         else if (options.field === 'odipy') return dropdownEditor(options, odipyList)
         else if (options.field === 'moh') return dropdownEditor(options, mohList)
+        else if (options.field === 'health_system_functions') return dropdownEditor(options, health_system_functions)
 
         else if (options.field === 'shortlist_indicators') return dropdownEditor(options, shortlist_indicators)
 

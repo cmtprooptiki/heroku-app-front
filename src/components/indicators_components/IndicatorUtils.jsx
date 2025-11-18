@@ -11,11 +11,25 @@ export const statuses = [
 
 export const shortlist_indicators =[
     { label: 'Manual', value: 'M' },
+      { label: 'empty', value: '' },
     { label: 'Automated', value: 'A' },
-    { label: 'empty', value: '' },
-    { label: 'Proxy', value: 'P' },
-    { label:'Automated / Proxy', value:'A/P'},
+
 ]
+
+
+export const health_system_functions =[
+    { label: 'Care delivery', value: 'Care delivery' },
+    { label: 'Demographics', value: 'Demographics' },
+    { label: 'Financing', value: 'Financing' },
+    { label: 'Governance', value: 'Governance' },
+    { label:'Health Outcomes', value:'Health Outcomes'},
+    { label:'Resources', value:'Resources'},
+    { label: 'empty', value: '' },
+
+    { label:'Two categories: Resources and Care delivery', value:'Two categories: Resources and Care delivery'},
+
+]
+
 
 
 export const domains = [
@@ -85,9 +99,11 @@ export const category_of_indicators = [
 
 export const QoCOfficeReportlist = [
     { label: 'Efficiency', value: 'Efficiency' },
-    { label: 'Access', value: 'Access' },
+    { label: 'Timely Access', value: 'Timely Access' },
+    { label: 'Care Delivery — Sub-category: Timely access', value: 'Care Delivery — Sub-category: Timely access' },
+    { label: 'Care Delivery — Sub-category: Efficiency', value: 'Care Delivery — Sub-category: Efficiency' },
+
     { label: 'Equity', value: 'Equity' },
-    { label: 'User experience', value: 'User experience' },
     { label: 'Effectiveness', value: 'Effectiveness' },
     { label: 'empty', value: '' },
     { label: 'Safety', value: 'Safety' }
@@ -101,12 +117,12 @@ export const prioritylist = [
 ];
 
 
-export const data_collection_list = [
-    { label: 'AUTOMATED', value: 'AUTOMATED' },
-    { label: 'MANUAL', value: 'MANUAL' },
-    { label: 'empty', value: '' },
-    { label: 'AUTOMATED NEW / INNOVATIVE', value: 'AUTOMATED NEW / INNOVATIVE' }
-];
+// export const data_collection_list = [
+//     { label: 'AUTOMATED', value: 'AUTOMATED' },
+//     { label: 'MANUAL', value: 'MANUAL' },
+//     { label: 'empty', value: '' },
+//     { label: 'AUTOMATED NEW / INNOVATIVE', value: 'AUTOMATED NEW / INNOVATIVE' }
+// ];
 
 export const legal_Organizational_Requirements_list = [
     { label: 'No need', value: '1' },
